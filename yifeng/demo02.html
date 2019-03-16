@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        // 基本参数-----
+        var minStep = 6;  // 最小步数
+        var baseStep = 6;  // 基础步数
+        var dStep = 5;  // 步数浮动量
+        var createRatio = 0.09;  // 额外方块生成率
+        var total = 25;  // 生成量
+        // -------
+        var count;
+        var levelData, timesArr, hintData, hintDirArr, dirArr, bestHintData;
+        var x, y, nextX, nextY;
+        let dir, dist, maxDist;
+        let tempWays;
+        var output;
+
+        function run() {
+            output = new Object();
+            output.levelData = new Array();
+            output.hintData = new Array();
+            // count = parseInt(document.getElementById("count").value);
+            for (let i = 0; i < 1; i++) {
+                demo1();
+                demo2();
+                if (bestHintData.length < minStep) {
+                    console.log("验证程序发现过短方案,舍弃");
+                    continue;
+                }
+                output.levelData.push(levelData);
+                output.hintData.push(bestHintData);
+                if (output.levelData.length >= total) {
+                    break;
+                }
+            }
+            // // $.getJSON("levelData_base.json", function (data) {
+            // let data = json;
+            // for (let i = 0; i < output.levelData.length; i++) {
+            //     // 箭头颠倒
+            //     for (let j = 0; j < output.levelData[i].length; j++) {
+            //         if (output.levelData[i][j] == 10) {
+            //             output.levelData[i][j] = 12;
+            //         } else if (output.levelData[i][j] == 12) {
+            //             output.levelData[i][j] = 10;
+            //         }
+            //     }
+            //     data.levelData.unshift(output.levelData[i]);
+            //     data.hintData.unshift(output.hintData[i]);
+            //     // data.levelData.push(output.levelData[i]);
+            //     // data.hintData.push(output.hintData[i]);
+            // }
+            // document.getElementById("output").value = JSON.stringify(data);
+            // // });
+                console.log(hintData.length+";"+bestHintData.length);
+            document.getElementById("output").value = JSON.stringify(output);
+
+        }
+
+        function demo1() {
+            // 初始化
+            count = Math.random() * dStep + baseStep;
+            levelData = new Array(210).fill(0);
+            timesArr = new Array(210).fill(0);
+            hintData = new Array();
+            hintDirArr = new Array();
+            dirArr = new Array(4).fill(1);
+            // 设置起点
+            x = parseInt(Math.random() * 14);
+            y = parseInt(Math.random() * 15);
+            levelData[getIndex(x, y)] = 1000;
+            timesArr[getIndex(x, y)] = 1;
+            // 开始遍历
+            for (let i = 0; i < 40; i++) {
+                // 随机生成方向
+                dir = parseInt(Math.random() * 4);
+                // 随机生成距离
+                maxDist = 0;
+                let temp = 0;
+                while (true) {
+                    if (dirArr[dir] == 1) {
+                        switch (dir) {
+                            case 0:
+                                maxDist = y;
+                                break;
+                            case 1:
+                                maxDist = 13 - x;
+                                break;
+                            case 2:
+                                maxDist = 14 - y;
+                                break;
+                            case 3:
+                                maxDist = x;
+                                break;
+                        }
+                        if (maxDist > 0) {
+                            break;
+                        } else {
+                            dirArr[dir] = 0;
+                        }
+                    }
+                    dir = (dir + 1) % 4;
+                    temp++;
+                    if (temp >= 4) {
+                        break;
+                    }
+                }
+                if (temp >= 4) {
+                    break;
+                }
+                dist = parseInt(Math.random() * maxDist);
+                if (dist < 1) dist = 1;
+
+
+                // 生成移动方案
+                tempWays = new Array();
+                temp = getDirValue(dir);
+                let dx = temp[0]
+                let dy = temp[1];
+
+                if (hintData.length == 0) {
+                    // 第一步,加入起点
+                    tempWays.push(getIndex(x, y));
+                }
+                let repeatTimes = 0;
+                nextX = x + dx;
+                nextY = y + dy;
+                for (let j = 0; j < dist; j++) {
+                    let index = getIndex(nextX, nextY);
+                    tempWays.push(index);
+                    if (timesArr[index] == 1) {
+                        repeatTimes++;
+                        if (j == dist - 1) {
+                            repeatTimes++;
+                        }
+                    } else if (timesArr[index] > 1) {
+                        repeatTimes = 100;
+                    }
+                    nextX = nextX + dx;
+                    nextY = nextY + dy;
+                }
+                if (repeatTimes > 1) {
+                    dirArr[dir] = 0;
+                    continue;
+                }
+                // 执行移动
+                x = nextX - dx;
+                y = nextY - dy;
+                hintData.push(tempWays);
+                hintDirArr.push(dir);
+                for (let j = 0; j < tempWays.length; j++) {
+                    timesArr[tempWays[j]]++;
+                    if (j == tempWays.length - 1) {
+                        // 末端额外+1
+                        timesArr[tempWays[j]]++;
+                    }
+                }
+                // 重置方向条件
+                dirArr = new Array(4).fill(1);
+                dirArr[dir] = 0;
+                // 终止条件判断
+                if (hintData.length >= count) {
+                    break;
+                }
+            }
+
+            if (hintData.length <= 3) {
+                console.log("步数太短:" + hintData.length);
+                return;
+            }
+            for (let i = 0; i < hintData.length; i++) {
+                tempWays = hintData[i];
+                dir = hintDirArr[i];
+                let index = tempWays[tempWays.length - 1];
+                if (i == hintData.length - 1) {
+                    // 生成终点
+                    if (levelData[index] != 0) {
+                        console.log("异常:生成终点失败:" + index + ":" + levelData[index]);
+                        return;
+                    }
+                    levelData[index] = 1001;
+                    break;
+                }
+                let nextIndex = index;
+                let isWall = false;
+                switch (dir) {
+                    case 0:
+                        nextIndex -= 14;
+                        break;
+                    case 1:
+                        nextIndex += 1;
+                        if (nextIndex % 14 == 0) {
+                            isWall = true;
+                        }
+                        break;
+                    case 2:
+                        nextIndex += 14;
+                        break;
+                    case 3:
+                        if (index % 14 == 0) {
+                            isWall = true;
+                        }
+                        nextIndex -= 1;
+                        break;
+                }
+                if (nextIndex < 0 || nextIndex >= 210) {
+                    isWall = true;
+                }
+                let isStone = true;
+                if (isWall) {
+                    isStone = false;
+                } else if (timesArr[nextIndex] == 0) {
+                    if (Math.random() < 0.02) {
+                        isStone = false;
+                    }
+                } else {
+                    isStone = false;
+                }
+                if (isStone) {
+                    if (levelData[nextIndex] != 0 && levelData[nextIndex] != 1) {
+                        console.log("异常:生成石头失败:" + nextIndex + ":" + levelData[nextIndex]);
+                        return;
+                    }
+                    levelData[nextIndex] = 1;
+                } else {
+                    let r = 1;
+                    if (isWall) {
+                        r = Math.random();
+                    }
+                    if (r >= 0.9) {
+                        let arrow = hintDirArr[i + 1] + 10;
+                        if (levelData[index] != 0 && levelData[index] != arrow) {
+                            console.log("异常:生成箭头失败:" + index + ":" + levelData[index]);
+                            return;
+                        }
+                        levelData[index] = arrow;
+                    }
+                }
+            }
+            // 添加混淆障碍
+            let baseNum = createRatio;
+            for (let i = 0; i < levelData.length; i++) {
+                let r = Math.random();
+                if (r < baseNum) {
+                    if (levelData[i] == 0) {
+                        if (timesArr[i] == 0) {
+                            // 不在路径上
+                            if (r < baseNum * 0.9) {
+                                // 生成石头
+                                levelData[i] = 1;
+                            } else if (r < baseNum * 0.92) {
+                                // 生成箭头
+                                levelData[i] = 10;
+                            } else if (r < baseNum * 0.94) {
+                                // 生成箭头
+                                levelData[i] = 11;
+                            } else if (r < baseNum * 0.96) {
+                                // 生成箭头
+                                levelData[i] = 12;
+                            } else if (r < baseNum * 0.98) {
+                                // 生成箭头
+                                levelData[i] = 13;
+                            } else if (r >= baseNum * 0.98) {
+                                // 生成裂缝
+                                levelData[i] = 2;
+                            }
+                        } else if (timesArr[i] == 1) {
+                            // 单次路径
+                            if (r >= baseNum * 0.98) {
+                                // 生成裂缝
+                                levelData[i] = 2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function getIndex(x, y) {
+            return y * 14 + x;
+        }
+
+        function getLoc(index) {
+            return [index % 14, parseInt(index / 14)];
+        }
+
+        function getDirValue(dir) {
+            switch (dir) {
+                case 0:
+                    return [0, -1];
+                case 1:
+                    return [1, 0];
+                case 2:
+                    return [0, 1];
+                case 3:
+                    return [-1, 0];
+            }
+        }
+
+        // 验证程序
+        function demo2() {
+            let limit = hintData.length;
+            let step = 0;
+            x = getLoc(hintData[0][0])[0];
+            y = getLoc(hintData[0][0])[1];
+            index = hintData[0][0];
+            let nextIndex = index;
+            let stop = 0;
+            let tempHintData = new Array();
+            bestHintData = hintData.concat();
+            let allDirData = [[1, 1, 1, 1]];
+            dir = 0;
+            let nextDir = -1;
+            while (true) {
+                console.log("step="+step+";dir="+dir);
+                if (step > bestHintData.length) {
+                    // 步数超过最佳方案,回溯
+                    step--;
+                    dir = 0;
+                    if (step < 0) {
+                        // 所有方案执行完毕,输出
+                        break;
+                    }
+                    // 撤销走过的痕迹
+                    for (let i = 0; i < tempHintData[step].length; i++) {
+                        if (timesArr[tempHintData[step][i]] > 0) {
+                            timesArr[tempHintData[step][i]]--;
+                        }
+                    }
+                    tempHintData.pop();
+                    allDirData.pop();
+                }
+                if (dir > 3 || allDirData[step][dir] == 0) {
+                    // 方向走过或者不能走
+                    dir++;
+                    if (dir > 3) {
+                        // 四个方向都走完,回溯
+                        step--;
+                        dir = 0;
+                        if (step < 0) {
+                            // 所有方案执行完毕,输出
+                            break;
+                        }
+                        // 撤销走过的痕迹
+                        for (let i = 0; i < tempHintData[step].length; i++) {
+                            if (timesArr[tempHintData[step][i]] > 0) {
+                                timesArr[tempHintData[step][i]]--;
+                            }
+                        }
+                        tempHintData.pop();
+                        allDirData.pop();
+                    }
+                    continue;
+                }
+                // 记录走过的方案
+                allDirData[step][dir] = 0;
+                // 循环往dir移动
+                tempWays = new Array();
+                if (tempHintData.length == 0) {
+                    tempWays.push(index);
+                }
+                stop = 0;
+                nextDir = -1;
+                while (true) {
+                    switch (dir) {
+                        case 0:
+                            nextIndex -= 14;
+                            break;
+                        case 1:
+                            nextIndex += 1;
+                            if (nextIndex % 14 == 0) {
+                                stop = 1;
+                            }
+                            break;
+                        case 2:
+                            nextIndex += 14;
+                            break;
+                        case 3:
+                            if (index % 14 == 0) {
+                                stop = 1;
+                            }
+                            nextIndex -= 1;
+                            break;
+                    }
+                    if (nextIndex < 0 || nextIndex >= 210) {
+                        stop = 1;
+                    }
+                    if (!stop) {
+                        switch (levelData[nextIndex]) {
+                            case 2:
+                                if (timesArr[nextIndex] > 0) {
+                                    stop = 2;
+                                } else {
+                                    timesArr[nextIndex]++;
+                                }
+                            case 0:
+                                tempWays.push(nextIndex);
+                                break;
+                            case 1001:
+                                // 找到方案
+                                tempWays.push(nextIndex);
+                                stop = 3;
+                                break;
+                            case 10:
+                            case 11:
+                            case 12:
+                            case 13:
+                                tempWays.push(nextIndex);
+                                nextDir = levelData[nextIndex] % 10;
+                            default:
+                                stop = 1;
+                                break;
+                        }
+                    }
+                    if (stop) break;
+                }
+                if (stop == 3) {
+                    // 执行移动
+                    if (tempWays.length > 0) {
+                        tempHintData.push(tempWays);
+                        if (tempHintData.length < bestHintData.length) {
+                            bestHintData = tempHintData.concat();
+                        }
+                        if (bestHintData.length < minStep) {
+                            // 方案过短,跳过
+                            break;
+                        }
+                        // 跳过本步所有方案(强制回溯)
+                        dir = 4;
+                    } else {
+                        // 撞墙?
+                        dir++;
+                    }
+                } else if (stop == 2) {
+                    // 死路
+                    dir++;
+                } else if (stop == 1) {
+                    // 执行移动
+                    if (tempWays.length > 0) {
+                        tempHintData.push(tempWays);
+                        step++;
+                        // 障碍转向
+                        dirArr = new Array(4).fill(1);
+                        if (nextDir >= 0) {
+                            for (let i = 0; i < 4; i++) {
+                                if (i != nextDir) {
+                                    dirArr[i] = 0;
+                                }
+                            }
+                        } else {
+                            // dirArr[dir] = 0;
+                        }
+                        allDirData.push(dirArr);
+                        dir = 0;
+                    } else {
+                        // 撞墙?
+                        dir++;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="count" />
+    <button onclick="run()">生成</button>
+    <textarea id="output"></textarea>
+</body>
+
+<script>
+
+
+
+    var json = {}
+
+</script>
+
+</html>
