@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>width</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+
+	</head>
+	<style>
+		#dd{
+			width: 100px;
+			height: 200px;
+			margin: 10px;
+			border: 1px solid;
+			padding: 5px;
+			position: absolute;
+			/*left: -50px;*/
+		}
+	</style>
+
+	<body>
+		<pre>
+			width: 100px;
+			height: 200px;
+			margin: 10px;
+			border: 1px solid;
+			padding: 5px;
+		</pre>
+		<div id="dd"></div>
+
+		<!-- js -->
+		<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+
+		<script type="text/javascript">
+			jQuery(function($) {
+				var dd = document.getElementById("dd");
+				console.log("dd.offsetWidth:"+dd.offsetWidth);
+				console.log("dd.clientWidth:"+dd.clientWidth);
+				console.log("dd.scrollWidth:"+dd.scrollWidth);
+				console.log("width():"+$("#dd").width());
+				console.log("[0].clientWidth:"+$("#dd")[0].clientWidth);
+			
+			});
+			
+		</script>
+
+	</body>
+
+</html>

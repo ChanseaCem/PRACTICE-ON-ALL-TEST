@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>test</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+
+	</head>
+	<style>
+		
+.circle {
+	width: 400px;
+	height: 400px;
+	position: relative;
+	border-radius: 50%;
+	background: #20a53a;
+	margin: 0 auto
+}
+
+.pie_left,
+.pie_right {
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	top: 0;
+	left: 0
+}
+
+.left,
+.right {
+	width: 400px;
+	height: 400px;
+	background: #ccc;
+	border-radius: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.pie_right,
+.right {
+	clip: rect(0, auto, auto, 200px);
+	-moz-transition: -moz-transform 1s ease-in 0s;
+}
+
+.pie_left,
+.left {
+	clip: rect(0, 200px, auto, 0);
+	-moz-transition: -moz-transform .4s ease-in 1s;
+}
+
+.mask {
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background: #FFF;
+	position: absolute;
+	line-height: 300px;
+	font-size: 18px;
+	color: #20a53a;
+	text-align: center;
+}
+
+@-webkit-keyframes shineGreen {
+	from {
+		-webkit-box-shadow: 0 0 10px #999
+	}
+	50% {
+		-webkit-box-shadow: 0 0 15px #20a53a
+	}
+	to {
+		-webkit-box-shadow: 0 0 10px #999
+	}
+}
+
+.shine_green {
+	-webkit-animation-name: shineGreen;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite
+}
+
+.mem-release {
+	cursor: pointer
+}
+.cir{
+	position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    left: 175px;
+    border-radius: 50%;
+	background: #20a53a;
+}
+	</style>
+
+	<body>
+		<div class="circle mem-release">
+			<div class="pie_left">
+				<div class="left" style="transform: rotate(0deg);"></div>
+			</div>
+			<div class="pie_right">
+				<div class="right" style="transform: rotate(39.6deg);">
+					<!--<div class="cir"></div>-->
+				</div>
+			</div>
+			<div class="mask" style="color: rgb(32, 165, 58);"><span id="left">11</span>%</div>
+		</div>
+		
+		<div class="" style="position: relative;">
+			<div class="" style="width: 100px;height: 100px;position: absolute;border: 1px solid;"></div>
+		</div>
+
+		<!-- js -->
+		<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+
+		<script type="text/javascript">
+			jQuery(function($) {
+				var type = 3,stop = 0;
+				
+				switch (type) {
+				    case 2:
+				        stop=2;
+				        console.log(stop)
+				    case 0:
+				        doFun();
+				        break;
+				    default:
+				        stop = 1;
+				        console.log(stop)
+				        break;
+				}
+				
+				function doFun(){
+					console.log("fun stop"+stop)
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

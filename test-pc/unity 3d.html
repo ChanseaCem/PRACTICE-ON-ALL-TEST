@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>test</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+		<link rel="stylesheet" type="text/css" href="unityL/TemplateData/style.css">
+
+	</head>
+	<style>
+
+	</style>
+
+	<body>
+		<div id="canvas" style="background: #DDDDDD;border: 1px solid;"></div>
+		<!-- js -->
+		<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+		<script src="unityL/TemplateData/UnityProgress.js"></script>
+		<script src="unityL/Build/UnityLoader.js"></script>
+
+		<script type="text/javascript">
+			jQuery(function($) {
+
+				var gameInstance = UnityLoader.instantiate("canvas", "unityL/Build/webgl.json", {
+					onProgress: UnityProgress
+				});
+
+				var data = {
+					"AllStatus": [{
+							State: {
+								code: "C1",
+								state: 1,
+								info: "加工中,模式:MEMory"
+							}
+						},
+						{
+							State: {
+								code: "C2",
+								state: 2,
+								info: "加工中,模式:MEMory"
+							}
+						}
+					]
+				}
+
+				if(data.AllStatus.length > 0) {
+					$.each(data.AllStatus, function(i, t) {
+						gameInstance.SendMessage("GameObject", "RefreshStates", t.State.code + "|" + t.State.state + "|" + t.State.info);
+					});
+				};
+			});
+		</script>
+
+	</body>
+
+</html>

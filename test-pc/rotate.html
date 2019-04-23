@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rotate</title>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<style type="text/css">
+		.imgs{
+			border: 1px solid;
+			padding: 15px;
+			background: #F0F0EE;
+			width: 300px;
+			height: 400px;
+			margin: 100px auto;
+			transform-style: preserve-3d;
+			perspective: 3000px;
+			/*transform: rotateX(-20deg);*/
+		}
+		img{
+			width: 300px;height: 400px;position: absolute;cursor: pointer;
+		}
+        img:nth-child(1){transform: rotateY(0deg) translateZ(482.86px)}
+        img:nth-child(2){transform: rotateY(45deg);}
+        img:nth-child(3){transform: rotateY(90deg);}
+        img:nth-child(4){transform: rotateY(135deg);}
+        img:nth-child(5){transform: rotateY(180deg);}
+        img:nth-child(6){transform: rotateY(225deg);}
+        img:nth-child(7){transform: rotateY(270deg);}
+        img:nth-child(8){transform: rotateY(315deg);}
+	</style>
+
+</head>
+<body>
+    <!-- 主要内容 开始 -->
+    <div class="main">
+    	<div class="imgs">
+    		<img src="img/test/image007.jpg" alt="" />
+    		<img src="img/test/image008.jpg" alt="" />
+    		<img src="img/test/image009.jpg" alt="" />
+    		<img src="img/test/image010.jpg" alt="" />
+    		<img src="img/test/image011.jpg" alt="" />
+    		<img src="img/test/image012.jpg" alt="" />
+    		<img src="img/test/image013.jpg" alt="" />
+    		<img src="img/test/image014.jpg" alt="" />
+    	</div>
+    </div>
+    <!-- 主要内容 结束 -->
+
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		jQuery(function($){
+			
+		});
+	</script>
+</body>
+</html>

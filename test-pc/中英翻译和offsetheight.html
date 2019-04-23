@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>test</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+
+	</head>
+	<style>
+		body {
+			height: 100%;
+		}
+		
+		#temp {
+			border: none;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+		
+		#inp {
+			background: #000000;
+			width: 100%;
+			margin: 10px;
+			box-sizing: border-box;
+		}
+		
+		#box {
+			margin: 10px;
+			padding: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+		var t1 = 0;
+		var t2 = 0;
+	</script>
+
+	<body>
+		<div style="width: 200px;">
+			<span style="display: inline-block;width: 30%;">13</span>
+			<span style="display: inline-block;width: 70%;">sssssssss</span>
+		</div>
+
+		<!-- 头部 开始 -->
+		<div class="header">
+			
+		</div>
+		<!-- 头部 结束 -->
+
+		<!-- 导航 开始 -->
+		<div class="nav">
+
+		</div>
+		<!-- 导航 结束 -->
+
+		<!-- 主要内容 开始 -->
+		<div class="main">
+
+			<select name="list" id="sex">
+				<option value="male">男</option>
+				<option value="male">女</option>
+			</select>
+			<input id="inp" type="text" />
+		</div>
+		<!-- 主要内容 结束 -->
+
+		<!-- 导航底部 开始 -->
+		<div class="footer mine-ok">
+			`````3
+				<p class="info-con">高盛亚太全球指数以优质的客户服务,领先的平台技术,极具竞争力的交易条件,多终端版本交易系统,满足客户不同环境、不同时期的交易需求,真正随时随地交易,随时随地查看收益,提供最为全面的指数标的交易服务。</p>
+			
+		</div>
+		<!-- 导航底部 结束 -->
+
+		<div id="#eee" style="width: 100px;border: 1px solid red;height: 10px;"></div>
+
+		<!--<iframe src="base.html" id="www"></iframe>
+		<iframe src="temp.html" id="temp"></iframe>-->
+
+		<div onclick="transl()" id="box" style="height: 100px;width: 100px;border:1px solid"></div>
+
+		<!-- js -->
+		<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<!--<script src="js/microsoft.js" type="text/javascript" charset="utf-8"></script>-->
+	<script src="http://www.microsoftTranslator.com/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**"></script>
+	<script type="text/javascript">
+			jQuery(function($) {
+				// do something 
+//				var script = document.createElement("script");
+//				script.type = "text/javascript";
+//				script.src = "js/microsoft.js";
+//				document.getElementsByTagName('head')[0].appendChild(script);
+
+				
+			});
+
+			
+
+
+			document.getElementsByClassName("mine-ok")[0].onclick = function() {
+				console.log(12313132)
+			};
+			$(".mine-ok").on("click", function() {
+				console.log(3333333)
+			})
+			console.log("-----------------------")
+			console.log($("#box"))
+			var ax = document.getElementById("box");
+			console.log(ax)
+			var h1 = $("#box").height();
+			var h5 = $("#box").innerHeight();
+			var h6 = $("#box").outerHeight();
+			var h2 = document.getElementById("box").offsetHeight;
+			var h3 = document.getElementById("box").clientHeight;
+			var h4 = document.getElementById("box").scrollHeight;
+			var h7 = document.getElementById("box").style.height;
+			console.log("height()：" + h1)
+			console.log("offsetHeight：" + h2)
+			console.log("clientHeight：" + h3)
+			console.log("scrollHeight：" + h4)
+			console.log("innerHeight()：" + h5)
+			console.log("outerHeight()：" + h6)
+			console.log("style.height：" + h7)
+
+			console.log(new Date())
+			
+			
+			
+					
+		function transl() {
+			var value = sessionStorage.getItem("language");
+			if(value === "1") {
+			sessionStorage.setItem("language", "0");
+		} else {
+			sessionStorage.setItem("language", "1");
+			}
+			window.location.reload(); //刷新当前页面.
+		}
+		
+		var value = sessionStorage.getItem("language");
+		document.onreadystatechange = function() {
+			if(document.readyState == 'complete') {
+				if(value === "1") {
+					Microsoft.Translator.Widget.Translate('zh-CHS', 'en', onProgress, onError, onComplete, onRestoreOriginal, 2000);
+				}
+			}
+		}
+		
+		function onProgress(value) {}
+		
+		function onError(error) {}
+		
+		function onComplete() {
+			$("#WidgetFloaterPanels").hide();
+		}
+		
+		function onRestoreOriginal() {}
+		</script>
+
+	</body>
+
+</html>

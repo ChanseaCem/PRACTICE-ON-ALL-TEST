@@ -1,0 +1,33 @@
+{
+	"STRING": [{
+			"Code": "B61",
+			"PointX": "5",
+			"PointY": "6"
+		},
+		{
+			"Code": "C110",
+			"PointX": "4",
+			"PointY": "21"
+		},
+		{
+			"Code": "A26",
+			"PointX": "20",
+			"PointY": "5"
+		},
+		{
+			"Code": "D96",
+			"PointX": "14",
+			"PointY": "35"
+		},
+		{
+			"Code": "A54",
+			"PointX": "17",
+			"PointY": "7"
+		},
+		{
+			"Code": "C24",
+			"PointX": "10",
+			"PointY": "34"
+		}
+	]
+}

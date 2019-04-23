@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>test</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+
+	</head>
+	<style>
+		.d1 {
+			width: 1000px;
+			height: 800px;
+			border: 1px solid;
+			background: black;
+		}
+		#rangeChart{
+			width: 500px;height: 300px;
+			background: black;
+			margin: 200px;
+		}
+	</style>
+
+	<body>
+
+		<div id="eff_month" class="d1">
+		</div>
+		
+		<div id="rangeChart"></div>
+		<!-- js -->
+		<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+		<!-- echarts -->
+		<script src="js/plugins/amcharts/amcharts.js"></script>
+		<script src="js/plugins/amcharts/serial.js"></script>
+		<script src="js/plugins/amcharts/pie.js"></script>
+		<script src="js/plugins/amcharts/themes/light.js"></script>
+		<!--<script type="text/javascript" charset="utf-8" src="js/B.js"></script>-->
+		
+		
+		<script src="js/plugins/echarts/echarts.min-new.js"></script>
+
+		<script type="text/javascript">
+			jQuery(function($) {
+				/*AmCharts.makeChart("eff_month", {
+					"type": "serial",
+					"theme": "light",
+					"marginRight": 60,
+					"marginLeft": 40,
+					"depth3D": 20,
+					"angle": 30,
+					"autoMarginOffset": 20,
+					"titles": [{
+						"text": "效率统计",
+						"color": "#fff"
+					}],
+					"legend": {
+						"horizontalGap": 10,//水平间隔，一个图表可以有多个图例，图例之间的间隔用此属性
+						"maxColumns": 5,
+						"position": "bottom",
+						"useGraphSettings": true,
+						"markerSize": 10,
+						"valueWidth": 10,
+						"color": "#fff",
+
+					},
+					"valueAxes": [{
+						"id": "v1",
+						"position": "left",
+						"color": "#fff"
+					}, {
+						"id": "v2",
+						"axisAlpha": 0,
+						"position": "right",
+						"ignoreAxisWidth": true,
+						"color": "#fff"
+					}],
+					"balloon": {
+						"borderThickness": 1,
+						"shadowAlpha": 0
+					},
+					"graphs": [{
+						"id": "o1",
+						"valueAxis": "v1",
+						"fillAlphas": 0.8,
+						"labelText": "产量：[[value]]",
+						"lineAlpha": 0.3,
+						"title": "产量",
+						"type": "column",
+						"color": "#fff",
+						"valueField": "output"
+					}, {
+						"id": "g1",
+						"valueAxis": "v2",
+						"balloonText": "[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
+						"bullet": "round",
+						"bulletSize": 8,
+						"lineThickness": 2,
+						"negativeLineColor": "#637bb6",
+						"type": "smoothedLine",
+						"valueField": "oee",
+						"title": "OEE 整体效率"
+					}, {
+						"id": "g2",
+						"valueAxis": "v2",
+						"balloonText": "[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
+						"bullet": "round",
+						"bulletSize": 8,
+						"lineThickness": 2,
+						"negativeLineColor": "#637bb6",
+						"type": "smoothedLine",
+						"valueField": "ar",
+						"title": "AR 时间开动率"
+					}, {
+						"id": "g3",
+						"valueAxis": "v2",
+						"balloonText": "[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
+						"bullet": "round",
+						"bulletSize": 8,
+						"lineThickness": 2,
+						"negativeLineColor": "#637bb6",
+						"type": "smoothedLine",
+						"valueField": "pr",
+						"title": "PR 性能开动率"
+					}, {
+						"id": "g4",
+						"valueAxis": "v2",
+						"balloonText": "[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
+						"bullet": "round",
+						"bulletSize": 8,
+						"lineThickness": 2,
+						"negativeLineColor": "#637bb6",
+						"type": "smoothedLine",
+						"valueField": "qr",
+						"title": "QR 良品率"
+					}],
+					"categoryField": "month",
+					"categoryAxis": {
+						"minorGridEnabled": true,
+						"color": "#fff"
+					},
+					"export": {
+						"enabled": true
+					},
+					"dataProvider": [{
+						ar: 16,
+						month: "1月",
+						oee: 8,
+						output: 8256,
+						pr: 60,
+						qr: 91
+					}, {
+						ar: 24,
+						month: "2月",
+						oee: 1,
+						output: 1107,
+						pr: 5,
+						qr: 91
+					}],
+					toolTip:{
+						trigger: 'axis',
+						formatter: function(params) {
+							console.log(params);
+							params = params[0];
+							return params.axisValue + '<br/>磨损值: ' + params.data.value + '<br/> 检测时间: ' + params.data.time + '<br/> 刀补值: ' + params.data.comp;
+						}
+					}
+				});
+			*/
+			var rangeOption = null;
+			var rangeChart = null;
+			var NumData = [1,2,3,4,5,6,7,8,9,10];
+//			,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50];
+			var rangeData = [{"value":"0.0250","time":"2018/6/23 17:44:02","comp":0},{"value":"-0.0440","time":"2018/6/29 9:20:43","comp":0},{"value":"0.0320","time":"2018/6/29 10:47:15","comp":0},{"value":"0.0490","time":"2018/6/29 10:49:19","comp":0},{"value":"-0.0360","time":"2018/6/29 15:53:04","comp":0},{"value":"-0.0170","time":"2018/6/29 15:55:45","comp":0},{"value":"-0.0330","time":"2018/6/30 9:16:48","comp":0},{"value":"-0.0120","time":"2018/6/30 9:45:05","comp":0},{"value":"-0.0130","time":"2018/6/30 10:11:08","comp":0},{"value":"-0.0490","time":"2018/6/30 10:25:28","comp":0},{"value":"0.0050","time":"2018/6/30 11:03:28","comp":0},{"value":"0.0240","time":"2018/6/30 11:10:58","comp":0},{"value":"0.0240","time":"2018/6/30 11:38:09","comp":0},{"value":"-0.0150","time":"2018/7/4 10:09:05","comp":0},{"value":"0.0350","time":"2018/7/4 10:46:59","comp":0},{"value":"0.0340","time":"2018/7/4 10:49:08","comp":0},{"value":"-0.0450","time":"2018/7/4 11:02:17","comp":0},{"value":"-0.0360","time":"2018/7/4 11:17:26","comp":0},{"value":"-0.0320","time":"2018/7/5 14:29:14","comp":0},{"value":"-0.0340","time":"2018/7/5 14:48:54","comp":0},{"value":"-0.0260","time":"2018/7/5 17:10:38","comp":0},{"value":"-0.0260","time":"2018/7/6 14:47:58","comp":0},{"value":"-0.0360","time":"2018/7/6 14:49:46","comp":0},{"value":"-0.0380","time":"2018/7/6 15:43:39","comp":0},{"value":"-0.0350","time":"2018/7/6 18:13:33","comp":0},{"value":"0.0000","time":"2018/7/10 10:05:48","comp":0},{"value":"-0.0100","time":"2018/7/10 10:11:47","comp":0},{"value":"-0.0090","time":"2018/7/10 10:35:15","comp":0},{"value":"-0.0040","time":"2018/7/14 15:46:10","comp":0},{"value":"-0.0100","time":"2018/7/14 16:49:43","comp":0},{"value":"0.0200","time":"2018/7/17 10:35:13","comp":0},{"value":"0.0670","time":"2018/7/21 10:44:26","comp":0},{"value":"-0.0160","time":"2018/8/7 17:50:54","comp":0},{"value":"-0.0170","time":"2018/8/8 10:15:40","comp":0},{"value":"0.0100","time":"2018/9/6 16:56:11","comp":0},{"value":"-0.0085","time":"2018/9/14 16:25:16","comp":0},{"value":"-0.0069","time":"2018/9/14 16:27:55","comp":0},{"value":"-0.0062","time":"2018/9/14 16:29:29","comp":0},{"value":"-0.0369","time":"2018/9/14 18:57:48","comp":0},{"value":"0.0090","time":"2018/9/15 10:33:40","comp":0},{"value":"-0.0090","time":"2018/9/19 16:40:07","comp":0},{"value":"-0.0100","time":"2018/9/19 17:02:10","comp":0},{"value":"-0.0150","time":"2018/9/21 13:58:39","comp":0},{"value":"-0.0130","time":"2018/9/21 14:00:06","comp":0},{"value":"-0.0080","time":"2018/9/21 14:51:02","comp":0},{"value":"-0.0040","time":"2018/9/21 15:03:36","comp":0},{"value":"-0.0010","time":"2018/11/28 16:29:10","comp":0},{"value":"0.0010","time":"2018/11/28 16:31:03","comp":0},{"value":"-0.0090","time":"2018/11/28 16:34:29","comp":0},{"value":"0.0020","time":"2018/11/28 16:35:34","comp":0}];
+			var UpTolerance = "0.05", DownTolerance = "-0.05";
+			if(rangeChart == null) {
+				rangeChart = echarts.init(document.getElementById('rangeChart'));
+			}
+
+			rangeOption = {
+				title: {
+					text: '尺寸精度变化趋势图(最近50组)',
+					x: 'center',
+					textStyle: {
+						color: '#fff'
+					}
+				},
+				tooltip: {
+					trigger: 'axis',
+					formatter: function(params) {
+						console.log(params)
+						params = params[0];
+						return params.axisValue + '<br/>磨损值: ' 
+						+ params.data.value + '<br/> 检测时间: ' 
+						+ params.data.time + '<br/> 刀补值: ' 
+						+ params.data.comp;
+					},
+				},
+				grid: [{
+					left: 100,
+					right: 100,
+	
+				}],
+				xAxis: [{
+					type: 'category',
+					boundaryGap: false,
+					splitLine: {
+						show: false
+					}, //取消背景网格
+					data: [],
+					axisLine: {
+						lineStyle: {
+							color: '#fff'
+						}
+					}
+				}],
+				yAxis: {
+					type: 'value',
+					splitLine: {
+						show: false
+					}, //取消背景网格
+					axisLabel: {
+						formatter: '{value}'
+					},
+					axisLine: {
+						lineStyle: {
+							color: '#fff'
+						}
+					}
+				},
+				/*dataZoom: [{
+					startValue: 0,
+					endValue: 50,
+				}, {
+					type: 'inside'
+				}],*/
+				series: [{
+					name: '磨损值',
+					type: 'line',
+					data: [],
+					symbolSize: function(value, params) {
+						if(params.data.comp != 0) {
+							return '6';
+						}
+					},
+	
+					itemStyle: {
+						normal: {
+							color: function(params) {
+								if(params.data.comp != 0) {
+									return 'chartreuse';
+								} else {
+									return 'white';
+								}
+							},
+							lineStyle: {
+								color: '#C23531'
+							}
+						}
+					},
+					markLine: {
+						data: [
+							[{
+								coord: [0, UpTolerance],
+								name: "上公差",
+								value: UpTolerance,
+								itemStyle: {
+									normal: {
+										color: '#C23531'
+									}
+								}
+							}, {
+								coord: [49, UpTolerance]
+							}],
+							[{
+								coord: [0, DownTolerance],
+								name: "下公差",
+								value: DownTolerance,
+								itemStyle: {
+									normal: {
+										color: '#3C74A0'
+									}
+								}
+							}, {
+								coord: [49, DownTolerance]
+							}],
+						]
+					}
+				}]
+			};
+	
+			if(rangeOption != null) {
+				rangeOption.xAxis[0].data = [];
+				rangeOption.series[0].data = [];
+				rangeOption.xAxis[0].data = NumData;
+				rangeOption.series[0].data = rangeData;
+			}
+			rangeChart.setOption(rangeOption);
+			});
+		</script>
+
+	</body>
+
+</html>
