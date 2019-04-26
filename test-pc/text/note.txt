@@ -1,7 +1,0 @@
-npm 命令说明
-	npm + 操作 + 要操作的模块名称 + 是否全局
-	例如：
-	npm install jquery -g
-	
-install 可以缩写成 i
-uninstall 可以缩写成 un
