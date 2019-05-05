@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<style>
+		#content {
+			display: flex;
+			width: 500px;
+		}
+		
+		#content div {
+			/*flex-basis: 120px;*/
+			border: 3px solid rgba(0, 0, 0, .2);
+		}
+		
+		.box {
+			flex: 1;
+		}
+		
+		.box1 {
+			flex: 2;
+		}
+	</style>
+
+	<body>
+
+		<p>div 总宽度为 500px, flex-basic 为 120px。</p>
+		<p>A, B, C 设置 flex-shrink:1。 D , E 设置为 flex-shrink:2</p>
+		<p>D , E 宽度与 A, B, C 不同</p>
+		<div id="content">
+			<div class="box" style="background-color:red;">A</div>
+			<div class="box" style="background-color:lightblue;">B</div>
+			<div class="box" style="background-color:yellow;">C</div>
+			<div class="box1" style="background-color:brown;">D</div>
+			<div class="box1" style="background-color:lightgreen;">E</div>
+		</div>
+
+		<p><b>注意:</b> Internet Explorer 10 及更早版本浏览器不支持 flex-shrink 属性。</p>
+		<p><b>注意:</b> Safari 6.1 及更新版本通过 -webkit-flex-shrink 属性支持该属性。</p>
+		
+		<div id="bbb" style="display: none;">
+			<div id="aaa" style="display: flex;flex-direction: column;height: 100%;width: 100%;">
+				<div style="height: 100px;background: #E2E2E2;"></div>
+				<div id="container" style="flex: 1;flex-shrink:0;">
+
+				</div>
+			</div>
+		</div>
+		<div class="show">show</div>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<script type="text/javascript" src="../js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			alert($(".box").width()+'+'+$(".box").height())
+			$("#bbb").css({
+				"height": "400px",
+				"width": "400px",
+				"display": "block",
+			})
+
+			var div_con = document.createElement("div");
+			div_con.id = 'workShopProduce0';
+			div_con.classList = 'w-produce';
+			
+			console.log($("#container").width())
+			console.log($("#container").height())
+			
+			div_con.style.width = $("#container").width() + 'px';
+			div_con.style.height = $("#container").height() + 'px';
+			$("#container").append(div_con);
+			console.log(div_con.style.width)
+			var dom = document.getElementById("workShopProduce0");
+			var myChart = echarts.init(dom);
+			var app = {};
+			option = null;
+			var option = {
+				title: {
+					text: '深圳月最低生活费组成（单位:元）',
+					subtext: 'From ExcelHome',
+					sublink: 'http://e.weibo.com/1341556070/AjQH99che'
+				},
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: { // 坐标轴指示器，坐标轴触发有效
+						type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+					},
+					formatter: function(params) {
+						var arr = option.series[0].data;
+						var all = 0;
+						for(var i = 0; i < arr.length; i++) {
+							all += arr[i];
+						}
+						var arr2 = option.series[0].data;
+						var all2 = 0;
+						for(var j = 0; j < arr2.length; j++) {
+							all2 += arr2[j];
+						}
+						return(params[0].data / all * 100).toFixed(0) + "%<br />" + (params[1].data / all2 * 100).toFixed(0) + "%";
+					}
+				},
+				grid: {
+					left: '3%',
+					right: '4%',
+					bottom: '3%',
+					containLabel: true
+				},
+				xAxis: {
+					type: 'category',
+					splitLine: {
+						show: false
+					},
+					data: ['总费用', '房租', '水电费', '交通费', '伙食费', '日用品数']
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: [{
+						name: '辅助',
+						type: 'bar',
+						stack: '总量',
+						itemStyle: {
+							normal: {
+								barBorderColor: 'rgba(0,0,0,0)',
+								color: 'rgba(0,0,0,0)'
+							},
+							emphasis: {
+								barBorderColor: 'rgba(0,0,0,0)',
+								color: 'rgba(0,0,0,0)'
+							}
+						},
+						data: [0, 1700, 1400, 1200, 300, 0]
+					},
+					{
+						name: '生活费',
+						type: 'bar',
+						stack: '总量',
+						label: {
+							normal: {
+								show: true,
+								position: 'inside'
+							}
+						},
+						data: [2900, 1200, 300, 200, 900, 300]
+					}
+				]
+			};
+			if(option && typeof option === "object") {
+				myChart.setOption(option, true);
+			}
+			$(".show").on("click", function() {
+				$("#bbb").show();
+			})
+		</script>
+	</body>
+
+</html>

@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 
 		<!-- css -->
-		<link rel="stylesheet" type="text/css" href="css/base.css">
+		<!--<link rel="stylesheet" type="text/css" href="css/base.css">-->
 
 	</head>
 	<style>
@@ -15,26 +15,64 @@
 	</style>
 
 	<body>
+
+		<div id="bbb" style="display: none;">
+
+			<div id="aaa" style="display: flex;flex-direction: column;height: 10%;">
+				<div id="ccc" style="height: 110px;"></div>
+				<div id="container" style="flex: 1;">
+
+				</div>
+			</div>
+		</div>
+
+		<div id="iii" style="width: 500px;height: 500px;background: #EEEEEE;">
+			<div id="jjj" style="width: 50%;height:50%;background: #DDDDDD;"></div>
+		</div>
+
+		<div style="width:500px; height:300px;display: none;">
+			<div id="div1" style="width:100%; height:100%; background-color:red;">
+				<div id="child" style="width:100%; height:100%; background-color:red; "></div>
+			</div>
+		</div>
 		
-		
-	
+		<div style="width:500px; height:300px;">
+	        <div id="div11" style="width:150px; height:150px; background-color:red;display: none;">
+	            <div id="child1" style="width:100%; height:100%; background-color:red; "></div>
+	        </div>
+	        <div id="div111" style="width:100%; height:100%; background-color:red;display: none;">
+	            <div id="child11" style="width:100%; height:100%; background-color:red; "></div>
+	        </div>
+	   </div>
+
 		<!-- js -->
 		<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
-		 <script type="text/javascript" charset="utf-8" src="js/A.js"></script> 
+		<!--<script type="text/javascript" charset="utf-8" src="js/A.js"></script>-->
 
 		<script>
-// console.log("log")
-// console.info("info")
-// console.error("error")
-// console.warn("warn")
-// console.dir({"s":"1"})
-// console.time()
-// console.timeEnd()	
+			$("#bbb").css({
+				"height": "800px",
+				"width": "400px"
+			})
+			console.log("bbb:" + $("#bbb").height() + ";" + $("#bbb").width())
+			console.log("container:" + $("#container").height() + ";" + $("#container").width())
 
+			console.log("aaa:" + $("#aaa").height())
+			console.log("ccc:" + $("#ccc").height())
 
-const a = [];
-a.push('Hello'); // 可执行
-console.log(a)
+			console.log("iii:" + $("#iii").height())
+			console.log("jjj:" + $("#jjj").height())
+
+			console.log("div1 width:"+$("#div1").width()) // 500
+			console.log("div1 height:"+$("#div1").height()) // 300
+			console.log("child width:"+$("#child").width()) // 500
+			console.log("child height:"+$("#child").height()) // 300
+			
+			console.log("div11 width:"+$("#div11").width()) // 500
+			console.log("div11 height:"+$("#div11").height()) // 300
+			
+			console.log("div111 width:"+$("#div111").width()) // 500
+			console.log("div111 height:"+$("#div111").height()) // 300
 		</script>
 
 	</body>
