@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>联系我们</title>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="../css/plugins/swiper/swiper-3.4.1.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/base.css">
+	<link rel="stylesheet" type="text/css" href="../css/contact.css">
+
+</head>
+<body>
+
+	<div class="header clearfix">
+		<div class="header-left">
+			<p>您好，当前北京时间是：<time></time></p>
+			<p><span>ENVIRONMENT PROTECT</span></p>
+		</div>
+		<div class="header-right">
+			<div class="right-top">
+				<a href="index.html">首页</a>
+				<a href="envProtect.html">环境污染</a>
+				<a href="lowCarbon.html">低碳环保</a>
+				<a href="save.html">节约资源</a>
+				<a class="act" href="javascript:void(0)">联系我们</a>
+				<a href="javascript:void(0)" onclick="collect(this,'contactCollect')" ><img src="../images/collect_gray.png" alt="">收藏</a>
+			</div>
+			<div class="right-bottom clearfix">
+				<div class="clearfix">
+					<a href="javascript:void(0)">搜索</a>
+					<input type="text" placeholder="请输入关键字">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide"><a href="#"><img src="../images/slider/4.jpg" alt=""></a></div>
+			<div class="swiper-slide"><a href="#"><img src="../images/slider/1.jpg" alt=""></a></div>
+			<div class="swiper-slide"><a href="#"><img src="../images/slider/2.jpg" alt=""></a></div>
+			<div class="swiper-slide"><a href="#"><img src="../images/slider/3.jpg" alt=""></a></div>
+		</div>
+		<!-- Add Pagination -->
+		<div class="swiper-pagination"></div>
+		<!-- Add Navigation -->
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+
+	<div class="main">
+		<div class="m-aboutus">
+			<table>
+				<thead><tr><th><h2>关于我们</h2></th></tr></thead>
+				<tbody>
+					<tr>
+						<td><img src="../images/contact/1.jpg" alt=""></td>
+						<td>
+							<p>环境危机是人类的传统文化的危机，拯救环境必须对传统的以人类为中心的文化进行批判，建立人与自然和谐发展的人文体系。我们人类必须拿出我们每个人的力量，为保护环境贡献自己的力量。</p>
+							<p>我们就是要给予自然最好的保护，还人类一个美好家园！</p>
+						</td>
+						<td><img src="../images/contact/2.jpg" alt=""></td>
+						<td>
+							<p>大气环境是指生物赖以生存的空气的物理、化学和生物学特性。人类生活或工农业生产排出的氨、二氧化硫、一氧化碳、氮化物与氟化物等有害气体可改变原有空气的组成，并引起污染，造成全球气候变化，破坏生态平衡。大气环境和人类生存密切相关，大气环境的每一个因素几乎都可影响到人类，所以我们要爱护自然，为子孙后代留下一个优美的环境。</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>中华人民共和国环境保护法是为保护和改善环境，防治污染和其他公害，保障公众健康，推进生态文明建设，促进经济社会可持续发展制定的国家法律，由中华人民共和国第十二届全国人民代表大会常务委员会第八次会议于2014年4月24日修订通过，现将修订后的《中华人民共和国环境保护法》公布，自2015年1月1日起施行。</p>
+							<p>对于此法，我们是坚决执行的人！</p>
+						</td>
+						<td><img src="../images/contact/3.jpg" alt=""></td>
+						<td>
+							<p>《水环境保护》根据我国水环境保护需要，在水资源保护、规划与管理方面形成了一套理论体系和技术体系，内容吸纳了成熟的、先进的研究成果。其基本内容包括：水环境保护的主要措施与技术，水环境监测与实验，水污染负荷分析与预测，水环境演化原理，水环境模拟预测数学模型，水环境质量评价，水环境保护规划与管理等。</p>
+							<p>水资源的保护，从我们做起！</p>
+						</td>
+						<td><img src="../images/contact/5.jpg" alt=""></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="m-question">
+			<form action="ok.html" method="get" onsubmit="return check()"> 
+				<table>
+					<thead>
+						<tr><th class="head" colspan="2"><h2>调查问卷</h2></th></tr>
+						<tr><th colspan="2">此问卷为匿名问卷，您可以自由发挥，让我们了解每个人对于环境的意识保护程度，为环境奉献做到更好。</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>您知道世界环保日是哪一天吗？</td>
+							<td>
+								<label><input name="day" type="radio" >4月22日</label>
+								<label><input name="day" type="radio" >5月22日</label>
+								<label><input name="day" type="radio" >6月22日</label>
+							</td>
+						</tr>
+						<tr>
+							<td>您平常注意环保吗？</td>
+							<td>
+								<label><input name="pro" type="radio" >偶尔</label>
+								<label><input name="pro" type="radio" >经常</label>
+								<label><input name="pro" type="radio" >从不</label>
+							</td>
+						</tr>
+						<tr>
+							<td>您懂的环保知识多吗？</td>
+							<td>
+								<label><input name="know" type="radio" >很多</label>
+								<label><input name="know" type="radio" >基本</label>
+								<label><input name="know" type="radio" >没有</label>
+							</td>
+						</tr>
+						<tr>
+							<td>您认为您居住地最严重的环境问题是？</td>
+							<td>
+								<label><input name="problem" type="radio" >水污染</label>
+								<label><input name="problem" type="radio" >空气污染</label>
+								<label><input name="problem" type="radio" >噪声污染</label>
+							</td>
+						</tr>
+						<tr>
+							<td>您经常使用一次性餐具吗？</td>
+							<td>
+								<label><input name="use" type="radio" >偶尔</label>
+								<label><input name="use" type="radio" >经常</label>
+								<label><input name="use" type="radio" >从不</label>
+							</td>
+						</tr>
+						<tr>
+							<td>您对生活垃圾是怎样处理的？</td>
+							<td>
+								<label><input name="rubbish" type="radio" >分类处理</label>
+								<label><input name="rubbish" type="radio" >能卖则卖</label>
+								<label><input name="rubbish" type="radio" >直接扔垃圾桶</label>
+							</td>
+						</tr>
+						<tr>
+							<td>您有参加过有关环保方面的活动吗？</td>
+							<td>
+								<label><input name="takein" type="radio" >很多</label>
+								<label><input name="takein" type="radio" >基本</label>
+								<label><input name="takein" type="radio" >没有</label>
+								<label><input name="takein" type="radio" >视活动而定</label>
+							</td>
+						</tr>
+						<tr>
+							<td>您认为当前面临的环境污染的主要问题有哪些？(可多选）</td>
+							<td>
+								<label><input name="mainp" type="checkbox" >水污染</label>
+								<label><input name="mainp" type="checkbox" >大气污染</label>
+								<label><input name="mainp" type="checkbox" >植被破坏</label>
+								<label><input name="mainp" type="checkbox" >固体废弃物污染</label>
+								<label><input name="mainp" type="checkbox" >其他各种污染</label>
+							</td>
+						</tr>
+						<tr>
+							<td>您认为环境污染现象是由下列哪些原因造成的？(可多选）</td>
+							<td>
+								<label><input name="reason" type="checkbox" >人们的环保意识差</label>
+								<label><input name="reason" type="checkbox" >政府对环境问题重视程度不够</label>
+								<label><input name="reason" type="checkbox" >人们守法意识差</label>
+								<label><input name="reason" type="checkbox" >企业支注重自身发展而忽视环保</label>
+								<label><input name="reason" type="checkbox" >人口膨胀</label>
+								<label><input name="reason" type="checkbox" >消费速度增长</label>
+								<label><input name="reason" type="checkbox" >周边地区环境污染与生态破坏的影响</label>
+								<label><input name="reason" type="checkbox" > 经济发展速度过快</label>
+							</td>
+						</tr>
+						<tr>
+							<td>请您写下一句您记忆最深刻的环保口号或是自己为环保事业说一句话</td>
+							<td>
+								<label><input style="width: 100%;border-bottom: 1px solid #eee;" name="" type="text" ></label>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<label><input name="submit" type="submit" value="提交"></label>
+								<label><input name="reset" type="reset" value="重置"></label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form> 
+		</div>
+		<div class="m-message">
+			<div class="msg-tt"><h2>发表您的留言：</h2></div>
+			<div class="msg-con">
+				<div class="con">
+					<span>姓名：<input class="name" type="text"></span>
+					<span>年龄：<input class="text" type="text"></span>
+					<span>性别：
+						<select name="sex" id="">
+							<option value=""> -- 请选择-- </option>
+							<option value="男">男</option>
+							<option value="女">女</option>
+						</select>
+					</span>
+				</div>
+				<div class="con">
+					<span>电话：<input class="tel" type="text"></span>
+					<span>邮箱：<input class="email" type="text"></span>
+					<span>省份地址：
+						<select name="area" id="">
+							<option value=""> -- 请选择 -- </option>
+							<option value="山东">山东</option>
+							<option >江苏</option>
+							<option >上海</option>
+							<option >浙江</option>
+							<option >安徽</option>
+							<option >福建</option>
+							<option >江西</option>
+							<option >广东</option>
+							<option >广西</option>
+							<option >海南</option>
+							<option >河南</option>
+							<option >湖南</option>
+							<option >湖北</option>
+							<option >北京</option>
+							<option >天津</option>
+							<option >河北</option>
+							<option >山西</option>
+							<option >内蒙古</option>
+							<option >宁夏</option>
+							<option >青海</option>
+							<option >陕西</option>
+							<option >甘肃</option>
+							<option >新疆</option>
+							<option >四川</option>
+							<option >贵州</option>
+							<option >云南</option>
+							<option >重庆</option>
+							<option >西藏</option>
+							<option >辽宁</option>
+							<option >吉林</option>
+							<option >黑龙江</option>
+							<option >香港</option>
+							<option >澳门</option>
+							<option >台湾</option>
+						</select>
+					</span>
+				</div>
+				<div class="con2">
+					<span>内容：</span>
+					<p><textarea class="said" type="text"></textarea></p>
+				</div>
+				<input type="button" value="提交留言">  留言需审核后才会显示
+			</div>
+
+		</div>
+		
+	</div>		
+
+	<div class="footer">
+		<ul class="clearfix">
+			<li onclick="newPage('index.html')">首页</li>
+			<li onclick="newPage('envProtect.html')">环境污染</li>
+			<li onclick="newPage('lowCarbon.html')">低碳环保</li>
+			<li onclick="newPage('save.html')">节约资源</li>
+			<li class="none">联系我们</li>
+		</ul>
+		<footer>©2018 本版设计 版权所有</footer>
+	</div>
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="../js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/plugins/swiper/swiper-3.4.1.jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/common.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/contact.js"></script>
+	<script type="text/javascript">
+		jQuery(function($){
+			
+
+
+			
+		});
+	</script>
+</body>
+</html>

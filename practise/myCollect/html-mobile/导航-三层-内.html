@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>导航-三层-内</title>
+    <link rel="stylesheet" href="../css/base.css">
+
+    <!-- js -->
+    <script type="text/javascript" charset="utf-8" src="../js/plugins/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/top-nav.js"></script>
+</head>
+<body>
+
+    <script>
+    $(function(){
+        $(".nav div").click(function(){
+            $(this).siblings("div").find(".active").removeClass("active");
+            $(this).find("span").addClass("active");
+        });
+    });
+    </script>
+    <style>
+
+    .nav{
+        position: fixed;
+        top:0.44rem;
+        display: flex;
+        background: #ffffff;
+        width: 100%;
+    }
+    .nav>div{
+        flex: 1;
+        text-align: center;
+        line-height: 0.44rem;
+    }
+    .nav>div span{
+        line-height: 0.44rem;
+        display: inline-block;
+        height: 0.44rem;
+    }
+    .active{
+        border-bottom: 10px solid red;
+        color: red;
+    }
+    </style>
+
+    <!-- 导航 开始 -->
+    <div class="nav direction">
+        <div class="">
+            <span class="active">基本资料</span>
+        </div>
+        <div class="">
+            <span class="" >收款账户</span>
+        </div>
+        <div class="">
+            <span class="" >用户</span>
+        </div>
+    </div>
+    <!-- 导航 结束 -->
+
+    <hr>
+</body>
+</html>

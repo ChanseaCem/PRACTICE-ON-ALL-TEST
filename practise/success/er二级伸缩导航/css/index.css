@@ -1,0 +1,62 @@
+		*{margin: 0;padding:0;}
+		#nav{
+			width: 210px;
+			background: #000;
+			margin: 50px 50px;
+			color: #fff;
+		}
+		#nav span{
+			display: block;
+			line-height: 50px;
+			text-align: center;
+			font-size: 25px;
+		}
+		#nav ul li{
+			list-style: none;
+			line-height: 45px;
+			border-top: 1px solid #336600;
+			cursor: pointer;
+		}
+		#nav ul li div.hover{
+			background: #009933;
+		}
+		#nav ul li div.title{
+			width: 210px;
+			content: "";
+			display:inline-block;
+			clear: both;
+		}
+		#nav ul li div.title>div{
+			width: 60px;
+			height: 0;
+			position: relative;
+			padding-bottom: 33%;
+			float: left;
+		}
+		#nav ul li div.title p{
+			display: inline-block;
+			float: left;
+			line-height: 68px;
+		}
+		#nav ul li div.title img{
+			/*margin: 0px 12px 0px 30px;*/
+			/*vertical-align: middle;*/
+			max-width: 30px;
+			max-height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		}
+		#nav ul li div.con{
+			background: #333;
+			line-height: 35px;
+			display: none;
+		}
+		#nav ul li div.con p{
+			border-top: 1px solid #996666;
+			font-size: 12px;
+			text-indent: 65px;
+		}

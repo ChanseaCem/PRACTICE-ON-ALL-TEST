@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>交易</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/transaction.css">
+
+</head>
+<body>
+
+    <!-- 头部开始 -->
+    <div class="header">
+        <div class="header-left"></div>
+        <div class="header-center">
+            <!-- 文字标题 -->
+            <span onclick="window.location.href='market.html'">
+            	OUR/CNY 
+            	<img style="width: 0.1rem;height: 0.06rem;" src="img/common/others/android/drawable-xhdpi/icon_dropdown.png" alt="">
+            </span>
+        </div>
+        <div class="header-right">
+            <span><img src="img/common/others/android/drawable-xhdpi/icon_focus_no.png"></span>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 导航 开始 -->
+    <div class="nav direction">
+        <div tag="0">
+            <span class="nav-act">买入</span>
+        </div>
+        <div tag="1">
+            <span class="" >卖出</span>
+        </div>
+        <div tag="2">
+            <span class="" >撤单</span>
+        </div>
+        <div tag="3" style="flex: 1.4">
+            <span class="">历史记录</span>
+        </div>
+    </div>
+    <!-- 导航 结束 -->
+
+    
+    <!-- 主要内容开始 -->
+    <div class="main">
+	
+    	<!-- 买入/卖出 -->
+		<div class="trade" style="display: none;">
+		    <div class="m-t clearfix">
+		    	<input type="text">
+		    	<span class="buy">买入（1.1CNY/OUR)</span>
+		    	<span class="sell" style="display: none;">卖出（1.1CNY/OUR)</span>
+		    </div>
+	    	<div class="m-c">
+				<div class="b-t clearfix">
+					<div class="t-l clearfix">
+						<span >买盘</span>
+						<span class="l-cir"></span>
+					</div>
+					<div class="t-r clearfix">
+						<span >卖盘</span>
+						<span class="r-cir"></span>
+					</div>
+				</div>
+				<p class="b-table">
+					<span>价格(CNY)</span>
+					<span>数量(OUR)</span>
+					<span>数量(OUR)</span>
+					<span>价格(CNY)</span>
+				</p>
+				<ul>
+					<li>
+						<span>12345.00</span>
+						<span>30,000</span>
+						<span>30,000</span>
+						<span>12345.00</span>
+					</li>
+					<li>
+						<span>12345.00</span>
+						<span>30,000</span>
+						<span>30,000</span>
+						<span>12345.00</span>
+					</li>
+					<li>
+						<span>12345.00</span>
+						<span>30,000</span>
+						<span>30,000</span>
+						<span>12345.00</span>
+					</li>
+					<li>
+						<span>12345.00</span>
+						<span>30,000</span>
+						<span>30,000</span>
+						<span>12345.00</span>
+					</li>
+					<li>
+						<span>12345.00</span>
+						<span>30,000</span>
+						<span>30,000</span>
+						<span>12345.00</span>
+					</li>
+					<li>
+						<span>12345.00</span>
+						<span>30,000</span>
+						<span>30,000</span>
+						<span>12345.00</span>
+					</li>
+				</ul>
+	    	</div>
+	    	<div class="m-b">
+				<p class="b-t clearfix">
+					<img src="img/common/others/android/drawable-xhdpi/icon_focus_no.png" alt="">
+					<span>最新成交</span>
+				</p>
+				<p class="b-table">
+					<span>时间</span>
+					<span>数量</span>
+					<span>价格</span>
+				</p>
+				<ul>
+					<li>
+						<span class="time">17:44:12</span>
+						<span>30000</span>
+						<span class="green">3000.00</span>
+					</li>
+					<li>
+						<span class="time">17:44:12</span>
+						<span>40000</span>
+						<span class="red">3000.00</span>
+					</li>
+					<li>
+						<span class="time">17:44:12</span>
+						<span>30000</span>
+						<span class="green">3000.00</span>
+					</li>
+					<li>
+						<span class="time">17:44:12</span>
+						<span>30000</span>
+						<span class="green">3000.00</span>
+					</li>
+					<li>
+						<span class="time">17:44:12</span>
+						<span>30000</span>
+						<span class="green">3000.00</span>
+					</li>
+				</ul>
+	    	</div>
+    	</div>
+    	<!-- 买入/卖出 -->
+
+    	<!-- 撤单 -->
+    	<div class="cancelOrder" style="display: none;">
+			<div class="che">
+				<div class="list">
+					<div class="l-t clearfix">
+						<img src="img/common/others/android/drawable-xhdpi/lsjl_icon_buy.png" alt="">
+						<span class="l-buy">买入</span>
+						<span class="l-name">OUR/CNY</span>
+						<span class="time">2018-08-10 11:58</span>
+					</div>
+					<div class="l-c clearfix">
+						<div class="c-l">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+						<div class="c-r">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+					</div>
+					<div class="l-c clearfix">
+						<div class="c-l">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+					</div>
+				</div>
+				<div class="list">
+					<div class="l-t clearfix">
+						<img src="img/common/others/android/drawable-xhdpi/lsjl_icon_sale.png" alt="">
+						<span class="l-buy red">卖出</span>
+						<span class="l-name">OUR/CNY</span>
+						<span class="time">2018-08-10 11:58</span>
+					</div>
+					<div class="l-c clearfix">
+						<div class="c-l">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+						<div class="c-r">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+					</div>
+					<div class="l-c clearfix">
+						<div class="c-l">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+					</div>
+				</div>
+				<div class="list">
+					<div class="l-t clearfix">
+						<img src="img/common/others/android/drawable-xhdpi/lsjl_icon_sale.png" alt="">
+						<span class="l-buy red">卖出</span>
+						<span class="l-name">OUR/CNY</span>
+						<span class="time">2018-08-10 11:58</span>
+					</div>
+					<div class="l-c clearfix">
+						<div class="c-l">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+						<div class="c-r">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+					</div>
+					<div class="l-c clearfix">
+						<div class="c-l">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+					</div>
+				</div>
+			</div>
+    	</div>
+    	<!-- 撤单 end -->
+
+    	<!-- 历史记录 -->
+    	<div class="history" style="display: none;">
+			<div class="che">
+				<div class="list">
+					<div class="l-t clearfix">
+						<img src="img/common/others/android/drawable-xhdpi/lsjl_icon_buy.png" alt="">
+						<span class="l-buy">买入</span>
+						<span class="l-name">OUR/CNY</span>
+						<span class="time">2018-08-10 11:58</span>
+					</div>
+					<div class="l-c clearfix">
+						<div class="c-l">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+						<div class="c-r">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+					</div>
+					<div class="l-c clearfix">
+						<div class="c-l">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+						<div class="d-r clearfix">
+							<div>撤销</div>
+						</div>
+					</div>
+				</div>
+				<div class="list">
+					<div class="l-t clearfix">
+						<img src="img/common/others/android/drawable-xhdpi/lsjl_icon_sale.png" alt="">
+						<span class="l-buy red">卖出</span>
+						<span class="l-name">OUR/CNY</span>
+						<span class="time">2018-08-10 11:58</span>
+					</div>
+					<div class="l-c clearfix">
+						<div class="c-l">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+						<div class="c-r">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+					</div>
+					<div class="l-c clearfix">
+						<div class="c-l">
+							<p>成交价格</p>
+							<p>0.00051900CNY</p>
+						</div>
+						<div class="d-r clearfix">
+							<div>撤销</div>
+						</div>
+					</div>
+				</div>
+			</div>
+    	</div>
+    	<!-- 历史记录 end -->
+
+    	<!-- 暂无记录 -->
+    	<div class="noRecords" style="display: none;">
+			<div class="no">
+				<img src="img/noRecords/android/drawable-xhdpi/icon_norecord.png" alt="">
+			</div>
+			暂无记录
+    	</div>
+    	<!-- 暂无记录 end -->
+    </div>
+    <!-- 主要内容 结束 -->
+
+
+	<!-- 导航底部开始 -->
+	<div class="footer">
+	    <div class="footer-normal" tag="0">
+	        <a href="index.html">
+	            <img src="img/common/tab/android/drawable-xhdpi/tab_icon_home.png">
+	            首页
+	        </a>
+	    </div>
+	    <div class="footer-normal" tag="1">
+	        <a href="market.html">
+	            <img src="img/common/tab/android/drawable-xhdpi/tab_icon_business.png">
+	            市场
+	        </a>
+	    </div>
+	    <div class="footer-normal active" tag="2">
+            <a href="transaction.html">
+	            <img src="img/common/tab/android/drawable-xhdpi/tab_icon_trade_select.png">
+	            交易
+	        </a>
+	    </div>
+	    <div class="footer-normal" tag="4">
+            <a href="assets.html">
+	            <img src="img/common/tab/android/drawable-xhdpi/tab_icon_money.png">
+	           资金
+	        </a>
+	    </div>
+	    <div class="footer-normal" tag="5">
+            <a href="personal.html">
+	            <img src="img/common/tab/android/drawable-xhdpi/tab_icon_my.png">
+	           我的
+	        </a>
+	    </div>
+	</div>
+	<!-- 底部 结束 -->
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		jQuery(function($){
+			$(".trade").show().siblings("div").hide();
+			$(".nav>div").on("click",function(){
+				$(this).find("span").addClass("nav-act");
+				$(this).siblings("div").find("span").removeClass("nav-act");
+				var tag=$(this).attr("tag");
+				if(tag=="0"||tag == "1"){
+					$(".trade").show().siblings("div").hide();
+					if(tag=="0"){
+						$(".buy").show().siblings("span").hide();
+					}else{
+						$(".sell").show().siblings("span").hide();
+					}
+				}else if(tag == "2"){
+					$(".cancelOrder").show().siblings("div").hide();
+				}else{
+					$(".noRecords").show().siblings("div").hide();
+				}
+			});
+			
+			//切换收藏
+			$(".header-right").on("click",function(){
+				console.log(1);
+				var src = $(this).find("img").attr("src");
+				if(src.indexOf("no")>0){
+					$(this).find("img").attr("src",src.replace("_no","_yes"));
+				}else{
+					$(this).find("img").attr("src",src.replace("_yes","_no"));
+				}
+			})
+		});
+	</script>
+</body>
+</html>

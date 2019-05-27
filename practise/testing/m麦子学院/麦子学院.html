@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>麦子学院</title>
+	<script src="js/jquery-3.1.1.min.js"></script>
+
+	<style>
+        *{font-family: microsoft yahei;}
+		.div{border:1px solid #cdcdcd;height: auto;margin:20px;padding:0 20px 20px 20px;}
+        a{text-decoration: none;}
+        .mulu a{display: inline-block;background: #a2e4de;margin: 5px;padding: 5px;}
+        .span{display:inline-block;width: 250px;border-bottom: 1px solid #dda123;}
+        .span1{display:inline-block;border-bottom: 1px solid #dda123;}
+	</style>
+
+</head>
+<body onload="draw('canvas')">
+    <!--目录-->
+    <div class="div mulu">
+        <header>目录</header>
+        <hr>
+        <a href="#header">header</a>
+        <a href="#article">article</a>
+        <a href="#section">section</a>
+        <a href="#aside">aside</a>
+        <a href="#nav">nav</a>
+        <a href="#time">time</a>
+        <a href="#hgroup">hgroup</a>
+        <a href="#figureAndFigcation">figure和figcation</a>
+        <a href="#details">details和summary</a>
+        <a href="#mark">mark</a>
+        <a href="#progress">progress</a>
+        <a href="#meter">meter</a>
+        <a href="#abolish">废除元素</a>
+        <a href="#canvas">canvas</a>
+        <a href="#ol_strong">ol_strong</a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+
+        <a href="#footer">footer</a>
+    </div>
+
+	<!-- header -->
+    <div class="div">
+	    <header id="header">header:标题，html5新增，具体可到
+            <a href="#article">article</a>
+            <a href="#section">section</a>
+            <a href="#aside">aside</a>等查看</header>
+    </div>
+
+	<!-- article -->
+    <div class="div">
+        <article id="article">article：与上下文不相关的独立内容使用如下：</article>
+        <div class="div">
+		<article>
+			<header>
+				<h3>header.h3.Article，题目1</h3>
+				<p>p创建时间：<time pubdate="pabdate">time.2017-3-3</time></p>
+			</header>
+			<p>p.article是与上下文不相关的独立区域内容,article是可以相互嵌套使用的</p>
+
+			<div class="div">
+				<section>
+					<h3>section.h3题目2</h3>
+					<article>
+						<header>
+							<h3>header.h3.题目3,如评论1</h3>
+							<p>p.创建时间：<time pubdate="pabdate" datetime="20170303T14:00">2017-3-3</time></p>
+						</header>
+						<p>p.内容，评论</p>
+					</article>
+
+					<article>
+						<header>
+							<h3>header.h3.题目3,如评论1</h3>
+							<p>p.创建时间：<time pubdate="pabdate" datetime="20170303T14:00">2017-3-3</time></p>
+						</header>
+						<p>p.内容，评论</p>
+					</article>
+				</section>
+			</div>
+
+			<footer>
+				<p><small>p.small版权信息</small></p>
+			</footer>
+		</article>
+	</div>
+    </div>
+
+	<!-- section -->
+    <div class="div">
+        <section id="section">section：表示一块内容区域块，如页眉页脚等，没有含标题的内容不建议使用</section>
+        <div class="div">
+		<section>
+			<h3>h3.this is a section element</h3>
+			<p>p.this is a content</p>
+			<section>
+				<h3>section.h3.title1</h3>
+				<p>p.content1</p>
+			</section>
+			<section>
+				<h3>section.h3.title2</h3>
+				<p>p.content2</p>
+			</section>
+			<section>
+				<article>
+					<header>section.article.header</header>
+				</article>
+			</section>
+		</section>
+	</div>
+    </div>
+
+	<!-- aside -->
+	<div class="div">
+        <aside id="aside">aside：表示article之外的内容信息</aside>
+        <div class="div">
+            <header>
+                <h3>header.h3国庆节去成都看熊猫</h3>
+            </header>
+            <article>
+                <h3>article.h3看熊猫去熊猫基地看</h3>
+                <p>p内容</p>
+                <aside>
+                    <h3>aside.h3名词解释</h3>
+                    <dl>
+                        <dt>dt熊猫基地</dt>
+                        <dd>dd大熊猫基地在四川成都卧龙</dd>
+                    </dl>
+                </aside>
+            </article>
+        </div>
+        <div class="div">
+            <aside>
+                <h3>aside.h3网站公告</h3>
+                <p>p国庆节放假通知</p>
+                <p>p中秋节放假通知</p>
+            </aside>
+        </div>
+	</div>
+
+	<!-- nav -->
+    <div class="div">
+        <nav id="nav">nav:导航，html5新增;nav.nav的使用方法：</nav>
+        <div class="div">
+            <h3>h3.nav</h3>
+            <nav>
+                <ul>
+                    <li>li.首页</li>
+                    <li>li.aside</li>
+                    <li>li.section</li>
+                </ul>
+            </nav>
+            <article>
+                <header>
+                    <h3>h3.nav</h3>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#a">a.section1</a>
+                            </li>
+                            <li>
+                                <a href="#c">a.section3</a>
+                            </li>
+                            <li>
+                                <a href="">a.section3</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <p></p>
+                <footer>
+                    <a href="">footer.版权信息1</a>
+                    <a href="">footer.版权信息2</a>
+                    <a href="">footer.版权信息3</a>
+                </footer>
+            </article>
+        </div>
+    </div>
+
+	<!-- time -->
+    <div class="div">
+        <time id="time">time.time元素代表24小时中的某个时间或者是日期，表示时间是允许带时差。</time>
+        <div class="div">
+            <p>它可以定义的格式如下：</p>
+            <div class="div"><time datetime="2017-3-3">2017年3月3日</time></div>
+            <div class="div"><time datetime="2017-3-3">3月3日</time></div>
+            <div class="div"><time datetime="2017-3-3">今天的时间</time></div>
+            <div class="div"><time datetime="2017-3-3T22:30">2017年3月3日晚上10点</time></div>
+            <div class="div"><time datetime="2017-3-3T22:30Z">UTC标准时间2017年3月3日</time></div>
+            <div class="div"><time datetime="2017-3-3T22:30+8:00">中国时间2017年3月3日</time></div>
+        </div>
+    </div>
+
+	<!-- hgroup -->
+	<div class="div">
+        <article id="hgroup">
+            <header>
+                <h3>hgroup元素</h3>
+                <p>hgroup元素合成 如果只有一个主标题，就不用hgroup，如果主标题下面有子标题，那就需要用hgroup元素</p>
+            </header>
+        </article>
+        <hr>
+        <article>
+            <header>
+                <hgroup >
+                    <h2>h2文章主标题</h2>
+                    <h3>h3文章子标题</h3>
+                </hgroup>
+                <p>p.内容</p>
+            </header>
+            <p>文章正文</p>
+        </article>
+	</div>
+
+    <!--address-->
+    <div class="div">
+        <div class="div">
+            <header>header.标题</header>
+            <p>p.正文</p>
+            <footer>
+                <address>
+                    <a href="" title="a">address.a</a>
+                    <a href="" title="b">address.b</a>
+                    泉州市鲤城区。。。
+                </address>
+                <time>2017</time>
+            </footer>
+        </div>
+    </div>
+
+    <!--figure和figcaption-->
+    <div class="div">
+        <figure ID="figureAndFigcation">
+            figure元素是一种元素的集合，常带有可选标题。表示页面行独立内容，若从网页上删除，不会对网页造成影响
+        </figure>
+        <figcaption>
+            figcaption表示figure元素的标题，属于figure元素，这个元素必须写在figure内部，可以写在figure元素内的
+            其他从属元素前面或后面。一个figure最多只允许放置一个figcaption元素
+        </figcaption>
+        <div class="div">
+            <figure>
+                <img src="img/ft1.jpg" alt="" title="风景">
+                <img src="img/ft2.jpg" alt="" title="风景">
+                <img src="img/ft3.jpg" alt="" title="风景">
+                <img src="img/ft4.jpg" alt="" title="风景">
+                <img src="img/ft5.jpg" alt="" title="风景">
+                <figcation>风景,3,4,5图片在IE上出不来，可能是因为3,4,5是被改过的不可用的图片，
+                具体为何只在ie不行，不得而知</figcation>
+            </figure>
+        </div>
+    </div>
+
+    <!--details和summary-->
+    <div class="div">
+        <details id="details">
+            detail.detail元素，是一种用于被展开和收缩的元素，此元素具有一个open属性，true时候其内部的子元素被展开和显示
+            但是有些浏览器不支持这个，如ie11
+        </details>
+        <div class="div">
+            <h3>示例</h3>
+            <details>
+                <summary>summary.这个是展开之前的显示内容</summary>
+                <p>p.这是展开的显示的新内容</p>
+            </details>
+        </div>
+    </div>
+
+    <!--Mark-->
+    <div class="div">
+        <mark id="mark">mark.最主要的目的就是吸引当前用户的注意,这个目的和原文作者无关</mark>
+        <h3>以下是关于<mark>html5</mark>的百科</h3>
+        <arcticle>
+            <h3>
+                <a href="#"><mark>html5</mark>HTML5 简介 HTML5是HTML最新的修订版本,2014年10月由万维网联盟(W3C)完成标准制定。</a>
+            </h3>
+        </arcticle>
+    </div>
+
+    <!--progress-->
+    <div class="div">
+        <h3>h3.progress代表一个任务的完成进度，这个进度可以使不确定的，表示进度正在进行，
+            但不清楚这个还有多少工作量没有完成，也可以用到某个最大数字之间的数字来表示准确的进度情况</h3>
+        <progress id="progress">progress</progress>
+        <div class="div">
+            <p>
+                当前任务完成进度：
+                <progress max="100" value="55">55</progress>
+            </p>
+        </div>
+    </div>
+    
+    <!--meter-->
+    <div class="div">
+    	<h3 id="meter">h3.meter：表示规定范围内的数量值</h3>
+    	<p>value:实际使用值</p>
+    	<p>min和max：规定范围内的最小和最大值</p>
+    	<p>low：规定的下限值，必须小于等于high值</p>
+    	<p>high：规定范围的上限值。若该属性小于low的值，则low值等于high值，如果high值大于max值，则high值等max值</p>
+    	<p>optimum：最佳值属性。必须介于min和max之间，可大于high值</p>
+    	<div class="div">
+    		<p>硬盘情况：c盘总100G，已用30G，剩余70G(不过似乎在苹果浏览器不支持,ie也不支持)</p>
+    		<p>
+    			<span class="span">1,no optimun:</span>
+    			<meter value="30" max="100" min="0">30/100</meter>GB
+    		</p>
+    		<p>
+    			<span class="span">2,optimun小于low:</span>
+    			<meter value="30" max="100" min="0" low="50" high="70" optimum="10">30/100</meter>GB
+    		</p>
+    		<p>
+    			<span class="span">3,optimun大于low:</span>
+    			<meter value="30" max="100" min="0" low="50" high="70" optimum="80">30/100</meter>GB
+    		</p>
+    		<p>
+    			<span class="span">4,optimun介于low和high之间:</span>
+    			<meter value="30" max="100" min="0" low="50" high="70" optimum="60">30/100</meter>GB
+    		</p>
+		</div>
+    </div>
+    
+    <!--废除元素-->
+    <div class="div">
+    	<div id="abolish">
+    		<h3>html5废除的元素</h3>
+    		<p>1:basefont,big,center,font,s,strike,tt,u</p>
+    		<p>2:不再使用frame框架</p>
+    		<p>3:只有部分浏览器支持的元素</p>
+    		<p>4：其他元素，如rb使用ruby代替</p>
+    	</div>
+    </div>
+    
+    <!--加强版的有序列表ol-->
+    <div class="div" id="ol_strong">
+    	<h3>加强版的有序列表ol，可控制开始的序列数字,经过设置后如下：</h3>
+    	<div class="div" style="float: left;width: 10%;">
+	    	<p>没有控制的ol从1开始</p>
+	    	<ol >
+		    	<li style="color: red;">a</li>
+		    	<li>b</li>
+		    	<li>c</li>
+		    	<li>d</li>
+		    	<li>e</li>
+		    </ol>
+    	</div>
+    	
+    	<div class="div" style="float: left;width: 10%;">
+		    <p>控制的ol从3(or others)开始</p>
+		    <ol start="3" type="I">
+		    	<li style="color: red;">a</li>
+		    	<li>b</li>
+		    	<li>c</li>
+		    	<li>d</li>
+		    	<li>e</li>
+		    </ol>
+    	</div>
+    	
+    	<div class="div" style="float: left;width: 10%;">
+		    <p>经过控制的ol,反向序列</p>
+		    <ol start="3" reversed="reversed" >
+		    	<li style="color: red;">a</li>
+		    	<li>b</li>
+		    	<li>c</li>
+		    	<li>d</li>
+		    	<li>e</li>
+		    </ol>
+    	</div>  
+    	
+    	<div class="div" style="float: left;width: 10%;">
+		    <p>经过控制的ol,反向序列</p>
+		    <ol start="3" reversed="reversed" type="A">
+		    	<li style="color: red;">a</li>
+		    	<li>b</li>
+		    	<li>c</li>
+		    	<li>d</li>
+		    	<li>e</li>
+		    </ol>
+    	</div>
+    	
+    	<div class="div" style="float: left;width: 10%;">
+		    <p>经过控制的ol,反向序列</p>
+		    <ol start="3" type="a">
+		    	<li style="color: red;">a</li>
+		    	<li>b</li>
+		    	<li>c</li>
+		    	<li>d</li>
+		    	<li>e</li>
+		    </ol>
+    	</div>
+    	
+    	<div style="clear: both;"> </div>
+    </div>
+
+	<!--canvas-->
+	<div class="div" id="canvas_main">
+		<h3>canvas是html5新增的一个非常重要的元素，专用绘制图形</h3>
+        <section>canvas元素的使用与普通的html元素并不相同，它有一个默认尺寸300*150，在css中设置宽高只能改变canvas的显示宽高，而并没有改变画布绘制时的尺寸，所以要为canvas设置绘制的尺寸，必须写在元素标签上</section>
+		<div class="div">
+			<p>
+				<p>1:创建画布，其方法为：指定id和画布宽高，例如：</p>
+				<span class="span1">canvas开始标签 id="canvas1" width="200" height="200"> canvas结束标签</span>
+				<p>2:引入绘画脚本，如：</p>
+				<span class="span1">script开始标签 ...src="canvas.js" script结束标签</span>
+				<p>3:使用draw函数进行绘画，如：</p>
+				<span class="span1">在body的属性里，加上onload="draw('canvas')"</span>
+			</p>
+			<h4>canvas绘制有两种方法：1填充内容，fill(context.fiilRect(x,y,width,height))；2绘制边框，stroke(context.strokeRect(x,y,width,height))；具体示例如下：</h4>
+			<canvas id="canvas_eg" width="50" height="50" style="border:1px solid yellowgreen;"></canvas>
+			<div class="div" id="huizhi">
+				<style type="text/css">
+					#huizhi{content: "";display: table;clear: both;}
+					#huizhi div{width: 100px;height: 100px;float: left;	}
+					#huizhi div p{clear: both;}
+				</style>
+				<div>
+					<p class="juxing">绘制矩形</p>
+					<p style="font-size: 12px;">4:设置绘制样式，如：fillstyle属性和stroke属性</p>
+				</div>
+                <canvas id="canvas" width="300" height="200" style="border:1px solid blue;"></canvas>
+			</div>
+			<script>
+				jQuery(function($){}){
+                    function draw(id){
+                        var canvas=document.getElementById("canvas");
+                        var context=canvas.getContext('2d');
+                        context.fillStyle="#000";
+                        context.strokeStyle("#f60");
+                        context.lineWidth=5;
+                        context.fillRect(0,0,400,300);
+                    };
+//                });
+			</script>
+		</div>
+	</div>
+	
+	<!-- footer -->
+    <div class="div">
+        <footer id="footer">footer：页脚</footer>
+        <div class="div">
+            <p>
+                <a href="">版权信息</a>
+                <a href="">关于我们</a>
+                <a href="">联系我们</a>
+                <a href="">nav导航，上面nav内容</a>
+            </p>
+            <div class="div">
+                <article>
+                    <p>article.p.title</p>
+                    <footer>article.footer.注脚</footer>
+                </article>
+            </div>
+            <div class="div">
+                <section>
+                    <p>section.p.标题</p>
+                    <footer>section.footer.注脚</footer>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form id="shopData" method="post">
+		<div id="sss">
+			<input name="a1" type="text" value="1">
+			<input name="a2" type="text" value="2">
+			<input name="a4" type="text" value="3">
+			<input type="text" value="3">
+			<p name="ap1" class="a">1</p>
+			<p class="a">2</p>
+			<p class="a">3</p>
+		</div>
+	</form>
+	<div id="a" style="border:1px solid;height: 50px;width: 50px;"></div>
+	
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.11.3.min.js"></script>
+	<script>
+	$("#a").on("click",function(){
+
+		var data=$("#shopData").serialize();
+		console.log(data);
+	});
+	</script>
+</body>
+</html>

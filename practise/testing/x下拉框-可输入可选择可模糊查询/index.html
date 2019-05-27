@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉框</title>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/jquery.editable-select.css">
+	<link href="https://rawgithub.com/indrimuska/jquery-editable-select/master/source/jquery.editable-select.min.css" rel="stylesheet" />
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/jquery-3.1.1.min.js"></script>
+	<script src="https://rawgithub.com/indrimuska/jquery-editable-select/master/source/jquery.editable-select.js"></script>
+
+	<script>
+		$('.shift-info').editableSelect({ 
+            effects: 'slide',
+            onSelect: function (element) {
+　　　　　　　//$('.shift-info').attr({'data-val':element.val(),'placeholder':'请输入或选择班次名..'});　
+　　　　　　　$('.shift-info').attr('data-val',element.val())　
+       }
+  }).prop('placeholder','请输入或选择班次名..');
+	</script>
+</head>
+<body>
+	<select class="form-control shift-info">
+	      <option>数据加载中..</option>
+	      <option>1</option>
+	      <option>2..</option>
+	      <option>3..</option>
+	      <option>4..</option>
+	      <option>55..</option>
+	</select>
+	<select>
+	      <option>0</option>
+	      <option>1</option>
+	      <option>2..</option>
+	      <option>3..</option>
+	      <option>4..</option>
+	      <option>55..</option>
+	</select>
+</body>
+</html>

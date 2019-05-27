@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS3文字滚动通知动画特效 - 站长素材</title>
+
+<head>
+
+</head>
+
+<body>
+
+	<style type="text/css">
+		.menu-list {
+			list-style: none;
+			width: 300px;
+			margin: 100px auto;
+		}
+		
+		.menu-list li {
+			display: block;
+		}
+		
+		.list {
+			list-style: none;
+			margin-left: -50px;
+			width: 300px;
+			height: 60px;
+			overflow: hidden;
+		}
+		
+		.list li {
+			width: 300px;
+			height: 60px;
+			position: relative;
+			animation: myfirst 4s infinite;
+			line-height: 60px;
+			text-align: center;
+			font-size: 30px;
+			color: #fff;
+		}
+		
+		@keyframes myfirst {
+			0% {
+				background-color: #4ec7f3;
+				top: 0px;
+			}
+			/*25% {
+				background-color: #4ec7f3;
+				top: 0px;
+			}
+			50% {
+				background: #42c58a;
+				top: -60px;
+			}
+			75% {
+				background: #a0a0a0;
+				top: -120px;
+			}*/
+			100% {
+				background: #dc143c;
+				top: -420px;
+			}
+		}
+		
+		.font30 {
+			font-size: 30px;
+			color: #7d7d7d;
+		}
+	</style>
+
+	<ul class="menu-list">
+		<li>
+			<p class="font30">今天怎么样<b id="b1">?</b></p>
+		</li>
+		<li>
+			<ul class="list">
+				<li class="one">还行</li>
+				<li class="two">该充电</li>
+				<li class="three">学习一下</li>
+				<li class="four">我想一想</li>
+				<li class="three">1</li>
+				<li class="four">2</li>
+				<li class="three">3</li>
+				<li class="four">4</li>
+			</ul>
+		</li>
+		<li>
+			<p class="font30">要充电了</p>
+		</li>
+	</ul>
+
+	<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+		<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+		<p>来源：
+			<a href="http://sc.chinaz.com/" target="_blank">站长素材</a>
+		</p>
+	</div>
+</body>
+<script>
+// var html = document.getElementsByClassName("list")[0];
+//  html.innerHTML = '@-webkit-keyframes myfirst{0% { background-color: #4ec7f3; top: 0px; } }\n'
+//              + '@keyframes myfirst {100% { background-color: #4ec7f3; top: -180px; } }'
+             var a = document.styleSheets[0];
+             console.log(a);
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+</head>
+<body>
+<!-- 移动都是基于定位的 -->
+<div id="wrap">
+	<div class="content">
+		<img src="img/clothes_middle.jpg" alt="">
+		<div class="shadow"></div>
+	</div>
+	<div class="list">
+		<a href="javascript:void(0);" class="left"><</a>
+		<a href="javascript:void(0);" class="right">></a>
+		<div class="img-list">
+			<ul class="img-ul">
+				<li><img src="img/small_1.jpg" msrc="img/middle_11.png" bsrc="img/big_13.png"  alt=""></li>
+				<li><img src="img/small_2.jpg" msrc="img/middle_13.png" bsrc="img/big_13.png"  alt=""></li>
+				<li><img src="img/small_3.jpg" msrc="img/middle_11.png" bsrc="img/big_13.png"  alt=""></li>
+				<li><img src="img/small_4.jpg" msrc="img/middle_13.png" bsrc="img/big_13.png"  alt=""></li>
+				<li><img src="img/small_5.jpg" msrc="img/middle_11.png" bsrc="img/big_13.png"  alt=""></li>
+				<li><img src="img/small_6.jpg" msrc="img/middle_13.png" bsrc="img/big_13.png"  alt=""></li>
+			</ul>
+		</div>
+	</div>
+	<div>
+		<img src="img/clothes_bigest.jpg" alt="">
+	</div>
+
+</div>
+
+	
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.11.3.min.js"></script>
+
+	<script>
+	jQuery(function($){
+		$("li").hover(function(){
+			$(".content img").attr("src",$(this).find("img").attr("src"));
+			$(".content img").css("width","430px","height","430px");
+		});
+
+		$(".content").hover(function(){
+			$(this).find(".shadow").
+		});
+	})
+
+	</script>
+</body>
+</html>

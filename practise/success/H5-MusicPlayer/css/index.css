@@ -1,0 +1,17 @@
+* { margin: 0; padding: 0; }
+
+body { background: #374c56; }
+
+.photo { width: 320px; height: 600px; margin: 100px auto; background: #000; font-family: "Microsoft YaHei"; padding: 5px; background-color: #222; border-radius: 20px; box-shadow: 0 0 7px #fff; overflow: hidden; }
+.photo .top { width: 320px; height: 23px; font-weight: bold; text-align: center; line-height: 30px; }
+.photo .title { width: 320px; height: 30px; font-size: 20px; color: #CCCCCC; font-weight: bold; text-align: center; line-height: 30px; }
+.photo .play { width: 190px; height: 190px; background: url("../img/player1.png") no-repeat; margin: auto; border-radius: 40%; }
+.photo .singer { width: 320px; font-size: 14px; text-align: center; color: #CCCCCC; line-height: 40px; }
+.photo .lrc { width: 300px; height: 285px; margin: 20px auto; text-align: center; overflow: hidden; color: #CCCCCC; }
+.photo .lrc p { line-height: 20px; font-size: 12px; }
+.photo .lrc .content { position: relative; left: 0; top: 0; }
+.photo .play { cursor: pointer; }
+.photo .play.rotate { -webkit-animation: rot 5s linear infinite; -moz-animation: rot 5s linear infinite; -ms-animation: rot 5s linear infinite; -o-animation: rot 5s linear infinite; animation: rot 5s linear infinite; }
+@keyframes rot { from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); } }
+textarea { display: none; }

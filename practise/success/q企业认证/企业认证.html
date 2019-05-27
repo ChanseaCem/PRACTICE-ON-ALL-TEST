@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>企业认证</title>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/zui.min.css">
+	<link rel="stylesheet" type="text/css" href="css/header-footer.css"/>
+	<link rel="stylesheet" type="text/css" href="css/enterprise-certification.css">
+
+	<!--[if lt IE 9]>
+		<script src="../dist/lib/ieonly/html5shiv.js"></script>
+		<script src="../dist/lib/ieonly/respond.js"></script>
+		<script src="../dist/lib/ieonly/excanvas.js"></script>
+		<![endif]-->
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="http://api.map.baidu.com/api?v=1.2"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/distpicker.data.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/distpicker.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/layer.js"></script>
+
+</head>
+<body>
+	
+
+	<!-- 主要内容 main begin -->
+	<div class="container-fixed E-C-main">
+
+		<!-- main right begin -->
+		<div class="main-right">
+			<div class="right-title">
+				<a href="#">个人认证</a>
+				<a class="a_underline" href="#">企业认证</a>
+			</div>
+			<div class="right-con">
+				<div class="con-one">
+					<span class="one-mark"><span>*</span>公司名称：</span>
+					<input type="text" placeholder="请填写公司名称">
+				</div>
+				<div class="con-one">
+					<span class="one-mark"><span>*</span>组织机构代码：</span>
+					<input type="text" placeholder="请填写组织机构代码">
+				</div>
+				<div class="con-one">
+					<span class="one-mark"><span>*</span>法人姓名：</span>
+					<input type="text" placeholder="请填写您的真实姓名">
+				</div>
+				<div class="con-one">
+					<span class="one-mark"><span>*</span>身份证号：</span>
+					<input type="text" placeholder="请填写您的身份证号">
+				</div>
+				<div class="insert-address">
+					<span class="one-mark address-PCD"><span>*</span>省市区：</span>
+					<div data-toggle="distpicker">
+						<div class="form-group">
+							<label class="sr-only" for="province2">Province</label>
+							<select class="form-control" id="province2" data-province="---- 选择省 ----"><select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="city2">City</label>
+							<select class="form-control" id="city2" data-city="---- 选择市 ----"></select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="district2">District</label>
+							<select class="form-control" id="district2" data-district="---- 选择区 ----"><select>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix m-b"></div>
+				<div class="con-one">
+					<span class="one-mark"><span>*</span>地理位置：</span>
+					<input id="map-get" type="text" readonly="readonly" placeholder="经纬度">
+				</div>
+				<div class="clearfix con-one">
+					<span class="one-mark idphotos"><span>*</span>身份证照片：</span>
+					<div class="idphotos-user" style="margin-left: 0;">
+						<a href="#">
+							<img src="img/apply/pc_icon_identity.png" alt="">
+							<span>点击上传</span>
+							<input type="file" style="">
+						</a>
+						<p>身份证正面</p>
+					</div>
+					<div class="idphotos-user">
+						<a href="#">
+							<img src="img/apply/pc_icon_identity.png" alt="">
+							<span>点击上传</span>
+							<input type="file" style="">
+						</a>
+						<p>身份证反面</p>
+					</div>
+					<div class="idphotos-user">
+						<p class="acount">
+							1. 必须本人身份证照片；<br>
+							2. 确保身份证内容完整清晰可见，<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;而且不能被遮挡；
+						</p>
+					</div>
+				</div>
+				<div class="clearfix con-one">
+					<span class="one-mark idphotos"><span>*</span>手持身份证：</span>
+					<div class="idphotos-user" style="margin-left: 0;">
+						<a href="#">
+							<img src="img/apply/pc_icon_identity.png" alt="">
+							<span>点击上传</span>
+							<input type="file" style="">
+						</a>
+						<p>手持身份证</p>
+					</div>
+					<div class="idphotos-user">
+						<a href="#">
+							<img src="img/apply/pc_img_example.png" alt="">
+							<!-- <input type="file" style=""> -->
+						</a>
+						<p>样例</p>
+					</div>
+					<div class="idphotos-user">
+						<p class="acount">
+							1. 必须本人持本人身份证照片；<br>
+							2. 确保身份证上的信息没有被遮挡；<br>
+							3. 避免证件与头部重叠；<br>
+							4. 确保身份证内容完整清晰可见；
+						</p>
+					</div>
+				</div>
+				<div class="clearfix con-one"> 
+					<span class="one-mark idphotos shop-real"><span>*</span>店铺实景：</span>
+					<div class="clearfix shop-r-r">
+						<div class="idphotos-user">
+							<a href="#">
+								<img src="img/add-goods/ic_picture.png" alt="">
+								<span>点击上传</span>
+								<input type="file" style="">
+							</a>
+							<p style="margin-bottom: 20px;">店铺实景</p>
+						</div>
+						<div class="insert-photos">
+							<a id="newPhoto" href="javascript:">
+								<span><span>+</span>添加照片</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix con-one" style="margin-top: -20px;">
+					<span class="one-mark idphotos"><span>*</span>营业执照：</span>
+					<div class="idphotos-user" style="margin-left: 0;">
+						<a href="#">
+							<img src="img/add-goods/ic_picture.png" alt="">
+							<span>点击上传</span>
+							<input type="file" style="">
+						</a>
+						<p>营业执照</p>
+					</div>
+				</div>
+				<a class="submit" href="javascript:">提交申请</a>
+
+			</div>
+		</div>
+
+		<!-- main right end -->
+
+	</div>
+
+
+
+	<!-- 获取地理位置 经纬度 -->
+	<div id="show" >   
+        <label for="">要查询的地址：</label>
+        <input id="text_" type="text"/>
+        <label style="margin-left: 35px" for="">查询结果(经纬度)：</label>
+        <input id="result_" type="text" />
+        <input id="btn-mapresult" class="btn-mapresult" type="button" value="查询" onclick="searchByStationName();"/>
+        <input id="btn-ok" class="btn-mapresult" type="button" value="确定"/>
+        <div id="container" style=" ">
+        </div>
+    </div>
+
+	<script>
+		$(function(){
+			// 个人认证和企业认证的样式切换
+			$(".right-title a").click(function(){
+				if($(this).hasClass("a_underline")){
+					$(this).siblings().removeClass("a_underline");
+				}
+				else{
+					$(this).addClass("a_underline");
+					$(this).siblings().removeClass("a_underline");
+				}
+			});
+			// 添加图片
+			var count=1;
+			$("#newPhoto").click(function(){
+				count++;
+				$(this).parent().before('<div id="pic" class="idphotos-user"><a href="#"><img src="img/add-goods/ic_picture.png" lt=""><span>点击上传</span><input type="file" style=""></a><p style="margin-bottom:20px;">店铺实景</p></div>');
+				if(count%4==0){
+					// $(this).attr("margin-top","0");
+					document.getElementById("newPhoto").style.marginTop="0";
+				}
+				else{
+					// $(this).attr("margin-top","120px");
+					document.getElementById("newPhoto").style.marginTop="120px";
+				}
+			});
+			//弹窗 地图获取经纬度
+			$("#map-get").click(function(){
+				showmap();
+			});
+			function showmap(){
+				index=layer.open({
+					type: 1, 
+					title:false,
+					shadeClose:true,
+					area: ['920px', '500px'],
+					content: $('#show'),
+				})
+			};
+			//把经纬度从地图上放到input
+			$("#btn-ok").click(function(){
+				$("#map-get").val($("#result_").val());
+				layer.close(index);
+			});
+		});
+
+		//百度地图的使用：http://www.cnblogs.com/jianglan/archive/2013/05/31/3108646.html
+	    var map = new BMap.Map("container");
+	    map.centerAndZoom("宁波", 12);
+	    map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+	    map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+
+	    map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+	    map.addControl(new BMap.OverviewMapControl()); //添加默认缩略地图控件
+
+	    var localSearch = new BMap.LocalSearch(map);
+	    localSearch.enableAutoViewport(); //允许自动调节窗体大小
+		function searchByStationName() {
+		    map.clearOverlays();//清空原来的标注
+		    var keyword = document.getElementById("text_").value;
+		    localSearch.setSearchCompleteCallback(function (searchResult) {
+				var poi = searchResult.getPoi(0);
+				document.getElementById("result_").value =poi.point.lng + " , " + poi.point.lat;
+		        map.centerAndZoom(poi.point, 13);
+		        var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  //建标注，为要查询的地方对应的经纬度
+		        map.addOverlay(marker);
+		        var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
+		        var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + content + "</p>");
+		        marker.addEventListener("click", function () { this.openInfoWindow(infoWindow); });
+		        // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+		    });
+		    localSearch.search(keyword);
+		}
+	</script>
+
+</body>
+</html>

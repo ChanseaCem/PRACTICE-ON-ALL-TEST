@@ -1,0 +1,97 @@
+
+
+.red{
+	color: #dd3a59!important;
+}
+
+
+.che{
+	border-radius: 0.05rem;
+    padding: 0.2rem 0.15rem;
+    box-sizing: border-box;
+}
+.list{
+	height: 1.8rem;
+	background-color: #272840;
+	border-radius: 0.05rem;
+	padding: 0.18rem 0.15rem;
+	box-sizing: border-box;
+	margin-bottom: 0.15rem;
+}
+.list .l-t{
+	font-family: PingFang-SC-Regular;
+	color: #a3afcc;
+}
+.list .l-t img{
+	display: block;
+	float: left;
+	width: 0.14rem;
+	height: 0.14rem;
+	margin-top: 0.04rem;
+	/*margin-right: 0.05rem;*/
+}
+.list .l-t .time{
+	display: block;
+	float: right;
+	font-family: PingFang-SC-Regular;
+	font-size: 0.12rem;
+	color: #a3afcc;
+    margin-top: 0.05rem;
+}
+.list .l-t .l-buy{
+    display: block;
+    float: left;
+	font-family: PingFang-SC-Bold;
+	font-size: 0.13rem;
+    line-height: 0.13rem;
+	color: #92d58b;
+    margin:0.05rem 0.04rem;
+}
+.list .l-t .l-name{
+    display: block;
+    float: left;
+	font-family: PingFang-SC-Medium;
+	font-size: 0.17rem;
+	color: #ffffff;
+    width: 0.65rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 0.05rem;
+}
+
+.list .l-c>div{
+	width: 50%;
+	float: left;
+	font-family: PingFang-SC-Regular;
+	font-size: 0.12rem;
+	padding-top: 0.1rem;
+}
+.list .l-c>div p:nth-child(1){
+	color: #a3afcc;
+	line-height: 0.32rem;
+}
+.list .l-c>div p:nth-child(2){
+	color: #ffffff;
+}
+.list .l-c .c-l{
+	text-align: left;
+}
+.list .l-c .c-r{
+	text-align: right;
+}
+.list .l-c .d-r>div{
+	float: right;
+    width: 0.6rem;
+	height: 0.3rem;
+	border-radius: 0.05rem;
+	border: solid 0.01rem #f5fa6c;
+	box-sizing: border-box;
+	margin-top: 0.15rem;
+	margin-right: 0;
+	font-family: PingFang-SC-Regular;
+	font-size: 0.12rem;
+	color: #ffffff;
+	text-align: center;
+	line-height: 0.3rem;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-3.1.1.js"></script>
+
+	<script>
+		$("#city_5").citySelect({
+			url:{"citylist":[
+				{"p":"前端课程","c":[{"n":"HTML5"},{"n":"CSS3","a":[{"s":"HTML"},{"s":"AJAX"}]},{"n":"JSON"}]},
+				{"p":"编程语言","c":[{"n":"C"},{"n":"C++"},{"n":"Python"},{"n":"PHP"},{"n":"JAVA"}]},
+				{"p":"数据库","c":[{"n":"Mysql"},{"n":"SqlServer"},{"n":"Oracle"},{"n":"Mssql"}]},
+			]},
+			prov:"",
+			city:"",
+			dist:"",
+			nodata:"none"
+		});
+	</script>
+	<!-- 
+	cityselect:
+	http://www.sucaihuo.com/js/34.html;
+	http://blog.csdn.net/qq_33556185/article/details/50704446 
+	-->
+</head>
+<body>
+            <div class="demo">
+                <h3>自定义下拉选项</h3>
+                <div id="city_5">
+                    <select class="prov"><option value="前端课程">前端课程</option><option value="编程语言">编程语言</option><option value="数据库">数据库</option></select>
+                    <select class="city"><option value="HTML5">HTML5</option><option value="CSS3">CSS3</option><option value="JSON">JSON</option></select>
+                    <select class="dist" style=""><option value="HTML">HTML</option><option value="AJAX">AJAX</option></select>
+                </div>
+            </div> 
+      <!--   <script type="text/javascript">
+          $(function() {
+              $("#city_1").citySelect({
+                  nodata: "none",
+                  required: false
+              });
+              $("#city_2").citySelect({
+                  prov: "南京",
+                  nodata: "none"
+              });
+      
+              $("#city_3").citySelect({
+                  prov: "江苏",
+                  city: "南京"
+              });
+              $("#city_4").citySelect({
+                  prov: "江苏",
+                  city: "南京",
+                  dist: "玄武区南京",
+                  nodata: "none"
+              });
+      
+              $("#city_5").citySelect({
+                  url: {"citylist": [
+                          {"p": "前端课程", "c": [{"n": "HTML5"}, {"n": "CSS3", "a": [{"s": "HTML"}, {"s": "AJAX"}]}, {"n": "JSON"}]},
+                          {"p": "编程语言", "c": [{"n": "C"}, {"n": "C++"}, {"n": "Python"}, {"n": "PHP"}, {"n": "JAVA"}]},
+                          {"p": "数据库", "c": [{"n": "Mysql"}, {"n": "SqlServer"}, {"n": "Oracle"}, {"n": "Mssql"}]},
+                      ]},
+                  prov: "",
+                  city: "",
+                  dist: "",
+                  nodata: "none"
+              });
+          });
+      </script> -->
+    
+</body>
+</html>

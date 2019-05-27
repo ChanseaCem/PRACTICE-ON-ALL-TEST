@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {margin: 0px;padding: 0px;}
+		ul{margin:auto;width: 900px;line-height: 100px;height: 100px;}
+		ul li{float: left;list-style:none;margin:0 10px;font-family:微软雅黑;padding-left:  }
+		/*如果需要居中用margin，必须要有一个宽度*/
+		ol{margin:auto;width: 1000px;display: none;}
+		ol li{float: left;list-style:none;margin:0 10px;font-family:微软雅黑; }
+		ul li:hover{color: blue;cursor:pointer;}
+
+		.box{border-top:1px solid #ccc;width: 100%;display: none;}
+	</style>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script>
+	// eq():根据已知的编号index进行查找
+	// index()
+		$(function(){
+		// jQuery(document).ready(function($){
+			$("ul li").click(function(){
+				// alert(1);
+				var nth=$(this).index();//获取当前点击的编号index
+				$("ol").eq(nth).show().siblings().hide();
+			});
+			$("ul").hover(function(){
+				//鼠标覆盖发生的动作
+				// alert(11);
+				$(".box").slideDown();
+			},function(){
+				//鼠标离开发生的动作
+				$(".box").slideUp();
+			});
+			                var dpi = window.devicePixelRatio;//获取屏幕分辨率
+				var windowwidth = $(window).width() / dpi;//用系统返回宽度除以分辨率。
+				var windowheight = $(window).height() / dpi;//用系统返回宽度除以分辨率。
+				var documentwidth = $(document).width() / dpi;//用系统返回宽度除以分辨率。
+				var documentheight = $(document).height() / dpi;//用系统返回宽度除以分辨率。
+
+			var width = $(window).width();
+			var height=$(window).height();
+			alert("width:"+width+" ,height:"+height+'\n'
+				+"windowwidth:"+windowwidth+" ,windowheight:"+windowheight+" ,dpi:"+dpi+'\n'
+				+"documentwidth:"+documentwidth+" ,documentwidth"+documentheight);
+		})
+	</script>
+</head>
+<body>
+	<ul>
+		<li>DocumentDocument1</li>  <!--0-->
+		<li>Document2</li>			<!--1-->
+		<li>Document3</li>			<!--2-->
+		<li>Document4</li>			<!--3-->
+		<li>Document5</li>			<!--4-->
+		<li>Document6</li>			<!--5-->
+	</ul>
+	<div class="box">
+		<ol>                        <!--0-->
+			<li>1<img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+		</ol>
+		<ol>                        <!--1-->
+			<li>2<img src="img/classify_img_commodity2.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+		</ol>
+		<ol>                        <!--2-->
+			<li>3<img src="img/classify_img_commodity3.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+		</ol>
+		<ol>                        <!--3-->
+			<li>4<img src="img/classify_img_commodity2.png" alt=""></li>
+			<li><img src="img/classify_img_commodity2.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+		</ol>
+		<ol>                        <!--4-->
+			<li>5<img src="img/classify_img_commodity3.png" alt=""></li>
+			<li><img src="img/classify_img_commodity3.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+		</ol>
+		<ol>                        <!--5-->
+			<li>6<img src="img/classify_img_commodity2.png" alt=""></li>
+			<li><img src="img/classify_img_commodity2.png" alt=""></li>
+			<li><img src="img/classify_img_commodity2.png" alt=""></li>
+			<li><img src="img/classify_img_commodity2.png" alt=""></li>
+			<li><img src="img/classify_img_commodity2.png" alt=""></li>
+			<li><img src="img/classify_img_commodity2.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+			<li><img src="img/classify_img_commodity1.png" alt=""></li>
+		</ol>
+	</div>
+	
+</body>
+</html>

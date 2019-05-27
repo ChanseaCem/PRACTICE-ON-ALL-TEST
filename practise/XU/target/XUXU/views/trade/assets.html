@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的资金</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" href="css/assets.css">
+
+</head>
+
+<body>
+
+    <!-- 主要内容开始 -->
+
+    <div class="cont_header"> 
+        <div class="header_bj">
+            <p class="header_img">
+                <img class="lazy" src="img/money/android/drawable-xhdpi/wdzc_icon_money.png" alt="">
+                <span>总估值</span>
+            </p>
+            <!-- <div class="header_text">
+                <span class="text1">368.21<span class="text2">CNY</span></span>
+            </div> -->
+            <div class="h-con">
+                <p class="c-num clearfix">
+                    <span class="text1 num-txt">1234.21</span>
+                    <span class="num-name">CBNY</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <ul class="contMain">
+        <li onclick="window.location.href='assetDetails.html'">
+            <div class="contMain_div">
+                <img class="lazy" src="img/common/virtualCur/android/drawable-xhdpi/BAT.png" alt="">
+                <span>BAT</span>
+            </div>
+            <p class="contMain_p">
+                <span class="contMain_pText1 clearfix">0.00129</span>
+                <span class="contMain_pText2">≈¥1.1122</span>
+            </p>
+        </li>
+        <li onclick="window.location.href='assetDetails.html'">
+            <div class="contMain_div">
+                <img class="lazy" src="img/common/virtualCur/android/drawable-xhdpi/NXT.png" alt="">
+                <span>NXT</span>
+            </div>
+            <p class="contMain_p">
+                    <span class="contMain_pText1 clearfix">0.03578</span>
+                    <span class="contMain_pText2">≈¥1.1122</span>
+                </p>
+        </li>
+       <!--  <li>
+            <div class="contMain_div">
+                <img src="img/common/virtualCur/android/drawable-xhdpi/MCO.png" alt="">
+                <span>MCO</span>
+            </div>
+            <p class="contMain_p">
+                <span class="contMain_pText1 clearfix">0.00129</span>
+                <span class="contMain_pText2">≈¥1.1952</span>
+            </p>
+        </li>
+        <li>
+            <div class="contMain_div">
+                <img src="img/common/virtualCur/android/drawable-xhdpi/LSK.png" alt="">
+                <span>LSK</span>
+            </div>
+            <p class="contMain_p">
+                <span class="contMain_pText1 clearfix">0.00129</span>
+                <span class="contMain_pText2">≈¥1.1952</span>
+            </p>
+        </li>
+        <li>
+            <div class="contMain_div">
+                <img src="img/common/virtualCur/android/drawable-xhdpi/DGD.png" alt="">
+                <span>ETH</span>
+            </div>
+            <p class="contMain_p">
+                <span class="contMain_pText1 clearfix">0.00129</span>
+                <span class="contMain_pText2">≈¥1.1952</span>
+            </p>
+        </li>
+        <li>
+            <div class="contMain_div">
+                <img src="img/common/virtualCur/android/drawable-xhdpi/DGD.png" alt="">
+                <span>REP</span>
+            </div>
+            <p class="contMain_p">
+                <span class="contMain_pText1 clearfix">0.00129</span>
+                <span class="contMain_pText2">≈¥1.1952</span>
+            </p>
+        </li> -->
+    </ul>
+    <!-- 主要内容 结束 -->
+
+
+    <!-- 导航底部开始 -->
+    <div class="footer">
+        <div class="footer-normal" tag="0">
+            <a href="index.html">
+                <img class="lazy" src="img/common/tab/android/drawable-xhdpi/tab_icon_home.png"> 首页
+            </a>
+        </div>
+        <div class="footer-normal" tag="1">
+            <a href="market.html">
+                <img class="lazy" src="img/common/tab/android/drawable-xhdpi/tab_icon_business.png"> 市场
+            </a>
+        </div>
+        <div class="footer-normal" tag="2">
+            <a href="transaction.html">
+                <img class="lazy" src="img/common/tab/android/drawable-xhdpi/tab_icon_trade.png"> 交易
+            </a>
+        </div>
+        <div class="footer-normal  active" tag="3">
+            <a href="javascript:void(0)">
+                <img class="lazy" src="img/common/tab/android/drawable-xhdpi/tab_icon_money_select.png"> 资金
+            </a>
+        </div>
+        <div class="footer-normal" tag="3">
+            <a href="personal.html">
+                <img class="lazy" src="img/common/tab/android/drawable-xhdpi/tab_icon_my.png"> 我的
+            </a>
+        </div>
+    </div>
+    <!-- 底部 结束 -->
+
+    <!-- js -->
+    <script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/plugins/lazyload/jquery.lazyload.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            //懒加载
+            $("img.lazy").lazyload({threshold: 200, effect: "fadeIn"});
+
+            //居中
+            var width_screen = window.screen.width;
+            if(width_screen<321){
+                $(".c-num").css({"margin-left":-($(".c-num").width()/200)+"rem"});
+            }else if(width_screen>=321&&width_screen<=375){
+                $(".c-num").css({"margin-left":-($(".c-num").width()/220)+"rem"});
+            }else if(width_screen>=376&&width_screen<=414){
+                $(".c-num").css({"margin-left":-($(".c-num").width()/240)+"rem"});
+            }else if(width_screen>=414&&width_screen<=639){
+                $(".c-num").css({"margin-left":-($(".c-num").width()/280)+"rem"});
+            }else if(width_screen>=640&&width_screen<=719){
+                $(".c-num").css({"margin-left":-($(".c-num").width()/400)+"rem"});
+            }else if(width_screen>=720&&width_screen<=749){
+                $(".c-num").css({"margin-left":-($(".c-num").width()/450)+"rem"});
+            }else if(width_screen>=750&&width_screen<=799){
+                $(".c-num").css({"margin-left":-($(".c-num").width()/470)+"rem"});
+            }else if(width_screen==800){
+                $(".c-num").css({"margin-left":-($(".c-num").width()/500)+"rem"});
+            }
+        });
+    </script>
+</body>
+
+</html>

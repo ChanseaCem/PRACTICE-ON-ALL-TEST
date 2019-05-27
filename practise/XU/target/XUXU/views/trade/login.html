@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+
+</head>
+<body>
+
+    <!-- 头部开始 -->
+    <div class="header">
+        <div class="header-left">
+            <span><img src="img/login/android/drawable-xhdpi/icon_close.png"></span>
+        </div>
+        <div class="header-center">
+            <!-- 文字标题 -->
+            <span>登录</span>
+        </div>
+        <div class="header-right" onclick="window.location.href='register.html'">
+            <span>注册</span>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 主要内容开始 -->
+    <div class="main">
+    	<div class="con">
+			<p>账号</p>
+			<input type="text" placeholder="请输入账号">
+    	</div>
+    	<div class="con">
+			<p>密码</p>
+			<input type="password" placeholder="请输入密码">
+    	</div>
+    	<div class="con">
+    		<div class="btn" id="login">登录</div>
+    	</div>
+    </div>
+    <!-- 主要内容 结束 -->
+
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/plugins/layer/layer_mobile.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/common.js?v=1.0"></script>
+	<script type="text/javascript" charset="utf-8" src="js/login.js"></script>
+	<script type="text/javascript">
+		jQuery(function($){
+
+		});
+	</script>
+</body>
+</html>

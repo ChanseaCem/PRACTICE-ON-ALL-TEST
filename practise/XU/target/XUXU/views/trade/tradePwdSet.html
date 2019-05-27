@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设置交易密码</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/plugins/layer/layer.css">
+    <link rel="stylesheet" type="text/css" href="css/tradePwdSet.css">
+
+</head>
+<body>
+
+    <!-- 头部开始 -->
+    <div class="header">
+        <div class="header-left" onclick="window.location.href='javascript:history.go(-1)'">
+            <span><img src="img/common/others/android/drawable-xhdpi/icon_back.png"></span>
+        </div>
+        <div class="header-center">
+            <!-- 文字标题 -->
+            <span>设置交易密码</span>
+        </div>
+        <div class="header-right">
+            <span style="font-size: 0.16rem;">完成</span>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 主要内容开始 -->
+
+        <ul>
+            <li class="">
+                <span>旧密码</span>
+                <input type="password" placeholder="请填写旧密码" id="ps">
+            </li>
+            <li>
+                <span>新密码</span>
+                <input type="password" placeholder="请填写新密码">
+            </li>
+            <li>
+                <span>确认新密码</span>
+                <input type="password" placeholder="请再次填写新密码">
+            </li>
+        </ul>
+        <div class="tishi">
+                密码必须至少8个字符，而且同时包含字母和数字。
+        </div>
+        <div class="forgetpassword">
+                <span>忘记旧密码？</span>
+        </div>
+    <!-- 主要内容 结束 -->
+    <!-- 弹窗 -->
+        
+            <div class="l" style="display: none">
+                <div class="l1">
+                        你的账号已经绑定手机号，
+                        可通过短信验证码重置登陆密码。即将发送验证码到13720001316
+                </div>
+                <div class="l2 ok">
+                        确定
+                </div>
+                <div class="l3" onclick="btnc()">
+                    取消
+                </div>
+            </div>
+        
+    <!-- 弹窗结束 -->
+
+	<!-- js -->
+    <script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/plugins/layer/layer_mobile.js"></script>
+	<script type="text/javascript">
+        function btnc(){
+            layer.closeAll();
+        };
+    $(function () {
+        $('.forgetpassword span').click(function () {
+            layer.open({
+                content: $('.l').html(),
+                className: 'layer-center-t1',
+                success:function(){
+                    $(".ok").on("click",function(){
+                        window.location.href="verificationCode.html";
+                    });
+                }
+            });
+        });
+    });
+	</script>
+</body>
+</html>

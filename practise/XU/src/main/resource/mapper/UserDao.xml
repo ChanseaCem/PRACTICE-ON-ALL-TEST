@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.xuxu.dao.IUserDao">
+
+    <select id="selectUser" resultType="BaseUser" parameterType="long">
+        SELECT * FROM base_user WHERE id = #{id}
+    </select>
+
+    <select id="userLogin" resultType="BaseUser" parameterType="String">
+        SELECT * FROM `base_user` WHERE  username=#{name} and password=#{password}
+    </select>
+
+    <select id="getCode" parameterType="Integer" resultType="Integer">
+       SELECT count(*) FROM `base_user` where tel = #{tel}
+    </select>
+
+    <select id="getProfile" parameterType="Integer" resultType="String">
+       SELECT imgurl FROM `profile` where id = #{id}
+    </select>
+    <!--<select id="selectTeacher" parameterType="Map" resultType="com.myapp.domain.Teacher">
+       select * from Teacher where c_id=#{id} and sex=#{sex}
+  </select>-->
+
+</mapper>

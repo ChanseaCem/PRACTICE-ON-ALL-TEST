@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片按原比例显示</title>
+</head>
+<body>
+
+<style>
+div.first{
+	width: 100px;
+	height: 100px;
+	position: relative;
+	border:1px solid;
+}
+.first img{
+	max-width: 100%;
+	max-height:100%;
+	/*height: auto;*/
+	margin:auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+</style>
+	<h2>第一种</h2>
+	<div class="first">
+		<img style="" src="../img/taobao-test/head_level1.png" alt="">
+	</div>
+	<div class="first">
+		<img style="" src="../img/taobao-test/1.png" alt="">
+	</div>
+	<div class="first">
+		<img style="" src="../img/taobao-test/head-dropdown-birdthdaytip.png" alt="">
+	</div>
+	<div class="first">
+		<img style="" src="../img/taobao-test/head_erweima.png" alt="">
+	</div>
+	<hr>
+
+
+<style>
+div.second{
+	width: 100px;
+	height: 0;
+	padding-bottom: 100%;
+	position: relative;
+	border:1px solid;
+}
+.second img{
+	max-width: 100%;
+	max-height:100%;
+	height: auto;
+	margin:auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+</style>
+	<h2>第二种</h2>
+	<div class="wai" style="height: 200px;">
+		<div class="second">
+			<img style="" src="../img/taobao-test/head_level1.png" alt="">
+		</div>
+	</div>
+		<div class="second">
+			<img style="" src="../img/taobao-test/1.png" alt="">
+		</div>
+		<div class="second">
+			<img style="" src="../img/taobao-test/head-dropdown-birdthdaytip.png" alt="">
+		</div>
+		<div class="second">
+			<img style="" src="../img/taobao-test/head_erweima.png" alt="">
+		</div>
+	<hr>
+
+</body>
+</html>

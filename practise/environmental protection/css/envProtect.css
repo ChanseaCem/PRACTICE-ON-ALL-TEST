@@ -1,0 +1,38 @@
+
+.con-article{
+	padding: 0 100px;
+	margin:auto;
+}
+.con-article .art-tt{
+	font-size: 18px;
+	font-weight:bold;
+}
+.con-article .art-tt2 span:first-child{
+	display: block;
+	float: left;
+}
+.con-article .art-tt2 span:last-child{
+	display: block;
+	float: right;
+	cursor: pointer;
+}
+.con-article .art-hr{
+	margin: 0;
+}
+
+.con-article .art-hr span:first-child{
+	font-family: arial; 
+	font-size: 20px;
+	color: rgb(113, 191, 29);
+}
+.con-article .art-con>p{
+	text-indent: 2em;
+}
+.con-article .art-con .fl{
+	float: left;
+	margin:15px;
+}
+.con-article .art-con .fr{
+	float: right;
+	margin:15px;
+}

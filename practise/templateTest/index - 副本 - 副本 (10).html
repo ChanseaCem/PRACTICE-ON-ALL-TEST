@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+
+	</head>
+
+	<body>
+		<style>
+
+		</style>
+		<div class="wrap">
+			<div class="inputBoxContainer" id="inputBoxContainer">
+				<input type="text" class="realInput" />
+				<div class="bogusInput">
+					<input type="password" maxlength="6" disabled/>
+					<input type="password" maxlength="6" disabled/>
+					<input type="password" maxlength="6" disabled/>
+					<input type="password" maxlength="6" disabled/>
+					<input type="password" maxlength="6" disabled/>
+					<input type="password" maxlength="6" disabled/>
+				</div>
+			</div>
+			<button id="confirmButton" class="confirmButton">查看</button>
+			<p class="showValue" id="showValue"></p>
+		</div>
+
+		<!-- js -->
+		<script type="text/javascript" charset="utf-8" src="js/jquery-1.11.3.min.js"></script>
+
+		<script type="text/javascript">
+			var container = document.getElementById("inputBoxContainer");
+			boxInput = {
+			maxLength: "",
+			realInput: "",
+			bogusInput: "",
+			bogusInputArr: "",
+			callback: "",
+			init: function(fun) {
+				var that = this;
+				this.callback = fun;
+				that.realInput = container.children[0];
+				that.bogusInput = container.children[1];
+				that.bogusInputArr = that.bogusInput.children;
+				that.maxLength = that.bogusInputArr[0].getAttribute("maxlength");
+				that.realInput.oninput = function() {
+					that.setValue();
+				}
+				that.realInput.onpropertychange = function() {
+					that.setValue();
+				}
+			},
+			setValue: function() {
+				this.realInput.value = this.realInput.value.replace(/\D/g, "");
+				console.log(this.realInput.value.replace(/\D/g, ""))
+				var real_str = this.realInput.value;
+				for(var i = 0; i < this.maxLength; i++) {
+					this.bogusInputArr[i].value = real_str[i] ? real_str[i] : "";
+				}
+				if(real_str.length >= this.maxLength) {
+					this.realInput.value = real_str.substring(0, 6);
+					this.callback();
+				}
+			},
+			getBoxInputValue: function() {
+				var realValue = "";
+				for(var i in this.bogusInputArr) {
+					if(!this.bogusInputArr[i].value) {
+						break;
+					}
+					realValue += this.bogusInputArr[i].value;
+				}
+				return realValue;
+			}
+			}
+			})()
+			boxInput.init(function() {
+				getValue();
+			});
+			document.getElementById("confirmButton").onclick = function() {
+				getValue();
+			}
+
+			function getValue() {
+				document.getElementById("showValue").innerText = boxInput.getBoxInputValue();
+			}
+		</script>
+	</body>
+
+</html>

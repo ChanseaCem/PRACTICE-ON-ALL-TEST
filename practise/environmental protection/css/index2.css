@@ -1,0 +1,61 @@
+
+.header{
+	height: 100px;
+    background: #eee;
+    min-width: 1000px;
+    box-shadow: 0 10px 10px #dedede;
+}
+.header .header-left{
+	float: left;
+	width: 30%;
+    text-align: center;
+    line-height: 100px;
+}
+.header .header-right{
+	float: right;
+	width: 70%;
+    text-align: right;
+}
+
+.header .header-right .right-top{
+	height: 20px;
+    padding: 10px;
+}
+.header .header-right .right-top img{
+	margin-right: 5px;
+	width: 16px;
+}
+.header .header-right .right-bottom{
+	padding-right: 10px;
+}
+.header .header-right .right-bottom>div{
+	float: right;
+	width: 500px;
+	height: 40px;
+	border: 2px solid #83D667;
+}
+.header .header-right .right-bottom input{
+	float: right; 
+	width: 80%; 
+	height: 40px; 
+	line-height: 36px; 
+	padding: 0 15px; 
+	border: none; 
+}
+.header .header-right .right-bottom a { 
+	width: 14%; 
+	background-color: #83D667; 
+	color: #fff; 
+	font-size: 18px; 
+	line-height: 40px; 
+	float: right; 
+	text-align: center; 
+	text-decoration: none;
+}
+.div-swiper{
+	margin-top: 10px;
+}
+.swiper-container img{
+	width: 100%;
+	height: 400px;
+}

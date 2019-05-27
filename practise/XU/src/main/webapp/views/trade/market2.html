@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>市场</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/market2.css">
+
+</head>
+<body>
+
+    <!-- 头部开始 -->
+    <div class="header">
+        <div class="header-left" onclick="window.location.href='#'">
+            <span><img src="img/login/android/drawable-xhdpi/icon_close.png"></span>
+        </div>
+        <div class="header-center">
+            <!-- 文字标题 -->
+            <span>市场</span>
+        </div>
+        <div class="header-right"></div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 导航 开始 -->
+    <div class="nav">
+    	<div class="nav-scr">
+	        <div tag="0">
+	            <span class="active">自选</span>
+	        </div>
+	        <div tag="1">
+	            <span class="" >BTC</span>
+	        </div>
+	        <div tag="2">
+	            <span class="" >ETH</span>
+	        </div>
+	        <div tag="3">
+	            <span class="" >OUR</span>
+	        </div>
+	        <div tag="4">
+	            <span class="" >法币交易</span>
+	        </div>
+    	</div>
+    </div>
+    <!-- 导航 结束 -->
+
+    <!-- 主要内容开始 -->
+    <div class="main">
+	    <ul class="m-last" style="display: none;">
+			<li class="clearfix" onclick="window.location.href='transactionDetails.html'">
+				<div class="li-l clearfix">
+					<img src="img/common/virtualCur/android/drawable-xhdpi/BAT.png" alt="">
+					<span class="l-s1 overh">BAT</span>
+					<span class="l-s2 overh">/ETH</span>
+				</div>
+				<div class="li-r">
+					<p class="r-p1 overh">0.00139</p>
+					<p class="r-p2 overh">≈¥<span>1.1912</span></p>
+				</div>
+			</li>
+	    </ul>
+	    <ul class="m-btc" style="display: none;">
+			<li class="clearfix" onclick="window.location.href='transactionDetails.html'">
+				<div class="li-l clearfix">
+					<img src="img/common/virtualCur/android/drawable-xhdpi/BAT.png" alt="">
+					<span class="l-s1 overh">BAT</span>
+					<span class="l-s2 overh">/ETH</span>
+				</div>
+				<div class="li-r">
+					<span>+18.18%</span>
+				</div>
+				<div class="li-c ">
+					<p class="c-p1 overh">0.00139</p>
+					<p class="c-p2 overh">≈¥<span>1.1912</span></p>
+				</div>
+			</li>
+			<li class="clearfix" onclick="window.location.href='transactionDetails.html'">
+				<div class="li-l clearfix">
+					<img src="img/common/virtualCur/android/drawable-xhdpi/BAT.png" alt="">
+					<span class="l-s1 overh">BAT</span>
+					<span class="l-s2 overh">/ETH</span>
+				</div>
+				<div class="li-r">
+					<span class="change">+18.18%</span>
+				</div>
+				<div class="li-c ">
+					<p class="c-p1 overh change">0.00139</p>
+					<p class="c-p2 overh">≈¥<span>1.1912</span></p>
+				</div>
+			</li>
+	    </ul>
+    </div>
+    <!-- 主要内容 结束 -->
+
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		jQuery(function($){
+			
+			//导航切换
+			$(".nav .nav-scr>div").on("click",function(){
+				$(this).find("span").addClass("active");
+				$(this).siblings("div").find("span").removeClass("active");
+	            var tag = $(this).attr("tag");
+	            console.log(1);
+	            if(tag=="4"){
+	            	$(".m-last").show();
+	            	$(".m-btc").hide();
+	            }else{
+	            	$(".m-last").hide();
+	            	$(".m-btc").show();
+	            }
+			});
+		});
+	</script>
+</body>
+</html>

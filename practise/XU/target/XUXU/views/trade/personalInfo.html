@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>个人资料</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/plugins/layer/layer.css">
+    <link rel="stylesheet" type="text/css" href="css/personalInfo.css">
+
+
+</head>
+
+<body>
+
+    <!-- 头部开始 -->
+    <div class="header">
+        <div class="header-left" onclick="window.location.href='personal.html'">
+            <span>
+                <img src="img/common/others/android/drawable-xhdpi/icon_back.png">
+            </span>
+        </div>
+        <div class="header-center">
+            <!-- 文字标题 -->
+            <span>个人资料</span>
+        </div>
+        <div class="header-right">
+            <span></span>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+
+
+    <!-- 主要内容开始 -->
+    <div class="touxiang">
+        <div class="sele1">
+            <img src="img/notCertified/android/drawable-xhdpi/smrz_icon_add.png" alt="">
+        </div>
+        <span class="name">Tomcat</span>
+    </div>
+    <div class="main">
+        <div class="main-content">
+            <ul>
+                <li class="clearfix" onclick="window.location.href='setNickname.html'">
+                    <span class="s1">昵称</span>
+                    <img src="img/common/others/android/drawable-xhdpi/icon_skip.png" alt="">
+                    <span class="name s2">Tomcat</span>
+                </li>
+                <li class="clearfix">
+                    <span class="s1">手机号</span>
+                    <img src="img/common/others/android/drawable-xhdpi/icon_skip.png" alt="">
+                    <span class="s2" id="tel">13720001316</span>
+                </li>
+                <li class="clearfix" onclick="window.location.href='loginPwdSet.html'">
+                    <span class="s1">登录密码</span>
+                    <img src="img/common/others/android/drawable-xhdpi/icon_skip.png" alt="">
+                    <span class="s2"></span>
+                </li>
+                <li class="clearfix" onclick="window.location.href='tradePwdSet.html'">
+                    <span class="s1">交易密码</span>
+                    <img src="img/common/others/android/drawable-xhdpi/icon_skip.png" alt="">
+                    <span class="s2"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主要内容 结束 -->
+
+    <!-- 弹窗 -->
+    <div class="g-ly" style="display: none;">
+        <div class="m-ly">
+            <div class="u-t bd">
+                <span class="" onclick="">拍照</span>
+
+            </div>
+            <div class="u-t bd">
+                <span class="" onclick="">从手机相册中选择</span>
+            </div>
+        </div>
+        <div class="m-ly" style="margin-top: 0.1rem">
+            <div class="u-t" onclick="layer.closeAll()">
+                <span>取消</span>
+            </div>
+        </div>
+    </div>
+    <!-- 弹窗 end -->
+
+    <input id="img_utl" style="display: none"/>
+    <input type="file" class="upload-pic up_file hide" id="file1" name="file" accept='image/*' style="display: none">
+
+
+
+    <!-- js -->
+    <script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/plugins/layer/layer_mobile.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/common.js?v=1.0"></script>
+    <script type="text/javascript" charset="utf-8" src="js/personalInfo.js"></script>
+</body>
+
+</html>

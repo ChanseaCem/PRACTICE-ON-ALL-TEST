@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<style>
+			.td1 {
+				text-align: center;
+			}
+			
+			.td2 {
+				padding: 0 0.05rem;
+			}
+			
+			html {
+				font-size: 40px;
+			}
+			
+			.chosen-container {
+				overflow: auto;
+			}
+			
+			.chosen-swiper {
+				display: -moz-box;
+				/*Firefox*/
+				display: -webkit-box;
+				/*Safari,Opera,Chrome*/
+				display: box;
+				/*display: flex;/*发现他也可以但是好多移动端浏览器不支持，唉！浏览器厂家难为咱们前端啊*/
+				*/
+			}
+			
+			.chosen-swiper a {
+				width: 8rem;
+				height: 10.2rem;
+				padding: 1.5rem;
+				text-align: center;
+				border-radius: 0.35rem;
+				margin-left: 0.5rem;
+				background: #efefef;
+				color: #000;
+				text-decoration: none;
+				display: block!important;
+			}
+			
+			.chosen-swiper a:first-child {
+				margin-left: inherit;
+			}
+			
+			.chosen-swiper p {
+				font-size: 0.8rem;
+				margin: 0.4em 0;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			
+			.icon-swiper {
+				width: 3rem;
+				height: 3rem;
+				border-radius: 1.5rem;
+				display: block;
+				margin: 0 auto;
+			}
+			
+			.chosen-swiper .button {
+				color: #FF4B4A;
+				line-height: 1.5rem;
+				height: 1.5rem;
+				margin-top: 0.7rem;
+				border: 1px solid #FF4B4A;
+				text-align: center;
+				border-radius: 0.25rem;
+				font-size: 0.7rem;
+				background: none;
+				width: 100%;
+			}
+			
+			.slide-box {
+				margin-top: 200px;
+				display: -webkit-box;
+				overflow-x: scroll;
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.slide-item {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #ccc;
+				margin-right: 30px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<!--向左滚动代码-->
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="td1" width="50" 公告的宽度="" height="20" style="color:#33CCCC">公告
+				</td>
+				<td class="td2" height="30">
+					<marquee scrollamount="10" 速度="" style="color:#33CCCC" 颜色="">
+						欢迎访问，如有意见建议请到社区留言反馈给我们！
+					</marquee>
+				</td>
+			</tr>
+		</table>
+        <marquee scrollamount="10" 速度="" style="color:#33CCCC" 颜色="">
+            欢迎访问，如有意见建议请到社区留言反馈给我们！
+        </marquee>
+
+		<!-- <div class="chosen-container">
+			<div class="chosen-swiper">
+				<a href="">
+					<img class="icon-swiper" src="/static/images/icon/placeholder.png" alt="头像">
+					<p>论坛昵称</p>
+					<p>个性签名字多的话用省略号显示</p>
+					<input type="button" class="button" value="查看">
+				</a>
+				<a href="">
+					<img class="icon-swiper" src="/static/images/icon/placeholder.png" alt="头像">
+					<p>论坛昵称</p>
+					<p>个性签名字多的话用省略号显示</p>
+					<input type="button" class="button" value="查看">
+				</a>
+				<a href="">
+					<img class="icon-swiper" src="/static/images/icon/placeholder.png" alt="头像">
+					<p>论坛昵称</p>
+					<p>个性签名字多的话用省略号显示</p>
+					<input type="button" class="button" value="查看">
+				</a>
+				<a href="">
+					<img class="icon-swiper" src="/static/images/icon/placeholder.png" alt="头像">
+					<p>论坛昵称</p>
+					<p>个性签名字多的话用省略号显示</p>
+					<input type="button" class="button" value="查看">
+				</a>
+				<a href="">
+					<img class="icon-swiper" src="/static/images/icon/placeholder.png" alt="头像">
+					<p>论坛昵称</p>
+					<p>个性签名字多的话用省略号显示</p>
+					<input type="button" class="button" value="查看">
+				</a>
+				<a href="">
+					<img class="icon-swiper" src="/static/images/icon/placeholder.png" alt="头像">
+					<p>论坛昵称</p>
+					<p>个性签名字多的话用省略号显示</p>
+					<input type="button" class="button" value="查看">
+				</a>
+				<a href="">
+					<img class="icon-swiper" src="/static/images/icon/placeholder.png" alt="头像">
+					<p>论坛昵称</p>
+					<p>个性签名字多的话用省略号显示</p>
+					<input type="button" class="button" value="查看">
+				</a>
+				<a href="">
+					<img class="icon-swiper" src="/static/images/icon/placeholder.png" alt="头像">
+					<p>论坛昵称</p>
+					<p>个性签名字多的话用省略号显示</p>
+					<input type="button" class="button" value="查看">
+				</a>
+			</div>
+		</div> -->
+
+		<div style="overflow: auto;">
+			<div style="display: -webkit-box">
+				<div style="width: 100px;height: 100px;border: 1px solid;margin-left: 10px;display: block;"></div>
+				<div style="width: 100px;height: 100px;border: 1px solid;margin-left: 10px;display: block;"></div>
+				<div style="width: 100px;height: 100px;border: 1px solid;margin-left: 10px;display: block;"></div>
+				<div style="width: 100px;height: 100px;border: 1px solid;margin-left: 10px;display: block;"></div>
+				<div style="width: 100px;height: 100px;border: 1px solid;margin-left: 10px;display: block;"></div>
+				<div style="width: 100px;height: 100px;border: 1px solid;margin-left: 10px;display: block;"></div>
+				<div style="width: 100px;height: 100px;border: 1px solid;margin-left: 10px;display: block;"></div>
+				<div style="width: 100px;height: 100px;border: 1px solid;margin-left: 10px;display: block;"></div>
+				<div style="width: 100px;height: 100px;border: 1px solid;margin-left: 10px;display: block;"></div>
+				<div style="width: 100px;height: 100px;border: 1px solid;margin-left: 10px;display: block;"></div>
+				<div style="width: 100px;height: 100px;border: 1px solid;margin-left: 10px;display: block;"></div>
+			</div>
+		</div>
+
+		<div class="slide-box">
+			<div class="slide-item"></div>
+			<div class="slide-item"></div>
+			<div class="slide-item"></div>
+			<div class="slide-item"></div>
+			<div class="slide-item"></div>
+		</div>
+
+
+
+        <div id=maq style=overflow:hidden;height:100px;width:150px;>
+            <div id=mtext>
+                1.文字也是可以连续滚动的<br> 
+                2.文字也是可以连续滚动的<br> 
+                3.文字也是可以连续滚动的<br> 
+            </div>
+            <div id=m0></div>
+        </div>
+
+		<!-- js -->
+		<script type="text/javascript" charset="utf-8" src="js/jquery-1.11.3.min.js"></script>
+
+		<script>
+			jQuery(function($) {
+
+				var speed = 10 //调整滚动速度  
+				m0.innerHTML = mtext.innerHTML
+
+				function Marquee() {
+					if(m0.offsetTop - maq.scrollTop <= 0)
+						maq.scrollTop -= mtext.offsetHeight
+					else {
+						maq.scrollTop++
+					}
+				}
+				var MyMar = setInterval(Marquee, speed)
+				maq.onmouseover = function() {
+					clearInterval(MyMar)
+				}
+				maq.onmouseout = function() {
+					MyMar = setInterval(Marquee, speed)
+				}
+			});
+		</script>
+	</body>
+
+</html>

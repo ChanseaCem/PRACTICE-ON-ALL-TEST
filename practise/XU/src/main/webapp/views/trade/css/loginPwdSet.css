@@ -1,0 +1,105 @@
+/* loginPwdSet */
+ul{
+    margin-top: 0.15rem;
+}
+ul li{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    margin-bottom: 0.05rem;
+    background-color: #2f304d;
+
+}
+ul li:last-child{
+    margin-bottom: 0rem;
+}
+ul li span{
+    font-family: PingFang-SC-Medium;
+	font-size: 0.16rem;
+    color: #ffffff;
+    padding-left: 0.14rem;
+}
+ul li input{
+    height: 0.16rem;
+    background-color: #2f304d;
+    padding-left: 0.25rem;
+    color: #ffffff;
+}
+input::-webkit-input-placeholder{
+    color: #666e80;
+}
+.tishi{
+    font-family: PingFang-SC-Medium;
+	font-size: 0.13rem;
+    color: #666e80;
+    height: 0.42rem;
+    line-height: 0.42rem;
+    padding-left: 0.14rem;
+}
+.forgetpassword{
+    padding-left: 0.14rem;
+	height: 0.15rem;
+	font-family: PingFang-SC-Medium;
+	font-size: 0.13rem;
+	color: #f5fa6c;
+}
+/* 弹窗 */
+.l{
+    width: 74%;
+	height: 2.79rem;
+	background-color: #ffffff;
+	border-radius: 0.15rem;
+    border: solid 0.01rem #ffffff;
+    margin: auto;
+    position: absolute;
+    left: 13%;
+    top: 1.5rem;
+    text-align: justify;
+}
+.l1{
+    height: 1.8rem;
+
+    
+    box-sizing: border-box!important;
+    padding: 0.33rem 0.32rem 0.48rem 0.32rem;
+
+    font-family: PingFang-SC-Heavy;
+	font-size: 0.17rem;
+	line-height: 0.24rem;
+    color: #666e80;
+
+    
+}
+.l2{
+    height: 0.49rem;
+    font-family: PingFang-SC-Heavy;
+	font-size: 0.18rem;
+    color: #191b2a;
+    line-height: 0.49rem;
+    text-align: center;
+    border-top: solid 0.01rem #cccccc;
+    
+}
+.l3{
+    text-align: center;
+    font-family: PingFang-SC-Heavy;
+	font-size: 0.18rem;
+    color: #191b2a;
+    border-top: solid 0.01rem #cccccc;
+    height: 0.5rem;
+    line-height: 0.5rem;
+}
+/* .layer-center-t1{
+    width: 2.75rem;
+	height: 2.79rem;
+	background-color: #ffffff;
+	border-radius: 0.15rem;
+    border: solid 0.01rem #ffffff;
+    margin: auto;
+} */
+
+.layui-m-layer0 .layui-m-layerchild {
+    width: 80% !important;
+}
+.layer-center-t1 .layui-m-layercont {
+    padding: 0;
+}

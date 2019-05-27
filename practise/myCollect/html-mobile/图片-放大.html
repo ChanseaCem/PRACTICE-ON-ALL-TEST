@@ -1,0 +1,59 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>图片-放大</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../js/plugins/layer/layer.css">
+
+    <!-- js -->
+    <script type="text/javascript" charset="utf-8" src="../js/plugins/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/plugins/layer/layer_mobile.js"></script>
+</head>
+<body>
+
+    <script>
+    $(function(){
+        
+        /**
+         * 图片点击放大
+         */
+        $(document).on('click', ".imgToMax", function () {
+            var src = $(this).attr("src");
+            var _indexImg = layer.open({
+                content: '<div class="d-img"><img src="' + src + '"></div>',
+                className: "pop-up-show",
+                type:3,
+                success: function (index) {
+                    $(".pop-up-show").css({"width": "100%", "background-color": "transparent"})
+                        .on("click", function () {
+                            layer.close(_indexImg);
+                        })
+                        .find(".d-img").css({ "width": "100%", 
+                            "height": window.screen.height-100,
+                            "line-height": parseInt(window.screen.height-100)+"px", 
+                            "overflow": "scroll"})
+                        .find("img").css({ "width": "100%", "height": "auto"});
+                }
+            });
+        });
+
+    });
+
+    </script>
+    <div class="show">
+    
+        <div class="img">
+            <img class="imgToMax" src="../img/taobao-test/1.png" alt="">
+            <img class="imgToMax" src="../img/test/1.png" alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>

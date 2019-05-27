@@ -1,0 +1,145 @@
+html, body {
+    height: 100%;
+    width: 320px;
+    box-sizing: border-box;
+    margin: auto;
+    position: relative;
+}
+
+html {
+    background-color: #000;
+}
+
+body {
+    background-color: #ccc;
+}
+
+.container {
+    width: 320px;
+}
+
+.div-top {
+    position: absolute;
+    width: 320px;
+    left: 0;
+    padding: 0 5px;
+    height: 31px;
+    line-height: 30px;
+    background-color: #dddddd;
+    border-bottom: 1px solid #dddddd;
+    box-sizing: border-box;
+    &:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+    .left {
+        float: left;
+        img {
+            position: relative;
+            height: 14px;
+        }
+    }
+    .right {
+        float: right;
+    }
+}
+
+#beginPanel {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    width: 320px;
+    height: 100%;
+    text-align: center;
+    background-color: #fff;
+    > span {
+        position: absolute;
+        font-size: 20px;
+        line-height: 100%;
+        top: 50%;
+        margin-top: -20px;
+        margin-left: -3em;
+    }
+    > div {
+        position: absolute;
+        top: 50%;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0 10px;
+            background-color: #73a4cc;
+            color: #fff;
+        }
+    }
+}
+
+#overPanel {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+    width: 200px;
+    height: 100px;
+    background-color: #ffffff;
+    text-align: center;
+    border: 1px solid #ccc;
+    display: none;
+    div {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+canvas {
+    margin: auto;
+    padding-top: 30px;
+    width: 320px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.layui-m-layerchild{
+    background-color: rgba(255,255,255,0.6)!important;
+}
+#frm_introduce {
+    padding: 5px;
+    h2{
+        text-align: center;
+    }
+    img {
+        width: 20px;
+        height: 20px;
+    }
+    > div {
+        margin: 5px 0;
+        > *:first-child {
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+        >span:first-child{
+            display: inline-block;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+#frm_config{
+    padding: 5px 5px 20px 5px;
+    text-align: center;
+    a{
+        display: inline-block;
+        padding: 5px 10px;
+        &.active{
+            background-color: #f00;
+            color: #fff;
+        }
+    }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="../css/mine/index.css">
+	<link rel="stylesheet" type="text/css" href="../css/mine/a.css">
+
+	<style>
+	</style>
+</head>
+<body>
+
+	<!--导航-->
+	<div class="d-nav">
+		<ul class="u-nav">
+			<li class="act"><a href="#">首页</a></li>
+			<li class="li-se">
+				<a href="#">选项</a>
+				<div class="se-d">
+					<div>选项1</div>
+					<div>选项1</div>
+					<div>选项1</div>
+				</div>
+			</li>
+			<li><a href="#">首页</a></li>
+			<li><a href="#">首页</a></li>
+			<li><a href="#">首页</a></li>
+			<li class="u-li-last"><a href="#">关于</a></li>
+		</ul>
+	</div>
+
+	<div class="d-p">
+		<div class="p-pic">
+			<img src="../img/help/toolbar_1.png" alt="">
+			<div class="p-con">提示内容</div>
+		</div>
+	</div>
+
+	<!--排序箭头-->
+	<div class="dire">
+		<div class="d-con">
+			<div class="up"></div>
+			<div class="down"></div>
+		</div>
+		<div class="d-con1">
+			<div class="up"></div>
+			<div class="down"></div>
+		</div>
+	</div>
+
+	<!--拼合图像-->
+	<style>
+		.im{
+			width: 46px;
+			height: 44px;
+			background: url(../img/images/img_navsprites.gif) 0 0;/*background的第一位数表示背景图left距离，第二位表示top距离*/
+		}
+	</style>
+	<div class="">
+		<img class="im" src="../img/images/img_trans.gif" alt="">
+	</div>
+	<!--拼合图像 end -->
+
+	<style>
+		[data-id]{
+			width: 100px;
+			height: 100px;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			background: #ff6600;
+		}
+	</style>
+	<div data-id=""></div>
+
+	<!--dom 标准事件的三个阶段-->
+	<ul id="ul-test">
+		<li id="li-1">11</li>
+		<li id="li-2">22</li>
+		<li id="li-3">33</li>
+		<li id="li-4">44</li>
+		<li id="li-5">55</li>
+	</ul>
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="../js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/mine/test.js"></script>
+
+	<script>
+		jQuery(function($){
+			var a=4;
+			function outerFun()
+			{
+			 //没有var 
+			 a =0;
+			 alert(a);  
+			}
+			outerFun();
+			alert(a);
+
+
+
+
+
+			ii=11110;
+			console.log(ii);
+			$(".u-nav li").on("click",function(){
+				console.log(1);
+				if(!$(this).hasClass("act")){
+					$("li").removeClass("act");
+					$(this).addClass("act");
+				}
+			});
+
+		});
+		function user() {
+			return 1;
+		}
+		user.prototype = {
+			name:function (q, w) {
+				return q+w;
+			},
+			age:112,
+			good:function () {
+				var a = this.age;
+				return a;
+			}
+		};
+		console.log(user.prototype.good());
+
+	</script>
+</body>
+</html>

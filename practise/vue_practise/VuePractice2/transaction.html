@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/transaction.css">
+
+</head>
+<body>
+
+    <!-- 头部开始 -->
+    <div id="transaction-header">
+	    <div class="header">
+	        <div class="header-center">
+            	<span class="center-title" @click="shadowbg_click">{{tt}}</span>
+            	<img class="center-img" src="img/transaction/icon_dropdown.png" alt="" @click="shadowbg_click">
+	        </div>
+	    </div>
+	    <div class="shadowbg" @click="shadowbg_click" v-show="shadowbg" >
+		    <ul class="header-list" @click.stop>
+				<shadowbg-list-p v-for="i in list" v-bind:listp="i" v-bind:key="i" v-on:isshow="datachange(i)"></shadowbg-list-p>
+			</ul>
+	    </div>
+    </div>
+    <!-- 头部结束 -->
+
+
+    <!-- 导航开始 -->
+    <div class="nav">
+    </div>
+    <!-- 导航 结束 -->
+
+    <!-- 主要内容开始 -->
+    <div class="main">
+    </div>
+    <!-- 主要内容 结束 -->
+
+
+	<!-- 导航底部开始 -->
+	<div class="footer">
+	    <div class="footer-normal" tag="0">
+	        <a href="javascript:void(0)">
+	            <img src="">
+	            A
+	        </a>
+	    </div>
+	    <div class="footer-normal" tag="1">
+	        <a href="javascript:void(0)">
+	            <img src="">
+	            B
+	        </a>
+	    </div>
+	    <div class="footer-normal" tag="2">
+	        <a href="javascript:void(0)">
+	            <img src="">
+	            C
+	        </a>
+	    </div>
+	    <div class="footer-normal active" tag="3">
+	        <a href="javascript:void(0)">
+	            <img src="">
+	            D
+	        </a>
+	    </div>
+	</div>
+	<!-- 底部 结束 -->
+
+	<!-- js -->
+	<!-- <script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script> -->
+	<script type="text/javascript" charset="utf-8" src="js/plugins/vue/vue.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/transaction.js"></script>
+	<script type="text/javascript">
+		
+		
+	</script>
+</body>
+</html>

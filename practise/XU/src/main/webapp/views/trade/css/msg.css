@@ -1,0 +1,39 @@
+/* msg */
+.main{
+    width: 100%;
+   
+}
+.main-list{
+    width: 91%;
+    margin: 0 4.5%;
+    
+}
+.main-list ul li{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    border-bottom: solid 0.01rem #2f304d;
+    box-sizing: border-box;
+}
+.main-list span{
+    font-family: PingFang-SC-Regular;
+	font-size: 0.13rem;
+    color: #ffffff;
+}
+.main-list ul li .s1{
+    float: left;
+}
+.main-list ul li .s2{
+    float: right;
+    max-width: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.main-list ul li img{
+    float: right;
+    width: 0.06rem;
+    height: 0.1rem;
+    padding-left: 0.14rem;
+    padding-top: 0.21rem;
+    
+}

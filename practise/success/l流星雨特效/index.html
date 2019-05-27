@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>流星雨特效</title>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<canvas id="canvas1"></canvas>
+	<div style="width: 100px;height: 100px;">
+		<img style="width: 100%;height: 100%;" alt="" />
+	</div>
+	<script>
+		var can=document.getElementById("canvas1");
+		var cxt=can.getContext("2d");//设置绘图环境
+
+		//设置画布宽高
+		var w=canvas1.width=window.screen.width;
+		var h=canvas1.height=window.screen.height;
+
+		//设置画笔颜色
+		// cxt.fillStyle="#fff";
+		// cxt.strokeStyle="#fff";
+
+		//绘制一个矩形
+		// cxt.fillRect(100,100,50,50);//绘制一个实心的矩形,（x,y,width,height）
+		// cxt.strokeRect(200,200,50,50);//绘制空心矩形
+		
+		//canvas绘制动画
+		// var y=0;
+		// setInterval(function(){
+		// 	y++;
+		// 	cxt.clearRect(0,0,w,h);
+		// 	cxt.fillRect(100,y,50,50);
+		// },100); 
+
+		//绘制文本
+		// cxt.fillText("123123123",0,10);//（文本，x轴，y轴）
+
+		var words=Array(256).join("1").split("");//将数组元素用1隔开，eg:[a,b]-->a1b
+
+		// console.log(words);
+
+		var text="";
+		var x=0;
+		function draw(){
+
+			//绘制一个透明层来覆盖前面的绘制的图片，就会越来越模糊
+			cxt.fillStyle="rgba(0,0,0,0.03)";
+			cxt.fillRect(0,0,w,h);
+			cxt.fillStyle= color2();
+
+			//y是元素，n是索引
+			words.map(function(y,n){
+				// console.log(arguments);
+				// console.log("y:"+y);
+				// console.log(n);
+
+				// 随机选择一个字母
+				text=String.fromCharCode(65+Math.ceil(Math.random()*57));
+				text1=" · ";
+				text2="烈雾风雨城";
+				// console.log(text);
+				x=n*20;
+				cxt.fillText(text1,x,y);
+				words[n]=y>(768+Math.random()*484) ? 0:y+10;//不同设备的兼容性
+			});
+		}
+
+		setInterval(draw,30);
+
+		//生成随机颜色
+		//方法一：rgb
+		function color1(){
+			var r=Math.floor(Math.random()*255);
+			var g=Math.floor(Math.random()*255);
+			var b=Math.floor(Math.random()*255);
+			return "rgb("+r+","+g+","+b+")";
+		}
+		//方法二：十六进制 0-9 a-f
+		function color2(){
+			var colors=[0,1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"];
+			var color="";
+
+			//排序出6位颜色值
+			for(var i=0;i<6;i++){
+				var n =Math.ceil(Math.random()*15);
+				color += ""+colors[n];
+			}
+			return "#"+color;
+		}
+		//方法三：十六进制
+		function color3(){
+			//16777215是ffffff的十进制的值
+			var color =Math.ceil(Math.random()*16777215).toString(16);
+			console.log(color); 
+			while(color.length<6){
+				color +="0"+color;
+			}
+			return "#"+color;
+		}
+		// color3()
+	</script>
+</body>
+</html>

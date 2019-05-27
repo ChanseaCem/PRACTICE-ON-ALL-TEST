@@ -1,0 +1,98 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>导航-四层-外</title>
+    <link rel="stylesheet" href="../css/base.css">
+
+    <!-- js -->
+    <script type="text/javascript" charset="utf-8" src="../js/plugins/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/top-nav.js"></script>
+</head>
+<body>
+
+    <script>
+    $(function(){
+        
+        //导航切换
+        $(".nav .nav-scr>li").on("click",function(){
+            $(this).find("span").addClass("active").parent().siblings("li").find("span").removeClass("active");
+        });
+    });
+    </script>
+    <style>
+
+    /* 导航 */
+    .nav{
+        position: fixed;
+        top:0.4rem;
+        background: #1f2033;
+        width: 100%;
+        z-index: 1;
+    }
+    .nav .nav-scr{
+        overflow: scroll;
+        white-space: nowrap;
+        display: flex;
+    }
+    .nav .nav-scr>li{
+        flex: 1;
+        text-align: center;
+        padding: 0 0.1rem;
+    }
+    .nav .nav-scr>li span{
+        line-height: 0.44rem;
+        display: inline-block;
+        height: 0.44rem;
+        font-family: PingFang-SC-Regular;
+        font-size: 0.15rem;
+        color: #666e80;
+    }
+    .nav .nav-scr>li .active{
+        border-bottom: solid 1px #f5fa6c;
+        color: #f5fa6c;
+    }
+    ::-webkit-scrollbar{
+        width:0;
+        height: 0
+    }
+    /* 导航 end*/
+    </style>
+
+    <!-- 导航 start  -->
+    <div class="nav">
+        <ul class="nav-scr">
+            <li tag="0">
+                <span class="active">自选</span>
+            </li>
+            <li tag="1">
+                <span class="">全部</span>
+            </li>
+            <li tag="2">
+                <span class="">已付款</span>
+            </li>
+            <li tag="3">
+                <span class="">待付款</span>
+            </li>
+            <li tag="4">
+                <span class="">未付款</span>
+            </li>
+            <li tag="5">
+                <span class="">已完成</span>
+            </li>
+            <li tag="6">
+                <span class="">已申诉</span>
+            </li>
+        </ul>
+    </div>
+    <!-- 导航 end  -->
+
+    <hr>
+</body>
+
+</html>

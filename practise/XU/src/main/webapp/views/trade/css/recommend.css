@@ -1,0 +1,97 @@
+.cont_main{
+    width: 100%;
+    height: 4.723rem;
+    margin-top: 0.153rem;
+}
+.img_bj{
+    width: 2.851rem;
+    height: 4.723rem;
+    margin: 0 auto;
+    background-image: url(../img/recommend/android/drawable-xhdpi/tjour_bg.png);
+    background-size: 100% 100%;
+}
+.cont_top{
+    height: 1.357rem;
+    width: 100%;
+    text-align: center;
+}
+.top_text1{
+    font-family: PingFang-SC-Bold;
+    font-size: 0.213rem;
+    height: 0.166rem;
+    color: #ffffff;
+    padding-top: 0.46rem;
+    line-height: 0.166rem;
+}
+.top_text2{
+    font-family: PingFang-SC-Regular;
+    font-size: 0.111rem;
+    color: #ffffff;
+    margin-top: 0.132rem;
+    height: 0.106rem;
+    line-height: 0.2rem;
+}
+.cont_center{
+    width: 100%;
+    height: 0.966rem;
+    text-align: center;
+}
+.center_text1{
+    font-family: PingFang-SC-Regular;
+    font-size: 0.111rem;
+    color: #666e80;
+    height: 0.106rem;
+    line-height: 0.106rem;
+    padding-top: 0.306rem;
+}
+.center_text2{
+    font-family: PingFang-SC-Bold;
+    height: 0.132rem;
+    font-size: 0.179rem;
+    color: #666e80;
+    line-height:  0.132rem;
+    padding-top: 0.106rem; 
+}
+.cont_footer{
+    margin-top: 0.294rem;
+    width: 100%;
+}
+.footer_text{
+    text-align: center;
+    height: 0.094rem;
+    font-size: 0.094rem;
+    color: #666e80;
+    line-height:  0.094rem;
+}
+.cont_logo{
+    display: block;
+    width: 0.872rem;
+    height: 0.855rem;
+    margin: 0 auto;
+    margin-top: 0.089rem;
+}
+/* 按钮 */
+.Btn{
+    width: 100%;
+}
+.cont_btn{
+    width: 2.128rem;
+	height: 0.34rem;
+   margin: 0 auto;
+   margin-top: 0.349rem;
+   position: relative;
+   color: #dc5e5f;
+}
+.cont_btn img{
+    width: 2.128rem;
+	height: 0.34rem;
+    position: absolute;
+ 
+}
+.cont_btn span{
+    display: block;
+    width: 100%;
+    font-size: 0.119rem;
+    line-height: 0.34rem;
+    text-align: center;
+}

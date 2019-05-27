@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,CAAC;EACG,KAAK,EAAC,GAAG;EACT,KAAG;IACC,SAAS,EAAC,GAAG",
+"sources": ["../sass/testa.scss"],
+"names": [],
+"file": "testa.css"
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/index.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var ul1=$("ul1").html();
+			var ul2=$("ul2").html(ul1);
+			alert(ul1.width());
+		});
+	</script>
+
+</head>
+<body>
+	<div id="product">
+		<div class="box">
+			<ul id="ul1">
+				<li><img src="img/ft1.jpg" alt=""></li>
+				<li><img src="img/ft2.jpg" alt=""></li>
+				<li><img src="img/ft3.jpg" alt=""></li>
+				<li><img src="img/ft4.jpg" alt=""></li>
+				<li><img src="img/ft5.jpg" alt=""></li>
+				<li><img src="img/ft1.jpg" alt=""></li>
+				<li><img src="img/ft1.jpg" alt=""></li>
+				<li><img src="img/ft2.jpg" alt=""></li>
+				<li><img src="img/ft3.jpg" alt=""></li>
+				<li><img src="img/ft4.jpg" alt=""></li>
+				<li><img src="img/ft5.jpg" alt=""></li>
+				<li><img src="img/ft1.jpg" alt=""></li>
+			</ul>
+			<ul id="ul2"></ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+.clearfix:before{
+    content: '';
+    display: table;
+}
+.clearfix:after{
+    display: table;
+    clear: both;
+    content: "";
+}
+a{
+    height:100px;
+}

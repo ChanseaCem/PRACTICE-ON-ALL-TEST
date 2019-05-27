@@ -1,0 +1,970 @@
+
+
+
+
+<html lang="en" class="device-mobile screen-tablet">
+<head>
+<meta charset="UTF-8">
+<title>店铺信息修改</title>
+<!--[if lt IE 9]>
+	<script src="../dist/lib/ieonly/html5shiv.js"></script>
+	<script src="../dist/lib/ieonly/respond.js"></script>
+	<script src="../dist/lib/ieonly/excanvas.js"></script>
+	<![endif]-->
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/zhoanMall/work/pc/dist/css/zui.min.css">
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/zhoanMall/work/pc/css/header-footer.css">
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/zhoanMall/work/pc/css/wallet.css">
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/zhoanMall/work/pc/css/ApplyForOpenShops.css">
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/zhoanMall/work/pc/css/infoEdit.css">
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/zhoanMall/work/pc/css/enterprise-certification.css">
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/zhoanMall/work/pc/dist/lib/kindeditor/kindeditor.css">
+
+<style type="text/css">
+.ke-upload-button {
+	display: inline;
+}
+
+.ke-upload-button #up_wate_img_word {
+	display: inline;
+}
+
+.ke-dialog-content input {
+	width: inherit;
+	float: none;
+}
+</style>
+<link rel="stylesheet"
+	href="http://localhost:8080/zhoanMall//work/pc/js/layer/skin/default/layer.css?v=3.0.2302"
+	id="layuicss-skinlayercss">
+<link href="../dist/lib/kindeditor//kindeditor.min.css" rel="stylesheet">
+</head>
+
+<body data-store-left="店铺信息">
+
+	<!--header-->
+
+
+	<script type="text/javascript" charset="utf-8"
+		src="/zhoanMall/work/pc/pcjs/store-all.js"></script>
+	<!--header-->
+	<div class="g-header">
+		<div class="container-fixed">
+			<div class="pull-left">Hi，欢迎来到本商场</div>
+			<div class="pull-right"></div>
+		</div>
+	</div>
+	<div class="g-header g-header2">
+		<div class="container-fixed">
+			<div class="pull-right">
+				<a href="javascript:history.go(-1)">返回</a> <a
+					href="/zhoanMall/index_outlogin.html">退出</a>
+			</div>
+		</div>
+	</div>
+	<div class="g-wrap" style="display: none"></div>
+	<!--header end-->
+
+	<!-- 主要内容 main begin -->
+	<div class="container-fixed  main">
+		<!-- main left con begin -->
+
+		<!-- 左侧导航 -->
+
+
+		<!-- 左侧导航 -->
+		<div class="main-left-nav div-border" style="height: 1088px;">
+			<div class="left-title" style="cursor: pointer"
+				onclick="location.href='/zhoanMall/store/getShopCenterDetail.html'">
+				<img src="/zhoanMall/work/pc/img/shop-sta/sc_icon_shop.png">店铺中心
+			</div>
+			<div class="left-content">
+				<ul>
+					<li class=""><a href="/zhoanMall/store/getShopStatistics.html">店铺统计</a>
+					</li>
+					<li class="active"><a href="/zhoanMall/store/getShopdata.html">店铺信息</a>
+					</li>
+					<li class=""><a href="/zhoanMall/store/toShopOauthPage.html">店铺认证</a>
+					</li>
+					<li class=""><a href="/zhoanMall/store/gotoWareList.html">商品管理</a>
+					</li>
+					<li class=""><a href="/zhoanMall/store/gotoshoporder.html">订单管理</a>
+					</li>
+					<li class=""><a
+						href="/zhoanMall/store/getmStoreSHOrderList-0.html">售后管理</a>
+					</li>
+					<li class=""><a href="/zhoanMall/store/getShopBusiness.html">营业报表</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- main left con end -->
+
+		<!-- main right con begin -->
+
+		<form id="shopData" method="post">
+
+			<div class="main-right">
+
+
+				<!-- 右侧top -->
+				<div class="right-title div-border">
+					<div class="pull-left font-big">领导者的个人小店</div>
+					<div class="pull-right">
+						<a href="/zhoanMall/store/gotoWareAdd.html" class="link-underline">添加商品</a><a
+							href="/zhoanMall/index_outlogin.html" class="link-underline">退出</a>
+					</div>
+				</div>
+				<div class="clearfixs"></div>
+				<div class="right-con-box">
+					<div class="right-con-tip" style="height: 925px;">
+						<div class="tip-shopname">
+							<p>
+								*<span>店铺名称：</span>
+							</p>
+						</div>
+						<div class="tip-logo">
+							<p>
+								<span>店铺Logo:</span>
+							</p>
+						</div>
+						<div class="tip-username">
+							<p>
+								*<span>店主姓名:</span>
+							</p>
+						</div>
+						<div class="tip-phone">
+							<p>
+								<span>联系电话:</span>
+							</p>
+						</div>
+						<div class="tip-address">
+							<p>
+								<span>地址:</span>
+							</p>
+						</div>
+						<div class="tip-address">
+							<p>
+								<span>地理位置:</span>
+							</p>
+						</div>
+						<div class="tip-opentime">
+							<p>
+								<span>开店时间:</span>
+							</p>
+						</div>
+						<div class="tip-shopid">
+							<p>
+								<span>商店编号:</span>
+							</p>
+						</div>
+						<div class="tip-shopphone">
+							<p>
+								<span>商店热线:</span>
+							</p>
+						</div>
+						<div class="tip-shopphone">
+							<p>
+								<span>商店简介</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="right-con-insert" style="height: auto;">
+						<div>
+							<input type="text" placeholder="请填写店铺名称" name="storeName"
+								value="领导者的个人小店">
+						</div>
+						<div class="insert-logo upimg" style="position: relative;"
+							id="up_wate_img0" js-file="storeImg">
+							<img id="storeImgInput"
+								src="http://localhost:8080/zhoanMall//upload//201704/8afbaf8c-c50a-4a4f-a94b-3f9d624525a2.jpg"
+								alt=""> <a href="javascript:void(0);">点击修改</a> <input
+								type="file" accept="image/*" name="file" id="upImage"
+								style="overflow: hidden;opacity: 0;position: absolute;top: 0;left: 0;width: 100%;height: 100%;cursor: pointer;">
+						</div>
+						<div class="insert-username">
+							<input type="text" placeholder="请填写店主姓名" name="reallyName"
+								value="福建和成云盟信息科技有限公司">
+						</div>
+						<div class="insert-Phone">
+							<input type="text" placeholder="请填写您的电话号码" name="tel" value="111">
+						</div>
+						<div class="insert-address" data-province="350000"
+							data-city="350500" data-area="350503">
+							<div data-toggle="distpicker">
+								<div class="form-group">
+									<label class="sr-only" for="province2">Province</label> <select
+										class="form-control" id="province2" name="provinceName"
+										data-province="---- 选择省 ----"><option value=""
+											data-code="">---- 选择省 ----</option>
+										<option value="北京市" data-code="110000" selected="">北京市</option>
+										<option value="天津市" data-code="120000">天津市</option>
+										<option value="河北省" data-code="130000">河北省</option>
+										<option value="山西省" data-code="140000">山西省</option>
+										<option value="内蒙古自治区" data-code="150000">内蒙古自治区</option>
+										<option value="辽宁省" data-code="210000">辽宁省</option>
+										<option value="吉林省" data-code="220000">吉林省</option>
+										<option value="黑龙江省" data-code="230000">黑龙江省</option>
+										<option value="上海市" data-code="310000">上海市</option>
+										<option value="江苏省" data-code="320000">江苏省</option>
+										<option value="浙江省" data-code="330000">浙江省</option>
+										<option value="安徽省" data-code="340000">安徽省</option>
+										<option value="福建省" data-code="350000" selected="selected">福建省</option>
+										<option value="江西省" data-code="360000">江西省</option>
+										<option value="山东省" data-code="370000">山东省</option>
+										<option value="河南省" data-code="410000">河南省</option>
+										<option value="湖北省" data-code="420000">湖北省</option>
+										<option value="湖南省" data-code="430000">湖南省</option>
+										<option value="广东省" data-code="440000">广东省</option>
+										<option value="广西壮族自治区" data-code="450000">广西壮族自治区</option>
+										<option value="海南省" data-code="460000">海南省</option>
+										<option value="重庆市" data-code="500000">重庆市</option>
+										<option value="四川省" data-code="510000">四川省</option>
+										<option value="贵州省" data-code="520000">贵州省</option>
+										<option value="云南省" data-code="530000">云南省</option>
+										<option value="西藏自治区" data-code="540000">西藏自治区</option>
+										<option value="陕西省" data-code="610000">陕西省</option>
+										<option value="甘肃省" data-code="620000">甘肃省</option>
+										<option value="青海省" data-code="630000">青海省</option>
+										<option value="宁夏回族自治区" data-code="640000">宁夏回族自治区</option>
+										<option value="新疆维吾尔自治区" data-code="650000">新疆维吾尔自治区</option>
+										<option value="台湾省" data-code="710000">台湾省</option>
+										<option value="香港特别行政区" data-code="810000">香港特别行政区</option>
+										<option value="澳门特别行政区" data-code="820000">澳门特别行政区</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="city2">City</label> <select
+										class="form-control" id="city2" name="cityName"
+										data-city="---- 选择市 ----"><option value=""
+											data-code="">---- 选择市 ----</option>
+										<option value="福州市" data-code="350100" selected="">福州市</option>
+										<option value="厦门市" data-code="350200">厦门市</option>
+										<option value="莆田市" data-code="350300">莆田市</option>
+										<option value="三明市" data-code="350400">三明市</option>
+										<option value="泉州市" data-code="350500" selected="selected">泉州市</option>
+										<option value="漳州市" data-code="350600">漳州市</option>
+										<option value="南平市" data-code="350700">南平市</option>
+										<option value="龙岩市" data-code="350800">龙岩市</option>
+										<option value="宁德市" data-code="350900">宁德市</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="district2">District</label> <select
+										class="form-control" id="district2" name="areaName"
+										data-district="---- 选择区 ----"><option value=""
+											data-code="">---- 选择区 ----</option>
+										<option value="鲤城区" data-code="350502" selected="">鲤城区</option>
+										<option value="丰泽区" data-code="350503" selected="selected">丰泽区</option>
+										<option value="洛江区" data-code="350504">洛江区</option>
+										<option value="泉港区" data-code="350505">泉港区</option>
+										<option value="惠安县" data-code="350521">惠安县</option>
+										<option value="安溪县" data-code="350524">安溪县</option>
+										<option value="永春县" data-code="350525">永春县</option>
+										<option value="德化县" data-code="350526">德化县</option>
+										<option value="金门县" data-code="350527">金门县</option>
+										<option value="石狮市" data-code="350581">石狮市</option>
+										<option value="晋江市" data-code="350582">晋江市</option>
+										<option value="南安市" data-code="350583">南安市</option>
+									</select>
+								</div>
+							</div>
+
+						</div>
+						<div class="insert-detail-address">
+							<input type="text" placeholder="请填写详细地址" name="address"
+								id="address" value="领袖天地妙街a馆601"> <span>请填写详细地址</span>
+						</div>
+						<div class="insert-detail-address">
+							<input id="inputLocation" name="geographical" type="text"
+								readonly="readonly" placeholder="经纬度" value="24.88443, 118.6061">
+							<span>地理位置</span>
+						</div>
+						<div>
+							<input type="text" placeholder="开店时间" value="2017-04-09 03:07:13"
+								readonly="readonly"> <span>不允许修改</span>
+						</div>
+						<div class="insert-Pnumber">
+							<input type="text" placeholder="商店编号"
+								value="SHV9L671T1RQMB2FWIQ3" readonly="readonly"> <span>不允许修改</span>
+						</div>
+						<div class="insert-Pvcode">
+							<input type="text" placeholder="商店热线" name="storeTel"
+								value="4006658358">
+						</div>
+						<div style="    float: left;  height: auto;">
+							<div class="ke-container ke-container-default"
+								style="width: 700px;">
+								<div style="display:block;" class="ke-toolbar" unselectable="on">
+									<span class="ke-outline" data-name="source" title="HTML代码"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-source"
+										unselectable="on"></span>
+									</span><span class="ke-inline-block ke-separator"></span><span
+										class="ke-outline" data-name="undo" title="后退(Ctrl+Z)"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-undo"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="redo" title="前进(Ctrl+Y)"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-redo"
+										unselectable="on"></span>
+									</span><span class="ke-inline-block ke-separator"></span><span
+										class="ke-outline" data-name="preview" title="预览"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-preview"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="print" title="打印(Ctrl+P)"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-print"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="template" title="插入模板"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-template"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="code" title="插入程序代码"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-code"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="cut" title="剪切(Ctrl+X)"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-cut"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="copy" title="复制(Ctrl+C)"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-copy"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="paste" title="粘贴(Ctrl+V)"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-paste"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="plainpaste"
+										title="粘贴为无格式文本" unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-plainpaste"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="wordpaste" title="从Word粘贴"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-wordpaste"
+										unselectable="on"></span>
+									</span><span class="ke-inline-block ke-separator"></span><span
+										class="ke-outline" data-name="justifyleft" title="左对齐"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifyleft"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="justifycenter" title="居中"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifycenter"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="justifyright" title="右对齐"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifyright"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="justifyfull" title="两端对齐"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifyfull"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="insertorderedlist"
+										title="编号" unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertorderedlist"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="insertunorderedlist"
+										title="项目符号" unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertunorderedlist"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="indent" title="增加缩进"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-indent"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="outdent" title="减少缩进"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-outdent"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="subscript" title="下标"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-subscript"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="superscript" title="上标"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-superscript"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="clearhtml" title="清理HTML代码"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-clearhtml"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="quickformat" title="一键排版"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-quickformat"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="selectall"
+										title="全选(Ctrl+A)" unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-selectall"
+										unselectable="on"></span>
+									</span><span class="ke-inline-block ke-separator"></span><span
+										class="ke-outline" data-name="fullscreen" title="全屏显示"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fullscreen"
+										unselectable="on"></span>
+									</span>
+									<div class="ke-hr"></div>
+									<span class="ke-outline" data-name="formatblock" title="段落"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-formatblock"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="fontname" title="字体"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fontname"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="fontsize" title="文字大小"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fontsize"
+										unselectable="on"></span>
+									</span><span class="ke-inline-block ke-separator"></span><span
+										class="ke-outline" data-name="forecolor" title="文字颜色"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-forecolor"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="hilitecolor" title="文字背景"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-hilitecolor"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="bold" title="粗体(Ctrl+B)"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-bold"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="italic" title="斜体(Ctrl+I)"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-italic"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="underline"
+										title="下划线(Ctrl+U)" unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-underline"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="strikethrough" title="删除线"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-strikethrough"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="lineheight" title="行距"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-lineheight"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="removeformat" title="删除格式"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-removeformat"
+										unselectable="on"></span>
+									</span><span class="ke-inline-block ke-separator"></span><span
+										class="ke-outline" data-name="image" title="图片"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-image"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="flash" title="Flash"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-flash"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="media" title="视音频"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-media"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="insertfile" title="插入文件"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertfile"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="hr" title="插入横线"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-hr"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="pagebreak" title="插入分页符"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-pagebreak"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="anchor" title="锚点"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-anchor"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="link" title="超级链接"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-link"
+										unselectable="on"></span>
+									</span><span class="ke-outline" data-name="unlink" title="取消超级链接"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-unlink"
+										unselectable="on"></span>
+									</span><span class="ke-inline-block ke-separator"></span><span
+										class="ke-outline" data-name="about" title="关于"
+										unselectable="on"><span
+										class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-about"
+										unselectable="on"></span>
+									</span>
+								</div>
+								<div style="display: block; height: 229px;" class="ke-edit">
+									<iframe class="ke-edit-iframe" hidefocus="true" frameborder="0"
+										tabindex="" style="width: 100%; height: 229px;"></iframe>
+									<textarea class="ke-edit-textarea" hidefocus="true" tabindex=""
+										style="width: 100%; height: 229px; display: none;"></textarea>
+								</div>
+								<div class="ke-statusbar">
+									<span class="ke-inline-block ke-statusbar-center-icon"></span><span
+										class="ke-inline-block ke-statusbar-right-icon"></span>
+								</div>
+							</div>
+							<textarea id="briefimg" class="form-control kindeditor"
+								style="height: 300px; width: 700px; display: none;"></textarea>
+						</div>
+
+
+						<input type="hidden" id="province" name="province" value="350000">
+						<input type="hidden" id="city" name="city" value="350500">
+						<input type="hidden" id="area" name="area" value="350503">
+						<input type="hidden" id="addressDetail" name="addressDetail"
+							value="福建省泉州市丰泽区领袖天地妙街a馆601"> <input type="hidden"
+							id="storeImg" name="storeImg"
+							value="/upload//201704/8afbaf8c-c50a-4a4f-a94b-3f9d624525a2.jpg">
+						<div class="insert-submit">
+							<a href="javascript:void(0)" onclick="updateShop()">保存</a>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</form>
+		<!-- main right con end -->
+	</div>
+	<!-- 主要内容 main end -->
+
+	<!--footer-->
+
+	<div class="g-footer">
+		<div class="container-fixed">
+			<div class="row">
+				<div class="col-xs-2">
+					<h1>新手指南</h1>
+					<p>
+						<a href="#">免费注册新用户</a>
+					</p>
+					<p>
+						<a href="#">会员级别</a>
+					</p>
+					<p>
+						<a href="#">金币说明</a>
+					</p>
+				</div>
+				<div class="col-xs-2">
+					<h1>购物保障</h1>
+					<p>
+						<a href="#">正品保障</a>
+					</p>
+					<p>
+						<a href="#">注册协议</a>
+					</p>
+					<p>
+						<a href="#">隐私保护</a>
+					</p>
+					<p>
+						<a href="#">免责说明</a>
+					</p>
+				</div>
+				<div class="col-xs-2">
+					<h1>售后服务</h1>
+					<p>
+						<a href="#">7天无理由退换货</a>
+					</p>
+					<p>
+						<a href="#">如何申请退款</a>
+					</p>
+					<p>
+						<a href="#">维修补件说明</a>
+					</p>
+					<p>
+						<a href="#">第三方订单售后服务</a>
+					</p>
+				</div>
+				<div class="col-xs-2">
+					<h1>商家服务</h1>
+					<p>
+						<a href="#">商家入驻</a>
+					</p>
+					<p>
+						<a href="#">商家中心</a>
+					</p>
+					<p>
+						<a href="#">服务规则</a>
+					</p>
+					<p>
+						<a href="#">物流服务</a>
+					</p>
+					<p>
+						<a href="#">运营服务</a>
+					</p>
+				</div>
+				<div class="col-xs-2">
+					<h1>关于我们</h1>
+					<p>
+						<a href="#">企业简介</a>
+					</p>
+					<p>
+						<a href="#">联系我们</a>
+					</p>
+					<p>
+						<a href="#">诚聘英才</a>
+					</p>
+				</div>
+				<div class="col-xs-2 s-fc">
+					<h1>在线客服</h1>
+					<img src="/zhoanMall/work/pc/img/home/foot/home_icon_phone.png">
+					<div>400-0000-000</div>
+					<p>周一至周六9:00-18:00</p>
+				</div>
+			</div>
+			<div class="m-cprt">
+				<p>
+					<a href="#">联系我们</a>| <a href="#">意见建议</a>| <a href="#">意见建议</a>| <a
+						href="#">使用条款</a>
+				</p>
+				<p>©XX商城 All Rights Reserved.</p>
+			</div>
+		</div>
+	</div>
+	<!--footer end-->
+	<div id="show">
+		<label for="">要查询的地址：</label> <input id="text_" type="text"
+			style="float: none;"> <label style="margin-left: 35px" for="">查询结果(经纬度)：</label>
+		<input id="result_" type="text" style="float: none;"
+			readonly="readonly"> <input id="btn-mapresult"
+			class="btn-mapresult" type="button" value="查询"
+			onclick="searchByStationName();" style="float: none;"> <input
+			id="btn-ok" class="btn-mapresult" type="button" value="确定"
+			onclick="searchByStationName();" style="float: none;">
+		<div id="container"
+			style="overflow: hidden; position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;">
+			<div
+				style="overflow: visible; position: absolute; z-index: 0; left: 0px; top: 0px; cursor: url(&quot;http://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default;">
+				<div class="BMap_mask"
+					style="position: absolute; left: 0px; top: 0px; z-index: 9; overflow: hidden; -webkit-user-select: none; width: 0px; height: 0px;"></div>
+				<div
+					style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;">
+					<div
+						style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 800;"></div>
+					<div
+						style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 700;"></div>
+					<div
+						style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 600;"></div>
+					<div
+						style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 500;"></div>
+					<div
+						style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 400;"></div>
+					<div
+						style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 300;"></div>
+					<div
+						style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"></div>
+				</div>
+				<div style="position: absolute; top: 0px; left: 0px; z-index: 1;">
+					<div
+						style="position: absolute; z-index: -100; left: 0px; top: 0px;">
+						<img
+							src="http://online2.map.bdimg.com/tile/?qt=tile&amp;x=826&amp;y=211&amp;z=12&amp;styles=pl&amp;udt=20150518"
+							style="position: absolute; border: none; width: 256px; height: 256px; left: -103px; top: -133px; opacity: 1;">
+					</div>
+				</div>
+				<div style="position: absolute; top: 0px; left: 0px; z-index: 2;"></div>
+			</div>
+			<div id="zoomer"
+				style="position:absolute;z-index:0;top:0px;left:0px;overflow:hidden;visibility:hidden;cursor:url(http://api.map.baidu.com/images/openhand.cur) 8 8,default">
+				<div class="BMap_zoomer" style="top:0;left:0;"></div>
+				<div class="BMap_zoomer" style="top:0;right:0;"></div>
+				<div class="BMap_zoomer" style="bottom:0;left:0;"></div>
+				<div class="BMap_zoomer" style="bottom:0;right:0;"></div>
+			</div>
+			<div unselectable="on"
+				class=" BMap_stdMpCtrl BMap_stdMpType0 BMap_noprint anchorTL"
+				style="width: 52px; height: 233px; bottom: auto; right: auto; top: 10px; left: 10px; position: absolute; z-index: 1100; text-size-adjust: none;">
+				<div class="BMap_stdMpPan">
+					<div class="BMap_button BMap_panN" title="向上平移"></div>
+					<div class="BMap_button BMap_panW" title="向左平移"></div>
+					<div class="BMap_button BMap_panE" title="向右平移"></div>
+					<div class="BMap_button BMap_panS" title="向下平移"></div>
+					<div class="BMap_stdMpPanBg BMap_smcbg"></div>
+				</div>
+				<div class="BMap_stdMpZoom" style="height: 174px; width: 52px;">
+					<div style="height: 174px; width: 37px;">
+						<div class="BMap_button BMap_stdMpZoomIn" title="放大一级">
+							<div class="BMap_smcbg"></div>
+						</div>
+						<div class="BMap_button BMap_stdMpZoomOut" title="缩小一级">
+							<div class="BMap_smcbg"></div>
+						</div>
+					</div>
+					<div class="BMap_stdMpSlider" style="height: 140px;">
+						<div class="BMap_stdMpSliderBgTop" style="height: 131px;">
+							<div class="BMap_smcbg"></div>
+						</div>
+						<div class="BMap_stdMpSliderBgBot" style="top: 131px;">
+							<div class="BMap_smcbg"></div>
+						</div>
+						<div class="BMap_stdMpSliderMask" title="放置到此级别"></div>
+						<div class="BMap_stdMpSliderBar" title="拖动缩放"
+							style="cursor: url(&quot;http://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default; top: 50px;">
+							<div class="BMap_smcbg"></div>
+						</div>
+					</div>
+					<div class="BMap_zlHolder">
+						<div class="BMap_zlSt">
+							<div class="BMap_smcbg"></div>
+						</div>
+						<div class="BMap_zlCity">
+							<div class="BMap_smcbg"></div>
+						</div>
+						<div class="BMap_zlProv">
+							<div class="BMap_smcbg"></div>
+						</div>
+						<div class="BMap_zlCountry">
+							<div class="BMap_smcbg"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div unselectable="on"
+				class=" BMap_omCtrl BMap_ieundefined BMap_noprint anchorBR quad4"
+				style="width: 15px; height: 15px; bottom: 0px; right: 0px; top: auto; left: auto; position: absolute; z-index: 10; text-size-adjust: none;">
+				<div class="BMap_omOutFrame" style="width: 149px; height: 149px;">
+					<div class="BMap_omInnFrame"
+						style="bottom: auto; right: auto; top: 8px; left: 8px; width: 139px; height: 139px;">
+						<div class="BMap_omMapContainer"></div>
+						<div class="BMap_omViewMv"
+							style="cursor: url(&quot;http://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default;">
+							<div class="BMap_omViewInnFrame">
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="BMap_omBtn BMap_omBtnClosed"
+					style="bottom: 0px; right: 0px; top: auto; left: auto;"></div>
+			</div>
+			<div unselectable="on" class=" BMap_cpyCtrl anchorBL"
+				style="cursor: default; white-space: nowrap; color: black; background: none; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 11px; line-height: 15px; font-family: arial, sans-serif; bottom: 2px; right: auto; top: auto; left: 4px; position: absolute; z-index: 10; text-size-adjust: none;">
+				<span _cid="1" style="display: inline;"><span
+					style="font-size:11px">© 2015 Baidu</span>
+				</span>
+			</div>
+			<div class=" anchorBL"
+				style="height: 32px; position: absolute; z-index: 10; text-size-adjust: none; bottom: 0px; right: auto; top: auto; left: 1px; display: none;">
+				<a title="到百度地图查看此区域" target="_blank"
+					href="http://map.baidu.com/?sr=1" style="outline: none;"><img
+					style="border:none;width:77px;height:32px"
+					src="http://api.map.baidu.com/images/copyright_logo.png">
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" charset="utf-8"
+		src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+	<script type="text/javascript"
+		src="http://api.map.baidu.com/getscript?v=1.2&amp;ak=&amp;services=&amp;t=20130716024057"></script>
+	<link rel="stylesheet" type="text/css"
+		href="http://api.map.baidu.com/res/12/bmap.css">
+	<script type="text/javascript" charset="utf-8"
+		src="http://localhost:8080/zhoanMall//work/pc/js/layer/layer.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://localhost:8080/zhoanMall//js/base.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://localhost:8080/zhoanMall//js/ajaxfileupload.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://localhost:8080/zhoanMall//work/pc/dist/js/zui.min.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://localhost:8080/zhoanMall//work/pc/js/ssh_rolling.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://localhost:8080/zhoanMall//work/pc/js/hnav.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://localhost:8080/zhoanMall//work/pc/js/leftnav.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://localhost:8080/zhoanMall//work/pc/js/distpicker.data.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://localhost:8080/zhoanMall//work/pc/js/distpicker.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="http://localhost:8080/zhoanMall//work/pc/dist/lib/kindeditor/kindeditor.js"></script>
+
+	<script type="text/javascript" charset="utf-8"
+		src="http://localhost:8080/zhoanMall//js/mall-all.js"></script>
+	<script type="text/javascript">
+		var path = "http://localhost:8080/zhoanMall/";
+
+		$(function() {
+			var province = $("input[name='province']").val();
+			var city = $("input[name='city']").val();
+			var area = $("input[name='area']").val();
+			$("#province2").find("option[data-code=" + province + "]").attr(
+					"selected", true);
+			$("#province2").change();
+			$("#city2").find("option[data-code=" + city + "]").attr("selected",
+					true);
+			$("#city2").change();
+			$("#district2").find("option[data-code=" + area + "]").attr(
+					"selected", true);
+
+			$("#inputLocation").click(function() {
+				showmap();
+			});
+			function showmap() {
+				index = layer.open({
+					type : 1,
+					title : false,
+					shadeClose : true,
+					area : [ '920px', '520px' ],
+					content : $('#show'),
+				})
+			}
+			;
+
+			//把经纬度从地图上放到input
+			$("#btn-ok").click(function() {
+				// if($("#where").text()==null){
+				// 	alert("请点击地图进行获取经纬度！");
+				// 	return;
+				// }else{
+				$("#inputLocation").val($("#result_").val());
+				layer.close(index);
+				// }
+			});
+
+		});
+
+		//百度地图的使用：http://www.cnblogs.com/jianglan/archive/2013/05/31/3108646.html
+		var map = new BMap.Map("container");
+		map.centerAndZoom("宁波", 12);
+		map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用
+		map.enableContinuousZoom(); //启用地图惯性拖拽，默认禁用
+
+		map.addControl(new BMap.NavigationControl()); //添加默认缩放平移控件
+		map.addControl(new BMap.OverviewMapControl()); //添加默认缩略地图控件
+
+		var localSearch = new BMap.LocalSearch(map);
+		localSearch.enableAutoViewport(); //允许自动调节窗体大小
+		function searchByStationName() {
+			map.clearOverlays();//清空原来的标注
+			var keyword = document.getElementById("text_").value;
+			localSearch.setSearchCompleteCallback(function(searchResult) {
+				var poi = searchResult.getPoi(0);
+				document.getElementById("result_").value = poi.point.lat
+						+ " , " + poi.point.lng;
+				map.centerAndZoom(poi.point, 13);
+				var marker = new BMap.Marker(new BMap.Point(poi.point.lng,
+						poi.point.lat)); //建标注，为要查询的地方对应的经纬度
+				map.addOverlay(marker);
+				var content = document.getElementById("text_").value
+						+ "<br/><br/>经度：" + poi.point.lng + "<br/>纬度："
+						+ poi.point.lat;
+				var infoWindow = new BMap.InfoWindow(
+						"<p style='font-size:14px;'>" + content + "</p>");
+				marker.addEventListener("click", function() {
+					this.openInfoWindow(infoWindow);
+				});
+				// marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+			});
+			localSearch.search(keyword);
+
+		};
+		function updateShop() {
+			if (isnull($("#inputLocation").val())) {
+				layer.msg("地理位置不能为空");
+			} else {
+				//整理数据
+				makeData();
+				var des = editer.html();
+				des = des.replace(/[\r\n]/g, "");//去掉回车换行
+				var data = $("#shopData").serialize();
+				var dataJson = dataMethod(data);
+				var URL = path + "store/updateShopdata.json";
+				layer.load(1, {
+					shade : [ 0.8, '#333' ]
+				});
+				$.ajax({
+					type : "POST",
+					url : URL,
+					data : "dataJson=" + dataJson + "&des=" + des,
+					async : false,
+					success : function(adata) {
+						var data = eval("(" + adata + ")");
+						layer.msg(data.msg);
+						if (data.status == '1') {
+							setTimeout(function() {
+								window.location.reload();
+							}, 1500);
+						}
+
+					},
+					error : function(msg) {
+						layer.closeAll();
+						layer.msg("获取信息失败");
+					}
+				});
+			}
+		}
+
+		function makeData() {
+
+			//地址详情
+			var provinceName = $("#province2").find("option:selected").val();
+			var cityeName = $("#city2").find("option:selected").val();
+			var areaName = $("#district2").find("option:selected").val();
+			var address = $("#address").val();
+			var addressDetail = provinceName + cityeName + areaName + address;
+			$("#addressDetail").val(addressDetail);
+
+			//省市区code
+			var province = $("#province2").find("option:selected").attr(
+					"data-code");
+			var citye = $("#city2").find("option:selected").attr("data-code");
+			var area = $("#district2").find("option:selected")
+					.attr("data-code");
+			$("#province").val(province);
+			$("#city").val(citye);
+			$("#area").val(area);
+		}
+
+		//图片显示位置控制
+		function up_file(data, obj) {
+			$("#storeImgInput").attr("src", path + data.path);
+			$("#storeImg").val(data.path);
+		}
+	</script>
+
+	<script>
+		var editer = "";
+		$(function() {
+			editer = KindEditor.create('textarea.kindeditor', {
+				basePath : '../dist/lib/kindeditor/',
+				allowFileManager : true,
+				bodyClass : 'article-content',
+				items : [ "source", "|", "undo", "redo", "|", "preview",
+						"print", "template", "code", "cut", "copy", "paste",
+						"plainpaste", "wordpaste", "|", "justifyleft",
+						"justifycenter", "justifyright", "justifyfull",
+						"insertorderedlist", "insertunorderedlist", "indent",
+						"outdent", "subscript", "superscript", "clearhtml",
+						"quickformat", "selectall", "|", "fullscreen", "/",
+						"formatblock", "fontname", "fontsize", "|",
+						"forecolor", "hilitecolor", "bold", "italic",
+						"underline", "strikethrough", "lineheight",
+						"removeformat", "|", "image", "flash", "media",
+						"insertfile", "hr", "pagebreak", "anchor", "link",
+						"unlink", "|", "about" ]
+			});
+
+		});
+	</script>
+
+	<div id="qb-sougou-search" style="display: none; opacity: 0;">
+		<p>搜索</p>
+		<p class="last-btn">复制</p>
+		<iframe src=""></iframe>
+	</div>
+</body>
+</html>

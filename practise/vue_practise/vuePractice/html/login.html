@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="../css/base.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
+
+</head>
+<body>
+	
+	<div id="login">
+		<div class="top">
+			<topleft></topleft>
+			<topcenter></topcenter>
+			<topright></topright>
+		</div>
+
+	</div>
+
+
+    <!-- 导航开始 -->
+    <div id="nav">
+	    <div class="nav">
+	        <ul class="nav-scr">
+	            <li tag="0" @click="navchange(this)">
+	                <p class="active">全部</p>
+	            </li>
+	            <li tag="1" @click="navchange(this)">
+	                <p class="">待发货<span class="li-num">{{num}}</span></p>
+	            </li>
+	            <li tag="2" @click="navchange(this)">
+	                <p class="">待确认<span class="li-num">{{num}}</span></p>
+	            </li>
+	            <li tag="3" @click="navchange(this)">
+	                <p class="">待付款<span class="li-num">{{num}}</span></p>
+	            </li>
+	            <li tag="4" @click="navchange(this)">
+	                <p class="">已付款<span class="li-num">{{num}}</span></p>
+	            </li>
+	            <li tag="5" @click="navchange(this)">
+	                <p class="">已结束<span class="li-num">{{num}}</span></p>
+	            </li>
+	        </ul>
+	    </div>
+    </div>
+    <!-- 导航 结束 -->
+	
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="../js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/plugins/vue/vue.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/common/vue.common.js"></script>
+
+	<script type="text/javascript">
+
+
+		Vue.component("topleft",{
+			template:`<span class='top-left'><img :src="src"></span>`,
+			data:function(){
+				return{
+					src:"../img/base/back.png"
+				}
+			}
+		})
+		Vue.component("topcenter",{
+			template:`<span class='top-center'>{{title}}</span>`,
+			data:function(){
+				return{
+					"title":"XUXU"
+				}
+			}
+		})
+		Vue.component("topright",{
+			template:`<span class='top-right'>{{title}}</span>`,
+			data:function(){
+				return{
+					"title":""
+				}
+			}
+		})
+		new Vue({
+			el:"#login",
+			data:{
+				"title":"Wallet",
+				"title2":"Your first smart digital wallet, More exciting waiting for you to explore",
+			},
+			methods:{
+
+			}
+		});
+		new Vue({
+			el:"#nav",
+			data:{
+				"num":0,
+			},
+			methods:{
+				navchange:function(e){
+					$(this).find("p").addClass("active").parent().siblings("li").find("p").removeClass("active");
+				}
+			}
+		});
+
+
+
+        //导航切换
+        $(".nav .nav-scr>li").on("click",function(){
+            $(this).find("p").addClass("active").parent().siblings("li").find("p").removeClass("active");
+        });
+	</script>
+</body>
+</html>

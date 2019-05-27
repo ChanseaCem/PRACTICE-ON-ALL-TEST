@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test2传智播客</title>
+</head>
+<!-- <body  onload="btn.value='ok'"> -->
+<!-- <body onload="btn.value='ok'" onbeforeunload="window.event.returnValue='不晓得为何这里文字实现不了。。。'" onunload="alert('exit')"> -->
+<body>
+
+<!-- 动态设置事件 注意“document.ondblclick=f1”的f1后面不要加括号-->
+	<!-- <input type="button" onclick="document.ondblclick=f1" name="" value="关联事件一">
+	<script type="text/javascript">
+		function f1(){
+			alert("1");
+		}
+		function f2(){
+			alert("2");
+		}
+	</script> -->
+<!-- 动态设置事件 end-->
+
+<!-- Windows对象，代表当前浏览器窗口 -->
+	<!-- <input type="button" onclick="document.onclick=confirmdemo" name="" value="confirmdemo1">   
+	<input type="button" onclick="confirmdemo()" name="" value="confirmdemo2">   
+	  -->
+	<br>
+	<!-- //2：重新导向到另一个页面navigate(仅适用于IE) -->
+	<br>
+	<!-- <input type="button" onclick="navigate('test1传智播客.html')"  value="navigatetest"> -->
+ 	
+	<!-- <script >
+	//使用Windows时候可以省略，如Windows.alert=alert;
+		function confirmdemo(){
+			if(confirm("是否进入？")) {
+				alert("进入了");
+			}
+			else{
+				alert("取消进入");
+			}
+		}
+	
+	</script> -->
+<!-- Windows对象，代表当前浏览器窗口 end-->
+
+<!-- windows对象2 目前对这个东西不清楚，可能只适应ie-->
+	<!-- <input type="button" value="startInterval" onclick="startInterval()">
+	<input type="button" value="endInterval" onclick="clearInterval(i)">
+	<script type="text/javascript">
+		var i;
+		function startInterval(){
+			i=setInterval("alert('hello')",2000);
+		}
+	</script> -->
+<!-- windows对象2 end-->
+
+<!-- 标题走马灯 -->
+	<!-- 每调用一次interval 就会产生一次新的定时器，旧的不会停止，所以看起来越跑越快 -->
+	<!-- <input type="button" value="跑马灯效果" onclick="timeId=setInterval('run()',500)"/>
+    <input type="button" value="停止" onclick="clearInterval(timeId)"/><br/><br/><br/>
+    <input type="button" value="向左滚动" onclick="leftsetInter()"/>
+    <input type="button" value="向右滚动" onclick="rightsetInter()"/>
+	<script type="text/javascript" language="javascript">
+	    var timeId="";
+	    //默认跑马灯效果
+	    function run(){
+	      var title=document.title;
+	      var firsttitle=title.charAt(0);
+	      var remaintitle=title.substring(1,title.length);
+	      document.title=remaintitle+firsttitle;
+	    }
+	    
+	    //左转，字符串拼接
+	    function leftrun(){
+	      var title=document.title;
+	      var firsttitle=title.charAt(0);
+	      var remaintitle=title.substring(1,title.length);
+	      document.title=remaintitle+firsttitle;
+	    }
+	    //右转，字符串拼接
+	    function rightrun(){
+	      var title=document.title;
+	      var righttitle=title.substring(title.length-1,title.length);
+	      var remaintitle=title.substring(0,title.length-1);
+	      document.title=righttitle+remaintitle;
+	    }
+	    //定义变量记录开启的计时器
+	    var leftclearId;
+	    var rightclearId;
+	    //左滚方法
+	    function leftsetInter(){
+	      //定义变量记录当前开启的计时器ID
+	      leftclearId=setInterval('leftrun()',500);
+	      //清除正在运行的计时器
+	      clearInterval(rightclearId);
+	    }
+	    //右滚方法
+	    function rightsetInter(){
+	    //定义变量记录当前开启的计时器ID
+	      rightclearId=setInterval('rightrun()',500);
+	      //清除正在运行的计时器
+	      clearInterval(leftclearId);
+	    }
+    </script> -->
+<!-- 标题走马灯 end-->
+
+<!-- onload onunload onbeforeunload 事件: look at body-->
+	<!-- <input id="btn" type="button" value="模拟对话框" onclick="showModelessDialog('test1传智播客.html')" name="">
+	<input type="text">
+	<textarea cols="10" rows="10"></textarea> -->
+	<!-- onload:页面加载时执行；
+		 onunload：页面退出当前页面时执行；
+		 onbeforeunload：页面准备离开时触发 -->
+<!-- onload onunload onbeforeunload 事件 end-->
+
+<!-- dom属性 -->
+	<!-- window.location.href等效于navigate（navigate作用仅限于ie） -->
+	<!-- <input type="button" value="reload" onclick="window.location.href='test1传智播客.html'" name=""> -->
+	<!-- window.event事件（重要属性）：用以获得事情发生的信息。
+	window.event的部分事件：
+	altKey(alt键是否按下)，
+	shiftKey(shift是否按下),
+	clientX,clientY:客户区坐标，
+	screenX，screenY：屏幕坐标，
+	offsetX，offsetY：事件发生时鼠标相对于事件源的坐标（如点击button时候触发onclick），
+	returnValue：表示事件是否继续进行处理（!important）
+				 若将returnValue的值设为false，就会取消默认事件的处理。
+	 -->
+	<!-- <input type="button" value="点击" onclick="if(window.event.ctrlKey){alert('按下了Ctrl')}else{alert('普通点击')}" name="">
+	<a href="test1传智播客.html" onclick="window.event.returnValue=false;alert('禁止访问');">returnValue=false表示不让其事件继续进行，也就是禁止访问test1页面，作用在如下表单</a>
+	<form action="test1传智播客.html">
+		<input type="submit" value="提交" onclick="alert('数据有问题');window.event.returnValue=false;" name="">
+	</form> -->
+<!-- dom属性 end-->
+
+<!-- dom属性2 -->
+	<!-- clipboardData对象，对粘贴板的操作；
+	clearData("Text"),清空粘贴板；
+	getData("Text"),获取粘贴板；
+	setData("Text",value) -->
+	<input type="button" value="分享" onclick="window.clipboardData.setData('Text','123'+location.href);alert('已经复制到粘贴板');" name="">
+
+<!-- dom属性2 end-->
+</body>
+</html>

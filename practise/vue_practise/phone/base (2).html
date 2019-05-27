@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BASE 2</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+	<style>
+		.panel{
+			max-width: 300px;
+			border:1px solid #999;
+			margin-bottom: 15px;
+		}
+		.panel >*{
+			padding: 15px;
+		}
+		.panel .content,
+		.panel .footer{
+			border-top:1px solid #999;
+		}
+	</style>
+
+</head>
+<body>
+	
+	<div id="app">
+		<panel class="foo looo">
+			<div slot="content">于中小型项目及个人和小型团队简直是不二之选。</div >
+		</panel>
+	</div>
+
+	<template id="panel-tpl">
+		<div class="panel">
+			<div class="title"><slot name="title">title</slot></div>
+			<div class="content">
+				<slot name="content">为什么用Vue？很简单，顺心。 在目前的三大前端框架中（Vue，Angular，React）Vue怕是最好上手的框架了，然而其核心功能和其他两者也竟然不相伯仲，那有什么理由不先学它呢？看不到。 人生如此苦短，Vue会使我们的开发过程变得更像是一种享受。对于中小型项目及个人和小型团队简直是不二之选。
+				</slot>
+			</div>
+			<div class="footer"><slot name="footer">更多信息</slot></div>
+		</div>
+	</template>
+
+
+	<div id="test">
+		<div v-if="Math.random() > 0.5">
+		  Now you see me
+		</div>
+		<div v-else>
+		  Now you don't
+		</div>
+
+		<li v-for="n in even(numbers)" v-if="n>2">{{ n }}</li>
+		<button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+
+		<!-- 只当在 event.target 是当前元素自身时触发处理函数 即事件不是从内部元素触发的-->
+		<div v-on:click.self="doThat">
+			点击可执行
+			<p>点击不可执行</p>
+		</div>
+
+
+		<div v-on:scroll.passive="onScroll" style="width: 100%;height: 30px;overflow: scroll;">
+			<p>onScroll</p>
+			<p>onScroll</p>
+			<p>onScroll</p>
+			<p>onScroll</p>
+		</div>
+
+		<select v-model="selected">
+		  	<option v-bind:value="{ number: 123 }">123</option>
+		</select>
+
+		<!-- 在“change”时而非“input”时更新 -->
+		<input v-model.lazy="txt" >{{txt}}
+
+<!-- <blog-post post-title="hello!"></blog-post> -->
+<blog-post v-bind:com="com" post-title="44" postTitle1="2" @aaa="aaa"></blog-post>
+	</div>
+
+
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/plugins/vue/vue.js"></script>
+	<script type="text/javascript">
+	Vue.component('blog-post', {
+	  	// 在 JavaScript 中是 camelCase 的
+	  	// props: ['postTitle'],
+	  	props: {
+		  	postTitle: String,
+		  	likes: Number,
+		  	isPublished: Boolean,
+		  	commentIds: Array,
+		  	author: Object
+		},
+	  	template: '<h3 @click="f1()">{{ postTitle }};{{ likes }};{{postTitle1}}</h3>',
+		data:function(){
+			return{
+				postTitle1:"1"
+			}
+		},
+		methods:{
+			f1:function(){
+				this.$emit("aaa");
+			}
+		}
+	})
+
+	Vue.component("panel",{
+		template:"#panel-tpl"
+	});
+
+	new Vue({
+		el:"#app",
+		data:{
+		}
+	});
+
+	var test = new Vue({
+		el:"#test",
+		data:{
+			com:"2",
+			txt:"asdf",
+    		items: ['a', 'b', 'c'],
+    		numbers: [ 1, 2, 3, 4, 5 ],
+    		selected:"A",
+    		number:"13123"
+		},
+		computed:{
+			com1:function(){
+				return 1;
+			},
+			now:function () {
+				return Date();
+			},
+		  	evenNumbers: function () {
+			    return this.numbers.filter(function (number) {
+			      return number % 2 === 0
+			    })
+		  	}
+		},
+		watch:{
+			com:function(){
+				console.log("===================:"+this.com)
+				return this.com+this.txt;
+			},
+			items:function(){
+				console.log("===================:"+this.items)
+			}
+		},
+		methods:{
+			even: function (numbers) {
+			    return numbers.filter(function (number) {
+			    	return number % 2 === 0
+			    })
+		  	},
+		  	warn: function (message, event) {
+		  		console.log(event);
+			    // 现在我们可以访问原生事件对象
+			    if (event) event.preventDefault()
+			    alert(message)
+			},
+			doThat:function(){
+				alert(1);
+			},
+			onScroll:function(){
+				console.log(12);
+			},
+			aaa:function(){
+				console.log("aaa");
+			}
+		}
+	})
+
+	</script>
+</body>
+</html>

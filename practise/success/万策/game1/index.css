@@ -1,0 +1,119 @@
+*{margin: 0 auto;padding: 0;}
+body{background-color: #ea474e;}
+#start_page{width: 400px;height: 600px;}
+h2{color: white;width: 6em;margin: 40px auto;text-align: center;}
+h4{color: #ccc;width: 100%;text-align: center;margin: 10px auto;}
+#btn_field{width: 200px; height: 80px; margin: 250px auto;}
+.btn{
+	display: block;
+	width: 185px;
+	height: 45px;
+	color: white;
+	text-align: center;
+	line-height: 45px;
+	background-color: #4DADF4;
+	margin:10px auto;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 5px;
+	font-size: 18px;
+}
+.btn:hover{
+	background-color: #3c9ce3;
+}
+#play_page{
+	width: 500px;
+	height: 600px;
+	display: none;
+}
+.info{
+	width: 7em;
+	height: 35px;
+	position: relative;
+	top: 60px;
+	text-align: center;
+	color: #fff;
+}
+#box{
+	width: 400px;
+	height: 400px;
+	margin: 70px auto;
+	background-color: #ddd;
+	border: 10px solid #ddd;
+	border-radius: 10px;
+	box-shadow: 2px 2px 1px #CCCCCC;
+	cursor: pointer;
+}
+#box span{
+	display: block;
+	float: left;
+	border: 5px solid #ddd;
+	border-radius: 10px;
+	box-sizing: border-box;
+	/*background:red;*/
+}
+#box.lv2 span{
+	width: 50%;
+	height: 50%;
+}
+#box.lv3 span{
+	width: 33.333333333%;
+	height: 33.333333333%;
+}
+#box.lv4 span{
+	width: 25%;
+	height: 25%;
+}
+#box.lv5 span{
+	width: 20%;
+	height: 20%;
+}
+#box.lv6 span{
+	width: 16.666666666%;
+	height: 16.666666666%;
+}
+#box.lv7 span{
+	width: 14.2857143%;
+	height: 14.2857143%;
+}
+#box.lv8 span{
+	width: 12.5%;
+	height: 12.5%;
+}
+#box.lv9 span{
+	width: 11.111111111%;
+	height: 11.111111111%;
+}
+/*result Page*/
+#result_page{
+	width: 400px;
+	height: 280px;
+	background-color: #f7f7f7;
+	box-shadow: 2px 2px #c3c3c3;
+	margin-top: 50px;
+	padding-top: 50px;
+	display: none;
+}
+#result_page h1{
+	text-align: center;
+	color: #EA7B09;
+}
+#result_page div{
+	text-align: center;
+	font-size: 16px;
+	margin: 40px auto;
+}
+.score{
+	font-size: 22px;
+	font-weight: bold;
+}
+#btn_again{
+	position: relative;
+	top: 50px;
+}
+
+
+
+
+
+

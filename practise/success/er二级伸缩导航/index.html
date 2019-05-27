@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>二级伸缩导航</title>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/jquery-3.1.1.min.js"></script>
+
+	<script>
+		jQuery(function($){
+			$("#nav ul li").click(function(){
+				$(this).find(".con").slideToggle()
+				.parent().siblings().find(".con")
+				.sliderUp();
+				$(this).find(".title").addClass("hover")
+				.parent().siblings().find(".title").removeClass("hover");
+			});
+			$(".con").click(function(e){
+				e.stopPropagation();//阻止事件冒泡
+			});
+		});
+	</script>
+</head>
+<body>
+<div id="nav">
+	<span>列表</span>
+	<ul>
+		<li>
+			<div class="title">
+				<div><img src="img/icon_1.png" alt=""></div>
+				<p>技能学习</p>
+			</div>
+			<div class="con">
+				<p>web前端1</p>
+				<p>web前端2</p>
+				<p>web前端3</p>
+				<p>web前端4</p>
+			</div>
+		</li>
+		<li>
+			<div class="title">
+				<div><img src="img/icon_2.png" alt=""></div>
+				<p>技能学习2</p>
+			</div>
+			<div class="con">
+				<p>web前端1</p>
+				<p>web前端2</p>
+				<p>web前端3</p>
+				<p>web前端4</p>
+			</div>
+		</li>
+		<li>
+			<div class="title">
+				<div><img src="img/icon_1.png" alt=""></div>
+				<p>技能学习</p>
+			</div>
+			<div class="con">
+				<p>web前端1</p>
+				<p>web前端2</p>
+				<p>web前端3</p>
+				<p>web前端4</p>
+			</div>
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>导航-三层</title>
+    <link rel="stylesheet" href="../css/base.css">
+
+    <!-- js -->
+    <script type="text/javascript" charset="utf-8" src="../js/plugins/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/top-nav.js"></script>
+</head>
+<body>
+
+    <script>
+    $(function(){
+        $(".top-nav div a").click(function(){
+            $(this).parent().siblings(".active").removeClass("active");
+            $(this).parent().addClass("active");
+        });
+    });
+    </script>
+    <style>
+
+    /* 导航 */
+    .top-nav-fixed{
+        position: fixed;
+        top: 0.44rem;
+        width: 100%;
+        z-index: 999;
+    }
+    .top-nav {
+        display: flex;
+        height: 0.36rem;
+        line-height: 0.36rem;
+        font-size: 0.14rem;
+        text-align: center;
+        background: #fff;
+    }
+
+    .top-nav a {
+        display: block;
+    }
+
+    .top-nav .active a {
+        height: 0.34rem;
+        color: #148be6;
+        border-bottom: 0.02rem solid #148be6;
+    }
+
+    .top-nav div {
+        flex: 1;
+    }
+    </style>
+    <div class="top-nav top-nav-fixed">
+        <div class="active">
+            <a href="javascript:void(0)">默认</a>
+        </div>
+        <div class="">
+            <a href="javascript:void(0)">销量</a>
+        </div>
+        <div class="">
+            <a href="javascript:void(0)">价格</a>
+        </div>
+    </div>
+
+    <hr>
+</body>
+</html>

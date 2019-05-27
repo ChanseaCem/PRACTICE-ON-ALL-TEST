@@ -1,0 +1,46 @@
+body{
+	padding-top: 0.49rem;
+}
+::-webkit-scrollbar{
+	width: 0;
+}
+
+
+ul li{
+	padding:0 0.14rem;
+	background: #1f2033;
+	color: white;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	display: flex;
+	/*border-top: 0.01rem solid #191B2A;*/
+	margin:0.05rem 0;
+}
+ul span:nth-child(2){
+	line-height: 0.5rem;
+	flex: 1;
+	text-align: right;
+	padding-right: 0.1rem;
+}
+ul img{
+	display: block;
+	float: right;
+    width: 0.051rem;
+    height: 0.085rem;/*
+	width: 0.06rem;
+	height: 0.12rem;*/
+	margin-top: 0.19rem;
+}
+
+/*语言选择 弹窗*/
+.m-ly{
+	font-size: 0.16rem;
+}
+.m-ly .u-t{
+	height: 0.42rem;
+	line-height: 0.42rem;
+}
+.bd{
+	border-bottom: 1px solid #c2c2c2;
+}
+/*语言选择 弹窗*/

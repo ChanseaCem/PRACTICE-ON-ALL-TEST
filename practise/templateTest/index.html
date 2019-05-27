@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+
+</head>
+<body>
+	
+	<input id="te" type="text" value="" name="" size="50" maxlength="100" width="200px">
+	<input id="inp"  type="button" value="ok">
+	<input id="id" type="text" value="" name="" size="50" maxlength="100" width="200px">
+	<input id="inp-id"  type="button" value="ok-id">
+
+	<input id="tell" type="text" value="" name="" size="50" maxlength="100" width="200px">
+	<input id="inp-tell"  type="button" value="ok-tell">
+
+	<input id="test" type="text" value="" name="" size="50" maxlength="100" width="200px">
+	<input id="inp-test"  type="button" value="ok-test">
+
+	<input id="otest" type="text" value="" name="" size="50" maxlength="100" width="200px">
+	<input id="onlytest"  type="button" value="onlytest">
+	
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.11.3.min.js"></script>
+
+	<script>
+		jQuery(function($){
+			var str="0123adf.,.";
+			var r="^/[0-9]/$";
+			var r2=/^[0-9]/;
+			var myDate = new Date();
+			console.log(Date.prototype.isLeapYear);
+
+		    var cityCode={11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",21:"辽宁",22:"吉林",23:"黑龙江 ",31:"上海",32:"江苏",33:"浙江",34:"安徽",35:"福建",36:"江西",37:"山东",41:"河南",42:"湖北 ",43:"湖南",44:"广东",45:"广西",46:"海南",50:"重庆",51:"四川",52:"贵州",53:"云南",54:"西藏 ",61:"陕西",62:"甘肃",63:"青海",64:"宁夏",65:"新疆",71:"台湾",81:"香港",82:"澳门",91:"国外 "};  
+
+			$("#onlytest").on("click",function(){
+				// console.log(onlytest($("#otest").val()));(0[1-9]|[12]\d|3[01])
+				var bir = $("#otest").val();
+				// console.log(/(18|19|20)\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])/.test(bir));
+				var bool = IdCodeValid($("#otest").val());
+				console.log(bool);
+
+			});
+			function onlytest(va){
+				var o = /\d/;
+				if (!o.test(va)) {  
+				    return false;  
+				} else {  
+				    return true;  
+				}  
+			}
+
+			function isPoneAvailable($poneInput) {  
+				var myreg=/^1[3456789][0-9]{9}$/;  
+				if (!myreg.test($poneInput.val())) {  
+				    return false;  
+				} else {  
+				    return true;  
+				}  
+			}  
+
+			$("#inp").on("click",function(){
+				console.log(1);
+				console.log(IdCodeValid($("#inp").val()));
+			})
+			$("#inp-id").on("click",function(){
+				console.log(isCardNo($("#id").val()));
+			})
+			$("#inp-tell").on("click",function(){
+				console.log(isPoneAvailable($("#tell")));
+			})
+			$("#inp-test").on("click",function(){
+				console.log(isPoneAvailable($("#test")));
+			})
+
+			/**
+			 * [身份证号合法性验证]
+			 * 身份证号码为15位或者18位：
+			 * 15位时全为数字（6位地址码+6位出生年月+3位顺序码）；
+			 * 18位时前17位为数字（6位地址码+8位出生年月+3位顺序码+1位校验码），最后一位是校验位可能为数字或字符X；
+			 * @param {[String]} cardNum [身份证号码]
+			 */
+			function IdCodeValid(cardNum){ 
+				var myDate = new Date();
+				console.log(myDate.getFullYear());
+
+				//验证15位身份证号码是否为全数字
+				var isDigital15=/(^\d{15}$)/;
+
+				//验证18位身份证号码是否是17为数字+1位验证码（数字或X或x）
+				var isDigital18=/(^\d{17}(\d|X|x)$)/;
+				
+				//地址码
+				var addrCode = /[1-9]\d{5}/;
+				var getAddrNum = cardNum.substring(0,6);
+
+				//出生年月
+				var birthCode15 = /(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])/;//15位验证
+				var birthCode18 = /(18|19|20)\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])/;//18位验证
+				var getBirthday15 = cardNum.substring(6,12);
+				var getBirthday18 = cardNum.substring(6,14);		
+
+				//校验码
+				var checkCode = /(\d|[xX])/;//18位验证
+				var getCheckCode = cardNum.substring(17);
+				
+				if(isDigital15.test(cardNum) &cityCode[cardNum.substring(0,2)]&&birthCode15.test(getBirthday15)) { //15位
+					return true; 
+				}else if(isDigital18.test(cardNum)
+						&&cityCode[cardNum.substring(0,2)]
+						&&birthCode18.test(getBirthday18)
+						&&checkCode.test(getCheckCode)) { //18位
+
+					//18位身份证需要验证最后一位校验位  
+		            cardNum = cardNum.split('');  
+		            //∑(ai×Wi)(mod 11)  
+		            //加权因子  
+		            var factor = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 ];  
+		            //校验位  
+		            var parity = [ 1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2 ];  
+		            var sum = 0;  
+		            var ai = 0;  
+		            var wi = 0;  
+		            for (var i = 0; i < 17; i++){  
+		                ai = cardNum[i];  
+		                wi = factor[i];  
+		                sum += ai * wi;  
+		            }  
+		            if(parity[sum % 11] != cardNum[17].toUpperCase()){ 
+						return false; 
+		            }  
+					return true; 
+				}
+				return false;
+			}
+
+
+			function IdCodeValid1(code){  
+			    //身份证号合法性验证  
+			    //支持15位和18位身份证号  
+			    //支持地址编码、出生日期、校验位验证  
+			    var city={11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",21:"辽宁",22:"吉林",23:"黑龙江 ",31:"上海",32:"江苏",33:"浙江",34:"安徽",35:"福建",36:"江西",37:"山东",41:"河南",42:"湖北 ",43:"湖南",44:"广东",45:"广西",46:"海南",50:"重庆",51:"四川",52:"贵州",53:"云南",54:"西藏 ",61:"陕西",62:"甘肃",63:"青海",64:"宁夏",65:"新疆",71:"台湾",81:"香港",82:"澳门",91:"国外 "};  
+			    var row={  
+			        'pass':true,  
+			        'msg':'验证成功'  
+			    };  
+			    if(!code || !/^\d{6}(18|19|20)\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/.test(code)){  
+			        row={  
+			            'pass':false,  
+			            'msg':'身份证号格式错误'  
+			        };  
+			    }else if(!city[code.substr(0,2)]){  
+			        row={  
+			            'pass':false,  
+			            'msg':'身份证号地址编码错误'  
+			        };  
+			    }else{  
+			        //18位身份证需要验证最后一位校验位  
+			        if(code.length == 18){  
+			            code = code.split('');  
+			            //∑(ai×Wi)(mod 11)  
+			            //加权因子  
+			            var factor = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 ];  
+			            //校验位  
+			            var parity = [ 1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2 ];  
+			            var sum = 0;  
+			            var ai = 0;  
+			            var wi = 0;  
+			            for (var i = 0; i < 17; i++)  
+			            {  
+			                ai = code[i];  
+			                wi = factor[i];  
+			                sum += ai * wi;  
+			            }  
+			            if(parity[sum % 11] != code[17].toUpperCase()){  
+			                row={  
+			                    'pass':false,  
+			                    'msg':'身份证号校验位错误'  
+			                };  
+			            }  
+			        }  
+			    }  
+			    return row;  
+			}  
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+	<style>
+
+	</style>
+</head>
+<body>
+
+	<select name="" id="select" onchange="changeBal()">
+		<option value="a">1</option>
+		<option value="b">2</option>
+		<option value="a3">3</option>
+	</select>
+
+	<input id="moneyNum" type="text" onkeyup="moneyNumDown(this)">
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.11.3.min.js"></script>
+
+	<script>
+	function changeBal(){
+		console.log($("#select").val());
+	}
+
+			function moneyNumDown(obj){
+				var a1 = parseFloat($("#moneyNum").val())+parseFloat(0);
+				console.log(a1);
+			}
+		jQuery(function($){
+
+
+
+			/*$("#moneyNum").on("click",function(){
+				moneyNumDown();
+			})
+			function moneyNumDown(){
+				var s = $("#moneyNum").val();
+				s = s*0.05;
+				s = s.toFixed(2);
+				var a1 = parseFloat($("#moneyNum").val())+parseFloat("");
+				console.log(a1);
+			}*/
+			
+		});
+	</script>
+</body>
+</html>

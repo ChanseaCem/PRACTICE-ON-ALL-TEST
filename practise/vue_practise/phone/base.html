@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BASE</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/vuet.css">
+
+</head>
+<body>
+    <!-- 头部开始 -->
+    <div id="head" class="header">
+        <div class="header-left">
+            <span><img src="img/common/header/icon_back.png"></span>
+        </div>
+        <div class="header-center">
+            <!-- 文字标题 -->
+            <span>{{titleTxt[page].txt}}</span>
+        </div>
+        <div class="header-right">
+            <span></span>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 导航开始 -->
+    <div class="nav">
+    </div>
+    <!-- 导航 结束 -->
+
+    <!-- 主要内容开始 -->
+    <div class="main">
+    	<div id="test1">
+    		<h5>练习一</h5>
+			<div v-show="isshow">
+				 <span>你的名称是：</span><span>{{name}}</span>
+			</div>
+			<div v-show="isshow">
+				 <span>你的性别是：</span><span>{{sex}}</span>
+			</div>
+			<button @click="issh">显示隐藏</button>
+    	</div>
+
+    	<div id="test2">
+    		<p class="title"><h5>练习二</h5></p>
+    		<ul>
+    			<li v-for = "item in foodlist">{{item.name}},{{item.age}}岁</li>
+    		</ul>
+    		<ul>
+				<li v-for = "item in names">{{item}}</li>
+    		</ul>
+    		<p>--------------------------</p>
+    		<ul>
+				<li v-for = "(item,i) in names">{{i}}:{{item}}</li>
+    		</ul>
+    		<p>--------------------------</p>
+			<hr>
+			<ul>
+				<li v-for = "value,key in foodlist">
+					value:{{value}};
+					key:{{key}}</li>
+			</ul>
+			<hr>
+			<ul>
+				<li v-for = "(v,key,index) of foodlist[0]">
+					index:{{index}};
+					key:{{key}};
+					value:{{v}}
+				</li>
+			</ul>
+    	</div>
+
+    	<div id="test3">
+    		<h5>练习三</h5>
+    			<p>v-bind:可以绑定所有的属性</p>
+    		<ul>
+    			<li><a href="http://baidu.com">正常跳百度</a></li>
+    			<li><a v-bind:href="url">v-bind跳百度</a></li>
+    			<li><a v-bind:href="url" datatip="v-bind跳百度">
+    				<img v-bind:class="klass" v-bind:src="src" alt="" style="width: 120px;height: 120px;">
+    			</a></li>
+    			<li :class="{active1:isActive}">active:是class名，isActive是自定义名称，表示是否添加这个active类名</li>
+    		</ul>
+    	</div>
+
+    	<div id="test4">
+    		<h5>练习四</h5>
+    		<p>v-on={},{}是对象，存多个事件和对应方法，里面的对应为 事件名对方法名，touchstart是事件，start是这个事件对应的方法</p>
+
+    		<button v-on = "{touchstart:start,touchend:end}">点击</button> v-on = "{事件1:自定义事件名称1,事件2:自定义事件名称2}"传事件对象写法<br />
+    		<button v-on:click="onClick2">点击2</button> v-on:click = "自定义事件名称"写法<br />
+    		<button @click="onClick3">点击3</button> @click="自定义事件名称"写法<br />
+
+    		<form v-on:keyup.enter = "onSubmit2" v-on:submit.prevent="onSubmit">
+				<input type="text">
+				<button type="submit" v-on:click = "onClick">提交</button>
+    		</form>
+    	</div>
+
+    	<div id="test5">
+    		<h5>练习五</h5>
+			<input type="text" v-model.lazy ="name">
+			<p>input的lazy会让input焦点blur的时候才会更新数据：{{name}}</p>
+			<input type="text" v-model.trim ="name2">
+			<p>去空格：{{name2}}</p>
+			<input type="text" v-model.number ="name3">
+			<p>转成数字：{{name3}}</p>
+    	</div>
+
+    	<div id="test6">
+    		<h5>练习六</h5>
+			<label for="sex">
+				男<input type="radio" name="sex" v-model="sex" value="male">
+				女<input type="radio" name="sex" v-model="sex" value="female">
+				{{sex}}
+			</label>
+			<br>
+			<label for="interst">
+				篮球<input type="checkbox" name="interest" value="basketball" v-model="interest">
+				唱歌<input type="checkbox" name="interest" value="singing" v-model="interest">
+				跳舞<input type="checkbox" name="interest" value="dance" v-model="interest">
+				{{interest}}
+			</label>
+			<br>
+			<p>去哪儿？</p>
+			<select v-model = "from">
+				<option value="1">北京</option>
+				<option value="2">河南</option>
+			</select>
+			<p>{{from}}</p>
+
+			<select v-model="dest" multiple style="width:100px">
+				<option value="1">北京</option>
+				<option value="2">河南</option>
+				<option value="3">上海</option>
+				<option value="4">福建</option>
+				<option value="5">广东</option>
+			</select>
+			<p>{{dest}}</p>
+
+			<div v-if = " a == 'admin'">if条件符合显示</div>
+			<div v-else-if = " a == c">else if条件符合显示</div>
+			<div v-else>else条件符合显示</div>
+			<ann></ann>
+    	</div>
+
+		<div id="test7">
+    		<h5>练习七</h5>
+			<table>
+				<thead>
+					<tr><th colspan="8"><h4>班级体能测试表</h4></th></tr>
+					<tr><th>姓名</th><th>跳高</th><th>举重</th><th>长跑</th><th>跳高总分</th><th>跳高平均分</th><th>长跑总分</th><th>长跑平均分</th></tr>
+				</thead>
+				<tbody>
+					<tr v-for = "item in test">
+						<td>{{item.name}}</td>
+						<td>{{item.height}}</td>
+						<td>{{item.weight}}</td>
+						<td>{{item.run}}</td>
+						<td>{{sumofheight}}</td>
+						<td>{{averageofheight}}</td>
+						<td>{{sumofrun}}</td>
+						<td>{{averageofrun}}</td>
+					</tr>
+					<tr><td colspan="8">{{tip()}}</td></tr>
+					<tr><td colspan="8"><sumb></sumb></td></tr>
+					<tr><td colspan="8"><ann></ann></td></tr>
+					<tr><td colspan="8"><liked></liked></td></tr>
+
+				</tbody>
+			</table>
+		</div>
+
+		<div id="test8">
+    		<h5>练习八</h5>
+    		<user username="111" ></user>
+		</div>
+
+		<div id="test9">
+    		<h5>练习九</h5>
+    		<balance></balance>
+		</div>
+
+		<div id="test10">
+    		<h5>练习十</h5>
+    		<me></me>
+    		<you></you>
+
+    		<div><input type="text" v-model="price">{{price | current('USD')}}</div>
+    		<div>
+    			<input type="text" v-model="meter">mm<br>
+    			{{meter | meter('m')}}
+    		</div>
+
+    		<div class="pinage">
+				<div class="pin" v-pin="card1"><button @click = "card1 = !card1">定位住、取消定位</button> 111</div>
+				<div class="pin" v-pin.right.top.aaa="card2"><button @click = "card2 = !card2">定位住、取消定位</button>22</div>
+				<div class="pin" v-pin.bottom.right="card3"><button @click = "card3 = !card3">定位住、取消定位</button>333</div>
+    		</div>
+		</div>
+
+		<div id="test11">
+			<h5>练习十一</h5>
+			<p v-bind:style="objStyle" v-bind:dataa="name">{{name}}</p>
+		</div>
+
+		<div id="test12">
+			<h5>练习十二</h5>
+			<!-- <test-con></test-con> -->
+			<!-- <div v-html="content">{{content}}</div> -->
+				
+		</div>
+
+
+    </div>
+    <!-- 主要内容 结束 -->
+
+
+    <template id="liked-complate-tpl">
+		<button :class="{liked:liked}" @click = "onclick"><img v-bind:src="liked_color" alt="">点赞{{liked_count}}</button>
+    </template>
+
+	<template v-if="loginType === 'username'">
+		<label>Username</label>
+		<input placeholder="Enter your username">
+	</template>
+	<template v-else>
+		<label>Email</label>
+		<input placeholder="Enter your email address">
+	</template>
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/plugins/vue/vue.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+	<script>
+
+	</script>
+</body>
+</html>

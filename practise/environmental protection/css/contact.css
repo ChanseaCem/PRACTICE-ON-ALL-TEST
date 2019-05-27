@@ -1,0 +1,95 @@
+
+.main{
+	padding: 0 100px;
+	min-width: 1000px;
+	box-sizing: border-box;
+}
+
+.m-aboutus table thead th,
+.m-question table thead th{
+	text-align: left;
+	line-height: 50px;
+	padding-left: 25px;
+}
+.m-aboutus table thead th h2,
+.m-question table thead th h2{
+	font-weight:bold;
+}
+.m-aboutus table tbody td{
+	width: 25%;
+	padding:15px;
+	box-sizing: border-box;
+}
+.m-aboutus table td img{
+	width: 100%;
+	height: auto;
+}
+.m-aboutus table td p{
+	text-indent: 2em;
+}
+.m-message{
+	padding: 15px;
+}
+.m-message h2{
+	font-weight:bold;
+}
+.m-question table{
+	border:1px solid #dedede;
+	border-collapse:collapse;
+	width: 100%;
+}
+.m-question table th{
+	border:1px solid #dedede;
+	padding:5px 15px;
+}
+.m-question table .head{
+	height: 30px;
+    background: #eee;
+    box-shadow: 0 10px 10px #dedede;
+}
+.m-question table tbody td{
+	padding: 15px;
+}
+.m-question table tr{
+	border:1px solid #dedede;
+}
+.m-question table tr input[type="submit"],
+.m-question table tr input[type="reset"]{
+	width: 100px;
+	height: 30px;
+	background: #C0C0C0;
+	border-radius: 15px;
+}
+.m-message input{
+	border:1px solid #c0c0c0;
+	height: 18px;
+    padding: 0 5px;
+}
+.m-message textarea{
+	border:1px solid #c0c0c0;
+	line-height: 18px;
+    padding: 15px;
+    width: 100%;
+    height: 150px;
+    box-sizing: border-box;
+}
+.m-message .con2 p{
+    margin:0;
+}
+.m-message .msg-con>div{
+	padding:10px;
+}
+
+.m-message .msg-con .con span{
+	margin-left:25px;
+}
+.m-message .msg-con .con span:first-child{
+	margin-left:0;
+}
+.m-message .msg-con input[type="button"]{
+	height: 30px;
+    width: 100px;
+    border-radius: 15px;
+    margin-left: 15px;
+    cursor: pointer;
+}

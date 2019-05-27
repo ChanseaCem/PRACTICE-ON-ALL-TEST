@@ -1,0 +1,185 @@
+
+body{
+    padding-top: 0.94rem;
+    padding-bottom: 0.6rem;
+}
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+
+
+.nav{
+    position: fixed;
+    top:0.4rem;
+    background: #1f2033;
+    width: 100%;
+    z-index: 1;
+}
+.nav .nav-scr{
+    overflow: scroll;
+    white-space: nowrap;
+    display: flex;
+}
+.nav .nav-scr>div{
+    flex: 1;
+    text-align: center;
+    padding: 0 0.1rem;
+}
+.nav .nav-scr>div span{
+    line-height: 0.44rem;
+    display: inline-block;
+    height: 0.44rem;
+    font-family: PingFang-SC-Regular;
+    font-size: 0.15rem;
+    color: #666e80;
+}
+.nav .nav-scr>div .active{
+    border-bottom: solid 1px #f5fa6c;
+    color: #f5fa6c;
+}
+
+
+.overh{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.m-last li{
+    height: 0.6rem;
+    background-color: #1f2033;
+    padding: 0 0.15rem;
+    margin:0.05rem 0;
+}
+.m-last li .li-l{
+    float: left;
+    height: 100%;
+    line-height: 0.6rem;
+    font-family: PingFang-SC-Bold;
+}
+.m-last li .li-l img{
+    width: 0.15rem;
+    height: 0.15rem;
+    float: left;
+    margin-top: 0.22rem;
+}
+.m-last li .li-l .l-s1{
+    font-size: 0.17rem;
+    color: #ffffff;
+    margin-left: 0.05rem;
+    display: block;
+    float: left;
+    max-width: 0.5rem;
+}
+.m-last li .li-l .l-s2{
+    margin-left: 0.05rem;
+    font-size: 0.11rem;
+    color: #666e80;
+    display: block;
+    float: left;
+    max-width: 0.4rem;
+}
+
+.m-last li .li-r{
+    float: right;
+    width: 0.6rem;
+    text-align: right;
+    height: 100%;
+}
+.m-last li .li-r .r-p1{
+    font-family: PingFang-SC-Medium;
+    font-size: 0.13rem;
+    line-height: 0.13rem;
+    color: #ffffff;
+    margin-top: 0.15rem;
+    max-width: 100%;
+}
+.m-last li .li-r .r-p2{
+    font-family: PingFang-SC-Medium;
+    font-size: 0.11rem;
+    color: #666e80;
+    max-width: 100%;
+    line-height: 0.24rem;
+}
+.m-last li .li-r .change{
+    color: #ad304a;
+}
+
+
+
+
+.m-btc li{
+    height: 0.6rem;
+    background-color: #1f2033;
+    padding: 0 0.15rem;
+    margin:0.05rem 0;
+}
+.m-btc li .li-l{
+    float: left;
+    height: 100%;
+    line-height: 0.6rem;
+    font-family: PingFang-SC-Bold;
+}
+.m-btc li .li-l img{
+    width: 0.15rem;
+    height: 0.15rem;
+    float: left;
+    margin-top: 0.22rem;
+}
+.m-btc li .li-l .l-s1{
+    font-size: 0.17rem;
+    color: #ffffff;
+    margin-left: 0.05rem;
+    display: block;
+    float: left;
+    max-width: 0.5rem;
+}
+.m-btc li .li-l .l-s2{
+    margin-left: 0.05rem;
+    font-size: 0.11rem;
+    color: #666e80;
+    display: block;
+    float: left;
+    max-width: 0.4rem;
+}
+
+.m-btc li .li-c{
+    float: right;
+    width: 0.6rem;
+    text-align: right;
+    padding-right: 0.1rem;
+    height: 100%;
+    font-family: PingFang-SC-Medium;
+}
+.m-btc li .li-c .c-p1{
+    font-size: 0.13rem;
+    line-height: 0.13rem;
+    color: #92d58b;
+    margin-top: 0.15rem;
+    max-width: 100%;
+}
+.m-btc li .li-c .c-p2{
+    font-size: 0.11rem;
+    color: #666e80;
+    max-width: 100%;
+}
+.m-btc li .li-c .change{
+    color: #ad304a;
+}
+.m-btc li .li-r{
+    text-align: right;
+    height: 100%;
+    float: right;
+}
+.m-btc li .li-r span{
+    line-height: 0.6rem;
+    font-family: PingFang-SC-Bold;
+    font-size: 0.17rem;
+    color: #72cc66;
+}
+.m-btc li .li-r span.change{
+    color: #ad304a;
+}

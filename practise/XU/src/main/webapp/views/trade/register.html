@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/plugins//LArea/LArea.css">
+	<link rel="stylesheet" type="text/css" href="css/register.css">
+
+</head>
+<body>
+
+    <!-- 头部开始 -->
+    <div class="header">
+        <div class="header-left" onclick="window.location.href='javascript:history.go(-1)'">
+            <span><img src="img/login/android/drawable-xhdpi/icon_close.png"></span>
+        </div>
+        <div class="header-center">
+            <!-- 文字标题 -->
+            <span>注册</span>
+        </div>
+        <div class="header-right" onclick="window.location.href='login.html'">
+            <span>登录</span>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 主要内容开始 -->
+    <div class="main">
+        <div class="con ">
+            <p>请输入手机号码</p>
+            <div class="bm clearfix">
+                <div class="c-l">
+                    <input id="demo" class="cho" type="text" value="+86" onfocus="this.blur();">
+                    <span></span>
+                    <input id="value" type="hidden" value="86">
+                </div>
+                <input class="tel" type="text" placeholder="请输入手机号码">
+            </div>
+        </div>
+        <div class="con clearfix">
+            <div class="bm clearfix">
+                <input class="code" type="text" placeholder="请输入短信验证码">
+                <span class="getCode">获取验证码</span>
+            </div>
+        </div>
+    	<div class="con">
+			<p>请设置登录密码</p>
+			<input type="text" placeholder="请设置登录密码">
+    	</div>
+        <div class="con">
+            <p>重复以上密码</p>
+            <input type="text" placeholder="确认密码">
+        </div>
+        <div class="con">
+            <p>推荐人ID</p>
+            <input type="text" placeholder="如无，无需填写">
+        </div>
+    	<div class="con">
+    		<div class="btn">登录</div>
+    	</div>
+    </div>
+    <!-- 主要内容 结束 -->
+
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/plugins/LArea/LAreaCountry.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/plugins/LArea/LAreaCountryData.js"></script>
+    <script type="text/javascript">
+        jQuery(function($){
+            var area = new LAreaCountry();
+            area.init({
+                'trigger': '#demo', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+                'valueTo': '#value', //选择完毕后id属性输出到该位置
+                'keys': {
+                    id: 'id',
+                    name: 'name'
+                }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+                'type': 1, //数据源类型
+                'data': LAreaCountryData //数据源
+            });
+
+            $("#demo").on("input",function(){
+                $(this).val($(this).val().split("，")[0]);
+            })
+
+        });
+    </script>
+
+</body>
+</html>

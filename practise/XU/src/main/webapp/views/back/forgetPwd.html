@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>叙叙 - 忘记密码</title>
+    <meta name="keywords" content="叙叙后台">
+    <meta name="description" content="叙叙是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，它采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min.css?v=4.0.0" rel="stylesheet">
+    <link href="css/mine/forgetPwd.css" rel="stylesheet">
+
+
+    <base target="_blank">
+    <!--[if lt IE 8]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+    <script>if (window.top !== window.self) {
+        window.top.location = window.location;
+    }</script>
+</head>
+
+<body class="gray-bg">
+
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+            <h1 class="logo-name">XU</h1>
+        </div>
+        <h3>密码设置</h3>
+        <div class="form-group">
+            <input id="tel" type="text" class="form-control" placeholder="输入手机号" required="required">
+        </div>
+        <div class="form-group clearfix">
+            <input type="text" class="pull-left form-control code" placeholder="输入验证码" required="required">
+            <div class="pull-right getCode btn-primary">获取验证码</div>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="请输入密码" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="再次输入密码" required="required">
+        </div>
+        <button id="login" class="btn btn-primary block full-width m-b">确定并登录</button>
+
+        <p class="text-muted text-center">
+            <a href="login.html#">
+                <small>返回登录页</small>
+            </a> | <a href="register.html">注册一个新账号</a>
+        </p>
+
+    </div>
+</div>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.5"></script>
+<script src="js/plugins/layer/layer.min.js"></script>
+<script src="js/mine/common/common.js?v=1.0"></script>
+<script src="js/mine/forgetPwd.js?v=1.0"></script>
+</body>
+
+</html>

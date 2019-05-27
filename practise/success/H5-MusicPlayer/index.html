@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/jquery-3.1.1.min.js"></script>
+
+</head>
+<body>
+	<textarea id="txt">
+[00:00.16]等一个晴天 (Live) - 蔡淳佳
+[00:01.97]词：梁文福
+		[00:02.90]曲：一青窈
+    [00:04.19]编曲：吴佳明
+    [00:20.98]阳光中风筝断了线
+    [00:26.36]往事般落在我面前
+    [00:32.10]那是谁忘了放风筝握紧一点
+    [00:37.61]捡起了那年的秋天
+    [00:43.17]阳光中我住雨里面
+    [00:48.83]你给我风筝和蓝天
+    [00:54.49]那是我忘了将幸福握紧一点
+    [01:00.57]感谢你最后的相约
+    [01:08.81]等一个晴天
+    [01:11.92]我们会再相见
+    [01:14.31]你说了风吹我就听见
+    [01:20.36]笑着说再见
+    [01:23.14]就一定会再见
+    [01:25.65]心晴朗就看得到永远
+    [01:31.75]因为很想念
+    [01:34.46]每天都是晴天
+    [01:36.92]心晴朗就看到永远
+    [01:42.60]阳光中风筝飞上天
+    [01:48.26]你笑着回到我面前
+    [01:53.95]让我像那风筝贴着天空的脸
+    [02:00.00]让爱是今生不断的线
+
+	</textarea>
+	<div class="photo">
+		<div class="top">	</div>
+		<div class="title">等一个晴天</div>
+		<div class="singer">蔡淳佳</div>
+		<div class="play"></div>
+		<div class="lrc">
+			<div class="content"></div>
+		</div>
+	</div>
+
+	<!--audio h5新增标签 src指向音频文件-->
+	<audio id="myMusic" src="mp3/蔡淳佳 - 等一个晴天.mp3"></audio>
+	<script>
+		/*
+			1.需要知道一切触发特效的对象和对象
+			2.获取到这个对象
+			3.用类名获取对象是把对象存在一个html集合当中，不是数组 保持唯一需要下标
+			4.js当中的等于号是赋值的意思，会覆盖原来的值
+			5.if 的机制：括号里面是条件（实际上，括号里是不会执行语句的，它里面其实做了一个隐式转换
+				>>布尔值）,eg:if(mark==true),可以直接if(mark)
+		 //class是保留关键字
+		 6.歌词往上走，其实是改变content的top值
+
+		*/
+        var con=document.getElementsByClassName("content")[0];
+		var btn=document.getElementsByClassName("play")[0];
+		var myMusic=document.getElementById("myMusic");
+		var txt=document.getElementById("txt");
+		var lrc=txt.value;//储存歌词，储存完毕后对歌词进行处理，1把时间和歌词分开，2
+
+		var mark=true;//为了区分点击是播放还是关闭而设置的值，true
+
+		btn.onclick=function () {
+		    if(mark){
+//			this.className="play rotate";这个也可以
+                this.className +=" rotate";
+                myMusic.play();
+                mark=false;
+			}else{
+                this.className ="play";
+                myMusic.pause();//音乐暂停
+				mark=true;
+			}
+        }
+        var lrcArr=lrc.split("[");//从这个字符开始分割
+        var html="";
+		for(var i=0;i<lrcArr.length;i++){
+		    var arr=lrcArr[i].split("]");
+//		    console.log(arr);
+            var time=arr[0].split(".");//时间部分
+//            console.log(arr[0]);
+			var timer=time[0].split(":");
+//            console.log(arr[1]);
+
+			//timer[0]分钟，timer[1]秒钟
+			var ms=timer[0]*60+timer[1]*1;//字符串*数字=数字，字符串+数字=字符串
+			var text=arr[1];
+//            alert(arr[0]);
+			if(text){
+			    html+="<p id="+ms+">"+text+"</p>";
+			}
+			con.innerHTML=html;
+		}
+
+		var num=0;
+		var op= con.getElementsByTagName("p");
+
+		//myMusic监听事件，为了让歌词跟随歌曲的播放;歌曲播放后的时间变化，触发监听事件
+		myMusic.addEventListener("timeupdate",function () {
+
+            //获取歌曲播放的当前时间.parseInt()表示取整
+			var curTime=parseInt(this.currentTime);
+			
+//			console.log(curTime);
+
+			//判断该时间id存不存在，时间就是ms，也是id
+			if(document.getElementById(curTime)){
+			    for(var i=0;i<op.length;i++){
+			        op[i].style.cssText="color:#ccc;font-size:12px;";
+				}
+			    document.getElementById(curTime).style.cssText="color:red;font-size:18px;";
+			    if(op[7+num].id==curTime){//7:表示从第7句话开始，往上刷歌词
+			    	con.style.top=-20*num+"px";
+			    	num++;
+			    }
+			}
+        });//监听事件
+
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

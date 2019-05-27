@@ -1,0 +1,49 @@
+
+.header .header-left img{
+	width: 0.14rem;
+	height: 0.14rem;
+}
+.header .header-right span{
+	color: #ffffff;
+}
+.con{
+	font-family: PingFang-SC-Medium;
+	font-size: 0.15rem;
+	color: #a3afcc;
+	width: 100%;
+	padding:0.2rem 0.15rem 0 0.15rem;
+	box-sizing: border-box;
+}
+
+.con p{
+	margin-bottom: 0.1rem;
+}
+.con input{
+	width: 100%;
+	height: 0.5rem;
+	background-color: #1f2033;
+	border-radius: 0.05rem;
+	padding:0 0.1rem;
+	color: white;
+	box-sizing: border-box;
+}
+.btn{
+	width: 100%;
+	height: 0.5rem;
+	background-image: linear-gradient(-81deg, 
+		#dda849 0%, 
+		#dd775a 47%, 
+		#dc466b 100%), 
+	linear-gradient(
+		#ffffff, 
+		#ffffff);
+	background-blend-mode: normal, 
+		normal;
+	border-radius: 0.05rem;
+	box-sizing: border-box;
+	font-family: PingFang-SC-Medium;
+	font-size: 0.16rem;
+	color: #ffffff;
+	text-align: center;
+	line-height: 0.5rem;
+}

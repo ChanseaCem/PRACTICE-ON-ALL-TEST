@@ -1,0 +1,67 @@
+
+body{
+	padding-bottom:0.3rem; 
+}
+
+.m-con p {
+
+    line-height: 0.4rem;
+    padding: 0 0.15rem;
+}
+.m-con p span:nth-child(1){
+	font-family: PingFang-SC-Regular;
+	font-size: 0.13rem;
+	color: #a3afcc;
+}
+.m-con p .c-b{
+	display: block;
+	float: right;
+	font-family: PingFang-SC-Regular;
+	font-size: 0.13rem;
+	color: #a3afcc;
+}
+.m-con p img{
+	width: 0.06rem;
+	height: 0.1rem;
+	display: block;
+	float: right;
+	margin-top: 0.15rem;
+	margin-left: 0.1rem;
+}
+.m-con ul{
+	background-color: #1f2033;
+	padding: 0 0.15rem;
+}
+.m-con ul li{
+	height: 0.5rem;
+	line-height: 0.5rem;
+	border-bottom: solid 1px #3e4066;
+}
+.m-con ul li span:nth-child(1){
+	font-family: PingFang-SC-Regular;
+	font-size: 0.14rem;
+	color: #ffffff;
+}
+.m-con ul li span.txt{
+	font-family: PingFang-SC-Regular;
+	font-size: 0.14rem;
+	color: #a3afcc;
+	display: block;
+	float: right;
+    max-width: 1.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.m-con ul li img{
+    width: 0.06rem;
+    height: 0.1rem;
+    display: block;
+    float: right;
+    margin-top: 0.2rem;
+    margin-left: 0.1rem;
+}
+.m-con ul li:last-child{
+	border-bottom-width: 0;
+}

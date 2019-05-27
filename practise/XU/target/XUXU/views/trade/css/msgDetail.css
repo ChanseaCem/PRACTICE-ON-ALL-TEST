@@ -1,0 +1,25 @@
+
+
+.g-m{
+	padding: 0.14rem;
+	font-size: 0.15rem;
+	color: #ffffff;
+}
+.m-txt .u-p1{
+	
+	margin-bottom: 0.1rem;
+
+	font-family: PingFang-SC-Regular;
+	font-size: 0.12rem;
+	font-weight: normal;
+	font-stretch: normal;
+	color: #ffffff;
+}
+.m-txt p{
+	font-family: PingFang-SC-Regular;
+	font-size: 0.14rem;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 0.3rem;
+	color: #ffffff;
+}

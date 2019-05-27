@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<!--
+ 2 关于插件的一些说明：
+ 3 parentID:是指父容器的id，最好是一个无序列表ul的id。
+ 4 childTag:是父容器里面包裹每一个图片的标签名，在无序列表里可以是li。
+ 5 使用此插件要想有一个图片透明度渐进改变的效果，要给包裹图片的标签一个样式，如下：
+ 6 transition: opacity 1s ease-in-out;
+ 7 可以对这个transition就行相应的修改；
+ -->
+</head>
+
+<style type="text/css">
+	ul {
+		position: relative;
+	}
+	ul li{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+</style>
+<body>
+	<ul id="parentId" data-a="a">
+		<li id="child"><img id="img1" src="img/ft1.jpg" alt="1" /></li>
+		<li><img src="img/ft3.jpg" alt="2" /></li>
+		<li><img src="img/ft4.jpg" alt="3" /></li>
+		<li><img src="img/ft5.jpg" alt="4" /></li>
+		<li><img src="" alt="" /></li>
+	</ul>
+</body>
+<script type="text/javascript">
+	$(function(parentID,childTag){
+		var pictures=document.getElementById(parentID);
+		var items=ul.getElementsByTagName(childTag);
+		alert("items");
+		var len=items.length;
+		var index=0;//li的序列号
+		//显示一张图片
+		
+		function showItem(){
+			//首先将所有图片的透明度设为0
+			hideItems();
+			items[index].style.opacity=1;
+			// 将要显示的透明度改变让其显示
+		};
+		
+		//将所有图片透明度设为0
+		function hideItems(){
+			for(var i=0;i<len;i++){
+				items[i].style.opacity=0;
+			}
+		};
+	});
+</script>
+
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试</title>
+</head>
+<body>
+
+
+
+	<div id="result" onclick="add()">add</div>
+	<div id="read" onclick="read()">read</div>
+	<div id="readall" onclick="readAll()">readall</div>
+	<div id="update" onclick="update(1)">update</div>
+	<div id="remove" onclick="remove(1) ">remove</div>
+	<div id="index" onclick="selectInIndex()">select in index</div>
+	<div id="removeDB" onclick="removeDB('test')">delete INDEXEDDB_DB</div>
+	<div id="test" onclick="aa()">AA</div>
+
+	<div onclick="test()">测试</div>
+	<div id="show">
+		<p><span>名称:</span></p>
+	</div>
+
+
+	<a href="测试页.html"></a>
+
+	<script type="text/javascript" charset="utf-8" src="../js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script>
+
+		// indexedDB.deleteDatabase("test");
+
+
+	var obj = {
+		name:"test",
+		version:3,
+		db:null
+	}
+	var db;
+	openDb(obj.name,obj.version);
+
+	var INDEXEDDB_DB = null;
+	function openDb(name,version){
+		console.log("name:"+name+";version:"+version)
+		var version = version || 1;
+		var INDEXEDDB_DB = window.indexedDB.open(name,version);
+
+		console.log(INDEXEDDB_DB);
+
+		INDEXEDDB_DB.onerror = function(e){
+			console.log("[数据库打开错误]");
+		}
+		INDEXEDDB_DB.onsuccess = function(e){
+			obj.db = INDEXEDDB_DB.result;
+			console.log('[数据库打开成功]');
+
+		}
+		INDEXEDDB_DB.onupgradeneeded = function(e){
+			console.log('[数据库升级]');
+			console.log();
+  			obj.db = e.target.result;
+			var objectStore;
+
+			if (!obj.db.objectStoreNames.contains('historyOfChat')) {
+				objectStore = obj.db.createObjectStore('historyOfChat', { keyPath: 'id' });
+				objectStore.createIndex('name', 'name', { unique: false });
+				objectStore.createIndex('id', 'id', { unique: false });
+				objectStore.createIndex('age', 'age', { unique: false });
+			}
+
+		}
+
+	};
+
+	function add() {
+		var request = "";
+		for(var i = 0;i<5000;i++){
+		  	request = obj.db.transaction(['historyOfChat'], 'readwrite')
+		    	.objectStore('historyOfChat')
+		    	.add({ id: "x"+i, name: 'JACK', age: 24+i, email: 'zhangsan@example.com',sex:"male",height:i+"H" });
+		}
+
+		request.onsuccess = function (event) {
+			console.log('[数据写入成功]');
+
+		};
+
+		request.onerror = function (event) {
+			console.log('[数据写入失败]');
+		}
+		request.oncomplete = function(event) {
+		    console.log('事务完成！');
+		};
+		request.onabort = function(event) {
+		    console.log('事务回滚！');
+		};
+	}
+
+	var idread = {id:12};
+	function read() {
+		var transaction = obj.db.transaction(['historyOfChat']);
+		var objectStore = transaction.objectStore('historyOfChat');
+		var request = objectStore.get(1);
+
+		request.onerror = function(event) {
+			console.log('[事务失败]');
+		};
+
+		request.onsuccess = function(event) {
+			console.log('[事务成功]');
+			console.log(request.result);
+			var html = "<p><span>名称:</span><span>NAME</span></p>";
+			var htmlall = "";
+			var res = request.result;
+			if (res) {
+				// for(var p in res){
+					htmlall += html.replace("NAME",res.name);
+				// }
+				$("#show").html(htmlall);
+			} else {
+				console.log('[未获得数据记录]');
+				$("#show").html("未获得数据记录");
+			}
+		};
+		request.oncomplete = function(event) {
+		    console.log('事务完成！');
+		};
+		request.onabort = function(event) {
+		    console.log('事务回滚！');
+		};
+	}
+
+	var data = [];
+	function readAll() {
+		var objectStore = obj.db.transaction('historyOfChat').objectStore('historyOfChat');
+
+			objectStore.openCursor().onsuccess = function (event) {
+			var cursor = event.target.result;
+
+			if (cursor) {
+				data.push(cursor.value);
+				cursor.continue();
+			} else {
+				data.reverse();
+				console.log(data);
+			  console.log('[没有更多数据了！]');
+			}
+		};
+	}
+
+	function update(id) {
+		var request = obj.db.transaction(['historyOfChat'], 'readwrite')
+		.objectStore('historyOfChat')
+		.put({ id: id, name: '李四', age: 35, email: 'lisi@example.com' });
+
+		request.onsuccess = function (event) {
+			console.log('[数据更新成功]');
+		};
+
+		request.onerror = function (event) {
+			console.log('[数据更新失败]');
+		}
+
+
+		request.oncomplete = function(event) {
+		    console.log('事务完成！');
+		};
+		request.onabort = function(event) {
+		    console.log('事务回滚！');
+		};
+
+
+	}
+
+	function remove(id) {
+		var request = obj.db.transaction(['historyOfChat'], 'readwrite')
+			.objectStore('historyOfChat')
+			.delete(id);
+
+		request.onsuccess = function (event) {
+			console.log('[数据删除成功]');
+		};
+		request.oncomplete = function(event) {
+		    console.log('事务完成！');
+		};
+		request.onabort = function(event) {
+		    console.log('事务回滚！');
+		};
+	}
+		
+	function selectInIndex(){
+		console.log(obj.db);
+		var transaction = obj.db.transaction(['historyOfChat'], 'readwrite');
+		var store = transaction.objectStore('historyOfChat');
+		
+		var index = store.index('name');
+		var request = index.get('张三');
+
+		var range = IDBKeyRange.bound(1,1000,false,false);
+		index.openCursor().onsuccess = function (e) {
+			var result = e.target.result;
+			console.log("[用索引查找数据0]");
+	        var cursor = this.result;
+			if (result) {
+				console.log(cursor.value);
+				cursor.continue();
+			} else {
+			console.log("[selectInIndex 检索完毕0]");
+			}
+		}
+		index.openCursor(range,"next").onsuccess = function (e) {
+			var result = e.target.result;
+			console.log("[用索引查找数据]");
+	        var cursor = this.result;
+			if (result) {
+				console.log(cursor.value);
+				cursor.continue();
+			} else {
+			console.log("[selectInIndex 检索完毕]");
+			}
+		}
+
+	}
+
+	function removeDB(name){
+		console.log(name);
+		window.indexedDB.deleteDatabase(name);
+	}
+
+
+
+	function aa(){
+		var transaction = obj.db.transaction(['historyOfChat'], 'readonly');
+		var store = transaction.objectStore('historyOfChat');
+
+	    var range = IDBKeyRange.bound(1,100);
+	    var req = store.openCursor(range, 'next');
+	    req.onsuccess = function(){
+	        var cursor = this.result;
+	        if(cursor){
+	            console.log(cursor.value);
+	            cursor.continue();
+	        }else{
+	            console.log('检索结束');
+	        }
+	    }
+	}
+
+	function test(){
+		var i,transaction,obj1,ind,range;
+		db=obj.db;
+		transaction=db.transaction("historyOfChat","readwrite");
+		var obj1=transaction.objectStore("historyOfChat");
+		ind=obj1.index("name"); //从存储对象中获取b这个索引对象
+		ind.get("张三").onsuccess = function(){
+		console.log(this.result);
+		}
+
+		//区间：[1,3)
+		range=IDBKeyRange.bound(1,13,false,true);
+		console.log("开始遍历：");
+		//从a索引对象中遍历数据（倒序）
+		ind.openCursor(range,"prev").onsuccess=function(e){
+			if(e.target.result){
+				console.log(e.value);
+				e.continue();
+			}else{
+				console.log("遍历完毕！");
+			}
+		};
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

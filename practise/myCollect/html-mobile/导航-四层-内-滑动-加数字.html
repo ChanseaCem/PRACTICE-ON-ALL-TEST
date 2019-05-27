@@ -1,0 +1,120 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>导航-四层-外</title>
+    <link rel="stylesheet" href="../css/base.css">
+
+    <!-- js -->
+    <script type="text/javascript" charset="utf-8" src="../js/plugins/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/top-nav.js"></script>
+</head>
+<body>
+
+    <script>
+    $(function(){
+        
+        //导航切换
+        $(".nav .nav-scr>li").on("click",function(){
+            $(this).find("p").addClass("active").parent().siblings("li").find("p").removeClass("active");
+        });
+    });
+    </script>
+    <style>
+
+    /* 导航 */
+    
+    .nav {
+        position: fixed;
+        top: 0.4rem;
+        background: #ff9100;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .nav .nav-scr {
+        overflow: scroll;
+        white-space: nowrap;
+        display: flex;
+    }
+
+    .nav .nav-scr > li {
+        flex: 1;
+        text-align: center;
+        padding: 0 0.1rem;
+    }
+
+    .nav .nav-scr > li p {
+        line-height: 0.44rem;
+        display: inline-block;
+        height: 0.44rem;
+        font-family: PingFang-SC-Regular;
+        font-size: 0.15rem;
+        color: #FFCDA3;
+        position: relative;
+    }
+
+    .nav .nav-scr > li .active {
+        border-bottom: solid 1px #ffffff;
+        color: #ffffff;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0;
+        height: 0
+    }
+
+    .nav ul li .li-text {
+        position: relative;
+    }
+
+    .nav ul li .li-num {
+        position: absolute;
+        top: 0.08rem;
+        display: inline-block;
+        width: 0.12rem;
+        height: 0.12rem;
+        border-radius: 50%;
+        background-color: #ffffff;
+        font-size: 0.09rem;
+        line-height: 0.12rem;
+        color: #ff9100;
+        overflow: hidden;
+    }
+    /* 导航 end*/
+    </style>
+
+    <!-- 导航开始 -->
+    <div class="nav">
+        <ul class="nav-scr">
+            <li tag="0">
+                <p class="active">全部</p>
+            </li>
+            <li tag="1">
+                <p class="">待发货<span class="li-num">10</span></p>
+            </li>
+            <li tag="2">
+                <p class="">待确认<span class="li-num">99</span></p>
+            </li>
+            <li tag="3">
+                <p class="">待付款<span class="li-num">0</span></p>
+            </li>
+            <li tag="4">
+                <p class="">已付款<span class="li-num">1</span></p>
+            </li>
+            <li tag="5">
+                <p class="">已结束<span class="li-num">2</span></p>
+            </li>
+        </ul>
+    </div>
+    <!-- 导航 结束 -->
+
+    <hr>
+</body>
+
+</html>

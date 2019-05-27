@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue test 2</title>
+</head>
+<body>
+	<div id="div2">
+		<p v-html="html"></p>
+		<p v-if="bool">v-if是否添加</p>
+		<p v-show="bool">v-show是否显示</p>
+		<p v-on:click="f1">v-on点击</p>
+		<input v-model="v-model">
+		<p v-for="p in arr">{{"v-for:"+p}}</p>
+
+		<p v-bind:data-id="tag">v-bind:data-id="tag"</p>
+		<p :sss2252="1">v-bind:缩写</p>
+
+		<!-- <p v-for="(a,b,c) in obj">{{"v-for="(a,b,c):"+a+"::"+b+"::"+c}}</p> -->
+	</div>
+
+	
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="../js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/plugins/vue/vue.min.js"></script>
+	<script>
+	var v = new Vue({
+		el:"#div2",
+		data:{
+			html:"<p>v-html：标题</p>",
+			bool:true,
+			qwe:"qwe",
+			arr:[1,2,3],
+			tag:1,
+			obj:{
+				"k1":"k11",
+				"k2":"k12",
+				"k3":"k13",
+			}
+		},
+		methods:{
+			f1:function(){
+				alert("dianji");
+			}
+		},
+		computed:{
+			c1:function(){
+
+			}
+		},
+		watch:{
+			datas:{
+				set:function(){
+
+				},
+				get:function(){
+
+				}
+			}
+		},
+		filters:{
+			isnull:function(){
+
+			}
+		}
+	});
+	</script>
+
+
+</body>
+</html>

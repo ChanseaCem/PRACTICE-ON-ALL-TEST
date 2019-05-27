@@ -1,0 +1,23 @@
+/* bindingBankCard */
+.content-list li{
+    height: 0.5rem;
+    background-color: #2f304d;
+}
+.content-list li span{
+    font-family: PingFang-SC-Medium;
+	font-size: 0.16rem;
+    color:  #a3afcc;
+    line-height: 0.5rem;
+    padding-left: 0.14rem;
+    
+}
+.content-list li input{
+    background-color: #2f304d;
+    padding-left: 0.25rem;
+    color:  #a3afcc;
+}
+.s1{
+    font-family: PingFang-SC-Medium;
+	font-size: 0.16rem;
+	color: #a3afcc;
+}

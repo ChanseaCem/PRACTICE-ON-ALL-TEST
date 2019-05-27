@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>交易详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/transactionDetails.css">
+
+</head>
+<body>
+
+    <!-- 头部开始 -->
+    <div class="header">
+        <div class="header-left" onclick="window.location.href='javascript:history.go(-1)'">
+            <span><img src="img/common/others/android/drawable-xhdpi/icon_back.png"></span>
+        </div>
+        <div class="header-center">
+            <!-- 文字标题 -->
+            <span onclick="window.location.href='market.html'">
+            	ETZ/ETH 
+            	<img style="width: 0.1rem;height: 0.06rem;" src="img/common/others/android/drawable-xhdpi/icon_dropdown.png" alt="">
+            </span>
+        </div>
+        <div class="header-right">
+            <span><img src="img/common/others/android/drawable-xhdpi/icon_focus_no.png"></span>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 主要内容开始 -->
+    <div class="main">
+    	<div class="m-t">
+			<p class="num1">0.00000278</p>
+			<p class="num2">+ 8.17%</p>
+			<p class="num3">≈¥1.1912</p>
+    	</div>
+    	<div class="m-t-c clearfix">
+    		<div class="con">
+    			<p class="c-tt">24h成交量</p>
+    			<p class="c-num">21680902</p>
+    		</div>
+    		<div class="con">
+    			<p class="c-tt">24h最高价</p>
+    			<p class="c-num">216809.47</p>
+    		</div>
+    		<div class="con">
+    			<p class="c-tt">24h最低价</p>
+    			<p class="c-num">216809.47</p>
+    		</div>
+    	</div>
+    	<div class="echart"></div>
+    	<div class="m-b">
+			<p class="b-t clearfix">
+				<img src="img/common/others/android/drawable-xhdpi/icon_focus_no.png" alt="">
+				<span>最新成交</span>
+			</p>
+			<p class="b-table">
+				<span>时间</span>
+				<span>数量</span>
+				<span>价格</span>
+			</p>
+			<ul>
+				<li>
+					<span>17:44:12</span>
+					<span>30000</span>
+					<span>3000.00</span>
+				</li>
+				<li>
+					<span>17:44:12</span>
+					<span>40000</span>
+					<span class="red">3000.00</span>
+				</li>
+				<li>
+					<span>17:44:12</span>
+					<span>30000</span>
+					<span>3000.00</span>
+				</li>
+				<li>
+					<span>17:44:12</span>
+					<span>40000</span>
+					<span class="red">3000.00</span>
+				</li>
+				<li>
+					<span>17:44:12</span>
+					<span>30000</span>
+					<span>3000.00</span>
+				</li>
+				<li>
+					<span>17:44:12</span>
+					<span>40000</span>
+					<span class="red">3000.00</span>
+				</li>
+				<li>
+					<span>17:44:12</span>
+					<span>30000</span>
+					<span>3000.00</span>
+				</li>
+				<li>
+					<span>17:44:12</span>
+					<span>40000</span>
+					<span class="red">3000.00</span>
+				</li>
+			</ul>
+    	</div>
+    </div>
+    <!-- 主要内容 结束 -->
+
+
+    <!-- 底部 -->
+    <div class="footer">
+	    <div class="footer-normal active" tag="0" onclick="window.location.href='transaction.html'">买入</div>
+	    <div class="footer-normal" tag="1" onclick="window.location.href='transaction.html'">卖出</div>
+	</div>
+    <!-- 底部 结束 -->
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		jQuery(function($){
+			//切换收藏
+			$(".header-right").on("click",function(){
+				console.log(1);
+				var src = $(this).find("img").attr("src");
+				if(src.indexOf("no")>0){
+					$(this).find("img").attr("src",src.replace("_no","_yes"));
+				}else{
+					$(this).find("img").attr("src",src.replace("_yes","_no"));
+				}
+			})
+		});
+	</script>
+</body>
+</html>

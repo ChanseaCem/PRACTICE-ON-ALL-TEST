@@ -1,0 +1,104 @@
+
+
+body{
+	padding-bottom: 0.3rem;
+}
+
+.main{
+	padding-top: 0.15rem;
+}
+.con{
+	padding: 0 0.15rem;
+}
+.con-t{
+	background-color: #1f2033;
+}
+.con-t>p{
+	border-bottom: 1px solid #3e4066;
+}
+.con p:first-child{
+	line-height: 0.5rem;
+	font-family: PingFang-SC-Regular;
+	font-size: 0.14rem;
+	color: #ffffff;
+}
+.con .inp{
+	font-family: PingFang-SC-Regular;
+	font-size: 0.14rem;
+	color: #a3afcc;
+	display: block;
+	float: right;
+    max-width: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.con .pic{
+	width: 2.56rem;
+	height: 1.4rem;
+	margin:auto;
+	position: relative;
+	background-color: #1f2033;
+	border-radius: 0.15rem;
+}
+
+.con .tip{
+	font-family: PingFang-SC-Regular;
+	font-size: 0.13rem;
+	color: #a3afcc;
+	text-align: center;
+	margin: 0.15rem auto 0.3rem;
+}
+.con .check{
+	height: 0.5rem;
+	line-height: 0.5rem;
+	border-top: solid 1px #3e4066;
+	border-bottom: solid 1px #3e4066;
+}
+.con .check span:nth-child(1){
+	font-family: PingFang-SC-Regular;
+	color: #a3afcc;
+}
+.con .check span:nth-child(2){
+	display: block;
+	float: right;
+	font-family: PingFang-SC-Regular;
+	color: #92d58b;
+}
+.con .check img{
+	width: 0.18rem;
+	height: 0.18rem;
+    margin-right: 0.05rem;
+}
+
+.con .txt textarea{
+	height: 0.95rem;
+	background-color: #1f2033;
+	border-radius: 0.01rem;
+	padding: 0.15rem;
+	font-family: PingFang-SC-Regular;
+	font-size: 0.13rem;
+	color: #666e80;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn{
+	height: 0.5rem;
+	line-height: 0.5rem;
+	text-align: center;
+	background-image: linear-gradient(-81deg, 
+		#dda849 0%, 
+		#dd775a 47%, 
+		#dc466b 100%), 
+	linear-gradient(
+		#ffffff, 
+		#ffffff);
+	background-blend-mode: normal, 
+		normal;
+	border-radius: 0.05rem;
+	font-family: PingFang-SC-Medium;
+	font-size: 0.16rem;
+	color: #ffffff;
+	margin-top: 0.2rem;
+}

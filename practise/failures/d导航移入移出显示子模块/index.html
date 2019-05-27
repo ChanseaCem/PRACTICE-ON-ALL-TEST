@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/index.css">
+	<script src="js/jquery-3.1.1.js"></script>
+</head>
+<script>
+	$(document).ready(function(e){
+		//获取li和sub
+		$("#nav li").hover(
+			function(){
+				//hover规定的第一个方法是：鼠标移入
+				$(this).addClass("now");
+				$(this).children(".sub").stop(true,true).show(800);
+			},
+			function(){
+				//hover规定的第二个方法是：鼠标移出
+				$(this).removeClass("now");
+				$(this).children(".sub").stop(true,true).hide();
+			
+			//stop(false,false)默认参数
+			//第一个flase：停止的位置
+			//第二个false：停止到动画的第一帧的位置
+			})
+	});
+</script>
+<body>
+	<header>
+		<div id="logo"></div>
+		<div id="nav">
+			<ul>
+				<li>
+					<a href="">首页</a>
+					<div class="sub">
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+					</div>
+				</li>
+				<li>
+					<a href="">一级导航</a>
+					<div class="sub">
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+					</div>
+				</li>
+				<li>
+					<a href="">一级导航</a>
+					<div class="sub">
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+					</div>
+				</li>
+				<li>
+					<a href="">一级导航</a>
+					<div class="sub">
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+					</div>
+				</li>
+				<li>
+					<a href="">一级导航</a>
+					<div class="sub">
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+					</div>
+				</li>
+				<li>
+					<a href="">一级导航</a>
+					<div class="sub">
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+						<a href="">一级导航</a>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+	</header>
+	
+</body>
+</html>

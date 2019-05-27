@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+	<title>寻找绿箭侠</title>
+	<meta charset="utf-8" />
+<link type="text/css" rel="stylesheet" href="index.css" />
+</head>
+<body>
+	<!--
+    	首页
+    -->
+	<div id="startPage">
+		<h2>寻找绿箭侠</h2>
+		<h4>考考你的眼力，从雷神当中找出绿箭侠</h4>
+		<div id="start">
+			<a href="javascript:void(0);" class="btn" id="btnstart">开 始</a>
+			<a href="javascript:void(0);" class="btn" id="btnmore">更 多 游 戏</a>
+		</div>
+	</div>
+	<div id="playPage">
+		<div class="time">
+			剩余时间：<span id="spendTime">60</span>
+		</div>
+		<div id="message"><span class="core"></span></div>
+		<div id="box" class=""></div>
+		<div>
+			<a href="javascript:void(0);" class="btn" id="stop">暂停</a>
+		</div>
+	</div> 
+	<div id="resultPage">
+		<h1>Game Over</h1>
+		<div >
+			得分:<span class="score">0</span>
+		</div>
+		<a href="javascript:void(0);" class="btn" id="playAagin">再来一次</a>
+	</div>
+	<div id="stopPage">
+		<a href="javascript:void(0);" class="btn" id="returnplay">返回游戏</a>
+		<a href="javascript:void(0);" class="btn" id="playonce">重新开始</a>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/game.js" ></script>
+<script type="text/javascript" src="js/picture.js"></script>
+<script type="text/javascript" src="js/color.js"></script>
+</html>

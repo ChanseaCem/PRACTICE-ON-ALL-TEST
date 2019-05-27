@@ -1,0 +1,176 @@
+
+body {
+    padding-top: 0.54rem;
+    padding-bottom: 0.7rem;
+}
+
+.header .header-center span {
+    max-width: 1.5rem;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.header .header-right img {
+    width: 0.2rem;
+}
+
+
+.m-time{
+    font-family: PingFang-SC-Medium;
+    font-size: 0.11rem;
+    color: #ffffff;
+    text-align: center;
+    margin:0.25em auto;
+}
+.m-list {
+    padding: 0.1rem;
+}
+
+/*左边*/
+.m-list .l-head {
+    float: left;
+
+}
+
+.m-list .l-head img {
+    width: 0.36rem;
+    height: 0.36rem;
+    border-radius: 50%;
+}
+
+.m-list .l-con {
+    float: left;
+    max-width: 1.8rem;
+    border-radius: 0.1rem;
+    background: #a3afcc;
+    padding: 0.08rem 0.1rem;
+    margin-left: 0.1rem;
+    position: relative;
+    font-size: 0.14rem;
+    line-height: 0.22rem;
+}
+
+.m-list .l-con .left {
+    position: absolute;
+    top: 0.11rem;
+    left: -0.09rem;
+    width: 0;
+    height: 0;
+    border-width: 0.08rem 0.05rem;
+    border-style: solid;
+    border-color: transparent #a3afcc transparent transparent;
+}
+
+.m-list .l-con .red {
+    position: absolute;
+    top: 0.18rem;
+    right: -0.15rem;
+    width: 0.05rem;
+    height: 0.05rem;
+    background: red;
+    border-radius: 50%;
+}
+
+.m-list .l-con .sound {
+    min-width: 0.5rem;
+    max-width: 1.8rem;
+}
+
+.m-list .l-con .sound img {
+    width: 0.12rem;
+    margin-bottom: 0.02rem;
+}
+
+.m-list .l-con .sound span {
+    display: block;
+    float: right;
+}
+
+.dnone {
+    display: none;
+}
+
+/*左边 end*/
+
+/*右边*/
+.m-list .r-head {
+    float: right;
+
+}
+
+.m-list .r-head img {
+    width: 0.36rem;
+    height: 0.36rem;
+    border-radius: 50%;
+}
+
+.m-list .r-con {
+    float: right;
+    max-width: 1.8rem;
+    border-radius: 0.1rem;
+    background: #ffffff;
+    padding: 0.1rem;
+    margin-right: 0.1rem;
+    position: relative;
+    font-size: 0.14rem;
+    line-height: 0.22rem;
+    color: #333333;
+}
+
+.m-list .r-con .right {
+    position: absolute;
+    top: 0.11rem;
+    right: -0.09rem;
+    width: 0;
+    height: 0;
+    border-width: 0.08rem 0.05rem;
+    border-style: solid;
+    border-color: transparent transparent transparent #ffffff;
+}
+.m-list .r-con .red {
+    position: absolute;
+    top: 0.18rem;
+    left: -0.15rem;
+    width: 0.05rem;
+    height: 0.05rem;
+    background: red;
+    border-radius: 50%;
+}
+
+.m-list .r-con .sound {
+    min-width: 0.5rem;
+    max-width: 1.8rem;
+}
+
+.m-list .r-con .sound img {
+    width: 0.12rem;
+    margin-top: 0.05rem;
+    float: right;
+}
+
+.m-list .r-con .sound span {
+    display: block;
+    float: left;
+}
+
+/*右边 end*/
+
+.footer {
+    border-top-width: 0;    
+    background: #666e80;
+}
+
+.footer .inp {
+    width: 2.2rem;
+    height: 0.3rem;
+    background-color: #f0f2f5;
+    border-radius: 0.06rem;
+    padding: 0 0.1rem;
+    line-height: 0.3rem;
+    box-sizing: border-box;
+}
+.footer .footer-normal img{
+    height: 0.24rem;
+}

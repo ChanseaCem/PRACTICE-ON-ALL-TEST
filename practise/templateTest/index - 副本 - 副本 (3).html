@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<style>
+/*3d*/
+/*----------------------AnimationCube--------------------------------*/
+        .x,.y{
+            width:500px;
+            height:500px;
+            transform-style: preserve-3d;
+            perspective:100000px;
+        }
+        .x{
+            transform-style: preserve-3d;
+            transform: rotateX(45deg);
+            animation: xx 600s infinite linear alternate ;
+        }
+        @keyframes xx {
+            100%{transform: rotateX(-36000deg);}
+        }
+        .y{
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            animation: yy 600s infinite linear alternate;
+        }
+        @keyframes yy {
+            100%{transform: rotateY(-36000deg);}
+        }
+        .y div{
+            transform-style: preserve-3d;
+            width:100px;
+            height:100px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin:-50px 0 0 -50px;
+            opacity: 0.75;
+            box-shadow: 0 0 20px yellow;
+            border:solid 1px black;
+        }
+        .y div p{
+            color: #452368;
+            font-weight: 900;
+            text-align: center;
+            word-wrap: break-word;
+            text-shadow: 0 0 10px #b7bdcc;
+        }
+        .y div:nth-child(1){
+            background-color: #6173ff;
+            transform: translateZ(50px);
+        }
+        .y div:nth-child(2){
+            background-color: #ff37e2;
+            transform: translateZ(-50px);
+        }
+        .y div:nth-child(3){
+            background-color: #38ff22;
+            transform: translateX(50px) rotateY(90deg);
+        }
+        .y div:nth-child(4){
+            background-color: #7ffaff;
+            transform: translateX(-50px) rotateY(90deg);
+        }
+        .y div:nth-child(5){
+            background-color: #ffaf1a;
+            transform: translateY(-50px) rotateX(90deg);
+        }
+        .y div:nth-child(6){
+            background-color: #b15aff;
+            transform: translateY(50px) rotateX(90deg);
+        }
+        #mod{
+            width:500px;
+            height:500px;
+            transform-style: preserve-3d;
+            position: fixed;
+            top:200px;
+            left:-70px;
+        }
+        /*----------------------AnimationCube--------------------------------*/
+</style>
+</head>
+<body>
+<div id="mod">
+    <div class="x">
+        <div class="y">
+            <div><p>不可思议P</p><p>的博客园</p></div>
+            <div><p>HTML5</p><p>CSS3</p><p>JavaScript</p></div>
+            <div><p>Jquery</p><p>BootStrap</p><p>AngulaJs</p></div>
+            <div><p>Java</p><p>C#</p><p>Android</p></div>
+            <div><p>MySql</p><p>Oracle</p><p>SqlServer</p></div>
+            <div><p>Hibernate</p><p>Struts2</p><p>Spring</p><p>SpringMVC</p></div>
+        </div>
+    </div>
+</div>
+
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.11.3.min.js"></script>
+
+	<script>
+		jQuery(function($){
+
+		});
+	</script>
+</body>
+</html>

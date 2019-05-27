@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+</head>
+<body>
+
+    <div>下拉加载更多</div>  
+    <div class="main" style="height:700px;overflow: auto;">  
+        <div class="child" style='border:1px solid red;margin-top:20px;color:grey;height:180px;background: #000;' >11111111</div>  
+        <div class="child" style='border:1px solid red;margin-top:20px;color:grey;height:180px;background: #000;' >11111111</div>   
+        <div class="child" style='border:1px solid red;margin-top:20px;color:grey;height:180px;background: #000;' >11111111</div>  
+        <div class="child" style='border:1px solid red;margin-top:20px;color:grey;height:180px;background: #000;' >11111111</div>   
+        <div class="child" style='border:1px solid red;margin-top:20px;color:grey;height:180px;background: #000;' >11111111</div>  
+        <div class="child" style='border:1px solid red;margin-top:20px;color:grey;height:180px;background: #000;' >11111111</div>   
+    </div>  
+</body>  
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.11.3.min.js"></script>
+
+	<script>
+
+		$(document).ready(function(){  
+		    $(".main").bind("scroll", function(e){  
+		    	console.log("");
+		        var sum = this.scrollHeight;  
+		        console.log(sum);
+		        console.log($(".main").scrollHeight);
+		        if (sum <= $(this).scrollTop() + $(this).height()) {  
+		        	alert("dddddd");
+		            // $(".main").append($(".child").clone());  
+		        }  
+		    });  
+		});
+		jQuery(function($){
+
+		});
+	</script>
+</body>
+</html>

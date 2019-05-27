@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>法币交易订单管理</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/orderMgt.css">
+
+</head>
+<body>
+
+    <!-- 头部开始 -->
+    <div class="header">
+        <div class="header-left" onclick="window.location.href='personal.html'">
+            <span><img src="img/common/others/android/drawable-xhdpi/icon_back.png"></span>
+        </div>
+        <div class="header-center">
+            <!-- 文字标题 -->
+            <span>订单管理</span>
+        </div>
+        <div class="header-right">
+            <span></span>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 导航 开始 -->
+    <div class="nav-trade">
+        <div class="buy active">买入</div>
+        <div class="sell">卖出</div>
+    </div>
+    <div class="nav direction">
+        <div tag="0">
+            <span class="active">未付款</span>
+        </div>
+        <div tag="1">
+            <span class="" >已付款</span>
+        </div>
+        <div tag="2">
+            <span class="" >已完成</span>
+        </div>
+        <div tag="3">
+            <span class="">已取消</span>
+        </div>
+        <div tag="4">
+            <span class="">申诉中</span>
+        </div>
+    </div>
+    <!-- 导航 结束 -->
+
+    <!-- 主要内容开始 -->
+	<ul>
+		<li>
+			<p class="tt">20182231446000012</p>
+			<p class="num">数量：<span>12345678</span></p>
+			<p class="b clearfix">
+				<span class="date">2018-02-23 14:17</span>
+				<span class="btn" onclick="window.location.href='orderDetail.html'">详情 ></span>
+			</p>
+		</li>
+	</ul>
+    <!-- 主要内容 结束 -->
+
+
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		jQuery(function($){
+			$(".nav>div").on("click",function(){
+				$(this).find("span").addClass("active");
+				$(this).siblings("div").find("span").removeClass("active");
+			});
+            $(".nav-trade>div").on("click",function(){
+                $(this).addClass("active").siblings("div").removeClass("active");
+            })
+		});
+	</script>
+</body>
+</html>

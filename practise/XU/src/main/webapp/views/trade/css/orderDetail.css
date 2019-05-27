@@ -1,0 +1,247 @@
+/* 表格部分 */
+.cont_ul{
+    margin-top: 0.085rem;
+    width: 100%;
+    background-color: #1f2033;
+    padding:0 0.14rem;
+    box-sizing: border-box;
+}
+.cont_ul li{
+    width: 2.923rem;
+    height: 0.43rem;
+    border-bottom:  solid 0.004rem #3e4066;
+    /*margin: 0 auto;*/
+    width: 100%;
+}
+.li_div{
+    padding-top: 0.132rem;
+}
+.li_div p{
+    float: right;
+    text-align: right;
+    font-size: 0.119rem;
+    color: #ffffff;
+    position: relative;
+}
+.li_div p span:first-child{
+    max-width: 1rem;
+    overflow: hidden;
+    word-spacing: normal;
+    text-overflow: ellipsis;
+}
+.li_div p span:last-child{
+    margin-left: 0.02rem;
+}
+.copy_img{
+    width: 0.553rem;
+    height: 0.255rem;
+    position: absolute;
+    right: 0;
+}
+.li_span{
+    font-size: 0.119rem;
+    color: #ffffff;
+    margin-left: 0.102rem;
+    line-height:  0.196rem;
+}
+.cont_ul li:last-child{
+    border: none;
+}
+
+
+/*  logo部分*/
+.m-u {
+    height: 1.14rem;
+    margin:0.085rem 0;
+    padding: 0 0.132rem;
+    background-color: #1f2033;
+}
+.m-u .u-img {
+    float: left;
+    width: 0.553rem;
+	height: 100%;
+    line-height: 1.14rem;
+    padding-right: 0.13rem;
+}
+
+.m-u .u-img img {
+    width: 100%;
+    height: 0.553rem;
+    border-radius: 50%;
+}
+
+.m-u .u-con {
+    line-height: 0.24rem;
+    padding-top: 0.247rem;
+    font-size: 0.119rem;
+    color: #ffffff;
+}
+
+.u-con_span{
+    display: block;
+    float: right;
+    text-align: right;
+}
+/* copy部分 */
+.m-c {
+    background-color: #1f2033;
+    padding: 0 0.111rem;
+    font-size: 0.119rem;
+    color: #ffffff;
+}
+.m-c li {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    padding: 0.10rem 0.04rem;
+    border-bottom: 0.01rem solid #3e4066;
+}
+
+.m-c li .u-f1 {
+    width: 0.9rem;
+    line-height: 0.255rem;
+}
+
+.m-c li .u-f3 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    flex: 1;
+    text-align: right;
+    line-height: 0.255rem;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.m-c li .u-f3 span{
+    max-width: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+.m-c li .li_input{
+    background:  #1f2033;
+    color: #ffffff;
+}
+.m-c li .copy{
+    flex: 1;
+}
+.m-c li  .u-f5 {
+    width: 0.553rem;
+	height: 0.26rem;
+    line-height: 0.28rem;
+    text-align: center;
+    color: yellow;
+    margin-left: 0.1rem;
+    background-image: url('../img/orderDetail/android/drawable-xhdpi/ddxq_icon_copy.png') ;
+    background-size: 100% 100%;
+    display: block;
+    float: right;
+}
+.m-c li .addr{
+    max-width: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 0.05rem;
+}
+
+/* 付款凭证 */
+.k-dw {
+    padding: 0.166rem 0;
+    background-color: #1f2033;
+    font-size: 0.111rem;
+    color: #ffffff;
+}
+.k-dwText{
+    margin-left: 0.123rem ;
+}
+.k-dw .u-img .img-box {
+    display: block;
+    float: left;
+    margin-top: 0.17rem;
+    margin-left: 0.123rem;
+    width: 0.638rem;
+	height: 0.638rem;
+    text-align: center;
+    background-color: #2f304d;
+    position: relative;
+}
+
+.u-img .img-box img {
+    width: 0.2rem;
+	height: 0.2rem;
+    margin-top: 0.243rem;
+}
+.file_input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.638rem;
+    height: 0.638rem;
+    opacity:0;
+}
+
+/* 备注 */
+.cont_intro{
+    width: 100%;
+    padding:0 0.14rem;
+    box-sizing: border-box;
+}
+.cont_intro span{
+    display: block;
+    font-size: 0.111rem;
+    color: #a3afcc;
+    margin-top: 0.183rem;
+}
+.cont_intro textarea{
+    width: 100%;
+    height: 0.55rem;
+    font-size: 0.12rem;
+    color: #a3afcc;
+    margin-top: 0.126rem;
+    background-color: #2f304d; 
+    padding: 0.1rem;
+    box-sizing: border-box;
+}
+/* 按钮 */
+.Btn{
+    width: 100%;
+    padding:0.123rem 0.14rem 0.319rem 0.14rem;
+    box-sizing: border-box;
+}
+.cont_btn{
+    width: 100%;
+    height: 0.426rem;
+    margin: 0 auto;
+    margin-top: 0.123rem;
+    position: relative;
+    border-radius: 0.043rem;
+    color: #ffffff;
+}
+.cont_btn img{
+    width: 100%;
+    height: 0.426rem;
+  
+    position: absolute;
+    z-index: -1;
+}
+.cont_btn span{
+    display: block;
+    width: 100%;
+    font-size: 0.136rem;
+    line-height: 0.426rem;
+    text-align: center;
+}
+.Btn .add_color{
+    background-color: #666e80;
+    color: #a3afcc;
+}
+
+.clear_border{
+    border: none !important;
+}

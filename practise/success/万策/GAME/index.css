@@ -1,0 +1,140 @@
+*{ margin: 0 auto;padding: 0;}
+	  body{background: #ea474e;}
+	  #startPage{width: 400px;height: 600px;}
+	  h2{color: white;margin: 40px auto; text-align:center; width: 200px;}
+	  h4{color: gray; text-align: center; width: 100%; margin: 10px auto;}
+	 #start{
+	 	width: 290px; height: 400PX; margin: 300px auto;
+	 }
+	 
+	  .btn{
+	  	display: block;
+	  	width: 150px;
+	  	height: 40px;
+	  	margin: 10px auto;
+	  	background-color: #4DA4F4;
+	  	text-align: center;
+	  	line-height: 40PX;
+	  	text-decoration: none;
+	  	font-weight: bold;
+	  	border-radius: 5PX;
+	  	color: white;
+	  }
+	  .btn:hover{
+	  	background-color: #3c9ce3;
+	  }
+	  #playPage{
+	  	width: 500px; 
+	  	height: 600px;
+	  	display: none;
+	  }
+	  .time{
+	  	color: white;
+	  	width: 100px;
+	  	height: 30px;
+	  	position: relative;
+	  	text-align: center;
+	  	margin: 20px auto;
+	  }
+	  #box
+	  {
+	  	width: 400px;
+	  	height: 400px;
+	  	margin: 50px auto;
+	  	background-color: #ddd;
+	  	border: 10px solid #ddd;
+	  	border-radius: 10px;
+	  	cursor: pointer;
+	  	box-shadow: 2px 2px 1px #cccccc;
+	  }
+	  #box span{
+	  	display: block;
+	  	float: left;
+	  	border: 3px solid #ddd;
+	  	border-radius: 10px;
+	  	box-sizing: border-box;
+	  	/*background-color: red;*/
+	  }
+  #box.lv2 span{
+	width: 50%;
+	height: 50%;
+  }
+  #box.lv3 span{
+	width: 33.33333%;
+	height: 33.33333%;
+  }
+ #box.lv4 span{
+	width: 25%;
+	height: 25%;
+  }
+   #box.lv5 span{
+	width: 20%;
+	height: 20%;
+  }
+   #box.lv6 span{
+	width: 16.66666%;
+	height: 16.66666%;
+  }
+  #box.lv7 span{
+	width: 14.285714%;
+	height: 14.285714%;
+  }
+#box.lv8 span{
+	width: 12.5%;
+	height: 12.5%;
+  }
+  #box.lv9 span{
+	width: 11.11111%;
+	height: 11.11111%;
+  }
+#box.lv10 span{
+	width: 10%;
+	height: 10%;
+}
+#resultPage{
+	width: 300px;
+	height: 300px;
+	display: none;
+	background-color: #DDDDDD;
+	box-shadow: 2px 2px #c3c3c3;
+	margin-top: 50px;
+	padding: 50px;
+}
+#resultPage h1{
+	text-align: center;
+	color: burlywood;
+	
+}
+#resultPage div{
+	text-align: center;
+	font-size: 20px;
+	margin: 40px auto;
+}
+.score{
+	font-size: 25px;
+	font-weight: bold;
+}
+#playAagin{
+	position:relative;
+	top: 100px;
+}
+#message{
+	
+	margin: 50px auto;
+	color: #3C9CE3;
+	text-align: center;
+}
+#stopPage{
+	width: 200px;
+	height: 120px;
+	position:relative;
+	top: -400px;
+	background-color: white;
+	padding: 20px;
+	display: none;
+	
+}
+
+
+
+

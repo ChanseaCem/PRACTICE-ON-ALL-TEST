@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VUE TEST</title>
+
+	<link rel="stylesheet" href="../css/vue_test.css">
+</head>
+<body>
+	
+	<div class="main" id="con">
+		<div class="num">
+			<p>{{text}}</p>
+			<p>{{sun}}</p>
+		</div>
+		<div class="keyboard">
+			<button @click = "clear">C</button>
+			<button @click = "back">Back</button>
+			<button @click = "setNumber('')">+/-</button>
+			<button @click = "operator('÷')">÷</button>
+			<button @click = "setNumber('7')">7</button>
+			<button @click = "setNumber('8')">8</button>
+			<button @click = "setNumber('9')">9</button>
+			<button @click = "operator('×')">×</button>
+			<button @click = "setNumber('4')">4</button>
+			<button @click = "setNumber('5')">5</button>
+			<button @click = "setNumber('6')">6</button>
+			<button @click = "operator('+')">+</button>
+			<button @click = "setNumber('1')">1</button>
+			<button @click = "setNumber('2')">2</button>
+			<button @click = "setNumber('3')">3</button>
+			<button @click = "operator('-')">-</button>
+			<button class="zero" @click = "setNumber('0')">0</button>
+			<button @click = "setNumber('.')">.</button>
+			<button @click = "operator('=')">=</button>
+		</div>
+	</div>
+	
+	<script type="text/javascript" charset="utf-8" src="../js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/plugins/Vue/vue.min.js"></script>
+	<script>
+
+	var v = new Vue({
+		el:"#con",
+		data:{
+			a:0,
+			b:0,
+			display:0,
+			text:'',
+			text2:'',
+			sun:0,
+			points:0,
+			tag:0,
+			type:0,
+			operator:""
+		},
+		methods:{
+			plus:function(){
+
+			},
+			cast:function(fuhao){
+
+			},
+			setNumber:function(str){
+				this.text = this.text + str ;
+				this.display = this.display + parseFloat(str);
+			},
+			operator:function(op){
+				switch(this.operator){
+					case "+":
+						this.text = this.text + op ;
+						break;
+					case "-":
+						this.text = this.text + op ;
+						break;
+					case "×":
+						this.text = this.text + op ;
+						break;
+					case "÷":
+						this.text = this.text + op ;
+					case "=":
+						this.sun = this.display;
+						break;
+				}
+			},
+			getSun:function(){
+
+			},
+			sun:function(){
+
+			},
+			clear:function(){
+
+			},
+			back:function(){
+				
+			},
+    		calculate(fuhao){
+
+    		}
+		}
+	});
+
+	</script>
+</body>
+</html>

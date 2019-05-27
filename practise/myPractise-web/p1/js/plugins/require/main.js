@@ -1,0 +1,12 @@
+require.config({
+	paths:{
+		"jquery":["../JQuery/jquery-1.11.3.min"],
+		"test":"../../html2/test",
+		"test2":"../../html2/test2"
+	}
+});
+/*require(["jquery"],function($){
+		    $(function(){
+		        alert(1)
+		    })
+		})*/

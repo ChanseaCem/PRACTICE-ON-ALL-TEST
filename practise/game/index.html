@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
+    <meta charset="UTF-8">
+    <title>小游戏</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="div-top">
+    <div class="left"><img class="img-heart" src="img/heart.png"> X <span class="heart">3</span></div>
+    <div class="right">得分:<span class="score">0</span></div>
+</div>
+<canvas width="320" height="500"></canvas>
+<div id="beginPanel">
+    <span>点击屏幕开始</span>
+    <div>
+        <a href="javascript:void(0);" id="btn_config">游戏设置</a>
+        <a href="javascript:void(0);" id="btn_introduce">游戏说明</a>
+    </div>
+</div>
+<div id="overPanel">
+    <div>游戏结束,总得分:<span class="score">0</span></div>
+    <a id="replay" href="javascript:void(0);"><img src="img/replay.png"></a>
+    <a href="javascript:void(0);" id="btn_backBegin">返回初始页</a>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/layer/mobile/layer.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

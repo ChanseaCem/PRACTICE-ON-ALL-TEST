@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/enlargement.css">
+
+</head>
+<body>
+
+<div id="wrap">
+	<div class="content">
+		<img src="img/middle_11.png" alt="">
+		<div class="shadow"></div>
+	</div>
+	<div class="list">
+		<a href="javascript:void(0);" class="left"><</a>
+		<a href="javascript:void(0);" class="right">></a>
+		<div class="img-list">
+			<ul class="img-ul">
+				<li><img src="img/small_11.png" msrc="img/middle_11.png" bsrc="img/big_13.png" alt=""></li>
+				<li><img src="img/small_13.png" msrc="img/middle_13.png" bsrc="img/big_13.png" alt=""></li>
+				<li><img src="img/small_11.png" msrc="img/middle_11.png" bsrc="img/big_11.png" alt=""></li>
+				<li><img src="img/small_13.png" msrc="img/middle_13.png" bsrc="img/big_13.png" alt=""></li>
+				<li><img src="img/small_11.png" msrc="img/middle_11.png" bsrc="img/big_11.png" alt=""></li>
+				<li><img src="img/small_13.png" msrc="img/middle_13.png" bsrc="img/big_13.png" alt=""></li>
+			</ul>
+		</div>
+	</div>
+	<div class="big">
+		<img src="img/big_11.png" alt="">
+	</div>
+</div>
+	
+	<!-- js -->
+	<!-- <script type="text/javascript" charset="utf-8" src="js/jquery-1.11.3.min.js"></script> -->
+<!-- 	/*
+scrollWidth是对象的实际内容的宽，不包边线宽度，会随对象中内容的多少改变（内容多了可能会改变对象的实际宽度）
+clientWidth是对象可见的宽度，不包滚动条等边线，会随窗口的显示大小改变。
+offsetWidth是对象的可见宽度，包滚动条等边线，会随窗口的显示大小改变。
+scrollHeight: 获取对象的滚动高度。
+offsetHeight:获取对象相对于版面或由父坐标
+scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离
+offsetLeft:获取对象相对于版面或由
+scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离
+offsetTop 属性指定的父坐标的计算顶端位置
+offsetParent 属性指定的父坐标的高度
+offsetParent 属性指定的父坐标的计算左侧位置
+event.clientX 相对文档的水平座标
+event.clientY 相对文档的垂直座标
+event.offsetX 相对容器的水平坐标
+event.offsetY 相对容器的垂直坐标
+document.documentElement.scrollTop 垂直方向滚动的值 event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量 　　
+以上主要指IE之中，FireFox差异如下：
+IE6.0、FF1.06+：
+clientWidth = width + padding clientHeight = height + padding
+offsetWidth = width + padding + border
+offsetHeight = height + padding + border
+IE5.0/5.5：
+clientWidth = width - border
+clientHeight = height - border
+*/ -->
+
+	<script>
+		var wrap=document.getElementById("wrap");
+		var content=document.getElementsByClassName("content")[0];
+		var shadow=document.getElementsByClassName("shadow")[0];
+		var mediumImg=content.getElementsByTagName("img")[0];
+		var imgUL=document.getElementsByClassName("img-ul")[0];
+		var big=document.getElementsByClassName("big")[0];
+		var bigImg=big.getElementsByTagName("img")[0];
+		var aLi=imgUL.getElementsByTagName("li");
+
+		//鼠标移入小图
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].onmouseover =function(){
+				mediumImg.setAttribute("src",this.children[0].getAttribute("msrc"));
+				bigImg.setAttribute("src",this.children[0].getAttribute("bsrc"));
+			}
+		}
+
+		//鼠标移入中图
+		content.onmouseover=function(){
+			shadow.style.display="block";
+			big.style.display="block";
+		}
+
+		//鼠标在中图的移动,绑定鼠标事件传入参数e
+		content.onmousemove=function(e){
+
+			//让鼠标有个事件对象需要拿到一个对象
+			var e =e||window.event;
+			var x=e.clientX;//获取鼠标x轴方向的值
+			var y=e.clientY;//获取鼠标Y轴方向的值
+
+			//shadow的left距离=鼠标所在轴向的值-shadow所处层的父层距离left和top的值-本身宽度的一半
+			var shadow_left=e.clientX-wrap.offsetLeft-shadow.offsetWidth/2;
+			var shadow_top=e.clientY-wrap.offsetTop-shadow.offsetHeight/2;
+			// alert(shadow_left);
+
+			//方法一：
+			// if(shadow_left<0){
+			// 	shadow_left=0;
+			// }else if(shadow_left>wrap.offsetLeft-shadow.offsetWidth){
+			// 	shadow_left=wrap.offsetLeft-shadow.offsetWidth;
+			// }
+			// if(shadow_top<0){
+			// 	shadow_top=0;
+			// }else if(shadow_top>-wrap.offsetTop+shadow.offsetWidth){
+			// 	shadow_top=-wrap.offsetTop+shadow.offsetWidth;
+			// }
+
+			//方法二：offset表示返回或设置匹配元素相对于文档的偏移(位置)
+			if(shadow_left<0){
+				shadow_left=0;
+			}else if(shadow_left>content.offsetWidth-shadow.offsetWidth){
+				shadow_left=content.offsetWidth-shadow.offsetWidth;
+			}
+			if(shadow_top<0){
+				shadow_top=0;
+			}else if(shadow_top>content.offsetWidth-shadow.offsetWidth){
+				shadow_top=content.offsetWidth-shadow.offsetWidth;
+			}
+
+			shadow.style.left=shadow_left+"px";
+			shadow.style.top=shadow_top+"px";
+
+			persentX=shadow_left*(bigImg.clientWidth-big.clientWidth)/172;
+			bigImg.style.left= -persentX+"px";
+			persentY=shadow_top*(bigImg.clientHeight-big.clientHeight)/172;
+			bigImg.style.top= -persentY+"px";
+
+			console.log("shadow_left:"+shadow_left,"e.clientX:"+e.clientX,"wrap.offsetLeft:"+wrap.offsetLeft,"hadow.offsetWidth/2:"+shadow.offsetWidth/2);
+		}
+		content.onmouseout=function(){
+			shadow.style.display="none";
+			big.style.display="none";
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>解绑银行卡</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/unbind.css">
+
+</head>
+<body>
+
+    <!-- 头部开始 -->
+    <div class="header">
+        <div class="header-left" onclick="window.location.href='accountsReceivable.html'">
+            <span>取消</span>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 主要内容开始 -->
+    <div class="main">
+    	<p class="m-name">解绑银行卡</p>
+    	<p class="m-tip">请输入交易密码，以验证身份。</p>
+    	<div class="m-num clearfix">
+            <input type="password">
+            <input type="password">
+            <input type="password">
+            <input type="password">
+            <input type="password">
+            <input type="password">
+    	</div>
+        <input class="inp" type="text" maxlength="6" autofocus="autofocus" >
+    </div>
+    <!-- 主要内容 结束 -->
+
+
+	<!-- js -->
+    <script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/plugins/layer/layer_mobile.js"></script>
+	<script type="text/javascript">
+		jQuery(function($){
+            console.log("enter");
+            $(".m-num input").attr("readonly","readonly");
+            // $(".m-num").find("input:nth-child(1)").removeAttr("readonly");
+            $(".inp").on("focus",function(){
+                console.log("1");
+                // $(".m-num").find("input:nth-child(1)").removeAttr("readonly").focus();
+            });
+            $(".inp").on("input",function(){
+                console.log($(this).val());
+                var pwd = $(this).val().trim();
+                var len = pwd.length;
+                if(/^[0-9]*$/g.test($(this).val())){//有值只能是数字
+                    for(var i = 0; i < len; i++) {
+                        $(".m-num input").eq(i).val(pwd[i]);
+                    }
+                    
+                    $(".m-num input").each(function() { //将有值的当前input后的所有input清空
+                        var index = $(this).index();
+                        if(index >= len) {
+                            $(this).val('');
+                        }
+                    });
+                } else {
+                    //只允许输入数字
+                     $(this).val($(this).val().replace(/[^0-9]/g,''));
+                }
+                if(len==6){
+                    layer.open({
+                        content:"已解除绑定",
+                        skin:"footer",
+                        success:function(){
+                            setTimeout(function(){
+                                window.location.href='accountsReceivable.html';
+                            },2000);
+                        }
+                    })
+                }
+            });
+            
+		});
+	</script>
+</body>
+</html>

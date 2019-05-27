@@ -1,0 +1,56 @@
+
+body{
+	padding-bottom: 0.5rem;
+}
+.header{
+    background-color: #191B2A;
+}
+.header .header-left{
+	font-family: PingFang-SC-Medium;
+	font-size: 0.17rem;
+	color: #ffffff;
+}
+
+.main{
+	font-family: PingFang-SC-Medium;
+	text-align: center;
+	color: #ffffff;
+    padding-top: 1rem;
+    position: relative;
+}
+.m-name{
+	font-size: 0.24rem;
+}
+.m-tip{
+	font-size: 0.13rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+.m-num{
+    display: block;
+    width: 2.64rem;
+    margin: auto;
+}
+.m-num input{
+	width: 0.44rem;
+	height: 0.44rem;
+	line-height: 0.44rem;
+	display: block;
+	float: left;
+	border:1px solid #ffffff;
+	background: transparent;
+	color: white;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 0.3rem;
+}
+.main .inp{
+    width: 2.64rem;
+    height: 0.44rem;
+    position: absolute;
+    top: 2.18rem;
+    left: 0;
+    right: 0;
+    margin:auto;
+    opacity: 0;
+}
