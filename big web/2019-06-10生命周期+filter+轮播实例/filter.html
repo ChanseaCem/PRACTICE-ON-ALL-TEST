@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>react</title>
+    <meta charset="UTF-8" />
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="my"></div>
+
+    <script type="text/babel">
+    //ES6  class
+    class List extends React.Component {
+      action(n) {
+        // if(n==0){
+        //   return '已采购'
+        // }else {
+        //   return '未采购'
+        // }
+        switch(n){
+          case 0:
+            return '已采购';
+          case 1:
+            return '未采购';
+          default:
+            return n;
+        }
+      }
+      action2(n) {
+        if(n>20){
+          return '成年了';
+        }else {
+          return '你还小';
+        }
+      }
+      render(){ 
+        var info={
+          state:0,
+          age:22
+        }
+        return (
+          <div>
+            <h1>我是组件,{this.action(info.state)}</h1>
+            <h1>我是组件,{this.action2(info.age)}</h1>
+          </div>
+        )
+      }
+    };
+    
+    ReactDOM.render(
+      <div>
+        <List></List>
+      </div>,
+      document.getElementById("my")
+    );
+
+    
+    </script>
+  </body>
+</html>

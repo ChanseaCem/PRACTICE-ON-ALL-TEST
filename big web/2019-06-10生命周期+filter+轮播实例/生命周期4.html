@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>react</title>
+    <meta charset="UTF-8" />
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="my"></div>
+
+    <script type="text/babel">
+    //ES6  class
+    class ParentList extends React.Component {
+      constructor(){
+        super();
+        this.state ={
+          name:'老张',
+          msg:'I am a Dad'
+        }
+      }
+      handleChange(e){
+        this.setState({
+          name:e.target.value
+        })
+      }
+      render(){ 
+        return (
+          <div>
+            <h1>我是父组件</h1>
+            <p>{this.state.name}</p>
+            <p>{this.state.msg}</p>
+            <input type="text" value={this.state.name} onChange={(e)=>this.handleChange(e)} />
+            <ChildList {...this.state}/>
+          </div>
+        )
+      }
+    };
+    class ChildList extends React.Component {
+      constructor(props){
+        super(props);
+        this.state ={
+          name:props.name
+        }
+      }
+      shouldComponentUpdate(nextProps,nextState) {  //减少重复渲染 可以在你确认不需要更新组件时使用
+          //console.log(nextProps);
+          if(nextProps.name==this.state.name){
+            return false
+          }else {
+            return true
+          }
+        }
+        componentWillReceiveProps(nextProps){   //组件接收到props
+
+        }
+      render(){
+        console.log('render')
+        var {name,msg} = this.props;
+        return (
+          <div>
+            <h1>我是子组件</h1>
+            <p>{this.props.name}</p>
+            <p>{this.props.msg}</p>
+          </div>
+        )
+      }
+    };
+    ReactDOM.render(
+      <div>
+        <ParentList></ParentList>
+      </div>,
+      document.getElementById("my")
+    );
+
+    
+    </script>
+  </body>
+</html>

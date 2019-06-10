@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>生命周期</title>
+    <meta charset="UTF-8" />
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+     
+    <script type="text/babel">
+      class Hello extends React.Component{
+        constructor() {
+          super();
+
+          this.state = {
+            data: 0
+          };
+        };
+        setNum(){
+          this.setState({data:++this.state.data})  //++在后 先赋值后加1，++在前，先加1再赋值
+        }
+
+        render () {
+          return (
+            <div>
+              <button onClick={() => this.setNum()}>ADD</button>
+              <p>{this.state.data}</p>
+              <Num myNum={this.state.data}/>
+            </div>
+          );
+        }
+      };
+      class Num extends React.Component{
+        componentWillMount(){
+          console.log('组件将要挂载');
+        };
+        componentDidMount () {
+          console.log('组件完成挂载');
+        };
+        componentWillUpdate()  {  //初始化并没有调用
+          console.log('组件将要更新 render前');
+        };
+        componentDidUpdate()  {  //初始化并没有调用
+          console.log('组件将要更新 render后');
+        };
+        componentWillUnmount(){
+          console.log('在组件从 DOM 中移除的时候立刻被调用');
+        }
+        render () {
+            console.log('render')
+          return (
+            <div>
+              <p>{this.props.myNum}</p>
+            </div>
+          );
+        }
+      };
+
+      ReactDOM.render(
+        <Hello/>,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>

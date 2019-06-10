@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>软谋教育</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="font/iconfont.css">
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+<body>
+<div class="index-content" id="example"></div>
+
+<script type="text/babel">
+    class Banner extends React.Component{
+        constructor() {
+          super();
+          this.state = {
+            n: 0,
+            images:['img/banner1.jpg',
+                    'img/banner2.jpg',
+                    'img/banner3.jpg',
+                    'img/banner4.jpg',
+                    'img/banner5.jpg']
+          };
+        };
+        autoPlay(){
+            this.state.n++;
+            if(this.state.n == this.state.images.length){
+                this.state.n = 0;
+            };
+            this.setState({
+                n:this.state.n
+            })
+        }
+        play(){
+            //setInterval(函数体,时间);
+            //setInterval(this.autoPlay.bind(this),2000);
+            setInterval(()=>{this.autoPlay()},2000);
+        };
+        componentDidMount () {
+          this.play();
+        };
+        render () {
+            let{n,images} = this.state;
+            var imgList  = images.map((item,index)=>{
+                return <img key={index} src={item} style={{display:(index==n)?'block':'none'}}/>
+            });
+            var liList  = images.map((item,index)=>{
+                return <li key={index} className={index==n ?'selected':''}></li>
+            });
+          return (
+            <div className="banner">
+                {imgList}
+                <div className="banner-circle">
+                    <ul>
+                        {liList}
+                    </ul> 
+                </div>
+            </div>
+          );
+        }
+    };
+    class Category extends React.Component{
+        constructor() {
+          super();
+          this.state = {
+            lists:[{title:'在线咨询123',icon:'icon-shenghuo',color:'#f95730'},
+                    {title:'产品介绍',icon:'icon-11',color:'#fa69b9'},
+                    {title:'活动动态',icon:'icon-jiazheng',color:'#49dacf'},
+                    {title:'限时抢购',icon:'icon-jiaoyu',color:'#908cfd'},
+                    {title:'活动动态',icon:'icon-jiajujiafang',color:'#92d85c'},
+                    {title:'限时抢购',icon:'icon-licai',color:'#ecbe35'}],
+          };
+        };
+        render () {
+            let{lists} = this.state;
+            var list  = lists.map((item,index)=>{
+                return (
+                    <div className="category" key={index}>
+                        <i className={["iconfont"+" "+item.icon]}  style={{background:item.color}}></i>
+                        <label>{item.title}</label>
+                    </div>
+                )
+            });
+          return (
+            <div className="index-category">
+                {list}
+            </div>
+          );
+        }
+    };
+    class App extends React.Component{
+
+        render () {
+          return (
+            <div>
+              <Banner />
+              <Category />
+            </div>
+          );
+        }
+    };
+    ReactDOM.render(
+        <App/>,
+        document.getElementById('example')
+      );
+</script>
+

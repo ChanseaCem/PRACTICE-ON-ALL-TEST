@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>react</title>
+    <meta charset="UTF-8" />
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="my"></div>
+
+    <script type="text/babel">
+    //ES6  class
+    class ParentList extends React.Component {
+      constructor(){
+        super();
+        this.state ={
+          name:'老张'
+        }
+      }
+      handleParent(data){
+        this.setState({
+          name:data
+        })
+      }
+      render(){ 
+        return (
+          <div>
+            <h1>我是父组件</h1>
+            <ChildListA  handle={this.handleParent.bind(this)}/>
+            <ChildListB  data={this.state.name}/>
+          </div>
+        )
+      }
+    };
+    class ChildListA extends React.Component {
+      render(){
+        return (
+          <div>
+            <h1>我是子组件A<button onClick={()=>this.props.handle('AAAAA')}>click</button></h1>
+          </div>
+        )
+      }
+    };
+    class ChildListB extends React.Component {
+      render(){
+        return (
+          <div>
+            <h1>我是子组件B{this.props.data}</h1>
+          </div>
+        )
+      }
+    };
+    ReactDOM.render(
+      <div>
+        <ParentList></ParentList>
+      </div>,
+      document.getElementById("my")
+    );
+
+    
+    </script>
+  </body>
+</html>
