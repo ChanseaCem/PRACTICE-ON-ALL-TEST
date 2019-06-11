@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>react</title>
+    <meta charset="UTF-8" />
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="my"></div>
+
+    <script type="text/babel">
+    class CheckboxList extends React.Component {
+      constructor(){
+        super();
+        this.state ={
+          checkAll:false,
+          lists:[{name:'华为1',check:true},
+                  {name:'华为2',check:false},
+                  {name:'华为3',check:false},
+                  {name:'华为4',check:false},
+                  {name:'华为5',check:true},
+                  {name:'华为6',check:false},
+                  {name:'华为7',check:false},
+                  {name:'华为8',check:false},
+                  {name:'华为9',check:false}]
+        }
+      };
+      handleAllChange(){  //全选事件
+        console.log('123');
+        let {checkAll,lists} = this.state;  //es6对象解构
+        lists.map(function(item,index){
+          return item.check = !checkAll
+        })
+        this.setState({
+          checkAll:!checkAll,
+          lists:lists
+        })
+      };
+      handleCurChange(cur){ //其它选项   cur  {name:name,check:!check}
+        console.log(cur);
+        let {checkAll,lists} = this.state;  //es6对象解构
+        lists.map(function(item,index){
+          if(item.name==cur.name){
+            return item.check = cur.check
+          }
+        });
+        let checkState = lists.every(function(item,index){
+          return item.check;
+        });
+        this.setState({
+          checkAll:checkState,
+          lists:lists
+        })
+      }
+      render(){ 
+        let {checkAll,lists} = this.state;  //es6对象解构
+        var ItemLists  = lists.map((item,index)=>{
+          return <CheckboxItem  key={index} {...item} checkAll = {checkAll} handleCurChange={this.handleCurChange.bind(this)}/>
+        });
+        return (
+          <div>
+            <input type="checkbox" checked={checkAll} onChange={()=>this.handleAllChange()}/>
+            <label>全选</label>
+            {ItemLists}
+           
+          </div>
+        )
+      }
+    };
+    class CheckboxItem extends React.Component {
+      constructor(props){
+        super(props);
+        this.state ={  //{name:'华为9',check:false}
+          name:props.name,
+          check:props.check
+        }
+      };
+      componentWillReceiveProps(nextProps,prevProps){   //组件接收到props
+        console.log(nextProps,prevProps);
+        if(nextProps.checkAll != prevProps.checkAll){
+          this.setState({
+            check:nextProps.check
+          })
+        }
+      }
+      handleChange(){
+        let {name,check} = this.state;
+        this.setState({
+          check:!check
+        },function(){
+          this.props.handleCurChange({name:name,check:!check});
+        })
+      }
+      render(){
+        let {name,check} = this.state;
+        return (
+          <div>
+            <input type="checkbox" checked={check} onChange={()=>this.handleChange()}/>
+            <label>{name}</label>
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(
+      <div>
+        <CheckboxList></CheckboxList>
+      </div>,
+      document.getElementById("my")
+    );
+
+    
+    </script>
+  </body>
+</html>

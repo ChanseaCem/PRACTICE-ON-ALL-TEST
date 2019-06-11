@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>react</title>
+    <meta charset="UTF-8" />
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="my"></div>
+
+    <script type="text/babel">
+    class CheckboxList extends React.Component {
+      constructor(){
+        super();
+        this.state ={
+          checkAll:false,
+          lists:[{name:'华为1',check:true},
+                  {name:'华为2',check:false},
+                  {name:'华为3',check:false},
+                  {name:'华为4',check:false},
+                  {name:'华为5',check:true},
+                  {name:'华为6',check:false},
+                  {name:'华为7',check:false},
+                  {name:'华为8',check:false},
+                  {name:'华为9',check:false}]
+        }
+      };
+      handleAllChange(){  //全选事件
+        console.log('123');
+        let {checkAll,lists} = this.state;  //es6对象解构
+        lists.map(function(item,index){
+          return item.check = !checkAll
+        })
+        this.setState({
+          checkAll:!checkAll,
+          lists:lists
+        })
+      };
+      handleCurChange(cur){ //其它选项   cur  {name:'华为4',check:false}
+        let {checkAll,lists} = this.state;  //es6对象解构
+        lists.map(function(item,index){
+          if(item.name==cur.name){
+            return item.check = !cur.check
+          }
+        });
+        let checkState = lists.every(function(item,index){
+          return item.check;
+        });
+        this.setState({
+          checkAll:checkState,
+          lists:lists
+        })
+      }
+      render(){ 
+        let {checkAll,lists} = this.state;  //es6对象解构
+        var lilists  = lists.map((item,index)=>{
+          return (
+            <li key={index}>
+                <input type="checkbox" checked={item.check} onChange={()=>this.handleCurChange(item)}/>
+                <label>{item.name}</label>
+              </li>
+          )
+        });
+        return (
+          <div>
+            <input type="checkbox" checked={checkAll} onChange={()=>this.handleAllChange()}/>
+            <label>全选</label>
+            <ul>
+              {lilists}
+            </ul>
+          </div>
+        )
+      }
+    };
+    
+    ReactDOM.render(
+      <div>
+        <CheckboxList></CheckboxList>
+      </div>,
+      document.getElementById("my")
+    );
+
+    
+    </script>
+  </body>
+</html>
