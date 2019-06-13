@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>react</title>
+    <meta charset="UTF-8" />
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="my"></div>
+
+    <script type="text/babel">
+    //ES6  class
+    class List extends React.Component {
+      handleClick(){
+        this.refs.myInput.focus();
+        this.myText.style.background = 'blue';
+        this.myHTML.innerText = 'hello world';
+      }
+      render(){ 
+        var info={
+          state:0,
+          age:22
+        }
+        return (
+          <div>
+            <h1 ref={(dom)=>{this.myHTML=dom}}>我是组件</h1>
+            <input type="text" ref="myInput"/>
+            <input type="text" ref={(input)=>{this.myText = input}}/>
+            <button onClick={()=>this.handleClick()}>click</button>
+          </div>
+        )
+      }
+    };
+    
+    ReactDOM.render(
+      <div>
+        <List></List>
+      </div>,
+      document.getElementById("my")
+    );
+
+    
+    </script>
+  </body>
+</html>

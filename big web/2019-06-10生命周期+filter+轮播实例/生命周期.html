@@ -40,7 +40,7 @@
         componentDidMount() {
           console.log("组件完成挂载!");
         }
-        componentWillReceiveProps(newProps) {
+        componentWillReceiveProps(newProps, prevProps) {
           console.log("组件接受props!");
         }
         shouldComponentUpdate(newProps, newState) {
