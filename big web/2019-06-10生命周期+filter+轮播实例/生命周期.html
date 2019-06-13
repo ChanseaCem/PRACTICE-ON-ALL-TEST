@@ -14,7 +14,7 @@
       class Hello extends React.Component{
         constructor() {
           super();
-
+          console.log("endter constructor!");
           this.state = {
             data: 0
           };
@@ -34,20 +34,27 @@
         }
       };
       class Num extends React.Component{
-        componentWillMount(){
-          console.log('组件将要挂载');
-        };
-        componentDidMount () {
-          console.log('组件完成挂载');
-        };
-        componentWillUpdate()  {  //初始化并没有调用
-          console.log('组件将要更新 render前');
-        };
-        componentDidUpdate()  {  //初始化并没有调用
-          console.log('组件将要更新 render后');
-        };
-        componentWillUnmount(){
-          console.log('在组件从 DOM 中移除的时候立刻被调用');
+        componentWillMount() {
+          console.log("组件将要挂载!");
+        }
+        componentDidMount() {
+          console.log("组件完成挂载!");
+        }
+        componentWillReceiveProps(newProps) {
+          console.log("组件接受props!");
+        }
+        shouldComponentUpdate(newProps, newState) {
+          console.log("在组件接收到新的props或者state时被调用，初始化不调用");
+          return true;
+        }
+        componentWillUpdate(nextProps, nextState) {//初始化并没有调用
+          console.log("组件将要更新! render前");
+        }
+        componentDidUpdate(prevProps, prevState) {//初始化并没有调用
+          console.log("组件完成更新! render后");
+        }
+        componentWillUnmount() {
+          console.log("在组件从 DOM 中移除的时候立刻被调用;组件将要卸载!");
         }
         render () {
             console.log('render')
