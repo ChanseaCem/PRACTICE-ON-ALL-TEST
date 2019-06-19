@@ -1,0 +1,28 @@
+.box {
+    width: 300px;
+    margin: 0 auto;
+}
+
+$redColor:#f00;
+$blueColor:blue;     
+$width:100px;
+$span:test;
+$lightColor:#fff;
+$darkColor:#000;
+.div1{
+    border:1px solid $redColor;
+    .div2{
+        color:lighten($darkColor,70%);
+        margin: 2px+4px/2px;
+        .div3{
+            background:$redColor;
+            &>p .#{$span}{
+                color:$blueColor;
+                width:$width/2;
+            }
+        }
+    }
+}
+
+
+
