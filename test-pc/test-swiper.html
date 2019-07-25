@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/plugins/swiper/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+		<style>
+			html,
+			body {
+				position: relative;
+				height: 100%;
+			}
+			
+			body {
+				background: #fff;
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				color: #000;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.swiper-container {
+				width: 300px;
+				height: 300px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -150px;
+				margin-top: -150px;
+				cursor: grabbing;
+			}
+			
+			.swiper-slide {
+				background-position: center;
+				background-size: cover;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!-- 头部 开始 -->
+		<div class="header">
+
+		</div>
+		<!-- 头部 结束 -->
+
+		<!-- 导航 开始 -->
+		<div class="nav">
+			<!--<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide swiper-slide-prev" style="background: red;">
+						<div class="swiper-slide-shadow-left" ></div>
+						<div class="swiper-slide-shadow-right"></div>
+					</div>
+					<div class="swiper-slide swiper-slide-active" style="background: blue;">
+						<div class="swiper-slide-shadow-left" ></div>
+						<div class="swiper-slide-shadow-right" ></div>
+					</div>
+					<div class="swiper-slide swiper-slide-next" style="background: yellow;">
+						<div class="swiper-slide-shadow-left" ></div>
+						<div class="swiper-slide-shadow-right" ></div>
+					</div>
+					<div class="swiper-slide" style="background: goldenrod;">
+						<div class="swiper-slide-shadow-left"></div>
+						<div class="swiper-slide-shadow-right" ></div>
+					</div>
+					<div class="swiper-slide"  style="background: green;">
+						<div class="swiper-slide-shadow-left"></div>
+						<div class="swiper-slide-shadow-right"></div>
+					</div>
+					<div class="swiper-cube-shadow" ></div>
+				</div>
+				<div class="swiper-pagination swiper-pagination-bullets">
+					<span class="swiper-pagination-bullet"></span>
+					<span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+					<span class="swiper-pagination-bullet"></span>
+					<span class="swiper-pagination-bullet"></span>
+					<span class="swiper-pagination-bullet"></span>
+				</div>
+				<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+			</div>-->
+
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" style="background: green;">Slide 1</div>
+					<div class="swiper-slide" style="background: yellow;">Slide 2</div>
+					<div class="swiper-slide" style="background: blueviolet;">Slide 3</div>
+				</div>
+				<!-- 如果需要分页器 -->
+				<!--<div class="swiper-pagination"></div>-->
+
+				<!-- 如果需要导航按钮 -->
+				<!--<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>-->
+
+				<!-- 如果需要滚动条 -->
+				<div class="swiper-scrollbar"></div>
+			</div>
+		</div>
+		<!-- 导航 结束 -->
+
+		<!-- 主要内容 开始 -->
+		<div class="main">
+		</div>
+		<!-- 主要内容 结束 -->
+
+		<!-- 导航底部 开始 -->
+		<div class="footer">
+
+		</div>
+		<!-- 导航底部 结束 -->
+
+		<!-- js -->
+		<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/plugins/swiper/swiper.min.js"></script>
+		<script type="text/javascript">
+			var swiper = new Swiper('.swiper-container', {
+				loop : true,
+				effect: 'cube',
+				grabCursor: true,
+				cubeEffect: {
+					shadow: true,
+					slideShadows: true,
+					shadowOffset: 20,
+					shadowScale: 0.94,
+				},
+				pagination: {
+					el: '.swiper-pagination',
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				scrollbar: {
+					el: '.swiper-scrollbar',
+    				hide: true,
+				},
+			});
+		</script>
+	</body>
+
+</html>

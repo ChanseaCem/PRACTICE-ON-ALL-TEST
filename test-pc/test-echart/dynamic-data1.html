@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+	<head>
+		<meta charset="utf-8">
+	</head>
+
+	<body style="height: 100%; margin: 0">
+		<div id="container" style="height: 100%"></div>
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+		<script type="text/javascript">
+			var dom = document.getElementById("container");
+			var myChart = echarts.init(dom);
+			var app = {};
+			var option = {
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: {
+						type: 'cross',
+						label: {
+							backgroundColor: '#283b56'
+						}
+					}
+				},
+				legend: {
+					data: ['OEE产线整体效率','Ar时间开动率','Pr性能开动率', 'Qr合格品率','产量']
+				},
+				dataZoom: {
+					show: false,
+					start: 0,
+					end: 100
+				},
+				xAxis: [{
+						type: 'category',
+						boundaryGap: true,
+						data: ["2019-06-10", "2019-06-11", "2019-06-12", "2019-06-13"]
+					},
+					{
+						type: 'category',
+						boundaryGap: true,
+						data: [0, 1, 2, 3]
+					}
+				],
+				yAxis: [{
+						type: 'value',
+						scale: true,
+						name: '产量',
+						max: 30,
+						min: 0,
+						boundaryGap: [0.2, 0.2]
+					},
+					{
+						type: 'value',
+						scale: true,
+						name: '效率',
+						max: 1200,
+						min: 0,
+						boundaryGap: [0.2, 0.2]
+					}
+				],
+				series: [{
+						name: '产量',
+						type: 'bar',
+						xAxisIndex: 1,
+						yAxisIndex: 1,
+						data: [930,774,712,54]
+					}
+				,
+					{
+						name: 'Qr合格品率',
+						type: 'line',
+						data: [9.2,6.7,14.8,9.5]
+					},
+					{
+						name: 'Pr性能开动率',
+						type: 'line',
+						data: [19.5,11.8,18.7,19.5]
+					},
+					{
+						name: 'Ar时间开动率',
+						type: 'line',
+						data: [28.8,27.6,29,24]
+					},
+					{
+						name: 'OEE产线整体效率',
+						type: 'line',
+						data: [32,37.5,39.3,31.5]
+					}
+				]
+			};
+			if(option && typeof option === "object") {
+				myChart.setOption(option, true);
+			}
+		</script>
+	</body>
+
+</html>

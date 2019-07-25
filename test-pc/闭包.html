@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+
+	</head>
+
+	<body>
+
+		<!-- 头部 开始 -->
+		<div class="header">
+
+		</div>
+		<!-- 头部 结束 -->
+
+		<!-- 导航 开始 -->
+		<div class="nav">
+		</div>
+		<!-- 导航 结束 -->
+
+		<!-- 主要内容 开始 -->
+		<div class="main">
+		</div>
+		<!-- 主要内容 结束 -->
+
+		<!-- 导航底部 开始 -->
+		<div class="footer">
+
+		</div>
+		<!-- 导航底部 结束 -->
+
+		<!-- js -->
+		<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			jQuery(function($) {
+
+			});
+			function fun(n, o) {
+				 console.log('n:',n);
+				console.log('o:', o);
+				return {
+					//这个是闭包函数
+					fun: function(m) {
+						return fun(m, n)
+					}
+				}
+			}
+			var a = fun(0); //o 没有定义，第一次是undefined ,n是0 ，a 是闭包函数fun的一个 引用，n这个参数被保存在内存中并没有销毁，这个时候n=0
+			var a1 = a.fun(1); //执行闭包函数，m=1,n=0并马上执行一次fun函数，打印出 第一个参数是 1， 第二个参数是0 
+			var a2 = a.fun(2); //同理 再次执行闭包函数，m=2,n=0, 你的值并没有被改变，打印出 第一个参数是 2， 第二个参数是0
+			var a3 = a.fun(3); //同理 再次执行闭包函数，m=3,n=0, 你的值并没有被改变，打印出 第一个参数是 2， 第二个参数是0
+
+			// 通过分析， 打印出的应该是第二个参数为o 的值一直为0  （（undefined，0，0，0）
+			// 不管后面是a.fun(4);  a.fun(5);...  都只是m在变化，n的值并没有发生变化
+
+			console.log('----------------------');
+			var b = fun(0).fun(1).fun(2).fun(3);
+			// fun(0) 执行的时候也是返回闭包函数， o 没有定义，第一次是undefined，n是0 ，fun(0)是闭包函数fun的一个 引用
+			//fun(0).fun(1) 执行闭包函数， 和上面是一样的 m=1,n=0并马上执行一次fun函数 ，打印出 第一个参数是 n:1， 第二个参数是o:0 
+			//fun(0).fun(1).fun(2)  //执行闭包函数， 这个时候 下面的m = 2, n=1 ,打印出 n:2,o:1 ,注意这里 ，n的值其实是 函数  fun(m,n) 传的 第一个 参数，而且内存没释放，记住了 这个值
+			//fun(0).fun(1).fun(2).fun(3) //同理执行闭包， 这个时候 下面的m = 3, n=2 , 执行的时候打印的是 n:3,n其实就是打印函数里m的传参，o:2
+			// 通过分析， 打印出的应该是第二个参数为o 的值是递增的 （undefined,0,1,2） ，打印的就是前面的参数m值
+
+			console.log('----------------------');
+			var c = fun(0).fun(1); //和前面是一样的， 执行闭包函数， 和上面是一样的 m=1,n=0并马上执行一次fun函数 ，打印出 第一个参数是 n:1， 第二个参数是o:0 
+			c.fun(2); //执行闭包函数， 这个时候 下面的m = 2, n=1  ，打印 o:1
+			c.fun(3); // 执行闭包函数， 这个时候 下面的m = 3, n=1  打印 o:1
+
+			// 通过分析， 打印出的应该是第二个参数为o 的值一直为0  （（undefined，0，1，1）
+
+			//  不管后面是c.fun(4);  c.fun(5);...  都只是m在变化，n的值并没有发生变化
+		</script>
+	</body>
+
+</html>

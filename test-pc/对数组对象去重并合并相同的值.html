@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+
+	</head>
+
+	<body>
+
+		<!-- 头部 开始 -->
+		<div class="header">
+
+		</div>
+		<!-- 头部 结束 -->
+
+		<!-- 导航 开始 -->
+		<div class="nav">
+		</div>
+		<!-- 导航 结束 -->
+
+		<!-- 主要内容 开始 -->
+		<div class="main">
+		</div>
+		<!-- 主要内容 结束 -->
+
+		<!-- 导航底部 开始 -->
+		<div class="footer">
+
+		</div>
+		<!-- 导航底部 结束 -->
+
+		<!-- js -->
+		<script type="text/javascript" charset="utf-8" src="js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			jQuery(function($) {
+
+			}); 
+			var res = {
+				"code": 200,
+				"msg": "success",
+				"data": [{
+					"sumTime": 1,
+					"status_info": "未连接",
+					"status": -1
+				}, {
+					"sumTime": 10,
+					"status_info": "其他",
+					"status": 0
+				}, {
+					"sumTime": 100,
+					"status_info": "待料",
+					"status": 1
+				}, {
+					"sumTime": 1000,
+					"status_info": "其他",
+					"status": 2
+				}, {
+					"sumTime": 10000,
+					"status_info": "告警",
+					"status": 3
+				}, {
+					"sumTime": 100000,
+					"status_info": "调试",
+					"status": 4
+				}]
+			}
+			data = res.data;
+			let arr = [];
+			for(let i = 0; i < data.length; i++) {
+				let needPush = true;
+				for(let j = 0; j < arr.length; j++) {
+					if(data[i].status_info == arr[j].status_info) {
+						arr[j].sumTime += data[i].sumTime;
+						needPush = false;
+						break;
+					}
+				}
+				if(needPush) arr.push(data[i]);
+				console.log(arr)
+			}
+			console.log(arr)
+		</script>
+	</body>
+
+</html>

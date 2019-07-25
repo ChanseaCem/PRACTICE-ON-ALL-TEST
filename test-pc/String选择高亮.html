@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>www.jb51.net JS关键字文本高亮</title>
+	</head>
+
+	<body>
+		<div id="content" class="mui-clearfix con-echart">
+			<div class="ProgamName-0">
+				<p style="color:#333">H</p>
+				O3201
+			</div>
+			<div class="FileContentStr-0">
+				1234567890!@#$%^&*()abcdefghijklmnopqrstuvwxyzABCKEFGHIJKLMNOPQRSTUVW
+				1234567890!@#$%^&*()abcdefghijklmnopqrstuvwxyzABCKEFGHIJKLMNOPQRSTUVW
+				1234567890!@#$%^&*()abcdefghijklmnopqrstuvwxyzABCKEFGHIJKLMNOPQRSTUVW
+				111222333444555666777888999000
+			</div>
+		</div>
+		<input type="text" id="text" placeholder="请输入关键字" />
+		<select name="" id="text2">
+			<option value="M">M</option>
+			<option value="H">H</option>
+			<option value="D">D</option>
+		</select>
+		<script>
+			var content = document.getElementById("content");
+			var contents = content.innerHTML;
+			var text = document.getElementById("text");
+			var text2 = document.getElementById("text2");
+			text.onkeyup = text2.onchange = function(e) {
+				var value = this.value;
+				var child = document.getElementsByClassName("gaoliang");
+				if(child.length == 0) {
+					if(value != '') {
+						var values = contents.split(value);
+						content.innerHTML = values.join('<span class="gaoliang" style="background:red;">' + value + '</span>');
+					} else {
+						for(var i = 0; i < child.length; i++) {
+							var values = contents.replace(child[i].outerHTML, child[i].value);
+							content.innerHTML = values;
+						}
+					}
+				} else {
+					for(var i = 0; i < child.length; i++) {
+						contents = contents.replace(child[i].outerHTML, child[i].innerText);
+					}
+					content.innerHTML = contents;
+					if(value != ''){
+						var values = contents.split(value);
+						content.innerHTML = values.join('<span class="gaoliang" style="background:red;">' + value + '</span>');
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

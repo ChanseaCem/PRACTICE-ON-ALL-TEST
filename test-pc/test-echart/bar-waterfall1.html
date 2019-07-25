@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+	<head>
+		<meta charset="utf-8">
+	</head>
+
+	<body style="height: 600px; width:600px;margin: 0">
+		<div id="container" style="height: 100%"></div>
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+		<script type="text/javascript">
+			var dom = document.getElementById("container");
+			var myChart = echarts.init(dom);
+			var option = {
+				title: {
+					text: '深圳月最低生活费组成（单位:元）'
+				},
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: { // 坐标轴指示器，坐标轴触发有效
+						type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+					},
+					formatter: function(params) {
+						console.log(params);
+						var all = 0;
+						for(var i = 0; i < params.length; i++) {
+							all += params[i].value;
+						}
+						var target = '';
+						for(var i = 0; i < params.length; i++) {
+							target += (params[i].seriesName + ' : ' + (params[i].value / all * 100).toFixed(2) + '%<br/>')
+						}
+						return params[0].name + "<br />" + target;
+					}
+				},
+			    legend: {
+			        data: ['水电费', '生活费','出行费','住宿费','捐款费']
+			    },
+				grid: {
+					left: '3%',
+					right: '4%',
+					bottom: '3%',
+					containLabel: true
+				},
+				xAxis: {
+					type: 'category',
+					splitLine: {
+						show: false
+					},
+					data: ['一月', '二月', '三月', '四月', '五月', '六月']
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: [{
+						name: '水电费',
+						type: 'bar',
+						stack: 1,
+						label: {
+							normal: {
+								show: true,
+								position: 'inside'
+							}
+						},
+						data: [10, 30, 5,10, 30, 5]
+					},
+					{
+						name: '生活费',
+						type: 'bar',
+						stack: 1,
+						label: {
+							normal: {
+								show: true,
+								position: 'inside'
+							}
+						},
+						data: [20, 50, 60,20, 50, 60]
+					},
+					{
+						name: '出行费',
+						type: 'bar',
+						stack: 1,
+						label: {
+							normal: {
+								show: true,
+								position: 'inside'
+							}
+						},
+						data: [70, 20, 35,70, 20, 35]
+					},
+					{
+						name: '住宿费',
+						type: 'bar',
+						stack: 1,
+						label: {
+							normal: {
+								show: true,
+								position: 'inside'
+							}
+						},
+						data: [50, 20, 35,50, 20, 35]
+					},
+					{
+						name: '捐款费',
+						type: 'bar',
+						stack: 1,
+						label: {
+							normal: {
+								show: true,
+								position: 'inside'
+							}
+						},
+						data: [50, 80, 65,50, 80, 65]
+					}
+				]
+			};;
+			if(option && typeof option === "object") {
+				myChart.setOption(option, true);
+			}
+		</script>
+	</body>
+
+</html>
