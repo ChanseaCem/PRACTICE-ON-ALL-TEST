@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>生成二维码</title>
+	</head>
+
+	<style>
+		#qrcode {
+			width: 160px;
+			height: 160px;
+			margin-top: 15px;
+		}
+	</style>
+
+	<body>
+		<input id="text" type="text" value="http://www.runoob.com" /><br />
+		<div id="qrcode"></div>
+
+		<script type="text/javascript" charset="utf-8" src="../js/plugins/JQuery/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/qrcode.js"></script>
+		<script type="text/javascript">
+			var qrcode = new QRCode("qrcode");
+
+			function makeCode() {
+				var elText = document.getElementById("text");
+
+				if(!elText.value) {
+					alert("Input a text");
+					elText.focus();
+					return;
+				}
+
+				qrcode.makeCode(elText.value);
+			}
+
+			makeCode();
+
+			$("#text").
+			on("blur", function() {
+				makeCode();
+			}).
+			on("keydown", function(e) {
+				if(e.keyCode == 13) {
+					makeCode();
+				}
+			});
+		</script>
+	</body>
+
+</html>
