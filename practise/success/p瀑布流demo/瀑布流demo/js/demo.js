@@ -1,7 +1,12 @@
-//$(function(){   //  $(document).ready(function(){})
+/**
+ * jq写法
+ * 
+ * outerWidth() //不包含margin
+ * innerWidth()//不包含margin border
+ * width()   //不包含padding margin border
+ */
 $(window).on('load',function(){
     var allBox = $("#main .box");
-    console.log(allBox)
     var boxWidth = allBox.outerWidth();   //一个盒子的宽度
     var screenWidth = $(window).width();   //可见区域的宽
     var cols = parseInt(screenWidth/boxWidth);  //列数
@@ -26,6 +31,33 @@ $(window).on('load',function(){
         }
     })
 })
-//outerWidth() //不包含margin
-//innerWidth()//不包含margin border
-//width()   //不包含padding margin border
+
+
+
+/**
+ * 原生js写法
+ */
+//window.onload = function(){
+//	var allBox = document.getElementsByClassName("box");
+//	console.log(typeof allBox)
+//	var boxWidth = allBox[0].clientWidth;
+//	var screenWidth = document.body.clientWidth;
+//	var cols = parseInt(screenWidth/boxWidth);
+//	var heightArr = [];
+//	for(var i in allBox){
+//		var boxHeight = allBox[i].offsetHeight;
+//		 if(i < cols) {
+//          heightArr[i] = boxHeight;
+//      }else {
+//      	console.log(typeof parseInt(i));
+//			if(!isNaN(i)){
+//	        	var minBoxHeight = Math.min.apply(null,heightArr);
+//	        	var minHeightIndex = heightArr.indexOf(minBoxHeight);
+//	        	allBox[i].style.position = "absolute";
+//	        	allBox[i].style.left = minHeightIndex*boxWidth+'px';
+//	        	allBox[i].style.top = minBoxHeight +'px';
+//			}
+//      }
+//      heightArr[minHeightIndex] += boxHeight;
+//	}
+//}
