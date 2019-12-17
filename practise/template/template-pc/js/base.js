@@ -34,13 +34,6 @@ var _indexModule = function() {
 	this.objData = {
 
 	}
-	
-	/**
-	 * 各种接口数据实际操作
-	 */
-	this.objDataImpl = {
-
-	}
 
 	/**
 	 * 内容数据操作
