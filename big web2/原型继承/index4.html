@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>构造继承</title>
+</head>
+<body>
+    <script>
+         function Animal(category){
+            this.category = category;
+            this.testrr=['老虎','猫'];
+            this.sleep = function(){
+                console.log('pp');
+            }
+        }
+        Animal.prototype.run= function(){
+            console.log('tttt');
+        }
+
+        function DogA(category,name){
+            // dog1
+            Animal.call(this,category);
+            // Animal.apply(this,[category]);
+            this.name=name;
+            this.type='dog';
+        }
+        var n = {}
+//		var a = Object.assign(n,Animal.prototype);
+		var b = Object.create(Animal.prototype);
+		var c = new Animal();
+		console.log(c.__proto__ === b)
+        // DogA.prototype = Object.assign({},Animal.prototype);  
+        DogA.prototype = Object.create(Animal.prototype);  
+        DogA.prototype.constructor = DogA;
+        var dog1= new DogA('动物','小白');
+        Animal.prototype.km = "poo";
+        Animal.prototype.walk = function(){
+            console.log('ppp');
+        }
+        debugger
+        // var dog2= new DogA('小白');
+
+        //不能继承原型方法
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>无限极目录树</title>
+	<style>
+		* {
+			margin: 0;
+		}
+		
+		ul,
+		li {
+			list-style-type: none;
+		}
+		
+		.toShow {
+			display: none;
+		}
+		
+		.first-menu>.item {
+			width: 250px;
+		}
+		
+		.first-menu .item {
+			line-height: 35px;
+			background: orange;
+			margin-bottom: 1px;
+			overflow-x: hidden;
+			margin-top: 1px;
+			cursor: pointer;
+		}
+		
+		.first-menu .item b {
+			display: block;
+			position: relative;
+		}
+		
+		.first-menu .item b:after {
+			content: '>';
+			position: absolute;
+			right: 10px;
+			top: 0px;
+			color: #fff;
+			font-size: 16px;
+			font-weight: normal;
+		}
+		
+		.first-menu .item ul li {
+			background: powderblue;
+			box-sizing: border-box;
+			padding-left: 30px;
+			;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<!--<ul class="first-menu">
+			<li class="item">AAA
+				<ul class="">
+					<li class="item">a1
+						<ul class="toShow">
+							<li class="item">a1-1
+								<ul class="toShow">
+									<li class="item">a1-1-1
+										<ul class="toShow">
+											<li class="item">a1-1-1-1</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="item">a1-2</li>
+						</ul>
+					</li>
+					<li class="item">a2</li>
+					<li class="item">a3
+						<ul class="">
+							<li class="item">a3-1</li>
+							<li class="item">a3-2
+								<ul class="toShow">
+									<li class="item">a3-2-1</li>
+									<li class="item">a3-2-2</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li class="item">BBB
+				<ul class="">
+					<li class="item">b1</li>
+					<li class="item">b2</li>
+					<li class="item">b3</li>
+				</ul>
+			</li>
+			<li class="item">CCC
+				<ul class="">
+					<li class="item">c1</li>
+				</ul>
+			</li>
+			<li class="item">DDD</li>
+		</ul>-->
+	</div>
+	<div class="box-menu dl" id="boxMenu">
+	
+	</div>
+	<script>
+		var classTool = {
+		    hasClass :function (elem,cls){
+		        // /toShow/.test(elem.className) //常用
+		        return new RegExp(cls).test(elem.className);
+		    },
+		    addClass :function (elem, cls) {
+		      if (!this.hasClass(elem, cls)) {
+		        elem.className += " " + cls; 
+		      }
+		    },
+		    removeClass :function (elem, cls) {
+		      if (this.hasClass(elem, cls)) {
+		        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)'); 
+		         elem.className = elem.className.replace(reg, ' '); 
+		      }
+		    },
+		    toggleClass(elem,cls){ 
+		        if(this.hasClass(elem,cls)){ 
+		            this.removeClass(elem, cls); 
+		        }else{ 
+		            this.addClass(elem, cls); 
+		        } 
+		    }
+		}
+		var menudata = [{
+				name: 'AAA',
+				child: [{
+						name: 'a1',
+						child: [{
+							name: 'a1-1',
+							child: [{
+								name: "a1-1-1",
+								child: [{
+									name: "a1-1-1-1"
+								}]
+							}]
+						}, {
+							name: 'a1-2'
+						}]
+					},
+					{
+						name: 'a2'
+					},
+					{
+						name: 'a3',
+						child: [{
+							name: 'a3-1'
+						}, {
+							name: 'a3-2',
+							child: [{
+								name: 'a3-2-1'
+							}, {
+								name: 'a3-2-2'
+							}]
+						}]
+					}
+				]
+			},
+			{
+				name: 'BBB',
+				child: [{
+					name: 'b1'
+				}, {
+					name: 'b2'
+				}, {
+					name: 'b3'
+				}]
+			},
+			{
+				name: 'CCC',
+				child: [{
+					name: 'c1'
+				}]
+			},
+			{
+				name: 'DDD'
+			}
+		];
+		//1.拼接目录树
+		//2.渲染到dom节点
+		//3.添加点击事件
+		
+		var obj = {
+			init(){
+				document.getElementById("boxMenu").innerHTML = obj.createDiv(menudata,true)
+				this.onevent();
+			},
+			createDiv(data,bool){
+				var str = bool ? '<ul class="first-menu">' : '<ul class="toShow">';
+				for(var i=0;i<data.length;i++){
+					if(data[i].child&&data[i].child.length>0){
+						str += '<li class="item">' + data[i].name;
+						str += this.createDiv(data[i].child,false);
+						str += '</li>';
+					}else{
+						str += '<li class="item">' + data[i].name + '</li>';
+					}
+				}
+				str += '</ul>';
+				return str;
+			},
+			onevent(){
+				var body = document.getElementsByTagName("body")
+				body[0].addEventListener("click",function(e){
+					var tar = e.target;
+					if(tar.firstElementChild){
+						
+						
+					}
+					debugger	
+				})
+			}
+		}
+		obj.init();
+		
+		
+	</script>
+</body>
+
+</html>

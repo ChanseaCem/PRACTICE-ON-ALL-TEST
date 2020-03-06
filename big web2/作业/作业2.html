@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang='en'>
+
+	<head>
+		<title>this</title>
+		<meta charset="utf-8"/>
+		<style>
+			.table-normal {
+				width: 80%;
+				border: 1px solid #ccc;
+				border-collapse: collapse;
+			}
+			
+			.table-normal th,
+			.table-normal td {
+				padding: 8px;
+				border: 1px solid #ccc;
+				text-align: left;
+			}
+			
+			.outBox .checkbox {
+				width: 20px;
+				height: 20px;
+				border: 1px solid #ccc;
+				display: inline-block;
+				margin-right: 10px;
+				cursor: pointer;
+			}
+			
+			.outBox .checkbox.ok {
+				background: url('./images/ok.png') center center no-repeat;
+				background-size: 80%;
+			}
+			
+			.outBox .checkbox.no {
+				background: url('./images/close.png') center center no-repeat;
+				background-size: 80%;
+			}
+		</style>
+
+	</head>
+	<!-- 作业要求： -->
+	<!--	1. 尽量用原生的方式， 
+			2. 不用要let块级作用域
+			3. 做完发老师邮箱 -->
+
+	<!-- 提示：我在每个checkbox都加了一个ok样式名， 代表打钩 ， no代表打叉， 供参考，上面样式 -->
+
+	<!-- 作业需求 -->
+	<!--	1. 点击每个checkbox， 第一次是打勾， 第二次打叉 ， 第三次恢复原来的不选状态
+			2. 每个checkbox的状态不能相互受影响
+			3. 点击发送按钮，把获取到的状态 以数组的形式 打印出来 -->
+
+	<body>
+		<div class="outBox">
+			<table class="table-normal">
+
+				<tr>
+					<th>姓名</th>
+					<th>性别</th>
+					<th>年龄</th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>小明</td>
+					<td>男</td>
+					<td>10</td>
+					<td><span class="checkbox"></span></td>
+				</tr>
+				<tr>
+					<td>小刚</td>
+					<td>男</td>
+					<td>10</td>
+					<td><span class="checkbox"></span></td>
+				</tr>
+				<tr>
+					<td>小红</td>
+					<td>男</td>
+					<td>10</td>
+					<td><span class="checkbox"></span></td>
+				</tr>
+				<tr>
+					<td>小沙</td>
+					<td>男</td>
+					<td>10</td>
+					<td><span class="checkbox"></span></td>
+				</tr>
+
+				<tr>
+					<td>小杨</td>
+					<td>男</td>
+					<td>10</td>
+					<td><span class="checkbox"></span></td>
+				</tr>
+
+				<tr>
+					<td>小松</td>
+					<td>男</td>
+					<td>10</td>
+					<td><span class="checkbox"></span></td>
+				</tr>
+			</table>
+		</div>
+
+		<button type="button" id="btnSend">发送</button>
+	</body>
+	<script type="text/javascript">
+		var obj = [{
+			name:"小明",
+			sex:"男",
+			age:10,
+			id:"1"
+		},{
+			name:"小刚",
+			sex:"男",
+			age:10,
+			id:"2"
+		},{
+			name:"小红",
+			sex:"男",
+			age:10,
+			id:"3"
+		},{
+			name:"小沙",
+			sex:"男",
+			age:10,
+			id:"4"
+		},{
+			name:"小杨",
+			sex:"男",
+			age:10,
+			id:"5"
+		},{
+			name:"小松",
+			sex:"男",
+			age:10,
+			id:"6"
+		}];
+		var arr = [];
+		for(var i=0;i<obj.length;i++){
+			arr[i].push(`
+				<tr>
+					<td>${obj[i].name}</td>
+					<td>${obj[i].name}</td>
+					<td>${obj[i].name}</td>
+					<td><span class="checkbox" id="${obj[i].i}"></span></td>
+				</tr>`)
+		}
+		
+		var list = document.getElementsByClassName("outBox")[0].querySelectorAll(".checkbox");
+		
+		var liststa = [];
+		for(var i=0;i<list.length;i++){
+			(function(i){
+				list[i].onclick = function(){
+					console.log(i)
+				}
+			})(i)
+		}
+		debugger
+	</script>
+
+</html>

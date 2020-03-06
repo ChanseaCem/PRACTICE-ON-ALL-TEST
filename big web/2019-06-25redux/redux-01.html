@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>REDUX</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <p>
+        Clicked: <span id="value">0</span> times
+        <button id="add">+</button>
+        <button id="del">-</button>
+      </p>
+    </div>
+    <script>
+    window.onload = function(){
+      //第一步  创建store （仓库 ，仓库有库存信息，表示当前物品信息）
+      const store = Redux.createStore(reducer);
+      //通知发出后会触发reducer
+      function reducer(state=0,action){
+        if(action.type =='ADD'){
+          return state + action.a;  //返回新的状态对象
+        }else if(action.type =='DEL'){
+          return state + action.b;  //返回新的状态对象
+        }
+      }
+      
+      
+      //第2步 （通知送货action来仓库）
+      //修改state
+      document.getElementById("add").onclick = function(){
+        //发出通知
+        store.dispatch(action())
+      };
+      document.getElementById("del").onclick = function(){
+        //发出通知
+        store.dispatch({type:'DEL'})
+      }
+      //发出通知   action
+      function action(){
+        return {
+          type:'ADD',
+          a:10,
+          b:20
+        }
+      }
+      
+      
+      //第3步 （一旦物品更新，就更新库存信息）
+      //监听state变化而执行render
+      store.subscribe(render) ;
+      function render(){
+        document.getElementById("value").innerHTML = store.getState();//获取数据
+      }  
+      
+      
+      
+    }
+     </script>
+  </body>
+</html>

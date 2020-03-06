@@ -1,0 +1,29 @@
+﻿
+redux需要安装 以下依赖：
+cnpm install redux --save
+cnpm install react-redux --save
+cnpm install redux-actions --save
+
+@connect装饰器报错处理
+因为用到了es6/7的语法，需要安装babel转码
+npm run eject      //解除封装
+在package.json中添加插件支持ES7
+ "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ],
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
+      ]
+    ]
+  },

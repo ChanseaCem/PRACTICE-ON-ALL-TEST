@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>块级作用域</title>
+</head>
+<body>
+    <script>
+    // 内层的变量会覆盖外层的变量
+    // var a = '全局'
+    // function fn(){
+    //     // 预编译 找var a
+    //     // var a
+    //     console.log(a); // undefined
+    //     if(false){
+    //         var a = '局部'
+    //     }
+    // }
+    // fn()
+    // 复习预编译的东西
+    // 全局  函数作用  块级作用域（在各自的块干自己的事情 不影响）
+    // var a = '全局';
+    // (function(){
+    //     var a = '局部'
+    //     console.log(a);
+        
+    // }())
+
+    // console.log(a)
+    // let a = '全局'
+    // {
+    //     let a = '局部'
+    //     console.log(a);
+    // }
+    // console.log(a);
+
+    // 允许作用域的任意嵌套
+    // {
+    //     {
+    //         let b = '局部'
+    //     }
+    //     console.log(b); // b is not defined
+    // }
+    // {
+    //     {
+    //         let b = '局部'
+    //         {
+    //             console.log(b);
+    //         }
+    //     }
+    // }
+
+
+    if(true){
+        let x = 1;
+    }
+
+    if(true) let y = 2
+    
+    
+
+
+
+
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的解构赋值</title>
+</head>
+<body>
+    <script>
+    // 通过数组对变量进行赋值
+    // let arr = [1,2,3]
+    // console.log(arr[0]);
+    // console.log(arr[1]);
+    // console.log(arr[2]);
+    // let [a,b,c] = [1,2,3]
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+
+    // 等号两边的模式相同 左边的变量就会被赋予对应的值 嵌套
+    // let [a,[[b],c]] = [1,[[2],3]]
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+    // let [,,z] = ['1','2','3']
+    // console.log(z);
+        
+    // // 不完全解构
+    // let [x,y,u] = [1,2,3,4]
+    // console.log(x);
+    // console.log(y);
+    // console.log(u);
+
+    // 指定默认值
+    // let [f = true] = []
+    // console.log(f);
+    // let [a,b="y"] = ['a']
+    // console.log(b);
+    // // 注意点 es6内部使用 === 判断是否是undefined 如果是undefined 默认值才会生效
+    // let [x = 1] = [null]
+    // let [y = 2] = [undefined]
+    // console.log(x); // null 
+    // console.log(y); // 2
+
+    // 默认值可以引用解构赋值的其它变量 前提是变量必须已经声明
+    // let [x= 1,y=x] = []
+    // console.log(x); // 1 
+    // console.log(y);
+    // let [x = y,y=1] = [] // 从左往右
+    // let [y = 1 , x = y] = []
+    // console.log(x);
+    // console.log(y);
+
+    // 惰性求值
+    function f(){
+        return 'fff'
+    }
+    // let [x = f()] = [1]
+    let [x = f()] = []
+    console.log(x);
+
+
+    // 作业题
+
+    const items = [
+        ['name','张飞'],
+        ['title','长坂坡一声吼']
+    ]
+    // 循环数组  分别打印 第二层数组的值 用数组的解构来做
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    </script>
+</body>
+</html>

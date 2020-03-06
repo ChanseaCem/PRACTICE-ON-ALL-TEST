@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <title>无需闭包， onclick方式</title>
+    <style>
+        .table-normal {
+            width:80%;
+            border:1px solid #ccc;
+            border-collapse: collapse;
+        }
+        .table-normal th, .table-normal td {
+            padding:8px;
+            border:1px solid #ccc;
+            text-align: left;
+        }
+        .outBox .checkbox {
+            width:20px;
+            height:20px;
+            border:1px solid #ccc;
+            display: inline-block;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .outBox .checkbox.ok {
+            background: url('./images/ok.png') center center no-repeat;
+            background-size: 80%;
+        }
+        .outBox .checkbox.no {
+            background: url('./images/close.png') center center no-repeat;
+            background-size: 80%;
+        }
+    </style>
+
+   
+</head>
+<body>
+    <div class="outBox" >
+        <table class="table-normal" id="outBoxTab">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody> </tbody>
+        </table>
+        <button type="button" id="btnSend">发送</button>
+
+    </div>
+     <script>
+         var outBoxTab = document.getElementById('outBoxTab');
+         var testDataList = [{
+                name:'小明',
+                sex:'男',
+                age:'8',
+                id:10
+            },
+                {
+                name:'小刚',
+                sex:'男',
+                age:'10',
+                id:11
+            },{
+                name:'小杨',
+                sex:'男',
+                age:'12',
+                id:12
+            },{
+                name:'小松',
+                sex:'男',
+                age:'11',
+                id:13
+            }];
+
+          //数据渲染表格
+          var tableTr = [];
+          testDataList.forEach(function(item,index){
+              //一般
+            // tableTr.push('<tr>')
+            // tableTr.push('<td>'+item.name+'</td>')
+            // tableTr.push('<td>'+item.sex+'</td>')
+            // tableTr.push('<td>'+item.age+'</td>')
+            // tableTr.push('<td><span class="checkbox" tag="'+item.id+'"></span></td>')
+            // tableTr.push('</tr>')
+ 
+
+            //模板字符串
+             tableTr.push(`<tr>
+                <td>${item.name}</td>
+                <td>${item.sex}</td>
+                <td>${item.age}</td>
+                <td><span class="checkbox" tag="${item.id}"></span></td>
+            </tr>`);
+          });
+          
+        outBoxTab.querySelector('tbody').innerHTML = tableTr.join('');
+            
+        //0 :没选
+        //1: 打钩
+        //2:打叉
+
+        //最后的需要的数据
+        var clickNum= {
+            // 10:0,
+            // 11:1,
+            // 12:0,
+            // 13:2,
+            // 14:1
+        };
+
+        var allcheckbox = outBoxTab.querySelectorAll('.checkbox');
+        //无需闭包 方式一：
+        for(var i=0,len=allcheckbox.length;i<len;i++) {
+            var tagid= allcheckbox[i].getAttribute('tag');
+            clickNum[tagid] =0;
+
+            allcheckbox[i].onclick = function(ev){         
+                var target = ev.target;
+                 tagid = target.getAttribute('tag');
+                clickNum[tagid] +=1;
+                if(clickNum[tagid]==3) {
+                    clickNum[tagid]=0;
+                }
+                target.className = 'checkbox';
+                var statusCls = {
+                    0:'none',
+                    1:'ok',
+                    2:'no'
+                };
+                target.classList.add(statusCls[clickNum[tagid]]);
+            } 
+        }
+        //点击发送按钮
+        document.getElementById('btnSend').onclick = function(){
+            console.log(clickNum);
+            var values = Object.values(clickNum);
+            
+        }
+    </script>
+    
+</body>
+</html>
+
+
+

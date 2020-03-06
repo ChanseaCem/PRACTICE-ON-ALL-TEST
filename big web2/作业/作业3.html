@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<!-- <link rel="stylesheet" type="text/css" href="main.css" /> -->
+		<style>
+			/*pop window*/
+			
+			.tip-window-layer {
+				position: absolute;
+				right: 0;
+				top: 0;
+				border: 1px solid #E6EAEE;
+				padding: 0 0px 10px 0px;
+				z-index: 999;
+				background: #fff;
+				border-radius: 4px;
+			}
+			
+			.tip-header-section {
+				height: 30px;
+				line-height: 30px;
+				font-size: 14px;
+				background: #fff;
+				color: white;
+			}
+			
+			.tip-title {
+				float: left;
+				width: 80%;
+				margin-left: 5px;
+			}
+			
+			.tip-icon-close {
+				float: right;
+				cursor: pointer;
+				margin-right: 5px;
+				color: #666;
+			}
+			
+			.tip-main-content {
+				height: auto;
+				overflow: hidden;
+				line-height: 24px;
+				text-align: center;
+				margin-top: 10px;
+				box-sizing: border-box;
+				padding: 10px 30px 30px 30px;
+			}
+			
+			.tip-bottom-section {
+				background: #F0F3F8;
+				box-shadow: 0 -1px 0 0 #E6EAEE;
+				height: 70px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				font-size: 14px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+			}
+			
+			.btnOk {
+				background-image: linear-gradient(-180deg, #39B54A 0%, #34AA44 98%);
+				border: 1px solid #249533;
+				cursor: pointer;
+				border-radius: 4px;
+				height: 35px;
+				padding: 2px 31px;
+				color: #fff;
+			}
+			
+			.btnNo {
+				background-image: linear-gradient(0deg, #F2F4F7 0%, #FFFFFF 100%);
+				border: 1px solid #CED0DA;
+				border-radius: 4px;
+				height: 35px;
+				padding: 2px 31px;
+				color: #4F5F6F;
+			}
+			
+			.box-out {
+				position: relative;
+				width: 500px;
+				height: 400px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box-out">
+			<button type="button" id="setbtn"> 按钮</button>
+		</div>
+		<script>
+			//需求
+			// 点击页面中按钮， 可以弹出一个 框，这个弹出框可以定制的项是：
+			// 1. 标题可以自定义，也可以不显示
+			// 2. 显示的内容可以自定义，有个默认值
+			// 3. 按钮 （确定 取消 ），取消按钮可以显示或者不显示，而且按钮文字可以自定义
+			// 4. 弹框区域可以定制，可大可小
+			// 5. 点击确定 或者 取消 按钮，需要在确定能捕捉到事件，并调取外界的 接口，
+			//    模拟接口成功后，会有个小的提示框提醒成功 ，过3秒消失，弹框也关闭
+			// 6. 点击取消 ，或者 关闭按钮， 关闭弹框
+			// 7. 需要可以控制是否有遮罩层
+			// 8. 需要可以点击标题栏目，可以拖动
+
+			// 页面顶部有部分样式供参考，也可以自己写
+		</script>
+	</body>
+
+</html>

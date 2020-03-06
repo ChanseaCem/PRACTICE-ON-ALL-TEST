@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全局的缺陷</title>
+</head>
+<body>
+    <script>
+    // new Array()
+    console.log(window.Array);
+    var Array = '这是数组'
+    console.log(window.Array);
+    
+    var a = '123'
+    console.log(window.a); // 123
+    
+    let b = '全局'
+    console.log(window.b); // undefined
+    // let 提出后 全局变量和顶层对象的属性 脱钩
+    
+    
+
+    
+    
+    </script>
+</body>
+</html>

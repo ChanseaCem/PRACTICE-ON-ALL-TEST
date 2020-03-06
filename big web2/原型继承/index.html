@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型继承</title>
+</head>
+<body>
+    <script>
+        
+         function Animal(category){
+            this.category = 'Animal';
+            this.testrr=['老虎','猫'];
+            this.sleep = function(){
+                console.log('pp');
+            }
+        }
+        Animal.prototype.run= function(){
+            console.log('tttt');
+        }
+
+        function Dog(name){
+            this.name=name;
+            this.type='dog';
+        }
+      
+        // Dog.prototype.constructor == Dog
+        // Dog.prototype = {
+        //     weight:'100'
+        // };
+        Dog.prototype = new Animal();
+        Dog.prototype.speak = function(){
+            console.log('speak');
+        }
+        var  p1= new Dog('小白');
+    
+
+        p1.category = '蔬菜'
+        p1.testrr.push('小狗');
+        p1.sleep = function(){
+            console.log('我是sleep');
+        }
+
+        var  p2= new Dog('小黑');
+        p2.testrr.push('小猫');
+
+        var  p3= new Dog('小花');
+        // p2.testrr.push('小猫');
+
+
+
+        // p1.speak();
+    
+        // 缺点： 
+        // 1. 想为子类添加新的方式， 必须放在 new Animal()之后
+        // 2. 无法实现多继承
+        // 3. 原型链被破坏
+        // 4 . 无法向父级传参
+        // 5. 引用类型的属性会被影响
+
+
+
+
+
+
+
+
+        
+    </script>
+</body>
+</html>

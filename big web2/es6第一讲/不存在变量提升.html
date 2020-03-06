@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>不存在变量提升</title>
+</head>
+<body>
+    <script>
+    
+    // es5
+    // 1 全程扫描一下错误 2 预编译环节 3 解释性语言 解释一行执行一行
+    console.log(a); // undefined
+    var a = 123
+    // es6 
+    // console.log(b);
+    // let b = 456;
+    // console.log(b);
+
+    // 暂时性死区 let 在声明之前你是不能用我的
+    // var tep = 890;
+    // if(true){
+    //     tep = 'abc'
+    //     // console.log(tep);
+    //     // let tep
+    // }
+    // // typeof 不再是完全正确的
+    // console.log(typeof c);
+    // let c;
+
+    //
+    // let e = 123;
+    // let e = 456
+    // 'e' has already been declared
+
+    let x = x; // 会报错
+
+
+
+    
+
+    
+
+
+    
+
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>
