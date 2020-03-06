@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		
+	</style>
+	<body>
+		<input class="get-data" type="text" />
+		<button class="search">搜索</button>
+		<ul>
+			<a href="https://www.baidu.com/?tn=98010089_dg&ch=12" target="_blank"><li>百度</li></a>
+			<a href="https://translate.google.cn/" target="_blank"><li>谷歌翻译</li></a>
+			<a href="word.html"><li>word</li></a>
+			<a href="1.html"><li>word2 空</li></a>
+			<a href="2.html"><li>word3 空</li></a>
+		</ul>
+		<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".search").on("click",function(){
+				var val = $(".get-data").val();
+				var list = $("li");
+				list.each((index,item) => {
+					if(val === ""){
+						item.style.display = "block";
+					}else{
+						item.style.display = "none";
+						if(item.textContent == val){
+							item.style.display = "block";
+						}
+					}
+				})
+			})
+		</script>
+	</body>
+</html>
