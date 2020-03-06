@@ -63,11 +63,11 @@ var v_main = new Vue({
 		},
 		isRight:function(){
 			console.log("this.vue.val_tel:"+this.val_tel);
-			if(isStringNull(this.val_tel)){
+			if(v_main.isStringNull(this.val_tel)){
 				alert("请输入手机号码");
 				return;
 			}
-			if(isStringNull(this.val_username)){
+			if(v_main.isStringNull(this.val_username)){
 				alert("请输入用户名称");
 				return;
 			}
@@ -79,17 +79,17 @@ var v_main = new Vue({
 		},
 		submit:function(){
 			if(this.is_tel == "tel"){
-				if(isStringNull(this.val_tel)){
+				if(v_main.isStringNull(this.val_tel)){
 					alert("请输入手机号码");
 					return;
 				}
 			}else{
-				if(isStringNull(this.val_username)){
+				if(v_main.isStringNull(this.val_username)){
 					alert("请输入用户名称");
 					return;
 				}
 			}
-			if(isStringNull(this.val_pwd)){
+			if(v_main.isStringNull(this.val_pwd)){
 				alert("请输入密码");
 				return;
 			}
@@ -102,17 +102,23 @@ var v_main = new Vue({
 				this.is_tel = "tel";
 				this.val_tel = "";
 			}
+		},
+		isStringNull:function(e) {
+		    if (e == null || e == '' || e == undefined || e == 'null')
+		        return true;
+		    else
+		        return false;
 		}
 	}
 });
 
 
-function isStringNull(e) {
-    if (e == null || e == '' || e == undefined || e == 'null')
-        return true;
-    else
-        return false;
-}
+//function isStringNull(e) {
+//  if (e == null || e == '' || e == undefined || e == 'null')
+//      return true;
+//  else
+//      return false;
+//}
 
 
 
