@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>父子组件语法糖</title>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<con3></con3>
+			</ul>
+		</div>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			//子组件
+			const cpn1 = Vue.extend({
+				template:`
+				<li style="height: 1.875rem;line-height: 1.875rem;">
+					<span>name:</span>
+					<input type="text" name="" id="" value="" />
+				</li>
+				`
+			})
+			
+			//父组件
+			const cpn2 = Vue.extend({
+				template:`
+				<li style="height: 1.875rem;line-height: 1.875rem;">
+					<span>name2:</span>
+					<input type="text" name="" id="" value="" />
+					<con1></con1>
+				</li>
+				`,
+				components:{
+					con1:cpn1
+				}
+			})
+			
+			
+			const vm = new Vue({
+				el:"#app",
+				components:{
+					con2:cpn2,//如果想直接用con1组件，则在这里再次注册，
+					con3:{
+						prop:"datas",
+						template:`
+						<li style="height: 1.875rem;line-height: 1.875rem;">
+							<span>name3:</span>
+							<input type="text" name="" id="" value="" />
+						</li>
+						`
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

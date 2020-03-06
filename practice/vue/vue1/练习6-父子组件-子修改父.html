@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>父子组件-子修改父-流程图<strong></strong></title>
+	</head>
+	<body>
+		<!-- 父组件模板 -->
+		<div id="app">
+			子模板引用：
+			<cccc :count = "count" @aaaa="bbbb"></cccc>
+			<p>{{count}}</p>
+			<img :src="imgsrc" alt="" style="width: 600px;">
+		</div>
+		
+		<!-- 子组件模板 -->
+		<template id="cpn">
+			<div>
+				<textarea type="text" :value="dcount" @input="changevalue"></textarea>
+			</div>
+		</template>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 父组件
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					count:"子修改父-流程图",
+					imgsrc:"img/vue-父子组件双向绑定流程图.jpg"
+				},
+				methods:{
+					bbbb(item){
+						this.count = item
+					}
+				},
+				components:{
+					cccc:{
+						template:"#cpn",
+						props:{
+							count:{
+								type:String,
+							}
+						},
+						data(){
+							return {
+								dcount:this.count
+							}
+						},
+						methods:{
+							changevalue(event){
+								this.dcount = event.target.value;
+								this.$emit("aaaa",this.dcount)
+							}
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

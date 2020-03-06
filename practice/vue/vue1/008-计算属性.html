@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计算属性</title>
+	</head>
+	<body>
+		<div id="app">
+			<h5>{{fullname}}</h5>
+			<p>{{familyname}}</p>
+			<p>使用计算属性还是 methods 取决于是否需要缓存，
+			当遍历大数组和做大量计算时，应当使用计算属性，除非不希望得到缓存；
+			当需要数据实时发生变化时，适合用 methods。</p>
+			<p>{{totalPrice}}</p>
+			<p>{{totalPrice2}}</p>
+		</div>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					firstname:"Jack",
+					lastname:"Chen",
+					familyname:"zhan",
+					books:[
+						{"id":"001","name":"《三国演义》","price":20.5},
+						{"id":"002","name":"《红楼梦》","price":20},
+						{"id":"003","name":"《隋唐演义》","price":24},
+					]
+				},
+				computed:{
+					a:{
+						get(){},
+						set(){}
+					},
+					fullname(){
+						return this.firstname + " " + this.lastname
+					},
+					totalPrice(){
+						return this.books.reduce(function(item,next){
+							return item + next.price
+							// return typeof item == "number" ? item + next.price :  item.price + next.price
+						},0)//此函数用法参考练习4-图书购物车
+					},
+					totalPrice2(){
+						let res = 0;
+						for(let i =0;i<this.books.length;i++){
+							res += this.books[i].price
+						}
+						return res
+					}
+				},
+				
+			})
+		</script>
+	</body>
+</html>

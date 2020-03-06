@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<title>合成联盟购物车</title>
+		<link rel="stylesheet" type="text/css" href="base.css" />
+		<link rel="stylesheet" type="text/css" href="goods.css" />
+		<style type="text/css">
+			.act {
+				display: flex !important;
+			}
+
+			.isred {
+				background: red !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="shopping">
+			<!-- 头部 开始 -->
+			<div class="header">
+				<div class="header-left"><span style="{fontSize:30px;color: white;}">></span></div>
+				<div class="header-center">
+					<!-- 文字标题 -->
+					<span>购物车</span>
+				</div>
+				<div class="header-right"></div>
+			</div>
+			<!-- 头部 结束 -->
+
+			<div class="goods-list shopCart-list">
+				<div class="goods-box" v-for="(item,index) in listdata">
+					<h1><label><span :class="{isred:item.isred}" @click="getProd(index)"></span></label><a href="#"><span
+							 class="prop" v-if="item.isUs">自营</span><strong></strong>{{item.title}}</a>
+						<span class="fr shopcart-fr" @click="change(index)">{{item.tip}}</span></h1>
+					<ul>
+						<li v-for="(item2,index2) in item.listdata">
+							<label><span :class="{isred:item2.isred}" @click="getProd2(index,index2)"></span></label>
+							<a href="#">
+								<div class="img-box"></div>
+								<div class="ct-box">
+									<h2>{{item2.des}}</h2>
+									<p class="u-p"><span class="s-c1">{{item2.itemchose}}</span></p>
+									<p><span class="s-c2">￥<span>{{item2.price|moneyfilter}}</span></span><span class="fr">×<span>{{item2.nums}}</span></span></p>
+								</div>
+							</a>
+							<div class="ct-box2" :class="{act:item2.isflex}">
+								<div><span class="left" @click="add(index,index2)">+</span><input type="text" value="1" v-model="item2.nums"><span
+									 class="right" @click="sub(index,index2)">-</span></div>
+								<button @click="delBtnClick(index,index2)">删除</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer footer-shoppingcart2">
+				<div class="cb cb-all"><label id="qx" @click="selectAll"><span :class="{isred:isSelectAll}"></span>全选</label></div>
+				<div class="total-money">合计：<span>￥<span id="total">{{total}}</span></span></div>
+				<div class="font-hint">不含运费</div>
+				<a class="btn-submit" href="#">去结算(<span>{{totalnums}}</span>)</a>
+			</div>
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el: "#shopping",
+				data: {
+					"topImgsrc": "img/nav/drawable-hdpi/nb_ic_return.png",
+					"total": 0,
+					"isSelectAll": false,
+					"totalprice": 0,
+					"totalnums": 0,
+					"listdata": [{
+						"title": "Aristo定制女装",
+						"isred": false,
+						"tip": "编辑",
+						"isUs": false,
+						"listdata": [{
+							"des": "初剪羊毛 重工定位刺绣 秋冬毛呢连衣裙 修身显瘦长袖 连衣裙修身显瘦长袖 连衣裙修身显瘦长袖 连衣裙",
+							"itemchose": "颜色分类：乳白色； 尺码：36/S颜色分类：乳白色； 尺码：36/S颜色分类：乳白色； 尺码：36/S",
+							"price": 199,
+							"nums": 1,
+							"imgsrc": "img/details/detail_img_evaluate1.jpg",
+							"isflex": false,
+							"isred": false
+						}, {
+							"des": "初剪羊毛2 重工定位刺绣 秋冬毛呢连衣裙 修身显瘦长袖 连衣裙修身显瘦长袖 连衣裙修身显瘦长袖 连衣裙",
+							"itemchose": "颜色分类：乳白色； 尺码：36/S颜色分类：乳白色； 尺码：36/S颜色分类：乳白色； 尺码：36/S",
+							"price": 699,
+							"nums": 1,
+							"imgsrc": "img/details/detail_img_evaluate1.jpg",
+							"isflex": false,
+							"isred": false
+						}, {
+							"des": "初剪羊毛3 重工定位刺绣 秋冬毛呢连衣裙 ",
+							"itemchose": "颜色分类：乳白色； 尺码：36/S颜色分类：乳白色； 尺码：36/S颜色分类：乳白色； 尺码：36/S",
+							"price": 100,
+							"nums": 1,
+							"imgsrc": "img/details/detail_img_evaluate1.jpg",
+							"isflex": false,
+							"isred": false
+						}]
+					}, {
+						"title": "Aristo定制女装",
+						"isred": false,
+						"tip": "编辑",
+						"isUs": false,
+						"listdata": [{
+							"des": "秋冬毛呢连衣裙 修身显瘦长袖 连衣裙修身显瘦长袖 连衣裙修身显瘦长袖 连衣裙",
+							"itemchose": "颜色分类：乳白色； 尺码：36/S颜色分类：乳白色； 尺码：36/S颜色分类：乳白色； 尺码：36/S",
+							"price": 599,
+							"nums": 1,
+							"imgsrc": "img/details/detail_img_evaluate1.jpg",
+							"isflex": false,
+							"isred": false
+						}]
+					}, {
+						"title": "Aristo定制女装",
+						"isred": false,
+						"tip": "编辑",
+						"isUs": true,
+						"listdata": [{
+							"des": "重工定位刺绣 秋冬毛呢连衣裙 修身显瘦长袖 连衣裙修身显瘦长袖 连衣裙修身显瘦长袖 连衣裙",
+							"itemchose": "颜色分类：乳白色； 尺码：36/S颜色分类：乳白色； 尺码：36/S颜色分类：乳白色； 尺码：36/S",
+							"price": 599,
+							"nums": 1,
+							"imgsrc": "img/details/detail_img_evaluate1.jpg",
+							"isflex": false,
+							"isred": false
+						}]
+					}]
+				},
+				methods: {
+					change(index) {
+						let tip = this.listdata[index].tip;
+						tip == "完成" ? this.listdata[index].tip = "编辑" : this.listdata[index].tip = "完成"
+						let indata = this.listdata[index].listdata;
+						indata.forEach(item => {
+							item.isflex = !item.isflex;
+							return item;
+						})
+					},
+					add(index, index2) {
+						this.listdata[index].listdata[index2].nums++;
+						this.computeTotal;
+					},
+					sub(index, index2) {
+						let nums = this.listdata[index].listdata[index2].nums;
+						if (nums > 1) {
+							this.listdata[index].listdata[index2].nums--
+						}
+						this.computeTotal;
+					},
+					getProd(index) {
+						if (this.listdata[index].isred) {
+							this.changeProdStatus(index, false)
+						} else {
+							this.changeProdStatus(index, true)
+						}
+					},
+					getProd2(index, index2) {
+						if (this.listdata[index].listdata[index2].isred) {
+							this.listdata[index].listdata[index2].isred = false;
+						} else {
+							this.listdata[index].listdata[index2].isred = true;
+						}
+						let count = this.listdata[index].listdata.filter((item) => {
+							return item.isred == false
+						})
+						if (count.length == 0) {
+							this.listdata[index].isred = true;
+						} else {
+							this.listdata[index].isred = false;
+						}
+						this.computeTotal;
+					},
+					changeProdStatus(index, status) {
+						this.listdata[index].isred = status;
+						this.listdata[index].listdata.forEach((item, index) => {
+							item.isred = status
+						})
+						this.computeTotal;
+					},
+					delBtnClick(index, index2) {
+						this.listdata[index].listdata.splice(index2, 1)
+						if (this.listdata[index].listdata.length == 0) {
+							this.listdata.splice(index, 1)
+						}
+						this.computeTotal;
+					},
+					selectAll() {
+						if (this.isSelectAll) {
+							this.isSelectAll = false;
+							this.selectAllExpand(false);
+						} else {
+							this.isSelectAll = true;
+							this.selectAllExpand(true);
+						}
+					},
+					selectAllExpand(bool) {
+						for (let i = 0; i < this.listdata.length; i++) {
+							this.listdata[i].isred = bool;
+							for (let j = 0; j < this.listdata[i].listdata.length; j++) {
+								this.listdata[i].listdata[j].isred = bool;
+							}
+						}
+						this.computeTotal;
+					}
+				},
+				filters: {
+					moneyfilter(money) {
+						return money.toFixed(2)
+					}
+				},
+				computed: {
+					computeTotal() {
+						let total = 0,
+							totalnums = 0;
+						for (let i = 0; i < this.listdata.length; i++) {
+							for (let j = 0; j < this.listdata[i].listdata.length; j++) {
+								if (this.listdata[i].listdata[j].isred) {
+									total += this.listdata[i].listdata[j].price * this.listdata[i].listdata[j].nums
+									totalnums += this.listdata[i].listdata[j].nums
+								}
+							}
+						}
+						this.total = total;
+						this.totalnums = totalnums;
+						
+						let countIsred = this.listdata.filter(item => {
+							return item.isred === true
+						})
+						if(countIsred.length === this.listdata.length){
+							this.isSelectAll = true;
+						}else{
+							this.isSelectAll = false;
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

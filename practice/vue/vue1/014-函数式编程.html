@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数式编程</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//命令式编程/声明式编程
+			//面向对象编程(第一公民是对象)/函数式编程(第一公民是函数)
+			//filter/map/reduce
+
+			//需求：先求出所有小于5的数，然后得到的新的数组把所有数乘以2倍，接着算出总数
+			let arr = [1, 2, 5, 0, 6, 4];
+			let res = arr.filter((n) => {
+				return n < 5
+			}).map((n) => {
+				return n * 2
+			}).reduce((preValue, nextValue, index) => {
+				return preValue + nextValue
+			}, 0)
+
+			let res2 = arr.filter(n => n < 5).map(n => n * 2).reduce((pre, n) => pre + n)
+
+			let books = [{
+				"id": "001",
+				"name": "《算法》",
+				"publishDate": "2006-9",
+				"price": 85,
+			}, {
+				"id": "002",
+				"name": "《代码大全》",
+				"publishDate": "2006-3",
+				"price": 35,
+			}, {
+				"id": "003",
+				"name": "《编程珠玑》",
+				"publishDate": "2006-1",
+				"price": 55,
+			}, {
+				"id": "004",
+				"name": "《编程艺术》",
+				"publishDate": "2016-9",
+				"price": 45,
+			}]
+			let res3 = books.reduce((preValue,nextValue,index) => {
+				console.log(index)
+				return preValue + nextValue.price
+			},0)
+			console.log(res3)
+		</script>
+	</body>
+</html>

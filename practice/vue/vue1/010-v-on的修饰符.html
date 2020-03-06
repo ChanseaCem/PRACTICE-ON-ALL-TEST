@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>修饰符</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>点击后，用@click.stop修饰符阻止事件冒泡</p>
+			<div @click="divclick1">
+				<button @click="btnclick1">无stop提交</button>
+			</div>
+			<div @click="divclick1">
+				<button @click.stop="btnclick1">stop提交</button>
+			</div>
+			
+			<div>
+				<p>点击后，用@click.prevent修饰符阻止默认提交</p>
+				<form action="adfasdf">
+					<input type="submit" @click="submitclick1" value="无prevent提交">
+					<br>
+					<input type="submit" @click.prevent="submitclick1" value="prevent提交">
+				</form>
+			</div>
+			
+			<div>
+				<p>监听键盘点击</p>
+				<input type="text" @keyup="keyup" placeholder="任意监听">
+				<input type="text" @keyup.13="keyup" placeholder="专门监听keyCode为13的键">
+			</div>
+		</div>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el: "#app",
+				data: {
+					obj:{
+						"des":"修饰符",
+						"xiushifu":[".once",".prevent",".stop",".native"]
+					}
+				},
+				methods: {
+					divclick1() {
+						console.log("divclick1")
+					},
+					btnclick1() {
+						console.log("btnclick1")
+					},
+					submitclick1() {
+						console.log("submitclick1")
+					},
+					keyup(e){
+						console.log(e.keyCode)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

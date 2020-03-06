@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>插槽</title>
+	</head>
+	<body>
+		<!-- 父组件模板 -->
+		<div id="app">
+			<div style="color: red;">{{des}}</div>
+			<cpn>
+				<p>此p会替换没命名的所有slot</p>
+				<p slot="slot1">此p会替换name=slot1的slot</p>
+			</cpn>
+			<p><small>{{notice}}</small></p>
+		</div>
+
+		<!-- 子组件模板 -->
+		<template id="cpn">
+			<div>
+				<p>我是aaa</p>
+				<slot name="slot1"></slot>
+				<slot name="slot2"></slot>
+				<slot></slot>
+				<slot></slot>
+			</div>
+		</template>
+
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 父组件
+			const vm = new Vue({
+				el: "#app",
+				data: {
+					notice: `在 2.6.0 中，我们为具名插槽和作用域插槽引入了一个新的统一的语法 (即 v-slot 指令)。
+						它取代了 slot 和 slot-scope 这两个目前已被废弃但未被移除且仍在文档中的 attribute。`,
+					des: "用name命名的slot叫做具名插槽"
+				},
+				components: {
+					cpn: {
+						template: "#cpn",
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

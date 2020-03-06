@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>组件通信，父组件向子组件传递数据</title>
+	</head>
+	<body>
+		<div id="app">
+			<my-cpn :cmsg="msg" :cname="name" :cage="age"></my-cpn>
+		</div>
+
+		<template id="cpn1">
+			<div>
+				<p>{{cmsg}}，{{cname}}，我今年{{cage}}岁</p>
+				<p>参考下图：</p>
+				<img :src="cimgsrc" alt="">
+			</div>
+			
+			
+		</template>
+
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+
+			const vm = new Vue({
+				el: "#app",
+				data: {
+					msg: "你好",
+					name: "李白",
+					age: 23
+				},
+				components: {
+					"my-cpn": {
+						props: {
+							cmsg: {
+								type: String,
+								default: "hello world",
+							},
+							cname: {
+								type: String,
+								default: "--",
+								required: true //必填，不然会报错
+							},
+							cage: {
+								type: Number,
+								default: null,
+							},
+							notice:{
+								type:Array,
+								default(){
+									//如果是type=Array或Object，则data要写成函数形式（大概2.5.2之前不用函数还不会报错，大概2.5.17之后就会报错）
+									return []
+								}
+							},
+							aaa:{
+								type:Object,
+								default:{}//此处报错，对应notice解释 
+							},
+							cimgsrc:{
+								type:String,
+								default:"img/props.jpg"
+							}
+						},
+						template: "#cpn1",
+						data() {
+							return {}
+						}
+					}
+				}
+			})
+		</script>
+
+	</body>
+</html>

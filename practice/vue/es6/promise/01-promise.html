@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			// promise 的两个参数，第二个可传可不传
+
+			// // 写法一
+			// new Promise((resolve, reject) => {
+			// 	setTimeout(() => {
+			// 		// resolve("success,请求成功后去then")
+			// 		reject("写法一：error,请求失败后去catch")
+			// 	}, 1000)
+			// }).then((data) => {
+			// 	console.log(data)
+			// 	return new Promise((resolve, reject) => {
+			// 		setTimeout(() => {
+			// 			// resolve("success2,请求成功后去then")
+			// 			reject("写法一：error2,请求失败后去catch")
+			// 		}, 1000)
+			// 	})
+			// }).catch((err) => {
+			// 	console.log(err)
+			// })
+
+			// // 写法二
+			// new Promise((resolve, reject) => {
+			// 	setTimeout(() => {
+			// 		resolve("写法二:success")
+			// 		reject("写法二:error")
+			// 	}, 1000)
+			// }).then(data => {
+			// 	console.log(data)
+
+			// 	return new Promise((resolve, reject) => {
+			// 		resolve("写法二 success2")
+			// 		reject("写法二 err2")
+			// 	})
+			// }, err => {
+			// 	console.log(err)
+			// }).then(data => {
+			// 	console.log(data)
+			// }, err => {
+			// 	console.log(err)
+			// })
+
+			// // 写法三，简写
+			// new Promise((resolve, reject) => {
+			// 	setTimeout(() => {
+			// 		resolve("简写 resolve")
+			// 		reject("简写 reject")
+			// 	})
+			// }).then((data) => {
+			// 	console.log(data)
+			// 	return Promise.resolve("简写一：直接return Promise")
+			// }).then(data => {
+			// 	console.log(data)
+			// 	return "简写二，直接return数据"
+			// }).then(data => {
+			// 	console.log(data)
+			// 	throw "err,除了catch也可以手动抛出异常，throw"
+			// }).catch(err => {
+			// 	console.log(err)
+			// })
+			
+			// promise.all的操作
+			// promise.all 是针对需要同时需要两个或以上的接口全部获取到，才能继续操作的操作
+			// 例如，ajax请求一得到日期，ajax请求二得到名字
+			Promise.all([
+				new Promise((resolve,reject) => {
+					setTimeout(() => {
+						resolve("all:1")
+						reject("all:1")
+					},1000)
+				}),
+				new Promise((resolve,reject) => {
+					setTimeout(() => {
+						resolve("all:2")
+						reject("all:2")
+					},2000)
+				}),
+			]).then((res) => {
+				// 它会等待all的数组里面所有的项都执行完成后才会进来
+				console.log(res)
+			},(err) => {
+				console.log("err:"+err)
+			})
+		</script>
+	</body>
+</html>

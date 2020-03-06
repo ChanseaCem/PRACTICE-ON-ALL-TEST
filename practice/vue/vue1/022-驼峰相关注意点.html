@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>驼峰相关注意点</title>
+	</head>
+	<body>
+		<div id="app">
+			<div>{{newMsg}}</div>			
+			不支持：<cnp1 :newMsg="newMsg2parent"></cnp1>
+			<br>
+			支持：<cnp1 :new-msg="newMsg2parent"></cnp1>
+		</div>
+
+		<template id="cpn">
+			<div>
+				<span>{{newMsg}}</span>
+			</div>
+		</template>
+
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el: "#app",
+				data: {
+					newMsg: "这个是驼峰写法，这里支持",
+					newMsg2parent: "这里是data数据，传入props",
+				},
+				components: {
+					"cnp1": {
+						template:"#cpn",
+						props: {
+							newMsg: {
+								type: String,
+								default: "这里是驼峰写法，本身props支持，但是放进template Dom便不支持",
+								requried: false
+							}
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

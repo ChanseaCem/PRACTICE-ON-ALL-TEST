@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					
+				},
+				beforeCreate() {
+					console.log("beforeCreate")
+				},
+				created() {
+					console.log("created")
+				},
+				beforeMount() {
+					// beforeMount，其实是在编译真实dom
+					console.log("beforeMount")
+				},
+				mounted() {
+					// mounted，其实是在编译虚拟dom替换真实dom，替换完成，表示挂载完成
+					console.log("mounted")
+				},
+				beforeUpdate() {
+					console.log("beforeUpdate")
+				},
+				updated() {
+					console.log("updated")
+				},
+				activated() {
+					console.log("activated")
+				},
+				deactivated() {
+					console.log("deactivated")
+				},
+				beforeDestroy() {
+					console.log("beforeDestroy")
+				},
+				destroyed() {
+					console.log("destroyed")
+				},
+				errorCaptured() {
+					console.log("errorCaptured")
+				}
+			})
+		</script>
+	</body>
+</html>

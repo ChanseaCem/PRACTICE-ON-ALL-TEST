@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>webpack配置</title>
+	</head>
+	<body>
+		<p>全局webpack和局部webpack要分开做，不然可能因为版本不一样导致打包发生错误</p>
+		
+		<p>开发时依赖：开发阶段需要这个依赖，打包完后就不用（比如webpack）</p>
+		<p>运行时依赖：开发阶段不需要，运行后需要</p>
+		<script src="dist/bundle.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

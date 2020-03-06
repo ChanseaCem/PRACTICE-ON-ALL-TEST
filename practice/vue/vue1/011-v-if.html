@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-if</title>
+	</head>
+	<body>
+		<div id="app">
+			<h3>1</h3>
+			<div v-if="code>=100">v-if</div>
+			<div v-else>v-else</div>
+
+			<h3>2</h3>
+			<div v-if="code>=100">
+				<div v-if="code>=100">v-if2</div>
+				<div v-else-if="code>=80">v-else-if2</div>
+				<div v-else>v-else2</div>
+			</div>
+			<div v-else>
+				<div v-if="code>=90">{{code}} v-else</div>
+				<div v-else-if="code<=70">v-else-else</div>
+				<div v-else>v-else2</div>
+			</div>
+		</div>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			// 一般是和否两种情况就可以用v-if v-else-if v-else
+			// 不然用计算属性比较好
+			const vm = new Vue({
+				el: "#app",
+				data: {
+					code:96
+				}
+			})
+		</script>
+	</body>
+</html>

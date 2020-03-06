@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>父子相互直接调用</title>
+	</head>
+	<body>
+		<!-- 父组件模板 -->
+		<div id="app">
+			{{msg}}
+			<cpn ref="aaa"></cpn>
+			<button @click="btnClick">按钮APP</button>
+		</div>
+
+		<!-- 子组件模板 -->
+		<template id="cpnt">
+			<div>
+				<p>我是cpnt</p>
+				<ccpn></ccpn>
+				<button @click="cpntclick">按钮1</button>
+			</div>
+		</template>
+
+		<!-- 子组件模板 -->
+		<template id="ccpnt">
+			<div>
+				<p>我是ccpnt</p>
+				<button @click="ccpntclick">按钮2</button>
+			</div>
+		</template>
+
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 父组件
+			const vm = new Vue({
+				el: "#app",
+				data: {
+					msg: "hello"
+				},
+				methods: {
+					btnClick() {
+						console.log("app $children")
+						console.log(this.$children)
+						console.log("app ref")
+						console.log(this.$refs)
+					}
+				},
+				components: {
+					cpn: {
+						template: "#cpnt",
+						methods: {
+							cpntclick() {
+								console.log("cpnt $parent")
+								console.log(this.$parent)
+							}
+						},
+						components: {
+							ccpn: {
+								template: "#ccpnt",
+								methods: {
+									ccpntclick() {
+										console.log("ccpnt $parent")
+										console.log(this.$parent)
+
+										console.log("ccpnt $root")
+										console.log(this.$root)
+									}
+								}
+							}
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

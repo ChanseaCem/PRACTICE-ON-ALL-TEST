@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>响应式</title>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="p in arr">{{p}}</li>
+			</ul>
+			<button @click="shiftfun">shift</button>
+			<button @click="popfun">pop</button>
+			<button @click="unshiftfun">unshift</button>
+			<button @click="pushfun">push</button>
+			<button @click="splicefun">splice</button>
+			<p>以上都是响应式的，而通过数组索引修改不是响应式的</p>
+			<p>改变数据的结果：</p>
+			
+			<button @click="vuesetfun">vue索引 按钮</button>
+			<button @click="change">索引 按钮</button>
+			<p>{{des}}</p>
+			<p id="res">{{arr}}</p>
+			
+		</div>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					des:"改变数据不一定可以让页面的数据发生变化，比如通过 索引 改变数组的值",
+					arr:[1,2,3,4]
+				},
+				methods:{
+					change(){
+						this.arr[0] = Math.random().toFixed(2)
+						document.getElementById("res").innerHTML = this.arr
+					},
+					popfun(){
+						//pop()是删除数组中的最后一个元素
+						this.arr.pop()
+					},
+					shiftfun(){
+						//shift()是删除数组中的第一个元素
+						this.arr.shift()
+					},
+					unshiftfun(){
+						//unshift()是在数组中最开始添加元素
+						this.arr.unshift(1,2,3)
+					},
+					pushfun(){
+						//push()是在数组中最开始添加元素
+						this.arr.push(1,2,3)
+					},
+					splicefun(){
+						//splice 删除/插入/替换
+						this.arr.splice(1,0,"f")
+					},
+					vuesetfun(){
+						// set(要修改的对象，索引值，修改以后的值) vue自带方法，
+						Vue.set(this.arr,2,Math.random().toFixed(2))
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

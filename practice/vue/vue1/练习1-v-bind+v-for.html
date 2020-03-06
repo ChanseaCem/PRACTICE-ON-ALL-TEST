@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.isred{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li @click="change(index)" :class="{isred:index == i_index}" v-for="(item,index) in movies">{{index+item}}</li>
+			</ul>
+			<p>11{{i_index}}</p>
+		</div>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					movies:["海贼王","jack and rose","海王","黑豹"],
+					i_index:0
+				},
+				methods:{
+					change:function(index){
+						this.i_index = index
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

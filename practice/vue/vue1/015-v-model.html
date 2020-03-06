@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-model双向绑定</title>
+	</head>
+	<style type="text/css">
+		.addborder {
+			border: 1px solid gray;
+			padding: 0.625rem;
+			margin-bottom: 10px;
+		}
+	</style>
+	<body>
+		<div id="app">
+			<div>
+				<p>{{title}}</p>
+				<p>{{des}}</p>
+				<h3>修饰符：</h3>
+				<div class="addborder">
+					<input type="text" v-model.lazy="msg">lazy取代 input 监听 change 事件
+					<input type="text" v-bind:value="msg" v-on:input="f1">
+					<p>{{msg}}</p>
+				</div>
+				<div class="addborder">
+					<small>当v-model绑定number的时候，可以直接取出类型为数字的值，否则默认string类型</small>
+					<input type="number" v-model.number="msg3">
+					<p>{{msg3}}：{{typeof msg3}}</p>
+					<input type="number" v-model="msg4">
+					<p>{{msg4}}：{{typeof msg4}}</p>
+				</div>
+
+				<div class="addborder">
+					<input type="text" v-model.trim="name">{{name}}
+				</div>
+				<br>
+				<input type="text" v-bind:value="msg2" v-on:input="msg2 = $event.target.value">
+				<p>{{msg2}}</p>
+
+			</div>
+
+			<h2>radio</h2>
+			<div>
+				<div class="mui-input-row mui-radio ">
+					<input name="radio" type="radio" id="radio1" v-model="sex" value="male">
+					<label for="radio1">male</label>
+					<input name="radio" type="radio" id="radio2" v-model="sex" value="female">
+					<label for="radio2">female</label>
+					<p>sex:{{sex}}</p>
+				</div>
+			</div>
+
+			<h2>checkbox</h2>
+			<div class="mui-input-row mui-checkbox ">
+
+				<input name="interest" type="checkbox" id="ch1" value="看书" v-model="choseninterst">
+				<label for="ch1">看书</label>
+				<input name="interest" type="checkbox" id="ch2" value="运动" v-model="choseninterst">
+				<label for="ch2">运动</label>
+				<input name="interest" type="checkbox" id="ch3" value="开车" v-model="choseninterst">
+				<label for="ch3">开车</label>
+				<p>你的选择是：{{choseninterst}}</p>
+
+				<label for="garee">
+					<input type="checkbox" v-model="isagree" id="garee">同意协议
+				</label>
+				<p>{{isagree}}</p>
+			</div>
+
+			<h2>select</h2>
+			<select name="select1" v-model="province">
+				<option value="福建省" selected="selected">福建省</option>
+				<option value="台湾省">台湾省</option>
+				<option value="广东省">广东省</option>
+			</select>
+			<p>{{province}}</p>
+
+			<select name="select2" multiple="multiple" v-model="provinces">
+				<option value="福建省" selected="selected">福建省</option>
+				<option value="台湾省">台湾省</option>
+				<option value="广东省">广东省</option>
+			</select>
+			<p>{{provinces}}</p>
+
+			<h2>值绑定：</h2>
+			<small>表单的值不写死，用v-for+v-bind进行操作</small>
+			<div>
+				<label :for="item" v-for="item in hobbies">
+					<input type="checkbox" name="ch" :id="item" :value="item" v-model="chosehobbies" />{{item}}
+				</label>
+				<p>你的选择是：{{chosehobbies}}</p>
+			</div>
+		</div>
+
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					"name": " sdf    ",
+					"title": "v-model双向绑定原理:",
+					"des": "v-model实际上是一个语法糖，通过v-bind绑定input的值，通过监听input的输入，同时改变input的值",
+					"msg": "234ad",
+					"msg2": "msg2",
+					"msg3": "",
+					"msg4": "",
+					"sex": 'male',
+					"choseninterst": [], //选择框的选择会根据数据类型进行自动变化，数组是多选框，null或者bool值是单选checbox
+					"interest": ["basketball"],
+					"isagree": false,
+					"province": "福建省",
+					"provinces": [],
+					"hobbies": ['篮球', '足球', '网球', '排球'],
+					"chosehobbies": []
+				},
+				methods: {
+					f1(e) {
+						this.msg = e.target.value
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

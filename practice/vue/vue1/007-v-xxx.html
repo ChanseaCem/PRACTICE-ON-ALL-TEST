@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-xxx</title>
+		<style type="text/css">
+			.font12{
+				font-size:20px
+			}
+			.colorred{
+				color:red
+			}
+			.height1{
+				height: 30px;
+			}
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<p v-once><span>{{vonce.key}} : </span> <span>{{vonce.val}}</span></p>
+			<p><span>{{vhtml.key}} : </span> <span v-html="vhtml.val"></span></p>
+			<p><span>{{vtext.key}} : </span> <span v-html="vtext.val"></span></p>
+			<p>
+				<span>{{vpre.key}} : </span> <span v-html="vpre.val"></span>
+				比如：
+				<span v-pre>{{msg}}</span>
+			</p>
+			<p><span>{{vcloak.key}} : </span> <span>{{vcloak.val}}</span></p>
+			<p v-cloak>{{vcloak.des}}</p>
+			<h3>v-bind</h3>
+			<ul v-bind:title="vbind.val">
+				<li><span>{{vbind.key}}</span><span><img style="width: 100px;" :src="vbind.imgurl" alt="暂无图片"></span></li>
+				<li :style="{color:vbind.isred,fontSize:vbind.isfont20}">style的v-bind测试</li>
+				<li>对象语法：<span :class="{font12:vbind.bool,colorred:vbind.bool}">显示class值</span> ---- <span :class="{font12:!vbind.bool,colorred:!vbind.bool}">隐藏class值</span></li>
+				<li>数组语法：<span class="class1" :class="['classA','classBVC']">1</span> ---- <span class="class1" :class="['classA',vbind.classB]">2</span></li>
+				<li>methods方法返回：<span class="class1" :class="getclasses()">1</span></li>
+			</ul>
+			<p><span>{{von.key}}</span><button @click="usevon">use</button></p>
+			<p>{{usefun}}</p>
+		</div>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					"vonce":{
+						"key":"v-once",
+						"val":'只渲染元素和组件一次。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。'
+					},
+					"vhtml":{
+						"key":"v-html",
+						"val":'<a href="http://www.baidu.com">百度一下</a><input type="text"/>'
+					},
+					"vtext":{
+						"key":"v-text",
+						"val":"类似{{msg}}使用，但是一般不用，不够灵活"
+					},
+					"vpre":{
+						"key":"v-pre",
+						"val":"和html的pre是一致的"
+					},
+					"vcloak":{
+						"key":"v-cloak",
+						"val":"cloak是斗篷的意思。",
+						"des":"在vue解析之前显示{{xxx}}等需要的东西，然后解析vue的js代码进行替换。如果加上v-cloak会在js解析之前什么都不显示，表示友好体验"
+					},
+					"vbind":{
+						"key":"v-bind",
+						"val":"v-bind的动态变化",
+						"imgurl":"http://a3.att.hudong.com/68/61/300000839764127060614318218_950.jpg",
+						"isred":"red",
+						"isfont20":"20px",
+						"bool":true,
+						"classA":"classAA",
+						"classB":"classBB"
+					},
+					"von":{
+						"key":"v-on的使用可以简写为@"
+					}
+				},
+				methods:{
+					getclasses:function(){
+						return "classC classD"
+					},
+					usevon(){
+						console.log(this.von.key)
+					},
+					usefun(arg1){
+						console.log(arg1)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

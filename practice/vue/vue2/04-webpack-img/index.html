@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于图片使用</title>
+	</head>
+	<body>
+		关于图片使用：
+		<br>
+		1.安装url-loader，图片属于文件
+		<br>
+		2.配置webpack.config.js
+		<br>
+		2.1 
+			大于limit的话要安装file-loader,并且由于图片会自动被编译放到dist文件夹下，使用的是dist下的图片，
+		<br>
+			这个时候，图片路径为（"dist/xxx.jpg"）,所以，需要再配置output：publicPath:"dist/",
+			<br>
+			对于任何在别的地方引用的文件，都会在前面加上publicPath的值
+		<br>
+		2.2
+			小于limit的话它会自动编译成base64并作为图片的路径,这个无需配置
+		<br>
+		3.如果要修改dist下的图片文件名称，则在limit下添加
+		<br>
+			<span class="sett">name</span>: 'img/[name].[hash:8].[ext]'
+		<br>
+			<span class="sett">img</span>:创建dist下的img文件夹
+		<br>
+			<span class="sett">[name]</span>:保留图片原名称（本来会编译成32为hash值的名称）
+		<br>
+			<span class="sett">[hash:8]</span>:取32位的hash值中的前8位
+		<br>
+			<span class="sett">[ext]</span>:图片扩展名
+			<br>
+		4.ES6语法处理
+		<br>
+		A:npm install --save-dev babel-loader@7 babel-core babel-preset-es2015
+		<br>
+		B:webpack.config.js 的配置的preset要改成 [es2015]
+		<br>
+		
+		<script src="./dist/bundle.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

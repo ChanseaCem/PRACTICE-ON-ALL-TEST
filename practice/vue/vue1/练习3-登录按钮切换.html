@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<p v-if="isAccount">
+					<label for="username">用户名：</label>
+					<input type="text" name="" id="username" placeholder="请输入用户名" key="username"/></p>
+				<p v-else><span>账户：</span><input type="text" name="" id="account" placeholder="请输入账户" key="account"/></p>
+				<p><span>密码：</span><input type="text" name="" id="" placeholder="请输入密码" /></p>
+			</div>
+			<button>登录</button>
+			<span @click="isZhanghao">{{login}}</span>
+		</div>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					isAccount:true,
+					login:"账号登录",
+					des:"vue是先把html转化成虚拟dom，尽可能的复用元素，所以如果不让它复用可以加key"
+				},
+				methods:{
+					isZhanghao(){
+						this.isAccount = !this.isAccount
+						if(this.isAccount){
+							this.login = "账号登录"
+						}else{
+							this.login = "用户名密码登录"
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

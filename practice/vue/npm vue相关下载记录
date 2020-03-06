@@ -1,0 +1,151 @@
+
+0.新建dist文件夹, src文件夹, index.html文件, webpack.config.js文件, src/index.js文件
+
+1.npm init
+2.npm install
+
+3.下载webpack
+npm install webpack@3.6.0 --save-dev
+
+4.下载vue-loader把vue加载进来；vue-template-compiler用来解析template
+npm install vue-loader vue-template-compiler --save-dev
+配置
+module.exports = {
+	resolve: {
+		extensions: [".js", ".css", ".vue"],
+		// VUE构建的时候会生成两个版本,runtime-only和rumtime-compiler
+		// only:代码不可以有任何的template
+		// compiler:代码可以有任何的template,因为compiler可以编译template
+		alias: {
+			"vue$":"vue/dist/vue.esm.js"//这个包括runtime-compiler
+		}
+	},
+}
+
+5.配置config
+
+6.webpack配置pakage.json修改
+webpack ./src/index.js ./dist/bundle.js
+ 为
+npm run build
+
+7.配置分离
+7.1.创建一个文件夹build，创建base.config.js, prod.config.js, dev.config.js
+7.2下载webpack合并器
+npm install webpack-merge --save-dev
+配置prod或dev的config文件，合并：
+const baseconfig = require("./base.config.js")
+const webpackMerge = require("webpack-merge")
+module.exports = webpackMerge(baseconfig,{
+})
+
+下载vue
+npm install vue --save
+
+
+
+
+
+启动运行
+npm run build
+
+
+
+
+下载style-loader
+npm install style-loader --save-dev
+
+
+下载css-loader
+npm install --save-dev css-loader
+
+
+下载html-webpack-plugin插件，借用index.html作为模板,复制到dist文件夹下的index.htmll里
+npm install html-webpack-plugin --save-dev
+配置webpack.config.js
+//借用index.html作为模板,复制到dist下的index.htmll里
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+module.exports ={
+	plugins:[
+		new htmlWebpackPlugin({
+			template:"index.html"
+		})
+	]
+}
+
+
+下载转换器，把es6转换成es5
+npm install --save-dev babel-loader@7 babel-core babel-preset-es2015
+
+
+搭建本地服务器
+a.下载本地服务器模块2.9.1版本和webpack3.6.0匹配
+npm install --save-dev webpack-dev-server@2.9.1
+b.设置webpack-config.js
+b.2:
+module.exports ={
+	devServer:{和entry同等级
+		contentBase:为哪一个文件夹提供本地服务，默认是根文件夹，这里要填写./dist,
+		inline:页面实时监听刷新，true
+		port:端口号，默认8080
+		historyApiFallback:在SPA页面中，依赖HTML5的history模式
+	}
+}
+c.package.json 设置,script下：
+c.1:"dev":"webpack-dev-server --open" --open参数表示直接打开浏览器
+
+
+下载压缩插件
+ npm install uglifyjs-webpack-plugin@1.1.1 --save-div
+ 设置webpack-config.js
+//压缩文件bundle.js(查看这个文件)
+const UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin")
+module.exports ={
+	plugins:[
+		new UglifyjsWebpackPlugin()
+	]
+}
+
+执行webpack ./src/index.js ./dist/bundle.js时候，
+默认找webpack.config.js去，当配置分离后，
+需要额外配置才能在执行npm run build/npm run dev的时候
+去找自定一个的配置（如prod.config.js）
+
+
+Vue CLI的使用
+安装脚手架，只要一个全局就行：
+脚手架2:npm install -g vue
+脚手架最新版:npm install -g @vue/cli
+脚手架2模板：npm install -g @vue/cli-init
+
+
+vue cli2.0初始化：
+vue init webpack projectName
+配置信息：
+Project name:默认是项目名称
+project description：描述语
+author：作者
+Vue build：//可选择，大多数用选第一个，第二个文件小，运行效率高
+	Runtime + Compiler：recommended for most users
+	Runtime-only：about 6kb light min+gzip，buttemplates...
+Install vue-router：是否安装路由
+Use ESLint to lint your code：
+（ESLint表示对ESMAjs进行限制，自动检查不规范代码）
+Pick an ESLint preset
+	Standard
+	Airbnb（一个大公司）
+	none
+Set up unit tests（单元测试，国内一般没有）
+Setup e2e（end to end端到端） tests with Nightwatch 一个利用phantomjs等进行自动化测试的框架
+
+
+vue cli3.0初始化：
+vue create projectName
+
+
+vuex下载
+npm install vuex --save
+
+
+axios下载
+npm install axios --save

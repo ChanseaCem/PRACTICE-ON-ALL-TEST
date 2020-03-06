@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数据双向绑定</title>
+	</head>
+	<body>
+		<!-- 父组件模板 -->
+		<div id="app">
+			<cpn :number1="num1" :number2="num2" @num1change="num1change1" @num2change="num2change"></cpn>
+		</div>
+
+		<!-- 子组件模板 -->
+		<template id="cpn">
+			<div>
+				<p>props:{{number1}}</p>
+				<p>data:{{dnumber1}}</p>
+				<input type="text" v-model="dnumber1">
+				<!-- <input type="text" :value="dnumber1" @input="numinput"> -->
+				<p>props:{{number2}}</p>
+				<p>data:{{dnumber2}}</p>
+				<input type="text" v-model="dnumber2">
+				<!-- <input type="text" :value="dnumber2" @input="numinput2"> -->
+			</div>
+		</template>
+
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 父组件
+			const vm = new Vue({
+				el: "#app",
+				data: {
+					num1: 1,
+					num2: 0
+				},
+				methods: {
+					num1change1(value) {
+						this.num1 = value;
+					},
+					num2change(value) {
+						this.num2 = value;
+					},
+				},
+				components: {
+					cpn: {
+						template: "#cpn",
+						props: {
+							number1: Number,
+							number2: Number
+						},
+						data() {
+							return {
+								dnumber1: this.number1,
+								dnumber2: this.number2
+							}
+						},
+						methods: {
+							numinput(event) {
+								this.dnumber1 = event.target.value
+								this.dnumber2 = this.dnumber1 * 100
+								this.$emit("num1change", parseInt(this.dnumber1))
+								this.$emit("num2change", parseInt(this.dnumber2))
+							},
+							numinput2(event) {
+								this.dnumber2 = event.target.value
+								this.dnumber1 = this.dnumber2 / 100
+								this.$emit("num1change", parseInt(this.dnumber1))
+							}
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

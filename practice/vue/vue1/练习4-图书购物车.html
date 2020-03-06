@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图书购物车</title>
+	</head>
+	<style type="text/css">
+		th,
+		td {
+			width: 120px;
+			height: 36px;
+			text-align: center;
+		}
+	</style>
+	<body>
+		<div id="bookshop">
+			<table border="1" cellspacing="0" cellpadding="0" v-cloak>
+				<tr>
+					<th>编号</th>
+					<th>书籍名称</th>
+					<th>出版日期</th>
+					<th>价格</th>
+					<th>购买数量</th>
+					<th>操作</th>
+				</tr>
+
+				<tr v-for="item,index in books">
+					<td>{{item.id}}</td>
+					<td>{{item.name}}</td>
+					<td>{{item.publishDate}}</td>
+					<!-- <td>￥{{item.price.toFixed(2)}}</td> -->
+					<td>{{item.price | showPrice}}</td>
+					<td>
+						<button type="button" @click="sub(index)" v-bind:disabled="nums[index] <= 0">-</button>
+						<span>{{nums[index]}}</span>
+						<button type="button" @click="add(index)">+</button>
+					</td>
+					<td><button @click="removebtn(index)">移除</button></td>
+				</tr>
+				<tr v-show="booksisnull">
+					<td colspan="6">购物车为空</td>
+				</tr>
+			</table>
+			<h3>总价：{{totalPrice1 | showPrice}}</h3>
+			<button @click="addbooks">添加书本</button>
+		</div>
+
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm_bookshop = new Vue({
+				el: "#bookshop",
+				data: {
+					books: [{
+						"id": "001",
+						"name": "《算法》",
+						"publishDate": "2006-9",
+						"price": 85,
+					}, {
+						"id": "002",
+						"name": "《代码大全》",
+						"publishDate": "2006-3",
+						"price": 35,
+					}, {
+						"id": "003",
+						"name": "《编程珠玑》",
+						"publishDate": "2006-1",
+						"price": 55,
+					}, {
+						"id": "004",
+						"name": "《编程艺术》",
+						"publishDate": "2016-9",
+						"price": 45,
+					}],
+					"nums": [0, 0, 0, 0],
+					"totalPrice": 0,
+					"booksisnull": false,
+					"isdisable":true
+				},
+				methods: {
+					sub(index) {
+						if (this.nums[index] > 0) {
+							this.nums.splice(index, 1, --this.nums[index]);
+							this.isdisable = true;
+						}else{
+							this.isdisable = false;
+						}
+					},
+					add(index) {
+						this.nums.splice(index, 1, ++this.nums[index]);
+						this.getTotalPrice()
+					},
+					getTotalPrice() {
+						let total = 0;
+						this.books.forEach((value, index, arr) => {
+							let num = this.nums[index];
+							total += arr[index].price * num
+						})
+						return total;
+					},
+					removebtn(index) {
+						this.books.splice(index, 1)
+						this.nums.splice(index, 1)
+						this.booksisempty()
+					},
+					addbooks() {
+						this.books.push({
+							"id": "005",
+							"name": "《编程艺术2》",
+							"publishDate": "2016-9",
+							"price": 46,
+						})
+						this.nums.push(0)
+						this.booksisempty()
+					},
+					booksisempty() {
+						if (this.books.length === 0) {
+							this.booksisnull = true
+						} else {
+							this.booksisnull = false
+						}
+					}
+				},
+				computed:{
+					totalPrice1() {
+						let total = 0;
+						
+						// //方法一
+						// for(let i=0;i<this.books.length;i++){
+						// 	let num = this.nums[i];
+						// 	total += this.books[i].price * num;
+						// }
+						
+						// //方法二
+						// this.books.forEach((value, index, arr) => {
+						// 	let num = this.nums[index];
+						// 	total += arr[index].price * num
+						// })
+						
+						//方法三
+						// for(let j in this.books){
+						// 	let num = this.nums[j];
+						// 	total += this.books[j].price * num
+						// }
+						
+						//方法四 当前数据格式设置不适用reduce，如果把购买量放进每一个项中，则reduce会很方便
+						//第二个参数为第一次返回的初始值0，如果没有这个0，在本例子则第一次的item为books本身第一个值
+						total = this.books.reduce((item,nextValue,index) => {
+							return item + nextValue.price * this.nums[index]
+						},0)
+						return total;
+					},
+				},
+				filters:{
+					showPrice(price){
+						return "￥" + price.toFixed(2) 
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

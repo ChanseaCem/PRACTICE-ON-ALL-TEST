@@ -1,0 +1,367 @@
+html {
+    font-size: 100px;
+}
+
+@media screen and (min-width: 321px) and (max-width: 375px) {
+    html {
+        font-size: 110px
+    }
+}
+
+@media screen and (min-width: 376px) and (max-width: 414px) {
+    html {
+        font-size: 120px
+    }
+}
+
+@media screen and (min-width: 415px) and (max-width: 639px) {
+    html {
+        font-size: 150px
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 719px) {
+    html {
+        font-size: 200px
+    }
+}
+
+@media screen and (min-width: 720px) and (max-width: 749px) {
+    html {
+        font-size: 225px
+    }
+}
+
+@media screen and (min-width: 750px) and (max-width: 799px) {
+    html {
+        font-size: 235px
+    }
+}
+
+@media screen and (min-width: 800px) {
+    html {
+        font-size: 250px
+    }
+}
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+body {
+    padding: 0.44rem 0 0.51rem;
+    font-family: "微软雅黑";
+    font-size: 0.13rem;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+* {
+    list-style: none;
+}
+
+img {
+    border: none;
+    vertical-align: middle;
+}
+
+input {
+    font-family: "微软雅黑";
+}
+
+a:link {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:active {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #333333;
+    text-decoration: none;
+}
+
+input, textarea {
+    outline: none;
+}
+
+.clearfix:before{
+    content: " ";
+    display: table;
+}
+.clearfix:after{
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+/* 头部 */
+.header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    height: 0.44rem;
+    width: 100%;
+    max-width: 100%;
+    background: #158be7;
+    text-align: center;
+    z-index: 999;
+}
+
+.header span {
+    display: inline-block;
+    height: 0.44rem;
+    line-height: 0.44rem;
+}
+
+.header .header-left {
+    float: left;
+    margin-left: 0.14rem;
+    min-width: 0.12rem;
+    /*width: 10%;*/
+    position: relative;
+}
+
+.header .header-center {
+    position: relative;
+    flex: 1;
+    padding: 0 0.14rem;
+}
+
+.header .header-center input {
+    margin: 0.1rem 0;
+    width: 100%;
+    height: 0.24rem;
+    line-height: 0.24rem;
+    font-size: 0.11rem;
+    text-align: center;
+    /*background:url("../img/temp-search.png") no-repeat left center;*/
+    background-color: #fff;
+    border-radius: 0.125rem;
+    border-width: 0;
+}
+
+.header .header-center div {
+    /*width: 50%;*/
+    height: 0.22rem;
+    line-height: 0.22rem;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    font-size: 0.11rem;
+    color: #999;
+}
+
+.header .header-center img {
+    margin-bottom: 0.01rem;
+    margin-right: 0.04rem;
+}
+
+.header .header-center span {
+    font-size: 0.16rem;
+    color: #fff;
+}
+
+.header .header-right {
+    float: right;
+    /*margin-left: 0.12rem;*/
+    margin-right: 0.14rem;
+    min-width: 0.12rem;
+    /*width: 10%;*/
+}
+
+.header .header-right a {
+    margin-right: -0.04rem;
+    color: #fff;
+}
+
+/* 导航 */
+.top-nav {
+    display: flex;
+    height: 0.36rem;
+    line-height: 0.36rem;
+    font-size: 0.14rem;
+    text-align: center;
+    background: #fff;
+}
+
+.top-nav a {
+    display: block;
+}
+
+.top-nav .active a {
+    height: 0.34rem;
+    color: #148be6;
+    border-bottom: 0.02rem solid #148be6;
+}
+
+.top-nav div {
+    flex: 1;
+}
+
+/* 底部 */
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    height: 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    border-top: 0.01rem solid #666;
+    background: #fff;
+    z-index: 999;
+}
+
+.footer-shoppingcart {
+    border-top: 0.01rem solid #d9d9d9;
+}
+
+/* 购物车,确认订单 底部 */
+.footer-shoppingcart2 {
+    line-height: 0.5rem;
+    border-top-width: 0;
+}
+
+.footer-shoppingcart2:before,
+.footer-shoppingcart2:after {
+    content: " ";
+    display: table;
+}
+
+.footer-shoppingcart2:after {
+    clear: both;
+}
+
+/*全选*/
+.footer-shoppingcart2 .cb-all {
+    margin-left: 0.1rem;
+    font-size: 0.1rem;
+}
+
+/*合计*/
+.footer-shoppingcart2 .total-money {
+    flex: 1;
+    text-align: left;
+    margin: 0 0.05rem;
+}
+
+/*不含运费*/
+.footer-shoppingcart2 .font-hint {
+    font-size: 0.1rem;
+    color: #757575;
+}
+
+/*实付款*/
+.footer-shoppingcart2 .paid {
+    flex: 1;
+    margin-right: 0.1rem;
+    font-size: 0.12rem;
+    text-align: right;
+}
+
+.footer-shoppingcart2 .paid .ic-paid {
+    color: #ff4900;
+}
+
+.footer-shoppingcart2 .paid .paid-money {
+    font-size: 0.15rem;
+    color: #ff4900;
+}
+
+/*提交按钮*/
+.footer-shoppingcart2 .btn-submit {
+    margin-left: 0.05rem;
+    width: 1rem;
+    font-size: 0.16rem;
+    color: #fff;
+    background-color: #ff4900;
+}
+
+
+/* 购物车,确认订单 底部结束 */
+.footer .footer-small {
+    flex: 2;
+    margin: auto;
+    font-size: 0.1rem;
+}
+
+.footer .footer-small img {
+    height: 0.16rem;
+}
+
+.footer .footer-normal {
+    flex: 1;
+    margin: auto;
+    font-size: 0.1rem;
+}
+
+.footer .footer-normal a {
+    display: inline-block;
+}
+
+.footer .footer-normal img {
+    height: 0.2rem;
+}
+
+.footer .footer-big {
+    flex: 5;
+    font-size: 0.16rem;
+}
+
+.footer .footer-big a {
+    display: block;
+    line-height: 0.5rem;
+    color: #fff;
+    background: #ff9500;
+}
+
+.footer .footer-big:last-child a {
+    background: #148be6;
+}
+
+.footer .active a {
+    color: #148be6;
+}
+
+.footer img {
+    display: block;
+    margin: 0 auto;
+}
+
+.footer .cb label{
+    line-height: 0.5rem;
+}
+.footer .cb label span {
+    width: 0.15rem;
+    height: 0.15rem;
+    float: left;
+    margin-top: 0.18rem;
+    margin-right: 0.03rem;
+		background: #D9D9D9;
+		border-radius: 50%;
+    background-size: 0.15rem 0.15rem;
+}
+.footer .cb label input {
+    display: none;
+}
+.footer .cb label input:checked[type=checkbox] + span {
+		background: #D9D9D9;
+		border-radius: 50%;
+}
+
+

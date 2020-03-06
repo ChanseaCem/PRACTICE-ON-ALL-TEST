@@ -1,0 +1,9 @@
+body{
+	background: url(../img/1.png);
+}
+.sett{
+	display: inline-block;
+	width: 6.25rem;
+	text-align: right;
+	margin-right: 10px;
+}

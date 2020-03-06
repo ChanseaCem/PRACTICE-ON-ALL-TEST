@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计数器中的mvvm思想</title>
+	</head>
+	<body>
+		<div id="app">
+			<h3>计数器中的mvvm思想：</h3>
+			<ul>
+				<li>{{view}}</li>
+				<li>{{model}}</li>
+				<li>{{viewmodel}}</li>
+			</ul>
+			
+			<h3>mvvm的工作：</h3>
+			<ul>
+				<li>{{work}}</li>
+				<li>{{work2}}</li>
+			</ul>
+			
+		</div>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					view:"view 就是我们的DOM",
+					model:"model 就是我们抽离出来的obj",
+					viewmodel:"viewmodel 就是Vue实例",
+					work:"首先viewModel通过Data Bingding让obj中的数据实时地在DOM显示",
+					work2:"其次viewModel通过DOM Listener来监听DOM事件，并且通过methods中的操作，来改变obj中的数据"
+				}
+			})
+		</script>
+	</body>
+</html>
