@@ -37,6 +37,13 @@ _indexModule.prototype = {
 	},
 
 	/**
+	 * 各种接口数据实际操作
+	 */
+	objDataImpl: function() {
+
+	},
+
+	/**
 	 * 内容数据操作
 	 */
 	operationCon: function() {
