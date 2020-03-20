@@ -149,3 +149,7 @@ npm install vuex --save
 
 axios下载
 npm install axios --save
+
+
+路由下载
+npm install vue-router --save
