@@ -9,6 +9,19 @@
 		
 		<p>开发时依赖：开发阶段需要这个依赖，打包完后就不用（比如webpack）</p>
 		<p>运行时依赖：开发阶段不需要，运行后需要</p>
+		<pre>
+			命令：
+			npm init
+			npm install
+			
+			运行：
+			直接webpack就行，但是一般使用npm run build(build这个来自package.json的scripts)
+			查看：直接打开index.html
+			
+			webpack直接运行时候首先找本地webpack，不是全局webapck，所以需要下载一个本地webapck
+			npm install webapck@3.6.0 --save-dev
+			
+		</pre>
 		<script src="dist/bundle.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>
