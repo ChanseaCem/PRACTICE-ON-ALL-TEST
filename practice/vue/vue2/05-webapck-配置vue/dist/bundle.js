@@ -286,70 +286,39 @@ process.umask = function() { return 0; };
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_app_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(4);
-//抽取组件,让new Vue更简洁干净
-// const App = {
-// 	template: `
-// 			<div>
-// 				<div>{{msg}}</div>
-// 				<button @click="btnClick">打印</button>
-// 				<div>{{des}}</div>
-// 			</div>
-// 			`,
-// 	data() {
-// 		return {
-// 			msg: "hello world",
-// 			des: "el和template的关系是,index.html那边只需要一个div,然后剩下的都写在template里面,执行的时候vue会替换掉html的div"
-// 		}
-// 	},
-// 	methods: {
-// 		btnClick: function() {
-// 			console.log("打印")
-// 		}
-// 	}
-// }
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
 
-
-
-
-new __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */]({
-	el: "#app",
-	template: '<App />',
-	components: {
-		App: __WEBPACK_IMPORTED_MODULE_0__vue_app_js__["a" /* default */]
-	}
-})
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({
+new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
+	el:"#app",
 	template: `
 			<div>
 				<div>{{msg}}</div>
 				<button @click="btnClick">打印</button>
 				<div>{{des}}</div>
+				<pre>
+					命令:
+					npm install vue --save
+					
+					针对runtime-only的时候,添加下面这个支持
+					给webpack.config.js加上resolve,alias
+					"vue$": "vue/dist/vue.esm.js"
+				</pre>
 			</div>
 			`,
-	data() {
-		return {
-			msg: "hello world",
-			des: "el和template的关系是,index.html那边只需要一个div,然后剩下的都写在template里面,执行的时候vue会替换掉html的div"
-		}
+	data: {
+		msg: "hello world",
+		des:"el和template的关系是,index.html那边只需要一个div,然后剩下的都写在template里面,执行的时候vue会替换掉html的div"
 	},
 	methods: {
 		btnClick: function() {
 			console.log("打印")
 		}
 	}
-});
+})
+
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12347,10 +12316,10 @@ Vue.compile = compileToFunctions;
 
 /* harmony default export */ __webpack_exports__["a"] = (Vue);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(0), __webpack_require__(5).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(0), __webpack_require__(4).setImmediate))
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -12406,7 +12375,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(6);
+__webpack_require__(5);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -12420,7 +12389,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {

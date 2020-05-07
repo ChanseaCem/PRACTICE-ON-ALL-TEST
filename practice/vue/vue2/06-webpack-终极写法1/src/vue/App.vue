@@ -3,6 +3,11 @@
 		<div>{{msg}}</div>
 		<button @click="btnClick">打印</button>
 		<div>{{des}}</div>
+		<p>如果要使用.vue文件，需要安装vue-loader</p>
+		<p>npm install vue-loader vue-template-compiler --save-dev</p>
+		<p>vue-loader版本问题：</p>
+		<p>从14版本开始，需要再额外配置一个插件，否则会报错，所以可以的话，把版本改成小于14的</p>
+		
 		<Cpn><span slot="msg2">slot 练习</span></Cpn>
 	</div>
 </template>

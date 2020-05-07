@@ -19,6 +19,7 @@ module.exports = {
 		}]
 	},
 	resolve: {
+		//这个是用来在引用时候省略后缀名称
 		extensions: [".js", ".css", ".vue"],
 		// VUE构建的时候会生成两个版本,runtime-only和rumtime-compiler
 		// only:代码不可以有任何的template

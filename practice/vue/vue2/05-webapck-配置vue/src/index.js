@@ -6,6 +6,14 @@ new Vue({
 				<div>{{msg}}</div>
 				<button @click="btnClick">打印</button>
 				<div>{{des}}</div>
+				<pre>
+					命令:
+					npm install vue --save
+					
+					针对runtime-only的时候,添加下面这个支持
+					给webpack.config.js加上resolve,alias
+					"vue$": "vue/dist/vue.esm.js"
+				</pre>
 			</div>
 			`,
 	data: {

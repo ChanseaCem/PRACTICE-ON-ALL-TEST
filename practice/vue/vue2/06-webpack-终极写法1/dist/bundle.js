@@ -543,6 +543,11 @@ module.exports = function normalizeComponent (
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -785,7 +790,7 @@ process.umask = function() { return 0; };
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_App_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_App__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(17);
 
 
@@ -793,7 +798,7 @@ new __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */]({
 	el:"#app",
 	template:"<App />",
 	components:{
-		App: __WEBPACK_IMPORTED_MODULE_0__vue_App_vue__["a" /* default */]
+		App: __WEBPACK_IMPORTED_MODULE_0__vue_App__["a" /* default */]
 	}
 })
 
@@ -887,7 +892,7 @@ if(false) {
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(1);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -1067,6 +1072,20 @@ var render = function() {
       _c("button", { on: { click: _vm.btnClick } }, [_vm._v("打印")]),
       _vm._v(" "),
       _c("div", [_vm._v(_vm._s(_vm.des))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("如果要使用.vue文件，需要安装vue-loader")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("npm install vue-loader vue-template-compiler --save-dev")
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("vue-loader版本问题：")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "从14版本开始，需要再额外配置一个插件，否则会报错，所以可以的话，把版本改成小于14的"
+        )
+      ]),
       _vm._v(" "),
       _c("Cpn", [
         _c("span", { attrs: { slot: "msg2" }, slot: "msg2" }, [

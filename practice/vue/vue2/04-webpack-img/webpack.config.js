@@ -4,7 +4,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, "dist"),
 		filename: "bundle.js",
-		publicPath: "dist/"//静态资源路径前面加上publicPath的值
+		publicPath: "dist/"//静态资源路径前面加上publicPath的值,但是如果index.html被当成模板复制到了dist下,则不需要加上这个路径(参考07 webpack-config html-webpack-plugin)
 	},
 	module: {
 		rules: [{
@@ -42,6 +42,7 @@ module.exports = {
 			},
 			{
 				test: /\.js$/,
+				// 排除这些文件夹,这些不用打包,不用转换
 				exclude: /(node_modules|bower_components)/,
 				use: {
 					loader: 'babel-loader',
