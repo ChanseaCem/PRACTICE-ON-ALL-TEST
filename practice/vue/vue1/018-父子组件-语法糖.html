@@ -9,6 +9,7 @@
 			<ul>
 				<con3></con3>
 			</ul>
+			<cpn4></cpn4>
 		</div>
 		
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
@@ -38,6 +39,10 @@
 				}
 			})
 			
+			//语法糖模式
+			const cpn4 = Vue.component('cpn4',{
+				template:`<div>语法糖模式，也是因此写法，导致extend方式很少用，不过底层依然使用extend调用</div>`
+			})
 			
 			const vm = new Vue({
 				el:"#app",
@@ -51,7 +56,8 @@
 							<input type="text" name="" id="" value="" />
 						</li>
 						`
-					}
+					},
+					cpn4
 				}
 			})
 		</script>

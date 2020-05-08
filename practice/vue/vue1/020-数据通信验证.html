@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div id="app">
-			<my-cpn :cmsg="msg" :cname="name" :cage="age"></my-cpn>
+			<my-cpn :cmsg="msg" :cname="name" :cage="age" :yanzheng="yanzheng"></my-cpn>
 		</div>
 
 		<template id="cpn1">
@@ -27,7 +27,8 @@
 				data: {
 					msg: "你好",
 					name: "李白",
-					age: 23
+					age: 23,
+					yanzheng:1
 				},
 				components: {
 					"my-cpn": {
@@ -59,6 +60,12 @@
 							cimgsrc:{
 								type:String,
 								default:"img/props.jpg"
+							},
+							yanzheng:{
+								// 验证val一定要是这个数组中的一个，不然报错
+								validator:(val) => {
+									return [1,2,3].indexOf(val) !== -1
+								} 
 							}
 						},
 						template: "#cpn1",

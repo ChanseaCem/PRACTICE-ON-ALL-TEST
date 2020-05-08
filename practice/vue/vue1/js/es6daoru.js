@@ -19,6 +19,6 @@ console.log(sum1(4,5))
 var p = new Person()
 p.run()
 
-// 导入default默认的那个
+// 导入default默认的那个,此时不用大括号
 import addr from './es6daochu.js'
 console.log(addr)
