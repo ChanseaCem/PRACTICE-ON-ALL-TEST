@@ -3,6 +3,7 @@
     <!-- 无使用 linkActiveClass -->
     <router-link to="/home" tag="button" replace active-class="active">home</router-link>
     <router-link to="/about" replace active-class="active">about</router-link>
+    <router-link :to="'/about2/'+userid" replace>about2</router-link>
 
     <!-- 使用linkActiveClass -->
     <!-- <router-link to="/home" tag="button" replace>home</router-link>
@@ -50,7 +51,7 @@
       },
       profileClick() {
         this.$router.push({
-          "path": "proFile",
+          "path": "/proFile",
           "query": {
             "height": 55,
             "width": 22

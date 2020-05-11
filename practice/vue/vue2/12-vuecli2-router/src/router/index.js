@@ -30,7 +30,7 @@ const router = new Router({
       children:[
         {
           path:"",
-          component:HomeNews
+          redirect:"news"
         },
         {
           path:"news",
@@ -46,7 +46,14 @@ const router = new Router({
       path:"/about/",
       component:About,
       meta:{
-        title:"首页"
+        title:"关于"
+      },
+    },
+    {
+      path:"/about2/:id",
+      component:About,
+      meta:{
+        title:"关于2"
       },
     },
     {
