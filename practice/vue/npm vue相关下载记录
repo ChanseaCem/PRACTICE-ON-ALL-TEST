@@ -27,7 +27,7 @@ module.exports = {
 6.webpack配置pakage.json修改
 webpack ./src/index.js ./dist/bundle.js
  为
-npm run build
+npm run build(打包)
 
 7.配置分离
 7.1.创建一个文件夹build，创建base.config.js, prod.config.js, dev.config.js
@@ -58,6 +58,14 @@ npm install style-loader --save-dev
 
 下载css-loader
 npm install --save-dev css-loader
+
+
+下载url-loader
+npm install --save-dev url-loader
+
+
+下载file-loader
+npm install --save-dev file-loader
 
 
 下载html-webpack-plugin插件，借用index.html作为模板,复制到dist文件夹下的index.htmll里
@@ -106,6 +114,7 @@ module.exports ={
 	]
 }
 
+
 执行webpack ./src/index.js ./dist/bundle.js时候，
 默认找webpack.config.js去，当配置分离后，
 需要额外配置才能在执行npm run build/npm run dev的时候
@@ -151,5 +160,28 @@ axios下载
 npm install axios --save
 
 
-路由下载
+安装和使用vue-router
+1.路由下载
 npm install vue-router --save
+2.1导入路由对象，调用Vue.use(VueRouter)
+2.2创建路由实例，并且传入路由映射配置
+2.3在Vue实例中挂载创建的路由实例
+
+
+解析package下的script下的：
+webpack-dev-server --open --inline --progress --config build/webpack.dev.conf.js
+--open：自主打开浏览器
+--inline：
+--progress：
+--config：自主定义配置文件
+
+
+如果要在vue-cli3下修改配置，
+A.直接在当前目录下（与src同层）创建
+vue-config.js 文件
+里面写：
+module.exports = {
+	
+}
+项目会默认把这个文件合并，所以名字是固定的，不能随便改
+B.vue ui打开可视化配置

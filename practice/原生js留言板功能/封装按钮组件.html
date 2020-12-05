@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<script>
+window.onload=function(){
+    class BaseButton{
+      constructor(clsName,title,color,width,heigth){
+          this.title = title;
+          this.color = color;
+          this.width = width;
+          this.heigth = heigth;
+          this.clsName = clsName
+      }
+      toHtml(){
+        return `<button class="${this.clsName}"style="width:${this.width};height:${this.heigth};color:${this.color}">${this.title}</button>`
+      }
+    }
+
+    oBnt1 = new BaseButton("obnt_red","点击","red",75,35)
+    oBnt2 = new BaseButton("oBnt_blue","点击","blue",75,35)
+    oBnt3 = new BaseButton("oBnt_green","点击","green",75,35)
+
+    var obj = {
+      init(){
+          this.bind("oBnt_red",oBnt1)
+          this.bind("oBnt_blue",oBnt2)
+          this.bind("oBnt_green",oBnt3)
+      },
+      $(name){
+        return document.querySelector(`.${name}`)
+      },
+      bind(name,oBnt){
+        if(this.$(name)){
+          this.$(name).innerHTML= oBnt.toHtml()
+        }
+      }
+    }
+    obj.init()
+}
+
+
+
+</script>
+<body>
+  <div class="oBnt_red"></div>
+  <div class="oBnt_blue"></div>
+  <div class="oBnt_green"></div>
+</body>
+</html>

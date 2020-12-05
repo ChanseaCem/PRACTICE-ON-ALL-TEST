@@ -17,6 +17,9 @@
     <router-link :to='{path:"/param",query:{"height":2,"bool":false}}' tag="button" replace>query参数传递</router-link>
 
     <button @click="profileClick">档案</button>
+    <br>
+		<small>keep-alive 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们</small>
+		<small>keep-alive 的include与exclude exclude表示不包括ProFile，表示这个会被重建和销毁</small>
     <keep-alive exclude="ProFile">
       <router-view />
     </keep-alive>
@@ -33,18 +36,18 @@
     },
     methods: {
       homeClick() {
-        // this.$router.push("/home")
-        this.$router.replace("/home")
+        this.$router.push("/home")
+        // this.$router.replace("/home")
       },
       aboutClick() {
         // console.log("aboutClick")
-        // this.$router.push("/ ")
-        this.$router.replace("/about")
+        this.$router.push("/about")
+        // this.$router.replace("/about")
       },
       userClick() {
         // console.log("动态路由：/user/"+this.userid)
-        // this.$router.push("/about")
-        this.$router.replace("/user/" + this.userid)
+        this.$router.push("/user/" + this.userid)
+        // this.$router.replace("/user/" + this.userid)
       },
       lazyClick() {
         this.$router.replace("/lazy")

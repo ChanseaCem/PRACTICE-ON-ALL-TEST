@@ -1,0 +1,28 @@
+#home {
+  /* padding-top: 45px;
+  padding-bottom: 49px; */
+  background: white;
+  height: 100vh;
+
+  position: relative;
+}
+
+.positionfixed {
+  position: sticky;
+  top: 44px;
+  background: white;
+  z-index: 1;
+}
+
+
+.home-content {
+  /* position: relative;
+  height: calc(100% - 94px);
+  margin-top: 44px; */
+
+  position: absolute;
+  top: 44px;
+  bottom: 49px;
+  left: 0;
+  right: 0;
+}

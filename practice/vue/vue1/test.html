@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+			.act{
+				color: red;
+			},
+			.color{
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<p>{{name0}}</p>
+			<button @click="getxxx()">asfasdf</button>
+			<cpn :names="names0" @xxx="getxxx">
+			
+			</cpn>
+		</div>
+		
+		<template id="cpn">
+			<div>
+				<button  @click="f2()">66666</button>
+			</div>
+		</template>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					names0:"aallll",
+					isshow:true
+				},
+				computed:{
+					name0:{
+						set(val){
+							this.names0 = val;
+						},
+						get(){
+							return this.names0+9;
+						}
+					}
+				},
+				components:{
+					cpn:{
+						template:"#cpn",
+						props:{
+							names:String
+						},
+						data(){
+							return {
+								name1:this.names+5
+							}
+						},
+						methods:{
+							f2(){
+								this.$emit("xxx",12)
+							}
+						}
+					}
+				},
+				methods:{
+					getxxx(){
+						this.names0 = Math.random(0).toFixed(3)
+					}
+				}
+				
+			})
+		</script>
+	</body>
+</html>

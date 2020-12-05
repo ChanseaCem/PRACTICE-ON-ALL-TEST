@@ -49,7 +49,7 @@ module.exports = {
 		}),
 		// new UglifyjsWebpackPlugin()
 	],
-	devServer:{
+	devServer:{//会把项目暂时放进内存里面,平时运行时候获取都是直接从内存获取,无需打包后再点开入口文件(一般是index.html)查看,当需要打包的时候再进行打包npm run build一次就可以
 		contentBase:"./dist",//服务的文件夹
 		inline:true//是否实时监听
 	}

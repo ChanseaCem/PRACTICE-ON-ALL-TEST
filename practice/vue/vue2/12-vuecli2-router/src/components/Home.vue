@@ -13,6 +13,11 @@
 <script>
   export default {
     name: "Home",
+    data(){
+      return {
+        path:"/home/news"
+      }
+    },
     created() {
       console.log("Home created")
     },
@@ -21,10 +26,20 @@
     },
     activated() {
       // activated,deactivated这两个函数只有在keep-alive使用的时候才会执行
+      if(this.$route.path != this.path){
+        this.$router.push(this.path)
+      }else{
+        console.log("冲突")
+      }
     },
     deactivated() {
-
-    }
+        console.log("deactivated")
+    },
+		// 组件内的导航
+		beforeRouteLeave(to,from,next) {
+			this.path = this.$route.path;
+			next()
+		}
   }
 </script>
 

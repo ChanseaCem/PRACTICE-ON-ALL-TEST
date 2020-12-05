@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p>{{$store.a.age}}</p>
+    <!-- <p>{{$store.a.age}}</p> -->
     <hr>
     <p>{{$store.getters.fullname}}</p>
     <p>{{$store.getters.fullname2}}</p>

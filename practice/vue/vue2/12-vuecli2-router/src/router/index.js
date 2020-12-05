@@ -89,17 +89,20 @@ const router = new Router({
   linkActiveClass:"active"//激活按钮class值修改 默认router-link-active
 })
 
-// 前置守卫(guard)
+// 前置守卫(guard)跳转之前
 router.beforeEach((to,from,next) => {
-  // console.log(to)
+	//从from路由跳转到to路由
   document.title = to.matched[0].meta.title
   next()//一定要写next,不然会中断导航
 })
 
-// 后置钩子hook
-router.afterEach((to,from,next) => {
-
+// 后置钩子hook跳转之后
+router.afterEach((to,from) => {
+  // 这个没有next,因为跳转之后是跳转结束了
 })
+
+// 以上皆是全局守卫, 路由独享守卫/组件内的守卫查看下面地址
+// https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E7%BB%84%E4%BB%B6%E5%86%85%E7%9A%84%E5%AE%88%E5%8D%AB
 
 // 2.创建路由对象并导出-->这个创建的就是$Router
 export default router

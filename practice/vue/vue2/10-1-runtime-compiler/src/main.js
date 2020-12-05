@@ -32,7 +32,7 @@ new Vue({
       这个函数也可以接收组件(这个时候的组件(例如App)不是template,而是一个对象)
     */
    console.log(App)
-    // return createElement("h2",{class:"actvie"},["内容"])
+    // return createElement("h2",{class:"actvie"},["内容",createElement("span",{class:"actvie"},["xxx"])])
     return createElement(App)
   }
 })

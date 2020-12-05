@@ -1,0 +1,122 @@
+@import "normalize.css"
+
+/*
+:root ==>用来获取根元素htmlall
+然后内容是用了定义变量的方式
+*/
+
+:root {
+	/* 默认文字颜色 */
+	--color-text: #666666;
+
+	/* 文字高亮颜色 */
+	--color-high-text: #ff5777;
+
+	/* 整体设置,类似导航背景颜色 */
+	--color-tint: #ff8198;
+
+	/* 背景,白色 */
+	--color-background: #ffffff;
+	--font-size: 14px;
+	--line-height: 1.5;
+}
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+*,*::before,*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+}
+
+img {
+	border: none;
+	vertical-align: middle;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, "PlingFang SC", "Hiragino Sans GB", "microsoft yahei", "微软雅黑", Arial, sans-serif;
+
+	/* 禁止用户鼠标在页面上选中文字/图片等 */
+	user-select: none;
+
+	/* 苹果浏览器引擎 tap点击 highlight背景高亮*/
+	-webkit-tap-highlight-color: transparent;
+
+	background: var(--color-background);
+	color: var(--color-text);
+
+	/* rem vw/vh */
+	width: 100vw;
+}
+
+a {
+	color: --color-text;
+	text-decoration: none;
+}
+
+.clear-fix::after {
+	clear: both;
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+input:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: #999;
+}
+
+input::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: #999;
+}
+
+input:-ms-input-placeholder {
+	color: #999;
+}
+
+input::-webkit-input-placeholder {
+	color: #999;
+}
+
+a:link {
+	color: #333333;
+	text-decoration: none;
+}
+
+a:active {
+	color: #333333;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #333333;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #333333;
+	text-decoration: none;
+}
+
+input,
+textarea {
+	outline: none;
+	border: none;
+}
