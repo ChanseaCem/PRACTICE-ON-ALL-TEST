@@ -39,11 +39,18 @@ _indexModule.prototype = {
 	},
 
 	/**
-	 * 内容数据操作
+	 * 接口数据操作
+	 */
+	objDataImpl: function() {
+
+	},
+
+	/**
+	 * 额外数据操作封装或处理
 	 */
 	operationCon: function() {
 
-	}
+	},
 }
 
 window._IndexModule = new _indexModule();
