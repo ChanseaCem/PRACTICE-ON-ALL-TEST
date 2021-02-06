@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -76,69 +76,62 @@
 			//})
 			
 			// 超级简写
-			new Promise((resolve,reject) => {
-				setTimeout(() => {
-					resolve(0)
-				})
-			}).then((res) => {
-				console.log(res)
-				return res+1//内部会对这句进行promise包装
-			}).then((res) => {
-				console.log(res)
-				return res+1//内部会对这句进行promise包装
-			}).then((res) => {
-				console.log(res)
-				return res+1//内部会对这句进行promise包装
-			})
+//			new Promise((resolve,reject) => {
+//				setTimeout(() => {
+//					resolve(0)
+//				})
+//			}).then((res) => {
+//				console.log(res)
+//				return res+1//内部会对这句进行promise包装
+//			}).then((res) => {
+//				console.log(res)
+//				return res+1//内部会对这句进行promise包装
+//			}).then((res) => {
+//				console.log(res)
+//				return res+1//内部会对这句进行promise包装
+//			})
 
 			// promise.all的操作
 			// promise.all 是针对需要同时需要两个或以上的接口全部获取到，才能继续操作的操作
 			// 例如，ajax请求一得到日期，ajax请求二得到名字
-			//			Promise.all([
-			//				new Promise((resolve, reject) => {
-			//					setTimeout(() => {
-			//						resolve("all:1")
-			//						reject("all:1")
-			//					}, 1000)
-			//				}),
-			//				new Promise((resolve, reject) => {
-			//					setTimeout(() => {
-			//						resolve("all:2")
-			//						reject("all:2")
-			//					}, 2000)
-			//				}),
-			//			]).then((res) => {
-			//				// 它会等待all的数组里面所有的项都执行完成后才会进来
-			//				console.log(res)
-			//			}, (err) => {
-			//				console.log("err:" + err)
-			//			})
-		</script>
-		<script type="text/javascript">
+						Promise.all([
+							new Promise((resolve, reject) => {
+								askajax(resolve, reject)
+							}),
+							new Promise((resolve, reject) => {
+								askajax(resolve, reject)
+							}),
+						]).then((res) => {
+							// 它会等待all的数组里面所有的项都执行完成后才会进来
+							console.log(res)
+						}, (err) => {
+							console.log("err:" + err)
+						})
+						
 			// 以上函数用promise，等于以下操作
 			new Promise((resolve, reject) => {
-				askajax(null, resolve, reject)
+				askajax(resolve, reject)
 			}).then((res) => {
 				console.log("第一次回调处理", res)
 				return new Promise((resolve, reject) => {
-					askajax(null, resolve, reject)
+					askajax(resolve, reject)
 				})
 			},err => {
 				console.log(err)
 			}).then((res) => {
 				console.log("第二次回调处理", res)
 				return new Promise((resolve, reject) => {
-					askajax(null, resolve, reject)
+					askajax(resolve, reject)
 				})
 			}).then((res) => {
 				console.log("第三次回调处理", res)
 			})
 
-			function askajax(url, fn, errback) {
+			function askajax(fn, errback) {
 				var obj = new Object();
 				$.ajax({
-					type: "post",
-					url: "http://192.168.100.10:3001/v1/cnc/quality/technics_info",
+					type: "get",
+					url: "http://rap2api.taobao.org/app/mock/229799/getArray2",
 					data: obj,
 					dataType: "json",
 					success: function(result) {
