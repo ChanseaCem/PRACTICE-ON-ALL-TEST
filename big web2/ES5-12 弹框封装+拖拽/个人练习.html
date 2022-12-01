@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽练习</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+	<!-- css -->
+	<style type="text/css">
+		#anniu{
+			width: 60px;
+			height: 30px;
+			background: red;
+			position: absolute;
+		}
+		.tip-window-layer{
+			position: absolute;
+			background: red;
+		}
+	</style>
+</head>
+
+<body>
+	
+	<!--1.鼠标按下才能拖动
+	2.不能超出边界
+	3.记录按下位置，计算按住div的初始方位
+	4.按住同时移动鼠标，计算鼠标移动距离，并同步到div-->
+	
+	<!--<div id="anniu">按钮</div>-->
+
+	<!-- js -->
+	<script type="text/javascript" charset="utf-8" src="../jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		jQuery(function($) {
+
+		});
+		
+		/*let startPos,
+			moveFlag = false,
+			exy = {};
+		$("#anniu").on('mousedown', function(e){
+			moveFlag = true
+			startPos = $(this).offset()
+			console.log("startPos1:",startPos)
+			exy = {
+				x: e.clientX,
+				y: e.clientY
+			}
+		})
+		$("#anniu").on('mouseup', function(e){
+			moveFlag = false
+		})
+		$(document).on("mousemove", function(e){
+			console.log("startPos:",startPos, "元素div：",$("#anniu").offset())
+			if(moveFlag){
+//				$("#anniu").css({
+//					left: e.clientX - exy.x + startPos.left + "px",
+//					top: e.clientY - exy.y + startPos.top + "px",
+//				})
+				
+				document.getElementById("anniu").style.left = (e.clientX - exy.x + startPos.left) + "px"
+				document.getElementById("anniu").style.top = (e.clientY - exy.y + startPos.top) + "px"
+			}
+		})*/
+		
+		/*let startPos,
+			moveFlag = false,
+			exy = {};
+		document.getElementById("anniu").onmousedown =function(e){
+			console.log(e)
+			moveFlag = true
+			startPos = {
+				left: e.target.offsetLeft,
+				top: e.target.offsetTop
+			}
+			console.log("startPos1:",startPos)
+			exy = {
+				x: e.clientX,
+				y: e.clientY
+			}
+		}
+		document.getElementById("anniu").onmouseup =function(e){
+			moveFlag = false
+		}
+		let anniu = document.getElementById("anniu")
+		document.onmousemove = function(e){
+			console.log(e.clientX , exy.x , startPos.left)
+			if(moveFlag){
+				anniu.style.left = (e.clientX - exy.x + startPos.left) + "px"
+				anniu.style.top = (e.clientY - exy.y + startPos.top) + "px"
+			}
+		}*/
+		
+		/*let startPos,
+			moveFlag = false,
+			dis = {};
+		document.getElementById("anniu").onmousedown =function(e){
+			console.log(e)
+			moveFlag = true
+			dis = {
+				x: e.clientX - e.target.offsetLeft,
+				y: e.clientY - e.target.offsetTop
+			}
+		}
+		document.getElementById("anniu").onmouseup =function(e){
+			moveFlag = false
+		}
+		let anniu = document.getElementById("anniu")
+		document.onmousemove = function(e){
+			if(moveFlag){
+				anniu.style.left = (e.clientX - dis.x) + "px"
+				anniu.style.top = (e.clientY - dis.y) + "px"
+			}
+		}*/
+		
+		/*let startPos,
+			moveFlag = false,
+			dis = {},
+			anniu = document.getElementById("anniu");
+		anniu.onmousedown =function(e){
+			console.log(e)
+			moveFlag = true
+			dis = {
+				x: e.clientX - anniu.offsetLeft,
+				y: e.clientY - anniu.offsetTop
+			}
+		}
+		
+		anniu.onmouseup =function(e){
+			moveFlag = false
+		}
+		
+		document.onmousemove = function(e){
+			if(moveFlag){
+				anniu.style.left = (e.clientX - dis.x) + "px"
+				anniu.style.top = (e.clientY - dis.y) + "px"
+			}
+		}*/
+		
+		/*let 
+			moveFlag = false,
+			dis = {},
+			anniu = document.createElement('div'),
+			body = document.getElementsByTagName('body')[0];
+		
+		anniu.id = "anniu"
+		document.body.appendChild(anniu);
+		
+		anniu.onmousedown =function(e){
+			console.log(e)
+			moveFlag = true
+			dis.x = e.clientX - anniu.offsetLeft;
+			dis.y = e.clientY - anniu.offsetTop;
+		}
+		
+		anniu.onmouseup =function(e){
+			moveFlag = false
+		}
+		
+		body.onmousemove = function(e){
+			if(!moveFlag){
+				return
+			}
+			anniu.style.left = (e.clientX - dis.x) + 'px';
+			anniu.style.top = (e.clientY - dis.y) + 'px';
+		}*/
+		
+		function setm(){
+			this.tipWinObj = document.createElement('div');
+			this.tipWinObj.className = 'tip-window-layer';
+			var tipWinInner = `
+	            <div class="tip-header-section">
+	                <div class="tip-title">方块</div> 
+	            </div>
+	        `;
+			this.tipWinObj.innerHTML = tipWinInner;
+			document.body.appendChild(this.tipWinObj);
+			
+			var headerTop = this.tipWinObj.querySelector('.tip-header-section');
+			var moveFlag = false;
+			var dis = {};
+			headerTop.onmousedown = function(e) {
+				moveFlag = true;
+				headerTop.style.cursor = 'move';
+				//计算鼠标落下点与边界的距离
+				dis.x = e.clientX - this.tipWinObj.offsetLeft;
+				dis.y = e.clientY - this.tipWinObj.offsetTop;
+	
+			}.bind(this);
+	
+			document.onmousemove = function(e) {
+				if(!moveFlag) {
+					return;
+				}
+				console.log(e.clientX - dis.x)
+				//跟你局拖拽距离设置当前拖拽元素的位置
+				this.tipWinObj.style.left = (e.clientX - dis.x) + 'px';
+				this.tipWinObj.style.top = (e.clientY - dis.y) + 'px';
+	
+			}.bind(this);
+	
+			headerTop.onmouseup = function() {
+				moveFlag = false;
+				headerTop.removeAttribute('style');
+			}
+		}
+		setm()
+	</script>
+</body>
+
+</html>
